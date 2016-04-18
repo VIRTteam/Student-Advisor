@@ -346,12 +346,13 @@ h6 {
 }
 .btn {
   font-weight: 500;
+  background-color: #105DC1;
 }
 
 .btn-white {
   color: #d0d0d0;
-  background-color: "#7FFFD4S";
-  border-color: #7FFFD4S;
+  background-color: #105DC1;
+  border-color: #105DC1;
 }
 .btn-white:hover,
 .btn-white:focus,
