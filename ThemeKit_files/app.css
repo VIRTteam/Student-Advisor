@@ -92,10 +92,13 @@
   text-decoration: none;
 }
 .messages-container .messages-list .list-group-item:hover {
-  background: #f9f9f9;
+  background: #eeeeee;
+}
+.messages-container .messages-list .list-group-item.active {
+  background: #105DC1;
 }
 .messages-container .messages-list .list-group-item.active:hover {
-  background: #105DC1;
+  background: #104ec1;
 }
 .messages-container .messages-list .list-group-item .media-body {
   padding: 5px;
@@ -208,7 +211,10 @@ body.login #content {
 body.login .lock-container {
 	border-radius: 25px;
   	border: 1px solid #105DC1;
-  	margin: auto;
+  	margin-top: 30px;
+  	margin-bottom:auto;
+  	margin-left:auto;
+  	margin-right:auto;
   	width: 300px;
 }
 @media (min-width: 480px) {
@@ -25551,6 +25557,7 @@ html.st-layout .st-content {
 .st-content-inner {
   overflow-y: scroll;
   height: 100%;
+ 
 }
 .st-content,
 .st-content-inner {
@@ -25559,6 +25566,7 @@ html.st-layout .st-content {
 .st-container {
   position: relative;
   overflow: hidden;
+  margine
 }
 .top-navbar .st-container,
 .ls-top-navbar .st-container {
