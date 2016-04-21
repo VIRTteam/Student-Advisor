@@ -18,46 +18,42 @@
 
 <body class="breakpoint-1024">
 
-  <!-- Wrapper required for sidebar transitions -->
   <div class="st-container">
 
     <!-- Fixed navbar -->
-<div class="navbar navbar-main navbar-primary navbar-fixed-top" role="navigation">
-		<div>
-			<!-- Search -->
-			<table align="left" height="10px">
-				<tr>
-					<form class="navbar-form margin-none navbar-left hidden-xs " >
-						<td width="35px">&nbsp;</td>
-						<td>
-							<div class="select2" >
-								<select class="form-control">
-									<option selected>Kursevi</option>
-									<option>Članovi</option>
-									<option>Predavači</option>
-								</select>
-							</div>
-						</td>           
-								<!-- Search --><td width="15px">&nbsp;</td>
-						<td>
-							<div class="search-1">
-								<!--  <span class="input-group-addon"><i class="icon-search"></i></span> -->
-								<input type="text" size="42px" class="form-control" placeholder="Pretraga"  color="#fff">
-								
-															</div>
-						</td>
-						<td width="15px">&nbsp;</td>
-						<td>
-							<a  class="btn btn-white" size="15px"><i class="fa fa-fw fa-search"> </i></a> 
-						</td>
-					</form>
-				</tr>
-			</table>
-				<!-- //Search -->
-				<table align="right">
-				<td>
-			  <ul class="nav navbar-nav  navbar-right ">
-           
+    <div class="navbar navbar-main navbar-primary navbar-fixed-top" role="navigation">
+      <!-- Search -->
+      <table align="left" height="10px">
+        <tr>
+          <form class="navbar-form margin-none navbar-left hidden-xs " >
+            <td width="35px">&nbsp;</td>
+            <td>
+              <div class="select2" >
+                <select class="form-control">
+                  <option selected>Kursevi</option>
+                  <option>Članovi</option>
+                  <option>Predavači</option>
+                </select>
+              </div>
+            </td>           
+                <!-- Search --><td width="15px">&nbsp;</td>
+            <td>
+              <div class="search-1" >
+                <!--  <span class="input-group-addon"><i class="icon-search"></i></span> -->
+                <input type="text" size="42px" class="form-control" placeholder="Pretraga" >
+              </div>
+            </td>
+            <td width="15px">&nbsp;</td>
+            <td>
+              <a  class="btn btn-white" size="15px"><i class="fa fa-fw fa-search"> </i></a> 
+            </td>
+          </form>
+        </tr>
+      </table>
+        <!-- //Search -->
+      <table align="right">
+        <td>
+          <ul class="nav navbar-nav  navbar-right ">         
             <!-- User -->
             <li class="dropdown">
               <a href="" class="dropdown-toggle user" data-toggle="dropdown">
@@ -66,315 +62,140 @@
               <ul class="dropdown-menu" role="menu">
                 <li><a href="moj profil.html">Profil</a></li>
                 <li><a href="poruke.html">Poruke</a></li>
-                <li><a href="uređivanje profila.html">Izmeni profil</a></li>
+                <li><a href="uredjivanje profila.html">Izmeni profil</a></li>
+                <li><a href="">Pomoć</a></li>
                 <li><a href="registracija.html">Izloguj se</a></li>
               </ul>
             </li>
-
           </ul>
-          </td>
-          <td width="35px">&nbsp;</td>
-          </table>
-		</div>
-	</div>
- 
+        </td>
+        <td width="35px">&nbsp;</td>
+      </table>
+    </div>
+   <!-- extra div for emulating position:fixed of the menu -->
+    <div class="st-content-inner">
+      <div class="container">
 
-      <!-- sidebar effects INSIDE of st-pusher: -->
-      <!-- st-effect-3, st-effect-6, st-effect-7, st-effect-8, st-effect-14 -->
+        <div class="cover profile">
+          <div class="wrapper">
+            <div class="image">
+              <table><td width="600" height="60"/></table>
+            </div>    
+          </div>
+          <div class="cover-info">
+            <div class="avatar">
+              <img src="./ThemeKit_files/woman-4.jpg" alt="people">
+            </div>
+            <div class="name"><h2><font color="#105DC1">Relja Veinovic</font></h2></div>
+            <ul class="cover-nav">
+              <li class="active"><a href="profil korisnika.html"><i class="fa fa-fw fa-user"></i> Profil</a></li>
+              <li><a href="Opis-DrKorisnik.html"><i class="fa fa-fw fa-info-circle"></i> Opis</a></li>
+              <li><a href="poruke.html"><i class="fa fa-fw fa-envelope"></i> Kontaktiraj</a></li>
+            </ul>
+          </div>
+        </div>    
 
-      <!-- this is the wrapper for the content -->
-      <div class="st-content">
-
-        <!-- extra div for emulating position:fixed of the menu -->
-        <div class="st-content-inner">
-
-          
-
-        <div class="container">
-
-            <div class="cover profile">
-              <div class="wrapper">
-                <div class="image">
-                  <table><td width="600" height="60"/></table>
+        <div class="timeline row" data-toggle="isotope" style="position: relative; height: 2774.86px;">
+         
+          <div class="col-xs-12 col-md-4 item" style="position: absolute; left: 0; top: 0;">
+            <div class="timeline-block">
+              <div class="panel panel-default profile-card clearfix-xs">
+                <div class="panel-body">
+                  <div class="profile-card-icon">
+                    <i class="fa fa-graduation-cap"></i>
+                  </div>
+                  <h4 class="text-center">Student</h4>
+                  <ul class="icon-list icon-list-block">
+                    <li><i class="fa fa-map-marker"></i> Elektrotehnički fakultet, Beograd</li>
+                    <li><i class="fa fa-trophy"></i> 2013 godine upisao</li>
+                    <li><i class="fa fa-calendar"></i> Prosek: 9.50</li>
+                  </ul>
                 </div>
-                
               </div>
-              <div class="cover-info">
-                <div class="avatar">
-                  <img src="./ThemeKit_files/woman-4.jpg" alt="people">
+            </div>
+            <div class="timeline-block">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="media">
+                    <div class="media-body">
+                      <a href="">Položeni kursevi</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="name"><h2><font color="#105DC1">Relja Veinovic</font></h2></div>
-                    <ul class="cover-nav">
-
-                  <li><a href="profil korisnika.html"><i class="fa fa-fw fa-user"></i> Profil</a></li>
-                  <li><a href="Opis-DrKorisnik.html"><i class="fa fa-fw fa-info-circle"></i> Opis</a></li>
-                  <li><a href="poruke.html"><i class="fa fa-fw fa-envelope"></i> Kontaktiraj</a></li>
-
-
+                <div class="view-all-comments">
+                  <a href="">
+                    <i class="fa fa-comments-o"></i> Prikaži sve
+                  </a>
+                  <span>10 komentara</span>
+                </div>
+                <ul class="comments">
+                  <li class="media">
+                    <div class="media-left">
+                      <a href="">
+                        <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
+                      </a>
+                    </div>
+                    <div class="media-body"> 
+                      <a href="" class="comment-author pull-left">Objektno orjentisano programiranje</a>
+                      <br/>
+                      <div class="comment-date">21 Septembar</div>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
-            <div class="timeline row" data-toggle="isotope" style="position: relative; height: 2774.86px;">
-           
-              <div class="col-xs-8 col-md-4 item" style="position: absolute; left: 477px; top: 1872px;">
-                <div class="timeline-block">
-                  <div class="panel panel-default profile-card clearfix-xs">
-                    <div class="panel-body">
-                      <div class="profile-card-icon">
-                        <i class="fa fa-graduation-cap"></i>
-                      </div>
-                      <h4 class="text-center">Student</h4>
-                      <ul class="icon-list icon-list-block">
-                        <li><i class="fa fa-map-marker"></i> Elektrotehnički fakultet, Beograd</li>
-                        <li><i class="fa fa-trophy"></i> 2013 godine upisao</li>
-                        <li><i class="fa fa-calendar"></i> Prosek: 9.50</li>
-                      </ul>
+          </div>
+            
+          <div class="col-xs-12 col-md-8 item" style="position: absolute; left: 0px; top: 0px;">
+            <div class="timeline-block">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="media">
+                    <div class="media-body">
+                      <a href="">Komentari člana</a>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              
-              
-              
-              
-            <div class="col-xs-4 col-md-8 item" style="position: absolute; left: 0px; top: 182px;">
-                <div class="timeline-block">
-                  <div class="panel panel-default">
 
-                    <div class="panel-heading">
-                      <div class="media">
-                        <div class="media-body">
-
-                          <a href="">Komentari člana</a>
-
-                        </div>
-                      </div>
-                    </div>
-
-                    
-                    <div class="view-all-comments">
+                <div class="view-all-comments">
+                  <a href="">
+                    <i class="fa fa-comments-o"></i> Prikaži sve
+                  </a>
+                  <span>10 komentara</span>
+                </div>
+                <ul class="comments">
+                  <li class="media">
+                    <div class="media-left">
                       <a href="">
-                        <i class="fa fa-comments-o"></i> Prikaži sve
+                        <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
                       </a>
-                      <span>10 položenih ispita</span>
-
                     </div>
-                    <ul class="comments">
-                      <li class="media">
-                        <div class="media-left">
-                          <a href="">
-                            <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <a href=""  class="toggle-button">
-                             <span title="Podrzavam"> <i class="fa fa-plus"></i></span>
-                            </a>
-						
-                          </div>
-                        <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                           
-							<a href=""  class="toggle-button">
-                              <span title="Ne podrzavam"><i class="fa fa-minus"></i></span>
-                            </a>
-                          </div>
-                          
-                          <a href="Profil Kursa.html" class="comment-author pull-left">Principi Softverskog Inženjerstva</a>
-						  <br/>
-                          <div class="comment-date">Jako lep predmet.</div>
-						  <br/>
-                          <div class="comment-date">21 Septembar</div>
-                        </div>
-                      </li>
-                      <li class="media">
-                        <div class="media-left">
-                          <a href="">
-                            <img src="./ThemeKit_files/woman-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <a href=""  class="toggle-button">
-                              <i class="fa fa-plus"></i>
-                            </a>
-						
-                          </div>
-                        <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                           
-							<a href=""  class="toggle-button">
-                              <i class="fa fa-minus"></i>
-                            </a>
-                          </div>
-                          <a href="" class="comment-author pull-left">Programiranje 1</a>
-                        <br/>
-                          <div class="comment-date">Korisno.</div>
-                         <br/>
-                          <div class="comment-date">21. januar</div>
-                        </div>
-                      </li>
-                      <li class="media">
-                        <div class="media-left">
-                          <a href="">
-                            <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <a href=""  class="toggle-button">
-                              <i class="fa fa-plus"></i>
-                            </a>
-						
-                          </div>
-                        <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                           
-							<a href=""  class="toggle-button">
-                              <i class="fa fa-minus"></i>
-                            </a>
-                          </div>
-                          <a href="Profil Kursa.html" class="comment-author pull-left">Objektno orjentisano programiranje 1</a>
-						<br/>
-                          <div class="comment-date">Dosta se nauci</div>
-                          <br/>
-                        <div class="comment-date">4.Februar</div>
-
-                        </div>
-                      </li>
-                      
-                       <li class="media">
-                        <div class="media-left">
-                          <a href="Profil Kursa.html">
-                            <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <a href=""  class="toggle-button">
-                              <span title="Podrzavam"><i class="fa fa-plus"></i></span>
-                            </a>
-						
-                          </div>
-                        <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                           
-							<a href=""  class="toggle-button">
-                              <i class="fa fa-minus"></i>
-                            </a>
-                          </div>
-                          <a href="Profil Kursa.html" class="comment-author pull-left">Objektno orjentisano programiranje 1</a>
-						<br/>
-                          <div class="comment-date">Dosta se nauci</div>
-                          <br/>
-                        <div class="comment-date">4.Februar</div>
-
-                        </div>
-                      </li>
-                      
-  					<li class="media">
-                        <div class="media-left">
-                          <a href="">
-                            <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <a href="" class="toggle-button">
-                              <i class="fa fa-plus"></i>
-                            </a>
-						
-                          </div>
-                        <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                           
-							<a href="" class="toggle-button">
-                              <i class="fa fa-minus"></i>
-                            </a>
-                          </div>
-                          <a href="Profil Kursa.html" class="comment-author pull-left">Objektno orjentisano programiranje 1</a>
-						<br/>
-                          <div class="comment-date">Dosta se nauci</div>
-                          <br/>
-                        <div class="comment-date">4.Februar</div>
-
-                        </div>
-                      </li>
-                      
-
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-8 col-md-4 item" style="position: absolute; left: 0px; top: 182px;">
-                <div class="timeline-block">
-                  <div class="panel panel-default">
-
-                    <div class="panel-heading">
-                      <div class="media">
-                        <div class="media-body">
-
-                          <a href="">Položeni kursevi</a>
-
-                        </div>
+                    <div class="media-body">
+                      <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
+                        <a href=""  class="toggle-button">
+                         <span title="Podrzavam"> <i class="fa fa-plus"></i></span>
+                        </a>
                       </div>
+                      <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
+                        <a href=""  class="toggle-button">
+                          <span title="Ne podrzavam"><i class="fa fa-minus"></i></span>
+                        </a>
+                      </div>
+                      <a href="Profil Kursa.html" class="comment-author pull-left">Principi Softverskog Inženjerstva</a>
+                      <br/>
+                      <div class="comment-date">Jako lep predmet.</div>
+                      <br/>
+                      <div class="comment-date">21 Septembar</div>
                     </div>
-
-                    
-                    <div class="view-all-comments">
-                      <a href="">
-                        <i class="fa fa-comments-o"></i> Prikaži sve
-                      </a>
-                      <span>10 položenih ispita</span>
-
-                    </div>
-                    <ul class="comments">
-                      <li class="media">
-                        <div class="media-left">
-                          <a href="">
-                            <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          
-                          <a href="" class="comment-author pull-left">Objektno orjentisano programiranje</a>
-						  <br/>
-                          <div class="comment-date">21 Septembar</div>
-                        </div>
-                      </li>
-                      <li class="media">
-                        <div class="media-left">
-                          <a href="">
-                            <img src="./ThemeKit_files/woman-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          
-                          <a href="" class="comment-author pull-left">Projektovanje softvera</a>
-                         <br/>
-                          <div class="comment-date">21. januar</div>
-                        </div>
-                      </li>
-                      <li class="media">
-                        <div class="media-left">
-                          <a href="">
-                            <img src="./ThemeKit_files/guy-5(1).jpg" class="media-object">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          
-                          <a href="" class="comment-author pull-left">Programiranje 1</a>
-						<br/>
-                          <div class="comment-date">4.Februar</div>
-                        </div>
-                      </li>
-                      
-                    </ul>
-                  </div>
-                </div>
-              </div>              
-             </div>
-    
-	</div> <!--/container-->
-</div><!-- /st-content-inner -->
-</div><!-- /st-content -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> <!--/container-->
+    </div><!-- /st-content-inner -->
+  </div><!-- /st-content -->
 	
 	
 	<!-- Footer -->
@@ -383,17 +204,11 @@
     </footer>
     <!-- // Footer -->
 
-  </div>
-  <!-- /st-container -->
-
  
 
-<script src="./ThemeKit_files/all.js"></script>
- <script src="./ThemeKit_files/app.js"></script>
+  <script src="./ThemeKit_files/all.js"></script>
+  <script src="./ThemeKit_files/app.js"></script>
+  <script type="text/javascript" src="./ThemeKit_files/js"></script>
 
-
-
-
-<script type="text/javascript" src="./ThemeKit_files/js"></script>
 </body>
 </html>
