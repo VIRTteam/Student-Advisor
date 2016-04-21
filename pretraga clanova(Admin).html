@@ -130,20 +130,20 @@
                           </div>
                          
                           <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <span title="Banuj korisnika"><a href=""  class="toggle-button">
+                            <span title="Banuj korisnika"><a href=""  class="toggle-button" data-toggle="modal" data-target="#myModal3">
                               <i class="fa fa-ban fa-lg" aria-hidden="true"></i>
                             </a></span>
             
                           </div>
                           
                             <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <span title="Unapredi korisnika"><a href=""  class="toggle-button">
+                            <span title="Unapredi korisnika"><a href=""  class="toggle-button" data-toggle="modal" data-target="#myModal1">
                               <i class="fa fa-arrow-up fa-lg" aria-hidden="true"></i>
                             </a></span>
                             </div>
 
                             <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
-                            <span title="Derangiraj korisnika"><a href=""  class="toggle-button">
+                            <span title="Derangiraj korisnika"><a href=""  class="toggle-button" data-toggle="modal" data-target="#myModal2">
                               <i class="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
                             </a></span>
                             </div>
@@ -166,7 +166,78 @@
   </div>
   <!-- /st-container -->
 
- 
+  
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Da li ste sigurni da želite da unapredite člana Relju Veinović(moderator)?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Unesite razlog zbog kog želite da ga unapredite?(opciono)</p>
+          <textarea rows="4" cols="50">
+          Razlog unapredjivanja
+      </textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-white" data-dismiss="modal">Siguran sam</button>
+          <button type="button" class="btn btn-white" data-dismiss="modal">Odustani</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Da li ste sigurni da želite da derangirate člana Relju Veinović(moderator)?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Unesite razlog zbog kog želite da ga derangirate?(opciono)</p>
+          <textarea rows="4" cols="50">
+          Razlog derangiranje
+      </textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-white" data-dismiss="modal">Siguran sam</button>
+          <button type="button" class="btn btn-white" data-dismiss="modal">Odustani</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+<div class="modal fade" id="myModal3" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Da li ste sigurni da želite da banujete člana Relju Veinović(moderator)?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Unesite razlog zbog kog želite da ga banujete?(opciono)</p>
+          <textarea rows="4" cols="50">
+          Razlog banovanja
+      </textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-white" data-dismiss="modal">Siguran sam</button>
+          <button type="button" class="btn btn-white" data-dismiss="modal">Odustani</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 <script src="./ThemeKit_files/all.js"></script>
  <script src="./ThemeKit_files/app.js"></script>
