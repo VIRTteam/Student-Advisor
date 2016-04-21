@@ -16578,6 +16578,9 @@ ul.timeline-list .media-body.fixed {
   color: #E0E0E0;
   padding: 5px;
 }
+.panel.panel-default ul.comments li .pull-right.dropdown > a.toggle-button:hover {
+  color: #616161;
+}
 .panel.panel-default ul.comments li .pull-right.dropdown.open > a.toggle-button {
   color: #616161;
 }
