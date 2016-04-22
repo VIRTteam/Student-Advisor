@@ -3560,7 +3560,7 @@ tbody.collapse.in {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 130px;
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
@@ -4353,8 +4353,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
-    float: none;
+    float: right;
     width: auto;
+    right:0px;
     margin-top: 0;
     background-color: transparent;
     border: 0;
