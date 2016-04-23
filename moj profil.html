@@ -81,11 +81,30 @@
     <div class="st-content">
         <!-- extra div for emulating position:fixed of the menu -->
       <div class="st-content-inner">
+        <nav class="navbar navbar-subnav navbar-static-top" role="navigation">
+          <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            
+            <div class="collapse navbar-collapse" id="subnav" aria-expanded="false">
+              <ul class="nav navbar-nav">
+                <li class="active">
+                  <a href="moj profil.html"><i class="fa fa-fw fa-user"></i> Profil</a>
+                </li>
+                <li >
+                  <a href="uredjivanje profila.html"><i class="fa fa-fw fa-cog"></i> Uredi Profil</a>
+                </li>
+                <li>
+                  <a href="poruke.html"><i class="fa fa-fw fa-envelope-o"></i> Poruke</a>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav hidden-xs navbar-right">
+                <li><a href="registracija.html">Izloguj Se  <i class="fa fa-fw fa-sign-out"></i></a></li>
+              </ul>
+            </div>
             <!-- /.navbar-collapse -->
+          </div>
+        </nav>
 
         <div class="container">
 
@@ -99,12 +118,7 @@
               <div class="avatar">
                 <img src="./ThemeKit_files/guy-5.jpg" alt="people">
               </div>
-              <div class="name"><h2><font color="#105DC1">Isidora Bojovic</font></h2></div>
-               <ul class="cover-nav">
-            
-              <li class="active"><a href="profil korisnika.html"><i class="fa fa-fw fa-user"></i> Profil</a></li>
-              <li><a href="Opis-DrKorisnik.html"><i class="fa fa-fw fa-info-circle"></i> Opis</a></li>
-            </ul>        
+              <div class="name"><h2><font color="#105DC1">Isidora Bojovic</font></h2></div>        
             </div>
           </div>
           <div class="timeline row" data-toggle="isotope" style="position: relative; height: 2774.86px;">
@@ -153,9 +167,12 @@
                       <div class="media-body">
                         <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
                           <a href="" data-toggle="dropdown" class="toggle-button">
-                            <i class="fa fa-trash"></i>
+                            <i class="fa fa-pencil"></i>
                           </a>
-    
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="">Edit</a></li>
+                            <li><a href="">Delete</a></li>
+                          </ul>
                         </div>
                         <a href="" class="comment-author pull-left">Objektno orjentisano programiranje</a>
                         <br/>
@@ -249,9 +266,7 @@
         </div>
         <div class="modal-body">
           <p>Unesite problem koji imate</p>
-          <textarea rows="4" cols="50">
-          Problem . . .
-      </textarea>
+          <textarea rows="4" cols="50" placeholder="Problem . . ."></textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-white" data-dismiss="modal">Pošalji</button>
