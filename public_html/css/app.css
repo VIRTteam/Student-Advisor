@@ -15002,6 +15002,7 @@ ul.img-grid li img {
 }
 .modal .modal-dialog {
   display: table;
+top:30%;
   height: 100%;
   vertical-align: middle;
   margin: 0 auto;
