@@ -61,11 +61,11 @@
                 <img src="./img/guy-5.jpg" alt="Bill" class="img-circle" width="40"> Isidora <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="moj profil.html">Profil</a></li>
-                <li><a href="poruke.html">Poruke</a></li>
-                <li><a href="uredjivanje profila.html">Izmeni profil</a></li>
-                <li><a data-toggle="modal" data-target="#myModal15" >Pomoć</a></li>
-                <li><a href="registracija.html">Izloguj se</a></li>
+                <li><a href="Clan_MojProfil_Profil.html">Profil</a></li>
+                <li><a href="Clan_Clan_Poruke.html">Poruke</a></li>
+                <li><a href="Clan_MojProfil_Opis.html">Izmeni profil</a></li>
+                <li><a href="" data-toggle="modal" data-target="#myModal15">Pomoć</a></li>
+                <li><a href="Gost_Registracija.html">Izloguj se</a></li>
               </ul>
             </li>
           </ul>
@@ -102,8 +102,8 @@
               <div class="name"><h2><font color="#105DC1">Isidora Bojovic</font></h2></div>
                <ul class="cover-nav">
             
-              <li class="active"><a href="profil korisnika.html"><i class="fa fa-fw fa-user"></i> Profil</a></li>
-              <li><a href="Opis-DrKorisnik.html"><i class="fa fa-fw fa-info-circle"></i> Opis</a></li>
+              <li class="active"><a href="Clan_MojProfil_Profil.html"><i class="fa fa-fw fa-user"></i> Profil</a></li>
+              <li><a href="Clan_MojProfil_Opis.html"><i class="fa fa-fw fa-info-circle"></i> Opis</a></li>
             </ul>        
             </div>
           </div>
@@ -146,7 +146,7 @@
                   <ul class="comments">
                     <li class="media">
                       <div class="media-left">
-                        <a href="">
+                        <a href="Clan_MojProfil_Profil.html">
                           <img src="./img/guy-5(1).jpg" class="media-object">
                         </a>
                       </div>
@@ -157,7 +157,7 @@
                           </a>
     
                         </div>
-                        <a href="" class="comment-author pull-left">Objektno orjentisano programiranje</a>
+                        <a href="Clan_Kurs_Profil.html" class="comment-author pull-left">Objektno orjentisano programiranje</a>
                         <br/>
                         <div class="comment-date">21 Septembar</div>
                       </div>
@@ -198,21 +198,20 @@
                   <ul class="comments">
                     <li class="media">
                       <div class="media-left">
-                        <a href="">
+                        <a href="Clan_MojProfil_Profil.html">
                           <img src="./img/guy-5(1).jpg" class="media-object">
                         </a>
                       </div>
                       <div class="media-body">
                         <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
                           <a href="" data-toggle="dropdown" class="toggle-button">
-                            <i class="fa fa-pencil"></i>
+                            <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
                           </a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="">Edit</a></li>
-                            <li><a href="">Delete</a></li>
-                          </ul>
+                           <a href="" data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                            <i class="fa fa-trash"></i>
+                          </a>
                         </div>
-                        <a href="Profil Kursa.html" class="comment-author pull-left">Objektno orjentisano programiranje 1</a>
+                        <a href="Clan_Kurs_Profil.html" class="comment-author pull-left">Objektno orjentisano programiranje 1</a>
                         <br/>
                         <div class="comment-date">Jako lep predmet.</div>
                         <br/>
@@ -249,7 +248,9 @@
         </div>
         <div class="modal-body">
           <p>Unesite problem koji imate</p>
-          <textarea rows="4" cols="50" placeholder="Problem . . ."></textarea>
+          <textarea rows="4" cols="50">
+          Problem . . .
+      </textarea>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-white" data-dismiss="modal">Pošalji</button>
