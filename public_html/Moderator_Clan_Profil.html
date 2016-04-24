@@ -89,35 +89,7 @@
         <!-- extra div for emulating position:fixed of the menu -->
         <div class="st-content-inner">
 
-                    <nav class="navbar navbar-subnav navbar-static-top" role="navigation">
-            <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#subnav" aria-expanded="false">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="fa fa-ellipsis-h"></span>
-                </button>
-              </div>
-
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="subnav" aria-expanded="false">
-                <ul class="nav navbar-nav">
-                  <li>
-                    <a href="" data-toggle="modal" data-target="#myModal1"><i class="fa fa-arrow-up"></i> Unapredi</a>
-                  </li>
-                  <li>
-                    <a href="" data-toggle="modal" data-target="#myModal2"><i class="fa fa-arrow-down"></i> Derangiraj</a>
-                  </li>
-                <li>
-                    <a href="" data-toggle="modal" data-target="#myModal3"><i class="fa fa-ban"></i> Banuj</a>
-                  </li>
-                </ul>
-               
-              </div>
-              <!-- /.navbar-collapse -->
-
-            </div>
-          </nav>
+          
 
  <div class="container">
 
@@ -131,7 +103,25 @@
               <div class="avatar">
                  <img src="./img/woman-4.jpg" alt="people">
               </div>
-              <div class="name"><h2><font color="#105DC1">Relja Veinovic</font></h2></div>        
+               <div class="name"><h2><font color="#105DC1">Relja Veinovic</font></h2></div>
+            <ul class="cover-nav">
+                  <li class="active"><a href="Clan_Clan_Profil.html"><i class="fa fa-fw fa-user"></i> Profil</a></li>
+                  <li><a href="Clan_Clan_Opis.html"><i class="fa fa-fw fa-info-circle"></i> Opis</a></li>
+                  <li><a href="Clan_Clan_Poruke.html"><i class="fa fa-fw fa-envelope"></i> Kontaktiraj</a></li>
+                  
+ 
+                  <li>
+                    <a href="" data-toggle="modal" data-target="#myModal1"><i class="fa fa-arrow-up"></i> Unapredi</a>
+                  </li>
+                  <li>
+                    <a href="" data-toggle="modal" data-target="#myModal2"><i class="fa fa-arrow-down"></i> Derangiraj</a>
+                  </li>
+                <li>
+                    <a href="" data-toggle="modal" data-target="#myModal3"><i class="fa fa-ban"></i> Banuj</a>
+                  </li>
+               
+            </ul>
+          
             </div>
           </div>
           <div class="timeline row" data-toggle="isotope" style="position: relative; height: 2774.86px;">
@@ -193,8 +183,9 @@
                     <li class="comment-form">
                       <div class="input-group">
                         
-                          <a href="" class="btn btn-white" data-tooltip="tooltip" title="Dodaj kurs"><i class="fa fa-plus"></i></a>
-
+<span class="input-group-btn">
+                   <a href="" class="btn btn-white"><i class="fa fa-plus"></i></a>
+                </span>
                         <input type="text" class="form-control">
                       </div>
                     </li>
@@ -215,12 +206,7 @@
                     </div>
                   </div>
                     
-                  <div class="view-all-comments">
-                    <a href="">
-                      <i class="fa fa-comments-o"></i> Prikaži sve
-                    </a>
-                    <span>10 položenih kurseva</span>
-                  </div>
+             
 
                   <ul class="comments">
                     <li class="media">
@@ -230,16 +216,18 @@
                         </a>
                       </div>
                       <div class="media-body">
-                                                                        <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
+                        <div class="pull-right dropdown" >
                             <a href=""  class="toggle-button">
-                              <span title="Podržavam"><i class="fa fa-plus"></i></span>
+                            <span title="Ne podržavam"><i class="fa fa-minus"> 3</i></span>
+
                             </a>
             
                           </div>
-                        <div class="pull-right dropdown" data-show-hover="li" style="display: none;">
+                        <div class="pull-right dropdown" >
                            
                             <a href=""  class="toggle-button">
-                              <span title="Ne podržavam"><i class="fa fa-minus"></i></span>
+                            <span title="Podržavam"><i class="fa fa-plus"> 12</i></span>
+
                             </a>
                           </div>
 
@@ -255,6 +243,12 @@
                         <br/>
                         <div class="comment-date">21 Septembar</div>
                       </div>
+                           <div class="view-all-comments">
+                    <a href="">
+                      <i class="fa fa-comments-o"></i> Prikaži sve
+                    </a>
+                    <span>10 položenih kurseva</span>
+                  </div>
                     </li>
                   </ul>
                 </div>
