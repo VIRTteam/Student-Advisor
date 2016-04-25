@@ -2478,6 +2478,7 @@ input[type=radio]:focus + label::before {
   direction: rtl;
   font-size: 20px;
 }
+
 .rating span.star {
   font-family: FontAwesome;
   font-weight: normal;
@@ -2487,6 +2488,7 @@ input[type=radio]:focus + label::before {
 .rating span.star:hover {
   cursor: pointer;
 }
+
 .rating span.star:before {
   content: "\f006";
   padding-right: 5px;
@@ -16579,8 +16581,11 @@ ul.timeline-list .media-body.fixed {
   color: #E0E0E0;
   padding: 5px;
 }
-.panel.panel-default ul.comments li .pull-right.dropdown > a.toggle-button[disabled]:hover {
+.panel.panel-default ul.comments li .pull-right.dropdown > a.toggle-button:hover {
   color: #616161;
+}
+.panel.panel-default ul.comments li .pull-right.dropdown > a.toggle-button.disabled {
+  pointer-events: none; 
 }
 .panel.panel-default ul.comments li .pull-right.dropdown.open > a.toggle-button {
   color: #616161;
