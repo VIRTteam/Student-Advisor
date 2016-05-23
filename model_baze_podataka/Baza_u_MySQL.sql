@@ -1,3 +1,10 @@
+/*
+Ovaj kod nemojte da izvrsavate vec se konektujte samo na nasu bazu na cloudu
+Azure MySQL connection string: Database=student-advisor-mysql;Data Source=eu-cdbr-azure-north-e.cloudapp.net;User Id=b695a13c27b8da;Password=103a4397
+Host: eu-cdbr-azure-north-e.cloudapp.net
+Username: b695a13c27b8da
+Password: 103a4397
+*/
 CREATE TABLE `student-advisor`.`clan` (
   `idClan` INT NOT NULL AUTO_INCREMENT,
   `ime` VARCHAR(20) NOT NULL,
