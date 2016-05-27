@@ -21,36 +21,34 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0);" 
-                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_opis')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a href="javascript:void(0);" class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_opis')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-
-
+        
         <div class="tabbable">
             <ul class="nav nav-tabs" tabindex="0" style="overflow: hidden; outline: none;">
-                <li class="active">
+                <li class="">
                     <a href="javascript:void(0);"
                        onclick="getSummary('<?php echo site_url('guest/get_clan_opis')?>/<?php echo $clan['idClan']?>')" data-toggle="tab">
                         <i class="fa fa-fw fa-folder"></i> O korisniku</a>
                 </li>
-                <li class="">
+                <li class="active">
                     <a href="javascript:void(0);"
-                        onclick="getSummary('<?php echo site_url('guest/get_clan_slika')?>/<?php echo $clan['idClan']?>')" data-toggle="tab">
+                       onclick="getSummary('<?php echo site_url('guest/get_clan_slika')?>/<?php echo $clan['idClan']?>')" data-toggle="tab">
                         <i class="fa fa-fw fa-picture-o"></i> Slika</a>
                 </li>
             </ul>
             <div class="tab-content">
 
-                <div class="tab-pane fade " id="slika">
+                <div class="tab-pane fade active in" id="slika">
                     <img src="./img/food1.jpg" alt="image">
                 </div>
 
-                <div class="tab-pane fade active in" id="oKorisniku">
+                <div class="tab-pane fade " id="oKorisniku">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="panel panel-default">
@@ -91,18 +89,12 @@
                                         </li>
                                         <li class="padding-v-5">
                                             <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Prosecna ocena</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['prosecnaOcena']?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
                                                 <div class="col-sm-4"><span class="text-muted">Pol</span></div>
                                                 <div class="col-sm-8">
                                                     <?php
-                                                        if ($clan['pol'][0]=='z')
+                                                    if ($clan['pol'][0]=='z')
                                                         echo "ženski";
-                                                        else
+                                                    else
                                                         echo "muški";
                                                     ?></div>
                                             </div>
@@ -121,7 +113,7 @@
                 </div>
             </div>
         </div>
-
+ 
     </div>
 
 </div>
