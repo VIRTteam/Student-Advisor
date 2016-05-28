@@ -8,7 +8,12 @@
             </div>
             <div class="cover-info">
                 <div class="avatar">
-                    <img src="<?php echo base_url(); ?>/img/woman-4.jpg" alt="people">
+                    <?php
+                    $img =base_url().'img/clan_default.png';
+                    if ($clan['slika']=='d') {
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>">
                 </div>
                 <div class="name">
                     <h2><font color="#105DC1"><?php echo $naslov ?></font></h2>

@@ -1,33 +1,31 @@
 <div class="st-content-inner">
     <div class="container">
-
         <div class="cover profile">
             <div class="wrapper">
-                <div class="image hidden-xs ">
+                <div class="image hidden-xs">
                     <table><td width="600" height="60"/></table>
                 </div>
             </div>
             <div class="cover-info">
                 <div class="avatar">
                     <?php
-                    $img =base_url().'img/clan_default.png';
-                    if ($clan['slika']=='d') {
-                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                    $img =base_url().'img/predavac_default.jpg';
+                    if ($predavac['slika']=='d') {
+                        $img =base_url().'/img/predavac/predavac'.$predavac['idPred'].'.jpg';
                     }?>
                     <img src="<?php echo $img?>">
-
                 </div>
                 <div class="name"><h2><font color="#105DC1"><?php echo $naslov?></font></h2></div>
                 <ul class="cover-nav">
                     <li class="active">
                         <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_opis')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a  href="javascript:void(0);"
+                            class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
@@ -35,7 +33,8 @@
             </div>
         </div>
 
-        <div class="timeline row" data-toggle="isotope" style="position: relative; ">
+
+        <div class="timeline row" data-toggle="isotope">
 
             <div class="col-xs-12 col-md-4 item">
                 <div class="timeline-block">
@@ -44,54 +43,56 @@
                             <div class="profile-card-icon">
                                 <i class="fa fa-graduation-cap"></i>
                             </div>
-                            <h4 class="text-center">Student</h4>
+                            <h4 class="text-center"><?php echo $predavac['zvanje']?></h4>
                             <ul class="icon-list icon-list-block">
-                                <li><i class="fa fa-map-marker"></i> Elektrotehnički fakultet, Beograd</li>
-                                <li><i class="fa fa-trophy"></i> <?php echo $clan['godinaUpisa']?> godine upisao</li>
-                                <li><i class="fa fa-calendar"></i> Prosek: <?php echo $clan['prosecnaOcena']?></li>
+                                <li><i class="fa fa-map-marker"></i>Fakultet: Elektrotehnički fakultet, Beograd</li>
+                                <li><i class="fa fa-trophy"></i>E-mail: <?php echo $predavac['email']?></li>
+                                <li><i class="fa fa-calendar"></i>Katedra: <?php echo $predavac['katedra']?></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
                 <div class="timeline-block">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a >Položeni kursevi</a>
+                                    <a href="">Predaje na kursevima</a>
                                 </div>
                             </div>
                         </div>
+
                         <div class="view-all-comments">
                             <span>
-                                <?php if(count ($polozio) ==1)
-                                    echo '1 polozeni ispit';
-                                else if(count ($polozio) ==0)
-                                    echo '0 polozenih ispita';
+                                <?php if(count ($predaje) ==1)
+                                    echo '1 kurs';
+                                else if(count ($predaje)<5 && count ($predaje)>1)
+                                    echo count ($predaje).' kursa';
                                 else
-                                    echo count ($polozio).' polozena ispita'; ?>
+                                    echo count ($predaje).' kurseva'; ?>
                             </span>
                         </div>
                         <ul class="comments">
-                            <?php foreach ($polozio as $predmet): ?>
+                            <?php foreach ($predaje as $predmet): ?>
                                 <li class="media">
-                                    <div class="media-left"
-                                         onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')">
-                                        <?php
-                                        $img =base_url().'img/kurs_default.jpg';
-                                        if ($predmet['slika']=='d') {
-                                            $img =base_url().'/img/kurs/kurs'.$predmet['idkurs'].'.jpg';
-                                        }?>
-                                        <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
+                                    <div class="media-left">
+                                        <a  href="javascript:void(0);"
+                                            onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        >
+                                            <?php
+                                            $img =base_url().'img/kurs_default.jpg';
+                                            if ($predmet['slika']=='d') {
+                                                $img =base_url().'/img/kurs/kurs'.$predmet['idkurs'].'.jpg';
+                                            }?>
+                                            <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
+                                        </a>
                                     </div>
                                     <div class="media-body">
                                         <a href="javascript:void(0);"
                                            onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                            class="comment-author pull-left">
                                             <?php echo $predmet['ime'] ?></a>
-                                        <br/>
-                                        <div class="comment-date">Ocena: <?php echo $predmet['ocena'] ?></div>
+
                                     </div>
                                 </li>
                             <?php endforeach ?>
@@ -100,17 +101,17 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-md-8 item" >
+
+            <div class="col-xs-12 col-md-8 item">
                 <div class="timeline-block">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a >Komentari članova</a>
+                                    <a href="">Komentari sa kurseva na kojima predaje</a>
                                 </div>
                             </div>
                         </div>
-
                         <div class="view-all-comments">
                             <span>
                                 <?php if(count ($komentar) ==1)
@@ -124,12 +125,12 @@
                                 <li class="media">
                                     <div class="media-left">
                                         <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+                                           onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
                                         >
                                             <?php
-                                            $img =base_url().'img/kurs_default.jpg';
+                                            $img =base_url().'img/clan_default.png';
                                             if ($kom['slika']=='d') {
-                                                $img =base_url().'/img/kurs/kurs'.$kom['idkurs'].'.jpg';
+                                                $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg';
                                             }?>
                                             <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                         </a>
@@ -148,8 +149,8 @@
                                             </a>
                                         </div>
                                         <a href="javascript:void(0);"
-                                        onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
-                                        class="comment-author pull-left"><?php echo $kom['ime']?></a>
+                                           onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+                                           class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['tekst']?></div>
                                         <br/>
@@ -167,13 +168,9 @@
                                 </li>
                             <?php endforeach ?>
                         </ul>
-                    </div>
-                </div>
+                    </div> <!--/contaner-->
+                </div><!-- /st-content-inner -->
             </div>
         </div>
-    </div> <!--/container-->
-</div><!-- /st-content-inner -->
-
-
-
-
+    </div>
+</div>

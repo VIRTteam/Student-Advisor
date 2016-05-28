@@ -9,7 +9,12 @@
             </div>
             <div class="cover-info">
                 <div class="avatar">
-                    <img src="./img/unknown.jpg" alt="people">
+                    <?php
+                    $img =base_url().'img/kurs_default.jpg';
+                    if ($kurs['slika']=='d') {
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>">
                 </div>
                 <div class="name">
                     <h2><font color="#105DC1"><?php echo $kurs['ime']?></font></h2>
@@ -31,7 +36,7 @@
             </div>
         </div>
 
-        <div class="timeline row" data-toggle="isotope" style="position: relative; height: 2774.86px;">
+        <div class="timeline row" data-toggle="isotope" >
 
             <div class="col-xs-12 col-md-4 item">
                 <div class="timeline-block">
@@ -82,7 +87,10 @@
                             <li class="padding-v-5">
                                 <div class="row">
                                     <div class="col-sm-4"><span class="text-muted"><?php echo ucfirst($p['zvanje'])?></span></div>
-                                    <div class="col-sm-8"><?php echo $p['ime']?> <?php echo $p['prezime']?></div>
+                                    <div class="col-sm-8"
+                                         class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $p['idPred']?>', '<?php echo $p['ime']?> <?php echo $p['prezime']?>')">
+                                        <?php echo $p['ime']?> <?php echo $p['prezime']?>
+                                    </div>
                                 </div>
                             </li>
                             <?php endforeach;?>

@@ -17,7 +17,12 @@
                                     <a href="javascript:void(0);"
                                        onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        data-toggle="tooltip" title="" >
-                                        <img src="./img/guy-5(1).jpg" class="media-object">
+                                        <?php
+                                        $img =base_url().'img/clan_default.png';
+                                        if ($komentarClan['slika']=='d') {
+                                            $img =base_url().'/img/clan/clan'.$komentarClan['idClan'].'.jpg';
+                                        }?>
+                                        <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
@@ -52,7 +57,12 @@
                                     <a href="javascript:void(0);"
                                         onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">
 
-                                    <img src="./img/guy-5(1).jpg" class="media-object">
+                                        <?php
+                                        $img =base_url().'img/clan_default.png';
+                                        if ($podkom['slika']=='d') {
+                                            $img =base_url().'/img/clan/clan'.$podkom['idClan'].'.jpg';
+                                        }?>
+                                        <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
