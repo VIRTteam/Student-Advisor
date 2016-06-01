@@ -47,7 +47,7 @@
                         </div>
                     </div>
 
-                    <div class="panel panel-default relative">
+                    <div class="panel panel-default relative" >
                         <div class="panel-body panel-boxed text-center">
                             <div class="rating ">
                                 <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
@@ -58,12 +58,27 @@
                                 <?php endfor;?>
                             </div>
                         </div>
+                        <?php $t=0;?>
                         <div class="panel-body">
-                            <img src="./img/guy-2(1).jpg" alt="people" class="img-circle">
-                            <img src="./img/woman-2.jpg" alt="people" class="img-circle">
-                            <img src="./img/guy-3(1).jpg" alt="people" class="img-circle">
-                            <img src="./img/woman-3(1).jpg" alt="people" class="img-circle">
-                            <a href="" class="user-count-circle">12+</a>
+                            <?php foreach ($polozio as $po): ?>
+
+
+                                <?php
+                                $img =base_url().'img/clan_default.png';
+                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
+                                ?>
+                                <a class="avatar" href="javascript:void(0);" data-toggle="modal"
+                                   onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKurs']?>')">
+                                    <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
+                                </a>
+
+
+                                <?php $t=$t+1; if ($t>=6) { break;}?>
+                            <?php endforeach ?>
+                            <?php if (sizeof($polozio)>5): ?>
+                                <a href="" class="user-count-circle"><?php echo sizeof($polozio)-5 ?></a>
+                            <?php endif;?>
+
                         </div>
                     </div>
                 </div>
@@ -81,10 +96,11 @@
                             <span>
                                 <?php if(count ($polozio) <=1)
                                     echo count($polozio).' osoba';
-                                else if($polozio<5)
+                                else if(count($polozio)<5)
                                     echo count($polozio).' osobe';
                                 else
                                     echo count ($polozio).' osoba'; ?>
+                            </span>
                         </div>
 
                         <ul class="comments">

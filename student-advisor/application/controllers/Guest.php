@@ -11,12 +11,34 @@ class Guest extends CI_Controller
 
     public function index()
     {
-        $data['naslov']='registracija';
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/navbar_guest');
-        $this->load->view("guest/registracija", $data);
-        $this->load->view('templates/footer');
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+            session_commit();
+        }
+        if(!isset($_SESSION["username"])) {
+            $data['naslov'] = 'registracija';
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/navbar_guest');
+            $this->load->view("guest/registracija", $data);
+            $this->load->view('templates/footer');
 
+        }
+        else
+        {
+            $this->load->model('User_model');
+            $id=$this->User_model->get_clan_username($_SESSION["username"]);
+            $data['clan'] = $this->User_model->get_clan($id);
+            $data['polozio'] = $this->User_model->get_Polozio_clan($id);
+            $data['komentar'] = $this->User_model->get_Komentar_clan($id, $id);
+
+            $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
+
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/navbar_user', $data);
+            $this->load->view("user/mojprofil_profil", $data);
+            $this->load->view('templates/footer');
+
+        }
     }
 
     public function get_clan_opis($id=FALSE, $sta="oKorisniku")
@@ -35,12 +57,7 @@ class Guest extends CI_Controller
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("guest/clan_profil", $data);
     }
-    public function get_clan_slika($id=FALSE)
-    {
-        $data['clan'] = $this->Guest_model->get_clan($id);
-        $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
-        $this->load->view("guest/clan_slika", $data);
-    }
+   
     public function get_podkomentar($id=1)
     {
         $data['komentarClan'] = $this->Guest_model->get_clan_komentar($id);
@@ -116,6 +133,48 @@ class Guest extends CI_Controller
         $date['smer']=$_POST['smer'];
         $date['pol']=($_POST['pol']=='muski')?'m':'z';
         $this->Guest_model->registracija($date);
+        $data['naslov']='login';
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar_guest');
+        $this->load->view("guest/logovanje", $data);
+        $this->load->view('templates/footer');
+    }
+
+
+    public  function logovanje()
+    {
+        $data['naslov']='Logovanje';
+        $this->load->view("guest/login", $data);
+    }
+    public function provera_username_password(){
+        // echo $_POST['username'];
+        $vr=$this->Guest_model->provera_username_password($_POST['username'], $_POST['password']);
+        if(sizeof($vr)>0)
+            echo 'postoji';
+        else
+            echo 'ne_postoji';
+    }
+    public  function logovanje_obrada()
+    {
+        $data['naslov']='Logovanje';
+        $vr=$this->Guest_model->provera_username_password($_POST['username'], $_POST['password']);
+        if(sizeof($vr)>0)
+        {
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['pass'] = $_POST['password'];
+        }
+        $la=$this->Guest_model->get_clan_from_username($_SESSION['username'] );
+        echo $la['tip'];
+    }
+
+    public function registracija(){
+        if (session_status() != PHP_SESSION_NONE)
+            session_start();
+        session_unset();
+        session_commit();
         $data['naslov']='login';
         $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar_guest');

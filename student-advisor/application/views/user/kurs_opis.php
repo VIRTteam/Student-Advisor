@@ -63,11 +63,12 @@
                         </ul>
                         <div class="panel-body panel-boxed text-center">
                             <div class="rating">
-                                <span class="star"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
+                                <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                    <span class="star disabled" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                <?php endfor;?>
+                                <?php for(; $j >=1; $j--):?>
+                                    <span class="star filled disabled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                <?php endfor;?>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -75,23 +76,21 @@
                             <?php foreach ($polozio as $po): ?>
 
 
-                                <div class="avatar">
-                                    <?php
-                                    $img =base_url().'img/clan_default.png';
-                                    if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
-                                    ?>
-                                    <a href="javascript:void(0);" data-toggle="modal"
-                                       data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKom']?>')">
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
-                                    </a>
+                                <?php
+                                $img =base_url().'img/clan_default.png';
+                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
+                                ?>
+                                <a href="javascript:void(0);" data-toggle="modal"
+                                   data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKurs']?>')">
+                                    <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
+                                </a>
 
 
-
-                                </div>
-
-                                <?php $t=$t+1; if ($t>=6) break;?>
+                                <?php $t=$t+1; if ($t>=6) {$t=-1; break;}?>
                             <?php endforeach ?>
-                            <a href="" class="user-count-circle"><?php echo '12+' ?></a>
+                            <?php if (sizeof($polozio)>5): ?>
+                                <a href="" class="user-count-circle"><?php echo sizeof($polozio)-5 ?></a>
+                            <?php endif;?>
                         </div>
                     </div>
 
@@ -136,3 +135,4 @@
     </div>
 
 </div>
+

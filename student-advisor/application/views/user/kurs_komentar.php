@@ -9,7 +9,12 @@
             </div>
             <div class="cover-info">
                 <div class="avatar">
-                    <img src="./img/unknown.jpg" alt="people">
+                    <?php
+                    $img =base_url().'img/kurs_default.jpg';
+                    if ($kurs['slika']=='d') {
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>">
                 </div>
                 <div class="name">
                     <h2><font color="#105DC1">Objektno Orjentisano Programiranje 1</font></h2>
@@ -44,43 +49,47 @@
                     <div class="panel panel-default relative">
                         <ul class="icon-list icon-list-block">
                             <li>Zanimljivost
-                                <div class="rating"align="right">
-                                    <span class="star"></span>
-                                    <span class="star "></span>
-                                    <span class="star"></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
+                                <div class="rating ">
+                                    <?php for($i = $kurs['zanimljivost']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
                                 </div>
                             </li>
 
                             <li>Korisnost
-                                <div class="rating"align="right">
-                                    <span class="star"></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
+                                <div class="rating ">
+                                    <?php for($i = $kurs['korisnost']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
                                 </div>
-                         
+
                             </li>
 
                             <li>Tezina
-                                <div class="rating"align="right">
-                                    <span class="star"></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
+                                <div class="rating ">
+                                    <?php for($i = $kurs['tezina']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
                                 </div>
                             </li>
 
                             <li>Preporuka
-                                <div class="rating" align="right">
-                                    <span class="star "></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
-                                    <span class="star "></span>
-                                    <span class="star"></span>
+                                <div class="rating ">
+                                    <?php for($i = $kurs['preporuka']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
                                 </div>
                             </li>
                         </ul>
@@ -93,8 +102,14 @@
                     <div class="panel panel-default share clearfix-xs">
                         <div class="panel-heading panel-heading-gray title">
                             <div class="media-left">
-                                <a href="Clan_Clan_Profil">
-                                    <img src="./img/guy-5(1).jpg" class="media-object">
+                                <a href="javascript:void(0);"
+                                   onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                                    <?php
+                                    $img =base_url().'img/clan_default.png';
+                                    if ($clan['slika']=='d') {
+                                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                                    }?>
+                                    <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                 </a>
                             </div>
 
@@ -117,5 +132,17 @@
         </div>
 
     </div><!--/container-->
-</div>
 </div><!-- /st-content-inner -->
+
+<script>
+
+    function setStar(id)
+    {
+        for(var i=1;i<=5;i++){
+            if(i<=id)
+                document.getElementById('star'+i).className="star filled";
+            else
+                document.getElementById('star'+i).className="star";
+        }
+    }
+</script>

@@ -7,8 +7,29 @@ class Moderator extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Moderator_model');
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if(!isset($_SESSION["username"]))
+            exit();
+        $this->myID=$this->Moderator_model->get_clan_username($_SESSION["username"]);
+        $this->load->helper('url');
     }
+    
+    
+    public function get_mojprofil_profil_start()
+    {
+        $data['clan'] = $this->Moderator_model->get_clan($this->myID);
+        $data['polozio'] = $this->Moderator_model->get_Polozio_clan($this->myID);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($this->myID, $this->myID);
 
+        $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar_user',$data);
+        $this->load->view("moderator/mojprofil_profil", $data);
+        $this->load->view('templates/footer');
+    }
     public function index()
     {
 

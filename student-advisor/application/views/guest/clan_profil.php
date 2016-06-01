@@ -14,7 +14,7 @@
                     if ($clan['slika']=='d') {
                         $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
                     }?>
-                    <img src="<?php echo $img?>" onclick="setvis(1)">
+                    <img src="<?php echo $img?>">
 
                 </div>
                 <div class="name"><h2><font color="#105DC1"><?php echo $naslov?></font></h2></div>
@@ -174,13 +174,7 @@
     </div> <!--/container-->
 </div><!-- /st-content-inner -->
 
-<script>
 
-    function setvis(id)
-    {
-        call "<?php echo base_url('/guest/lalala')?>";
-    }
-</script>
 
 
 

@@ -56,12 +56,13 @@
                             </li>
                         </ul>
                         <div class="panel-body panel-boxed text-center">
-                            <div class="rating">
-                                <span class="star"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
+                            <div class="rating ">
+                                <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                    <span class="star disabled" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                <?php endfor;?>
+                                <?php for(; $j >=1; $j--):?>
+                                    <span class="star filled disabled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                <?php endfor;?>
                             </div>
                         </div>
                         <div class="panel-body">
@@ -109,4 +110,16 @@
     </div>
 
 </div>
-      
+
+<script>
+
+    function setStar(id)
+    {
+        for(var i=1;i<=5;i++){
+            if(i<=id)
+                document.getElementById('star'+i).className="star filled";
+            else
+                document.getElementById('star'+i).className="star";
+        }
+    }
+</script>

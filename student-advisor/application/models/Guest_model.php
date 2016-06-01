@@ -11,6 +11,11 @@ class Guest_model extends CI_Model {
     {
 
     }
+    public function get_clan_from_username($id)
+    {
+        $query = $this->db->get_where('clan', array('username' => $id));
+        return $query->row_array();
+    }
     public function get_clan($id = FALSE)
     {
         if ($id === FALSE)
@@ -160,8 +165,11 @@ class Guest_model extends CI_Model {
         $query = $this->db->get_where('clan', array('username' => $username));
         return $query->result_array();
     }
+    public function provera_username_password($username, $password){
+        $query = $this->db->query("select * FROM clan where username=? and password=?", array($username,$password));
+        return $query->result_array();
+    }
     public function registracija($date){
         $this->db->insert('clan', $date);
     }
-
 }

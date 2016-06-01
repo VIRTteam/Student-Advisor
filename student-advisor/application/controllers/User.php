@@ -3,32 +3,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller
 {
+    private $myID;
     public function __construct()
     {
         parent::__construct();
         $this->load->model('User_model');
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if(!isset($_SESSION["username"]))
+            exit();
+        $this->myID=$this->User_model->get_clan_username($_SESSION["username"]);
+        $this->load->helper('url');
     }
 
     public function index()
     {
-
-        $data['clan'] = $this->User_model->get_clan();
-        $data['polozio'] = $this->User_model->get_Polozio_clan($data['clan']['idClan']);
+        
+        $data['clan'] = $this->User_model->get_clan($this->myID);
+        $data['polozio'] = $this->User_model->get_Polozio_clan($this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
-        $data['komentar'] = $this->User_model->get_Komentar_clan($data['clan']['idClan']);
+        $data['komentar'] = $this->User_model->get_Komentar_clan($this->myID, $this->myID);
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/navbar_user');
+        $this->load->view('templates/navbar_user',$data);
         $this->load->view("user/mojprofil_profil", $data);
         $this->load->view('templates/footer');
-
     }
+    public function get_mojprofil_profil_start()
+    {
+        $data['clan'] = $this->User_model->get_clan($this->myID);
+        $data['polozio'] = $this->User_model->get_Polozio_clan($this->myID);
+        $data['komentar'] = $this->User_model->get_Komentar_clan($this->myID, $this->myID);
+
+        $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar_user',$data);
+        $this->load->view("user/mojprofil_profil", $data);
+        $this->load->view('templates/footer');
+    }
+
+
 
     public function get_clan_opis($id=FALSE, $sta="oKorisniku")
     {
 
         $data['clan'] = $this->User_model->get_clan($id);
         $data['polozio'] = $this->User_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->User_model->get_Komentar_clan($id);
+        $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("user/clan_opis", $data);
 
@@ -37,8 +59,9 @@ class User extends CI_Controller
     {
         $data['clan'] = $this->User_model->get_clan($id);
         $data['polozio'] = $this->User_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->User_model->get_Komentar_clan($id);
+        $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
+        $data['myID'] = $this->myID;
         $this->load->view("user/clan_profil", $data);
     }
 
@@ -48,7 +71,7 @@ class User extends CI_Controller
 
         $data['clan'] = $this->User_model->get_clan($id);
         $data['polozio'] = $this->User_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->User_model->get_Komentar_clan($id);
+        $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         
         $this->load->view("user/mojprofil_opis", $data);
@@ -58,7 +81,7 @@ class User extends CI_Controller
     {
         $data['clan'] = $this->User_model->get_clan($id);
         $data['polozio'] = $this->User_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->User_model->get_Komentar_clan($id);
+        $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
         
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         
@@ -81,10 +104,11 @@ class User extends CI_Controller
         $this->load->view('user/clan_poruke',$data);
     }
 
-    public function get_kurs_profil($id=FALSE)
+    public function get_kurs_profil($id)
     {
         $data['kurs'] = $this->User_model->get_kurs($id);
-        $data['polozio'] = $this->User_model->get_Polozio1_kurs($id);
+        $data['polozio'] = $this->User_model->get_Polozio_kurs($id);
+        $data['ocenio'] = $this->User_model->get_Ocenio_kurs($id);
         $data['komentar'] = $this->User_model->get_Komentar_kurs($id);
   
         
@@ -95,7 +119,7 @@ class User extends CI_Controller
     {
         $data['kurs'] = $this->User_model->get_kurs($id);
         $data['predavac'] = $this->User_model->get_kurs_predavac($id);
-        $data['polozio'] = $this->User_model->get_Polozio1_kurs($id);
+        $data['polozio'] = $this->User_model->get_Ocenio_kurs($id);
         $data['komentar'] = $this->User_model->get_Komentar_kurs($id);
 
         $this->load->view("user/kurs_opis", $data);
@@ -106,7 +130,7 @@ class User extends CI_Controller
         $data['kurs'] = $this->User_model->get_kurs($id);
         $data['polozio'] = $this->User_model->get_Polozio_kurs($id);
         $data['komentar'] = $this->User_model->get_Komentar_kurs($id);
-        
+        $data['clan']=$this->User_model->get_clan($this->myID);
         $this->load->view("user/kurs_komentar",$data);
     }
     public function get_predavac_profil($id=FALSE)
@@ -125,7 +149,7 @@ class User extends CI_Controller
     }
     public function get_podkomentar($id=1)
     {
-        $data['komentarClan'] = $this->User_model->get_clan_komentar($id);
+        $data['komentarClan'] = $this->User_model->get_clan_komentar($id, $this->myID);
         $data['komentarKurs'] = $this->User_model->get_kurs_komentar($id);
         $data['komentarOcena'] = $this->User_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
         $data['podkomentar'] = $this->User_model->get_podkomentar($id);
@@ -133,7 +157,7 @@ class User extends CI_Controller
     }
     public function get_podkomentar_bez_komentara($id=1)
     {
-        $data['komentarClan'] = $this->User_model->get_clan_komentar($id);
+        $data['komentarClan'] = $this->User_model->get_clan_komentar($id, $this->myID);
         $data['komentarKurs'] = $this->User_model->get_kurs_komentar($id);
         $data['komentarOcena'] = $this->User_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
         $data['podkomentar'] = $this->User_model->get_podkomentar($id);
@@ -170,5 +194,13 @@ class User extends CI_Controller
     }
 
      */
-
+    public function obradi_podrzavanje()
+    {
+        $pom['idClan']=$this->myID;
+        $pom['idKom']=$_POST["idKom"];
+        $pom['tip']=$_POST["tip"];
+        $data=$this->User_model->obradi_podrzavanje($pom);
+        echo reset($data['like']).' '.reset($data['unlike']);
+    }
 }
+?>

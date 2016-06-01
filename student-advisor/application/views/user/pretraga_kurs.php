@@ -24,7 +24,7 @@
                         <li class="media" >
                             <div class="media-left">
                                 <a href="javascript:void(0);"
-                                   onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $cl['idkurs']?>', '<?php echo $cl['ime']?>')">
+                                   onclick="getSummary('<?php echo site_url('udser/get_kurs_profil')?>/<?php echo $cl['idkurs']?>', '<?php echo $cl['ime']?>')">
                                     <?php
                                     $img =base_url().'img/kurs_default.jpg';
                                     if ($cl['slika']=='d') {

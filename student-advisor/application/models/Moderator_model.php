@@ -11,6 +11,11 @@ class Moderator_model extends CI_Model {
     {
 
     }
+    public function get_clan_username($id)
+    {
+        $query = $this->db->get_where('clan', array('username' => $id));
+        return $query->row_array()['idClan'];
+    }
     public function get_clan($id = FALSE)
     {
         if ($id === FALSE)

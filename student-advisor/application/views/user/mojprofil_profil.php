@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="timeline row" data-toggle="isotope" style="position: relative; height: 2774.86px;">
+        <div class="timeline row" data-toggle="isotope">
 
             <div class="col-xs-12 col-md-4 item" >
                 <div class="timeline-block">
@@ -92,7 +92,7 @@
                             <li class="comment-form">
                                 <div class="input-group">
                       <span title="Dodaj kurs" class="input-group-btn">
-                        <a href="" class="btn btn-white"><i class="fa fa-plus"></i></a>
+                        <a  class="btn btn-white"><i class="fa fa-plus"></i></a>
                       </span>
                                     <input type="text" class="form-control">
                                 </div>
@@ -108,7 +108,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Komentari člana</a>
+                                    <a >Komentari člana</a>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                             <?php foreach ($komentar as $kom): ?>
                                 <li class="media">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
+                                        <a
                                            onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')">
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
@@ -136,21 +136,30 @@
                                     </div>
                                     <div class="media-body">
                                         <div class="pull-right dropdown" data-show-hover="li" >
-                                            <a href="" data-toggle="dropdown" class="toggle-button">
+                                            <a  data-toggle="dropdown" class="toggle-button">
                                                 <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
                                             </a>
-                                            <a href="" data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                            <a  data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
                                                 <i class="fa fa-trash"></i>
                                             </a>
-                                            <a class="toggle-button disabled">
-                                                <i class="fa fa-minus"> <?php echo $kom['brNepodrzavanja']?> </i>
-                                            </a>
-                                            <a class="toggle-button disabled">
-                                                <i class="fa fa-plus"> <?php echo $kom['brPodrzavanja']?></i>
-                                            </a>
-                                            
                                         </div>
-                                        <a href="javascript:void(0);"
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $kom['idKom']?>')">
+                                                <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>"
+                                                   id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brNepodrzavanja']?> </i>
+                                            </a>
+
+                                        </div>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setLike('<?php echo $kom['idKom']?>', '<?php echo $kom['idClan']?>')">
+                                                <i class="fa fa-plus <?php echo ($kom['tip']=='p')? 'active' : 'unactive'?>" id="podrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
+                                            </a>
+                                        </div>
+
+
+                                        <a
                                            onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
@@ -159,7 +168,7 @@
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
                                     </div>
                                     <div class="view-all-comments">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a  data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                         <span><?php if($kom['brPodkomentara'] ==1)
@@ -177,11 +186,7 @@
     </div> <!--/container-->
 </div><!-- /st-content-inner -->
 
-
-
-
-
-
+<?php  $this->load->view('templates/podrzavanje'); ?>
 
 
 

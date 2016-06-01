@@ -1,6 +1,6 @@
 <!-- extra div for emulating position:fixed of the menu -->
-<div class="st-content-inner" style="height: 780px">
-    <div class="lock-container">
+<div class="st-content-inner" style="height: 800px">
+    <div class="lock-container" style="height: 740px">
         <h1>Registruj Se</h1>
         <div class="panel panel-default text-center">
             <img src="<?php echo base_url()?>/img/clan_default.png" class="img-circle">
@@ -41,22 +41,8 @@
         </div>
     </div>
 </div>
-</div>
-<div class="modal fade" id="Greska" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"></button>
-                <h4 class="modal-title">Greska!</h4>
-            </div>
-            <div class="modal-body"><h5 id="greska_text"></h5></div>
-            <div class="modal-footer">
-                <a  class="btn btn-white" onclick="$('#Greska').modal('hide');">Uredu</a>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 <script >
     function isDate(s)
     {

@@ -55,9 +55,10 @@ class User_model extends CI_Model {
         $query = $this->db->query("select p.*, k.* FROM predavac p inner join predaje k on p.idPred = k.idPred and k.idKurs=? ORDER BY p.zvanje DESC", array($idKurs));
         return $query->result_array();
     }
-    public function get_clan_komentar($id = 1)
+    public function get_clan_komentar($id, $myID)
     {
-        $query = $this->db->query("select p.*, k.* FROM komentar p inner join clan k on p.idClan = k.idClan and p.idKom=?", array($id));
+        $query = $this->db->query("select p.*, k.*, po.tip FROM komentar p inner join clan k left outer join podrzavanje po 
+            on p.idClan = k.idClan and p.idKom=? and p.idClan=? and p.idKom=po.idKom", array($id, $myID));
         return $query->row_array();
     }
     public function get_podkomentar($id = 1)
@@ -137,35 +138,21 @@ class User_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_Polozio1_kurs($id = FALSE)
+    //TAMARA ovo nevalja nesto, videti na stranici OOP1 da slike nmze da ucita zbog nekog idClana pogresnog tj nedefinisanog
+    public function get_Ocenio_kurs($id)
     {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan");
-            return $query->result_array();
-        }
 
-        $query = $this->db->query("select p.*, k.*, ko.*
-                                    FROM `student-advisor-mysql`.polozio p 
-                                    inner join `student-advisor-mysql`.clan k  
-                                    
+        $query = $this->db->query("select p.*, k.*
+                                    FROM polozio p 
+                                    inner join clan k                                   
                                     on p.idClan = k.idClan 
-                                    AND p.zanimljivost AND p.tezina AND p.preporuka AND p.korisnost
-                                    AND p.idKurs=?
-                                    left join `student-advisor-mysql`.komentar ko 
-                                    on ko.idClan=p.idClan and ko.idKurs=p.idKurs
-"
-            ,array($id));
+                                    AND (p.zanimljivost OR p.tezina OR p.preporuka OR p.korisnost)
+                                    AND p.idKurs=?",array($id));
         return $query->result_array();
     }
-
-    public function get_Komentar_clan($id = FALSE)
+    /*TAMARA nznm sta ce podkomentari ovde
+    public function get_Komentar_clan($id,$myID)
     {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("select p.*, k.* FROM komentar p inner join kurs k on p.idKurs = k.idkurs");
-            return $query->result_array();
-        }
 
         $query = $this->db->query("select p.*, k.* , count(pk.redniBroj) as brPodkomentara
                                     FROM  `student-advisor-mysql`.komentar p
@@ -176,7 +163,19 @@ class User_model extends CI_Model {
                                     group by p.idKom
                                     ", array($id));
         return $query->result_array();
+    }*/
+    public function get_Komentar_clan($id,$myID)
+    {
+
+        $query = $this->db->query("select p.*, k.*, l.tip
+                                    FROM  komentar p
+                                    inner join kurs k 
+                                    on p.idKurs = k.idkurs and p.idClan=?
+                                    left outer join podrzavanje l
+                                    on p.idKom=l.idKom and l.idClan=?", array($id,$myID));
+        return $query->result_array();
     }
+
     public function get_Komentar_kurs($id = FALSE)
     {
         if ($id === FALSE)
@@ -254,4 +253,14 @@ class User_model extends CI_Model {
         $query = $this->db->query('select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs AND p.idClan=?',array($id));
         return $query->result_array();
     }*/
+    
+    
+
+
+
+    public function get_clan_username($id)
+    {
+        $query = $this->db->get_where('clan', array('username' => $id));
+        return $query->row_array()['idClan'];
+    }
 }

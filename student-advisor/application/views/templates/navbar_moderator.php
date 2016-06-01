@@ -26,22 +26,37 @@
 
         <ul align="right" class="nav navbar-nav  navbar-right ">
             <li class="dropdown" >
-                <a class="dropdown-toggle moderator" data-toggle="dropdown">
-                    <img src="./img/guy-5.jpg" alt="Bill" class="img-circle" width="40" /img>
-                    <span class="hidden-sm hidden-xs">Isidora </span>
+                <a class="dropdown-toggle user" data-toggle="dropdown">
+                    <?php
+                    $img =base_url().'img/clan_default.png';
+                    if ($clan['slika']=='d') {
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>" class="img-circle" style="width:40px; height:35px; margin-top: 3px;" /img>
+                    <span class="hidden-sm hidden-xs"><?php echo $clan['ime']?> </span>
                     <span class="caret hidden-sm hidden-xs"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="nasiHTLMovi/Clan_MojProfil_Profil.html">Profil</a></li>
+                    <li>
+                        <a href="javascript:void(0);"
+                           onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_profil')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                            Profil
+                        </a>
+                    </li>
                     <li class="active">
                         <a  href="javascript:void(0);"
                             class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Poruke
                         </a>
                     </li>
-                    <li><a href="nasiHTLMovi/Clan_MojProfil_Opis.html">Izmeni profil</a></li>
+                    <li>
+                        <a href="javascript:void(0);"
+                           onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                            Izmeni profil
+                        </a>
+                    </li>
                     <li><a href="" data-toggle="modal" data-target="#myModal15">Pomoć</a></li>
-                    <li><a href="nasiHTLMovi/Gost_Registracija.html">Izloguj se</a></li>
+                    <li><a href="<?php echo site_url('guest/registracija')?>">Izloguj se</a></li>
                 </ul>
             </li>
         </ul>

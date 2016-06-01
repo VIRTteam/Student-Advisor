@@ -8254,7 +8254,29 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 }
 .fa-minus:before {
   content: "\f068";
+  margine-left:10px;
 }
+.fa-minus.unactive,
+.fa-minus.active:hover {
+  color: #E0E0E0;
+  margine-left:10px;
+}
+.fa-minus.active, 
+.fa-minus.unactive:hover{
+  color: #104fc1;
+  margine-left:10px;
+}
+.fa-plus.unactive,
+.fa-plus.active:hover {
+  color: #E0E0E0;
+  margine-left:10px;
+}
+.fa-plus.active, 
+.fa-plus.unactive:hover{
+  color: #104fc1;
+  margine-left:10px;
+}
+
 .fa-asterisk:before {
   content: "\f069";
 }

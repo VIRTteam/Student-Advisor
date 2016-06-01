@@ -9,9 +9,14 @@
             </div>
             <div class="cover-info">
                 <div class="avatar">
-                    <img src="./img/unknown.jpg" alt="people">
+                    <?php
+                    $img =base_url().'img/kurs_default.jpg';
+                    if ($kurs['slika']=='d') {
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>">
                 </div>
-                <div class="name"><h2><span style="color: #105DC1; "><?php echo $kurs['ime']?></span></h2></div>
+                <div class="name"><h2><font color="#105DC1"><?php echo $kurs['ime']?></font></h2></div>
                 <ul class="cover-nav">
                     <li class="active">
                         <a href="javascript:void(0);"
@@ -50,35 +55,36 @@
                     <div class="panel panel-default relative">
                         <div class="panel-body panel-boxed text-center">
                             <div class="rating">
-                                <span class="star"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
+                                <div class="rating ">
+                                    <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star disabled" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled disabled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-body">
                             <?php $t=0;?>
-                            <?php foreach ($polozio as $po): ?>
-                                
-                                
-                                <div class="avatar">
+                            <?php foreach ($ocenio as $po): ?>
+                           
                                     <?php
                                         $img =base_url().'img/clan_default.png';   
                                         if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
                                     ?>
                                     <a href="javascript:void(0);" data-toggle="modal"
-                                       data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKom']?>')">
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
+                                       data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKurs']?>')">
+                                        <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                     </a>
 
 
-                                    
-                                </div>
+                                <?php $t=$t+1; if ($t>=5) {$t=-1; break;}?>
 
-                                <?php $t=$t+1; if ($t>=6) break;?>
                             <?php endforeach ?>
-                            <a href="" class="user-count-circle"><?php echo '12+' ?></a>
+                            <?php if (sizeof($ocenio)>5): ?>
+                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
@@ -95,7 +101,7 @@
                         <div class="view-all-comments">
                             <?php if(count ($polozio) <=1)
                                 echo count($polozio).' osoba';
-                            else if($polozio<5)
+                            else if(count($polozio)<5)
                                 echo count($polozio).' osobe';
                             else
                                 echo count ($polozio).' osoba'; ?>
@@ -111,14 +117,14 @@
                                             if ($po['slika']=='d') {
                                                 $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';
                                             }?>
-                                            <img src="<?php echo $img?>">
+                                            <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                         </a>
                                     </div>
                                     <div class="media-body">
                                         <a class="comment-author pull-left" href="javascript:void(0);"
                                            onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
 
-                                            <?php echo $po['ime']?> <?php echo $po['prezime']?>
+                                            <?php echo $po['ime']?> <?php echo $po['prezime']?> <?php echo $po['idClan']?>
                                         </a>
                                         <br/>
                                         <div class="comment-date">Ocena: <?php echo $po['ocena'] ?></div>

@@ -4,7 +4,6 @@
 </div>
 
 
-
 <script>
 
     function getSummary(id, naslov)
@@ -48,6 +47,7 @@
 <!-- jQuery library -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>js/jquery-1.12.4.min.js"></script>
+
 <!-- Latest compiled JavaScript -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 

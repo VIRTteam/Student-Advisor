@@ -22,7 +22,7 @@
                                     <a href="javascript:void(0);"
                                        onclick="getSummaryPodKom('<?php echo site_url('user/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        data-toggle="tooltip" title="" >
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
+                                        <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
@@ -36,7 +36,7 @@
                                             <i class="fa fa-plus"> <?php echo $komentarClan['brPodrzavanja']?></i>
                                         </a>
                                     </div>
-                                    
+
                                     <a href="javascript:void(0);"
                                        onclick="getSummaryPodKom('<?php echo site_url('user/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        class="comment-author pull-left">
@@ -72,7 +72,7 @@
                                     <a href="javascript:void(0);"
                                         onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">
 
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
+                                        <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
@@ -87,16 +87,21 @@
                                 </div>
                             </li>
                             <?php endforeach ?>
-                            <li class="media">
-                                <div class="media-left">
-                                    <textarea rows="1" cols="70"/>
-                                    <br/>
-                                    <input align="center" valign="center" type="button" value="Komentarisi" />
-                                </div>
-                            </li
                         </ul>
                     </div>
+                    <div class="modal-footer" style="border: 0px">
+
+                        <div class="panel panel-default share">
+                            <textarea class="form-control share-text"  placeholder="Napisi komentar"></textarea>
+                            <div class="input-group-btn">
+                                <a class="btn btn-white" href="">
+                                    <i class="fa fa-send"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
 
             </div>
         </div>
