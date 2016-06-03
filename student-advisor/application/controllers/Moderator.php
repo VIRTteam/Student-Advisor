@@ -14,6 +14,7 @@ class Moderator extends CI_Controller
             exit();
         $this->myID=$this->Moderator_model->get_clan_username($_SESSION["username"]);
         $this->load->helper('url');
+        $data['myID']=$this->myID;
     }
     
     
@@ -26,7 +27,7 @@ class Moderator extends CI_Controller
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
 
         $this->load->view('templates/header', $data);
-        $this->load->view('templates/navbar_moderator',$data);
+        $this->load->view('templates/navbar_user',$data);
         $this->load->view("moderator/mojprofil_profil", $data);
         $this->load->view('templates/footer');
     }
@@ -49,7 +50,7 @@ class Moderator extends CI_Controller
 
         $data['clan'] = $this->Moderator_model->get_clan($id);
         $data['polozio'] = $this->Moderator_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id, $this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("moderator/clan_opis", $data);
 
@@ -58,7 +59,7 @@ class Moderator extends CI_Controller
     {
         $data['clan'] = $this->Moderator_model->get_clan($id);
         $data['polozio'] = $this->Moderator_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id, $this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("moderator/clan_profil", $data);
     }
@@ -67,9 +68,7 @@ class Moderator extends CI_Controller
     public function get_mojprofil_opis($id=FALSE, $sta="oKorisniku")
     {
 
-        $data['clan'] = $this->Moderator_model->get_clan($id);
-        $data['polozio'] = $this->Moderator_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id);
+        $data['clan'] = $this->Moderator_model->get_clan($this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
 
         $this->load->view("moderator/mojprofil_opis", $data);
@@ -79,7 +78,7 @@ class Moderator extends CI_Controller
     {
         $data['clan'] = $this->Moderator_model->get_clan($id);
         $data['polozio'] = $this->Moderator_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id, $this->myID);
 
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
 
@@ -104,9 +103,10 @@ class Moderator extends CI_Controller
 
     public function get_kurs_profil($id=FALSE)
     {
+        $data['myID']=$this->myID;
         $data['kurs'] = $this->Moderator_model->get_kurs($id);
         $data['polozio'] = $this->Moderator_model->get_Polozio1_kurs($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id,$this->myID);
 
 
         $this->load->view("moderator/kurs_profil", $data);
@@ -117,7 +117,7 @@ class Moderator extends CI_Controller
         $data['kurs'] = $this->Moderator_model->get_kurs($id);
         $data['predavac'] = $this->Moderator_model->get_kurs_predavac($id);
         $data['polozio'] = $this->Moderator_model->get_Polozio1_kurs($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id,$this->myID);
 
         $this->load->view("moderator/kurs_opis", $data);
     }
@@ -126,15 +126,16 @@ class Moderator extends CI_Controller
     {
         $data['kurs'] = $this->Moderator_model->get_kurs($id);
         $data['polozio'] = $this->Moderator_model->get_Polozio_kurs($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id,$this->myID);
 
         $this->load->view("moderator/kurs_komentar",$data);
     }
     public function get_predavac_profil($id=FALSE)
     {
+        $data['myID']=$this->myID;
         $data['predavac'] = $this->Moderator_model->get_predavac($id);
         $data['predaje'] = $this->Moderator_model->get_predaje_kurs($id);
-        $data['komentar'] = $this->Moderator_model->get_komentar_predavac($id);
+        $data['komentar'] = $this->Moderator_model->get_komentar_predavac($id,$this->myID);
         $data['naslov']=$data['predavac']['ime'].' '.$data['predavac']['prezime'];
         $this->load->view("moderator/predavac_profil", $data);
     }
@@ -146,7 +147,7 @@ class Moderator extends CI_Controller
     }
     public function get_podkomentar($id=1)
     {
-        $data['komentarClan'] = $this->Moderator_model->get_clan_komentar($id);
+        $data['komentarClan'] = $this->Moderator_model->get_clan_komentar($id,$this->myID);
         $data['komentarKurs'] = $this->Moderator_model->get_kurs_komentar($id);
         $data['komentarOcena'] = $this->Moderator_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
         $data['podkomentar'] = $this->Moderator_model->get_podkomentar($id);
@@ -169,27 +170,14 @@ class Moderator extends CI_Controller
     public function get_pretraga_kurs($id=FALSE)
     {
         $data['kurs'] = $this->Moderator_model->get_pretraga_kurs($id);
-        $data['mi']=$this->Moderator_model->get_clan($this->myID);
         $this->load->view("moderator/pretraga_kurs", $data);
     }
     public function get_pretraga_predavac($id=FALSE)
     {
         $data['predavac'] = $this->Moderator_model->get_pretraga_predavac($id);
-        $data['mi']= $this->Moderator_model->get_clan($this->myID);
-        
         $this->load->view("moderator/pretraga_predavac", $data);
     }
-    
-    public function del_predavac($idPred)
-    {
-        $this->Moderator_model->del_predavac($idPred);
-        get_mojprofil_profil_start();
-    }
-    public function del_kurs($idKurs)
-    {
-        $this->Moderator_model->del_kurs($idKurs);
-        $this->get_mojprofil_profil_start();
-    }
+
     /**
      * @param bool $id
      * @param bool $id_kurs

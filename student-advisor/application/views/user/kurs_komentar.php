@@ -125,11 +125,12 @@
                         <textarea name="comment" id="comment" class="form-control share-text" rows="5" placeholder="Share your status..."></textarea>
                     </div>
                     <div class="panel-footer share-buttons">
-                        <a href="" class="btn btn-white"><span title="Postavi komentar">
+                        <a class="btn btn-white"><span title="Postavi komentar">
                                 <i class="fa fa-send" onclick="putSummary('<?php echo site_url('user/put_komentar');?>/<?php echo $kurs['idkurs']?>')"></i>
 
                                 <!-- <i class="fa fa-send" onclick="putSummary('<?php// echo site_url('user/put_komentar');?>/<?php //echo $kurs['idkurs']?>?comment=<?php //echo $comment?>?anonim=true')"</i> -->
-                            </span></a>
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -151,7 +152,6 @@
     }
 </script>
 
-
 <script>
 
     function putSummary(id)
@@ -170,9 +170,7 @@
                 anonim: anon
             },
             success: function (returnData) {
-                document.open();
-                document.write( returnData);
-                document.close();
+
             }
         });
 

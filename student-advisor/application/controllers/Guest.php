@@ -27,17 +27,24 @@ class Guest extends CI_Controller
         {
             $this->load->model('User_model');
             $id=$this->User_model->get_clan_username($_SESSION["username"]);
-            $data['clan'] = $this->User_model->get_clan($id);
+            $data['clan'] = $this->Guest_model->get_clan($id);
             $data['polozio'] = $this->User_model->get_Polozio_clan($id);
             $data['komentar'] = $this->User_model->get_Komentar_clan($id, $id);
-
             $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
-
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/navbar_user', $data);
-            $this->load->view("user/mojprofil_profil", $data);
-            $this->load->view('templates/footer');
-
+            $data['banovanje']= $this->User_model->proveri_banovanje($data['clan']['idClan']);
+            if($data['clan']['tip']=='c') {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/navbar_user', $data);
+                $this->load->view("user/mojprofil_profil", $data);
+                $this->load->view('templates/footer');
+            }
+            else
+            {
+                $this->load->view('templates/header', $data);
+                $this->load->view('templates/navbar_moderator', $data);
+                $this->load->view("moderator/mojprofil_profil", $data);
+                $this->load->view('templates/footer');
+            }
         }
     }
 
@@ -63,6 +70,8 @@ class Guest extends CI_Controller
         $data['komentarClan'] = $this->Guest_model->get_clan_komentar($id);
         $data['komentarKurs'] = $this->Guest_model->get_kurs_komentar($id);
         $data['podkomentar'] = $this->Guest_model->get_podkomentar($id);
+        $data['komentarOcena'] = $this->Guest_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
+
         $this->load->view('guest/podkomentari', $data);
     }
     public function get_kurs_profil($id=FALSE)
@@ -70,6 +79,7 @@ class Guest extends CI_Controller
         $data['kurs'] = $this->Guest_model->get_kurs($id);
         $data['polozio'] = $this->Guest_model->get_Polozio_kurs($id);
         $data['komentar'] = $this->Guest_model->get_Komentar_kurs($id);
+        $data['ocenio'] = $this->Guest_model->get_Ocenio_kurs($id);
         $this->load->view("guest/kurs_profil", $data);
     }
     public function get_kurs_opis($id=FALSE)
@@ -110,12 +120,7 @@ class Guest extends CI_Controller
     }
 
 
-
-
-
-
     public function provera_username(){
-       // echo $_POST['username'];
         $vr=$this->Guest_model->provera_username($_POST['username']);
         if(sizeof($vr)>0)
             echo 'postoji';
@@ -147,7 +152,6 @@ class Guest extends CI_Controller
         $this->load->view("guest/login", $data);
     }
     public function provera_username_password(){
-        // echo $_POST['username'];
         $vr=$this->Guest_model->provera_username_password($_POST['username'], $_POST['password']);
         if(sizeof($vr)>0)
             echo 'postoji';
@@ -158,20 +162,22 @@ class Guest extends CI_Controller
     {
         $data['naslov']='Logovanje';
         $vr=$this->Guest_model->provera_username_password($_POST['username'], $_POST['password']);
-        if(sizeof($vr)>0)
-        {
-            if (session_status() == PHP_SESSION_NONE) {
+        if(sizeof($vr)>0) {
+            if (session_status() == PHP_SESSION_NONE)
                 session_start();
-            }
+
             $_SESSION['username'] = $_POST['username'];
             $_SESSION['pass'] = $_POST['password'];
+            session_commit();
+
+            $la = $this->Guest_model->get_clan_from_username($_SESSION['username']);
+            $la2 = $this->Guest_model->get_clan_logovanje($la['idClan']);
+            echo $la2;
         }
-        $la=$this->Guest_model->get_clan_from_username($_SESSION['username'] );
-        echo $la['tip'];
     }
 
     public function registracija(){
-        if (session_status() != PHP_SESSION_NONE)
+        if (session_status() == PHP_SESSION_NONE)
             session_start();
         session_unset();
         session_commit();
@@ -181,4 +187,5 @@ class Guest extends CI_Controller
         $this->load->view("guest/registracija", $data);
         $this->load->view('templates/footer');
     }
+
 }

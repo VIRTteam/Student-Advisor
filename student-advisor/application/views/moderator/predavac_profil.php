@@ -19,20 +19,17 @@
                 <div class="name"><h2><font color="#105DC1"><?php echo $naslov?></font></h2></div>
                 <ul class="cover-nav">
                     <li class="active">
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li>
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                     <li>
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-envelope"></i> Kontaktiraj
                         </a>
                     </li>
@@ -64,7 +61,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Predaje na kursevima</a>
+                                    <a >Predaje na kursevima</a>
                                 </div>
                             </div>
                         </div>
@@ -83,8 +80,7 @@
                             <?php foreach ($predaje as $predmet): ?>
                                 <li class="media">
                                     <div class="media-left">
-                                        <a  href="javascript:void(0);"
-                                            onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                         >
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
@@ -96,12 +92,11 @@
                                     </div>
                                     <div class="media-body">
                                         <div class="pull-right dropdown" data-show-hover="li" >
-                                            <a href="" data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                            <a  data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                            class="comment-author pull-left">
                                             <?php echo $predmet['ime'] ?></a>
 
@@ -111,7 +106,7 @@
                             <li class="comment-form">
                                 <div class="input-group">
                       <span title="Dodaj kurs" class="input-group-btn">
-                        <a href="" class="btn btn-white"><i class="fa fa-plus"></i></a>
+                        <a class="btn btn-white"><i class="fa fa-plus"></i></a>
                       </span>
                                     <input type="text" class="form-control">
                                 </div>
@@ -128,7 +123,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Komentari sa kurseva na kojima predaje</a>
+                                    <a >Komentari sa kurseva na kojima predaje</a>
                                 </div>
                             </div>
                         </div>
@@ -143,10 +138,9 @@
                         </div>
                         <ul class="comments">
                             <?php foreach ($komentar as $kom): ?>
-                                <li class="media">
+                                <li class="media" id="komentar<?php echo $kom['idKom']?>">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
                                         >
                                             <?php
                                             $img =base_url().'img/clan_default.png';
@@ -157,32 +151,37 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <div class="pull-right dropdown" >
-                                            <a class="toggle-button">
-                                                <i class="fa fa-minus"> <?php echo $kom['brNepodrzavanja']?> </i></span>
-                                            </a>
-                                        </div>
-                                        <div class="pull-right dropdown" >
-                                            <a href="javascript:void(0);"
-                                               onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
-                                               class="toggle-button">
-                                                <i class="fa fa-plus"> <?php echo $kom['brPodrzavanja']?></i></span>
-                                            </a>
-                                        </div>
-                                        <div class="pull-right dropdown" data-show-hover="li" >
 
-                                            <a href="" data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                        <div class="pull-right dropdown" >
+                                            <a  onclick="brisanje_komentara('<?php echo $kom['idKom']?>')"
+                                                data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
+                                        <?php if ($kom['idClan'] ==$myID) {?>
+                                            <div class="pull-right dropdown" >
+                                                <a  onclick="izmeni_komentar('<?php echo $kom['idKom']?>')"
+                                                    data-toggle="dropdown" class="toggle-button">
+                                                    <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
+                                                </a>
+                                            </div>
+                                        <?php }?>
                                         <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>"
+                                                   id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brNepodrzavanja']?> </i>
+                                            </a>
 
-                                            <a href="" data-toggle="dropdown" class="toggle-button">
-                                                <i class="fa fa-ban" data-tooltip="tooltip" title="Banuj"></i>
+                                        </div>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setLike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-plus <?php echo ($kom['tip']=='p')? 'active' : 'unactive'?>" id="podrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
                                             </a>
                                         </div>
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+
+                                        <a onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['tekst']?></div>
@@ -190,7 +189,7 @@
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
                                     </div>
                                     <div class="view-all-comments">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                         <span><?php if($kom['brPodkomentara'] ==1)
@@ -200,7 +199,6 @@
                                     </div>
                                 </li>
                             <?php endforeach ?>
-
                         </ul>
                     </div>
                 </div>

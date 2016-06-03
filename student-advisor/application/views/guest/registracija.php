@@ -25,23 +25,6 @@
 </div>
 
 
-<div class="modal fade" id="myModal3" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Čestitamo!</h4>
-            </div>
-            <div class="modal-body"><p>Unapređeni ste u moderatora</p></div>
-            <div class="modal-footer">
-                <a href="Clan_MojProfil_Profil.html" class="btn btn-white">Prihvati</a>
-                <a href="Clan_MojProfil_Profil.html" class="btn btn-white">Odbij</a>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 <script >
     function isDate(s)
@@ -107,6 +90,7 @@
         if(vr=='postoji') {
             $('#greska_text').html("greska_text=Korisnik sa datim korisnickim imenom vec postoji, unesite nesto drugo!");
             $('#Greska').modal('show');
+            
             return;
         }
         $.ajax({
