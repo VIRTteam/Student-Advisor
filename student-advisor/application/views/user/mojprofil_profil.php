@@ -122,7 +122,7 @@
                         </div>
                         <ul class="comments">
                             <?php foreach ($komentar as $kom): ?>
-                                <li class="media">
+                                <li class="media" id="komentar<?php echo $kom['idKom']?>">
                                     <div class="media-left">
                                         <a
                                            onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')">
@@ -135,17 +135,21 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <div class="pull-right dropdown" data-show-hover="li" >
-                                            <a  data-toggle="dropdown" class="toggle-button">
-                                                <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
-                                            </a>
-                                            <a  data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                        <div class="pull-right dropdown" >
+                                            <a  onclick="brisanje_komentara('<?php echo $kom['idKom']?>')"
+                                                data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
                                         <div class="pull-right dropdown" >
+                                            <a  onclick="izmeni_komentar('<?php echo $kom['idKom']?>')"
+                                                data-toggle="dropdown" class="toggle-button">
+                                                <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
+                                            </a>
+                                        </div>
+                                        <div class="pull-right dropdown" >
                                             <a class="toggle-button"
-                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $kom['idKom']?>')">
+                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $kom['idClan']?>')">
                                                 <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>"
                                                    id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brNepodrzavanja']?> </i>
                                             </a>
@@ -159,13 +163,13 @@
                                         </div>
 
 
-                                        <a
-                                           onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['tekst']?></div>
+                                        <div class="comment-date" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
+
                                     </div>
                                     <div class="view-all-comments">
                                         <a  data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
@@ -186,7 +190,7 @@
     </div> <!--/container-->
 </div><!-- /st-content-inner -->
 
-<?php  $this->load->view('templates/podrzavanje'); ?>
+<?php  $this->load->view('templates/toggle'); ?>
 
 
 

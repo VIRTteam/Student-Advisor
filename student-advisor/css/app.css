@@ -16590,13 +16590,13 @@ ul.timeline-list .media-body.fixed {
   padding: 5px;
 }
 .panel.panel-default ul.comments li .pull-right.dropdown > a.toggle-button:hover {
-  color: #616161;
+  color: #104fc1;
 }
 .panel.panel-default ul.comments li .pull-right.dropdown > a.toggle-button.disabled {
   pointer-events: none; 
 }
 .panel.panel-default ul.comments li .pull-right.dropdown.open > a.toggle-button {
-  color: #616161;
+  color: #104fc1;
 }
 .panel.panel-default ul.comments li .pull-right.dropdown .dropdown-menu {
   padding: 1px 0;

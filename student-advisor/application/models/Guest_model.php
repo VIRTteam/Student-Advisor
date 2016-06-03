@@ -172,4 +172,45 @@ class Guest_model extends CI_Model {
     public function registracija($date){
         $this->db->insert('clan', $date);
     }
+
+
+
+    public function get_clan_logovanje($id)
+    {
+        $u=$this->db->query("select * from unapredjivanje where idClan=? and trebaSaglasnost='n'", array('idClan' => $id));
+        $pr=$u->result_array();
+        $un=count($pr);
+        if($un>0)
+        {
+            $query=$this->db->query("select * from unapredjivanje u inner join clan c on u.idClan=c.idClan 
+                where c.idClan=?", array('idClan'=>$id));
+            $prva=$query->row_array();
+            $this->db->query("DELETE FROM unapredjivanje WHERE idClan=? ", array( $id));
+            if($prva['tipUD']=='u')
+                if($prva['tip']=='c'){
+                    $this->db->query("UPDATE clan SET tip='m' WHERE idClan=?",array( $id));
+                    $prva['tip']='m';
+                    $prva['promena']='Unapredjeni ste u moderatora.';
+                }
+                else{
+                    $this->db->query("UPDATE clan SET tip='a' WHERE idClan=?",array( $id));
+                    $prva['tip']='a';
+                    $prva['promena']='Unapredjeni ste u administratora.';
+                }
+            else
+                if($prva['tip']=='m'){
+                    $this->db->query("UPDATE clan SET tip='c' WHERE idClan=?",array( $id));
+                    $prva['tip']='c';
+                    $prva['promena']='Derangirani ste u clana.';
+                }
+                else {
+                    $this->db->query("UPDATE clan SET tip='m' WHERE idClan=?", array($id));
+                    $prva['tip']='m';
+                    $prva['promena']='Derangirani ste u moderatora.';
+
+                }
+            return $prva['promena'];
+        }
+        return "";
+    }
 }

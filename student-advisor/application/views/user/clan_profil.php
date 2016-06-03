@@ -20,17 +20,17 @@
                 <ul class="cover-nav">
                     <li class="active">
 
-                        <a href="javascript:void(0);" class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_opis')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_opis')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);" class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj<!-- TREBA DA SE POSALJE ID CLANA CIJI JE PROFIL I ID USERA -->
                         </a>
                     </li>
@@ -61,7 +61,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Položeni kursevi</a>
+                                    <a >Položeni kursevi</a>
                                 </div>
                             </div>
                         </div>
@@ -87,8 +87,7 @@
                                         <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                     </div>
                                     <div class="media-body">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                            class="comment-author pull-left">
                                             <?php echo $predmet['ime'] ?></a>
                                         <br/>
@@ -107,7 +106,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Komentari člana</a>
+                                    <a >Komentari člana</a>
                                 </div>
                             </div>
                         </div>
@@ -123,9 +122,7 @@
                             <?php foreach ($komentar as $kom): ?>
                                 <li class="media">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
-                                        >
+                                        <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')">
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
                                             if ($kom['slika']=='d') {
@@ -137,20 +134,19 @@
                                     <div class="media-body">
 
                                         <div class="pull-right dropdown" >
-                                            <a class="toggle-button" href="javascript:void(0);"
+                                            <a class="toggle-button"
                                                onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $myID?>','<?php echo $kom['tip']?>')">
                                                 <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>" id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
                                             </a>
 
                                         </div>
                                         <div class="pull-right dropdown" >
-                                            <a class="toggle-button" href="javascript:void(0);"
+                                            <a class="toggle-button"
                                                onclick="setLike('<?php echo $kom['idKom']?>', '<?php echo $myID?>','<?php echo $kom['tip']?>')">
                                                 <i class="fa fa-plus <?php echo ($kom['tip']=='p')? 'active' : 'unactive'?>" id="podrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
                                             </a>
                                         </div>
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['tekst']?></div>
@@ -158,7 +154,7 @@
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
                                     </div>
                                     <div class="view-all-comments">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a  data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                         <span><?php if($kom['brPodkomentara'] ==1)
@@ -180,40 +176,4 @@
 
 </div>
 
-
-<script>
-
-    function setLike(id,myID,stariTip)
-    {
-        if(stariTip=='p') {
-            document.getElementById('podrzavanje' + id).className = "fa fa-plus unactive";
-
-            return;
-        }else if(stariTip=='n') {
-            document.getElementById('podrzavanje' + id).className = "fa fa-plus active";
-            document.getElementById('nepodrzavanje' + id).className = "fa fa-minus unactive";
-            return;
-        }
-        else
-            document.getElementById('podrzavanje' + id).className = "fa fa-plus active";
-        var rez=$.ajax({
-            type: 'POST',
-            async: false,
-            url: '<?php echo site_url()?>/user_obrada/obradi_odrzavanje/p',
-            data: {idKom: id},
-            success: function (returnData) {
-                return returnData.responseText;
-            }
-        });
-    }
-    function setUnlike(id,myID,stariTip)
-    {
-        for(var i=1;i<=5;i++){
-            if(i<=id)
-                document.getElementById('star'+i).className="star filled";
-            else
-                document.getElementById('star'+i).className="star";
-        }
-    }
-</script>
 

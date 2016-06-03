@@ -22,6 +22,7 @@ class User_model extends CI_Model {
         $query = $this->db->get_where('clan', array('idClan' => $id));
         return $query->row_array();
     }
+
     public function get_kurs($id = FALSE)
     {
         if ($id === FALSE)
@@ -254,7 +255,8 @@ class User_model extends CI_Model {
         return $query->result_array();
     }*/
     
-    
+
+
 
 
 
@@ -262,5 +264,26 @@ class User_model extends CI_Model {
     {
         $query = $this->db->get_where('clan', array('username' => $id));
         return $query->row_array()['idClan'];
+    }
+    public function proveri_banovanje($idClan)
+    {
+
+        $query=$this->db->query("SELECT k.*, u.datumBanovanja, u.razlog FROM clan k LEFT OUTER JOIN banovanje u on u.idClan=k.idClan WHERE k.idClan=? ",
+            array( $idClan));
+        date_default_timezone_set("Europe/Belgrade");
+        $sad=date("Y-m-d h:i:s");
+        $red=$query->row_array();
+        $poc=$red['datumBanovanja'];
+        if(!$poc)
+            return NAN;
+
+        $tekT=strtotime('+1 day', strtotime($poc));
+        //return date("Y-m-d h:i:s",$tekT);
+        if($tekT<strtotime($sad))
+        {
+            $this->db->query("DELETE FROM banovanje WHERE idClan=? ", array($idClan));
+            return NAN;
+        }
+        return $red['razlog'];
     }
 }

@@ -38,20 +38,17 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <a href="javascript:void(0);"
-                           onclick="getSummary('<?php echo site_url('user/get_mojprofil_profil')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a onclick="getSummary('<?php echo site_url('user/get_mojprofil_profil')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Poruke
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);"
-                           onclick="getSummary('<?php echo site_url('user/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a onclick="getSummary('<?php echo site_url('user/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Izmeni profil
                         </a>
                     </li>
@@ -67,6 +64,22 @@
 <script >
     function search_user()
     {
+        var bool = "<?php echo isset($_SESSION['username']) ?>";
+        if(bool=="1") {
+            var rez = $.ajax({
+                type: 'POST',
+                async: false,
+                url: '<?php echo site_url()?>/user/proveri_banovanje',
+                data: {},
+                success: function (returnData) {
+                }
+            }).responseText;
+            if (rez != "NAN") {
+                $('#greska_textB').html(rez);
+                $('#Banovanje').modal('show');
+                return;
+            }
+        }
         var selectText = document.getElementById("selectText").value;
         var sel = document.getElementById("selectIndex").value;
         document['title']=sel;
@@ -101,5 +114,37 @@
 
 </script>
 
+<div class="modal fade <?php if ($clan['tip']=='c') if(strcmp($banovanje,"NAN")) echo "in"?>"
+     id="BanovanjeLogin" role="dialog"  style="position: fixed;left: 50%; transform: translate(-50%, 35%);">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Banovani ste. Razlog:</h4>
+            </div>
+            <div class="modal-body"><h5 id="greska_textB"><?php echo $banovanje?> </h5></div>
+            <div class="modal-footer">
+                <a  class="btn btn-white" href="<?php echo site_url()?>/guest/registracija">Uredu</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Banovanje" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Banovani ste. Razlog:</h4>
+            </div>
+            <div class="modal-body"><h5 id="greska_textB"> </h5></div>
+            <div class="modal-footer">
+                <a  class="btn btn-white" href="<?php echo site_url()?>/guest/registracija">Uredu</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="nesto">

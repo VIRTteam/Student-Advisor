@@ -34,7 +34,7 @@ class User extends CI_Controller
         $data['clan'] = $this->User_model->get_clan($this->myID);
         $data['polozio'] = $this->User_model->get_Polozio_clan($this->myID);
         $data['komentar'] = $this->User_model->get_Komentar_clan($this->myID, $this->myID);
-
+        $data['banovanje']= $this->User_model->proveri_banovanje($this->myID);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
 
         $this->load->view('templates/header', $data);
@@ -57,12 +57,24 @@ class User extends CI_Controller
     }
     public function get_clan_profil($id=FALSE)
     {
-        $data['clan'] = $this->User_model->get_clan($id);
-        $data['polozio'] = $this->User_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
-        $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
-        $data['myID'] = $this->myID;
-        $this->load->view("user/clan_profil", $data);
+        if($id==$this->myID)
+        {
+            $data['clan'] = $this->User_model->get_clan($id);
+            $data['polozio'] = $this->User_model->get_Polozio_clan($id);
+            $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
+
+            $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
+
+            $this->load->view("user/mojprofil_profil", $data);
+        }
+        else {
+            $data['clan'] = $this->User_model->get_clan($id);
+            $data['polozio'] = $this->User_model->get_Polozio_clan($id);
+            $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
+            $data['naslov'] = $data['clan']['ime'] . ' ' . $data['clan']['prezime'];
+            $data['myID'] = $this->myID;
+            $this->load->view("user/clan_profil", $data);
+        }
     }
 
 
@@ -194,13 +206,13 @@ class User extends CI_Controller
     }
 
      */
-    public function obradi_podrzavanje()
-    {
-        $pom['idClan']=$this->myID;
-        $pom['idKom']=$_POST["idKom"];
-        $pom['tip']=$_POST["tip"];
-        $data=$this->User_model->obradi_podrzavanje($pom);
-        echo reset($data['like']).' '.reset($data['unlike']);
+    public function proveri_banovanje(){
+        $data= $this->User_model->proveri_banovanje($this->myID);
+        /*if( $data['razlog'])
+            echo 'da';
+        else
+            echo 'ne';*/
+        echo $data;
     }
 }
 ?>

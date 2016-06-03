@@ -21,8 +21,7 @@
                     <?php foreach ($predavac as $pr):?>
                         <li class="media" >
                             <div class="media-left">
-                                <a href="javascript:void(0);"
-                                   onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $pr['idPred']?>', '<?php echo $pr['ime']?> <?php echo $pr['prezime']?>')">
+                                <a onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $pr['idPred']?>', '<?php echo $pr['ime']?> <?php echo $pr['prezime']?>')">
                                     <?php
                                     $img =base_url().'img/predavac_default.jpg';
                                     if ($pr['slika']=='d') {
@@ -33,7 +32,7 @@
                             </div>
 
                             <div class="media-body">
-                                <a class="comment-author pull-left" href="javascript:void(0);"
+                                <a class="comment-author pull-left" 
                                    onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $pr['idPred']?>', '<?php echo $pr['ime']?> <?php echo $pr['prezime']?>')">
                                     <?php echo $pr['ime']?> <?php echo $pr['prezime']?>
                                 </a>

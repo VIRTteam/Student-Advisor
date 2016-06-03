@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="timeline row" data-toggle="isotope" style="position: relative; height: 2774.86px;">
+        <div class="timeline row" data-toggle="isotope">
 
             <div class="col-xs-12 col-md-4 item" >
                 <div class="timeline-block">

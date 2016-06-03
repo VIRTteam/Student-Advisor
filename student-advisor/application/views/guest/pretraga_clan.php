@@ -23,8 +23,7 @@
                     <?php foreach ($clan as $cl):?>
                     <li class="media" >
                         <div class="media-left">
-                            <a href="javascript:void(0);"
-                               onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
+                            <a onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
                                 <?php
                                 $img =base_url().'img/clan_default.png';
                                 if ($cl['slika']=='d') {
@@ -35,7 +34,7 @@
                         </div>
 
                         <div class="media-body">
-                            <a class="comment-author pull-left" href="javascript:void(0);"
+                            <a class="comment-author pull-left" 
                                onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
                                 <?php echo $cl['ime']?> <?php echo $cl['prezime']?>
                             </a>

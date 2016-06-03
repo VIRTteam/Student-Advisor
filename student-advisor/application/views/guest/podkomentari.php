@@ -6,16 +6,14 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Komentar predmeta
-                            <a href="javascript:void(0);"
-                                onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarKurs['idKurs']?>', '<?php echo $komentarClan['ime']?>')" >
+                            <a  onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarKurs['idKurs']?>', '<?php echo $komentarClan['ime']?>')" >
                                 <font color="black"><?php echo $komentarKurs['ime']?></font>
                             </a>
                         :</h4>
                         <ul class="comments">
                             <li class="media">
                                 <div class="media-left">
-                                    <a href="javascript:void(0);"
-                                       onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
+                                    <a onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        data-toggle="tooltip" title="" >
                                         <?php
                                         $img =base_url().'img/clan_default.png';
@@ -27,17 +25,16 @@
                                 </div>
                                 <div class="media-body">
                                     <div class="pull-right dropdown" >
-                                        <a href=""  class="toggle-button disabled" data-tooltip="tooltip" title="Podržavam!">
+                                        <a   class="toggle-button disabled" data-tooltip="tooltip" title="Podržavam!">
                                             <i class="fa fa-minus"> <?php echo $komentarClan['brNepodrzavanja']?></i>
                                         </a>
                                     </div>
                                     <div class="pull-right dropdown" >
-                                        <a href=""  class="toggle-button disabled" data-tooltip="tool tip" title="Ne podržavam!">
+                                        <a class="toggle-button disabled" data-tooltip="tool tip" title="Ne podržavam!">
                                             <i class="fa fa-plus"> <?php echo $komentarClan['brPodrzavanja']?></i>
                                         </a>
                                     </div>
-                                    <a href="javascript:void(0);"
-                                       onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
+                                    <a  onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        class="comment-author pull-left">
                                         <?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>
                                     </a>
@@ -54,8 +51,7 @@
                             <?php foreach ($podkomentar as $podkom): ?>
                             <li class="media">
                                 <div class="media-left">
-                                    <a href="javascript:void(0);"
-                                        onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">
+                                    <a onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">
 
                                         <?php
                                         $img =base_url().'img/clan_default.png';
@@ -66,8 +62,7 @@
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <a href="javascript:void(0);"
-                                       onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')"
+                                    <a onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')"
                                        class="comment-author pull-left">
                                         <?php echo $podkom['ime']?> <?php echo $podkom['prezime']?></a>
                                     <br/>
