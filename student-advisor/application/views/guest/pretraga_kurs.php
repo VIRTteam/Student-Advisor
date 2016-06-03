@@ -23,7 +23,8 @@
                     <?php foreach ($kurs as $cl):?>
                         <li class="media" >
                             <div class="media-left">
-                                <a onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $cl['idkurs']?>', '<?php echo $cl['ime']?>')">
+                                <a href="javascript:void(0);"
+                                   onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $cl['idkurs']?>', '<?php echo $cl['ime']?>')">
                                     <?php
                                     $img =base_url().'img/kurs_default.jpg';
                                     if ($cl['slika']=='d') {
@@ -34,7 +35,7 @@
                             </div>
 
                             <div class="media-body">
-                                <a class="comment-author pull-left" 
+                                <a class="comment-author pull-left" href="javascript:void(0);"
                                    onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $cl['idkurs']?>', '<?php echo $cl['ime']?>')">
                                     <?php echo $cl['ime']?>
                                 </a>

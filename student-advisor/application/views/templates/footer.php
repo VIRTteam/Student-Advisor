@@ -8,30 +8,13 @@
 
     function getSummary(id, naslov)
     {
-
-        //var value = '@Request.RequestContext.HttpContext.Session["username"]';
-        var bool = "<?php echo isset($_SESSION['username']) ?>";
-        if(bool=="1") {
-            var rez = $.ajax({
-                type: 'POST',
-                async: false,
-                url: '<?php echo site_url()?>/user/proveri_banovanje',
-                data: {},
-                success: function (returnData) {
-                }
-            }).responseText;
-            if (rez != "NAN") {
-                $('#greska_textB').html(rez);
-                $('#Banovanje').modal('show');
-                return;
-            }
-        }
-        document['title'] = naslov;
+        document['title']=naslov;
+       
         $.ajax({
             type: 'GET',
             url: id,
-            success: function (returnData) {
-                $('#nesto').html(returnData);
+            success: function(returnData ) {
+                $('#nesto').html( returnData );
             }
         });
     }
@@ -46,10 +29,11 @@
         $.ajax({
             type: 'GET',
             url: id,
-            success: function (returnData) {
-                $('#podkomentari').html(returnData);
+            success: function(returnData ) {
+                $('#podkomentari').html( returnData );
             }
         });
+
     }
 </script>
 

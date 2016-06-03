@@ -122,14 +122,8 @@
                                     </div>
                                     <div class="media-body">
                                         <a class="comment-author pull-left" href="javascript:void(0);"
-<<<<<<< Updated upstream
-                                           onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
-
-                                            <?php echo $po['ime']?> <?php echo $po['prezime']?> <?php echo $po['idClan']?>
-=======
                                            onclick="getSummary('<?php if ($ulogovaniClan['idClan']!=$po['idClan'])echo site_url('user/get_clan_profil'); else echo site_url('user/get_mojprofil_profil_start');?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
                                         <?php echo $po['ime']?> <?php echo $po['prezime']?> <?php echo $po['idClan']?>
->>>>>>> Stashed changes
                                         </a>
                                         <br/>
                                         <div class="comment-date">Ocena: <?php echo $po['ocena'] ?></div>

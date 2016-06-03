@@ -25,8 +25,6 @@
 </div>
 
 
-<<<<<<< Updated upstream
-=======
 <div class="modal fade" id="myModal3" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -44,7 +42,6 @@
     </div>
 </div>
 
->>>>>>> Stashed changes
 
 <script >
     function isDate(s)
@@ -110,7 +107,6 @@
         if(vr=='postoji') {
             $('#greska_text').html("greska_text=Korisnik sa datim korisnickim imenom vec postoji, unesite nesto drugo!");
             $('#Greska').modal('show');
-            
             return;
         }
         $.ajax({

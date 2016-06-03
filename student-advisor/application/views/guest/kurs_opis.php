@@ -21,12 +21,14 @@
                 </div>
                 <ul class="cover-nav">
                     <li >
-                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a href="javascript:void(0);"
+                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a  href="javascript:void(0);"
+                            class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
@@ -68,7 +70,7 @@
                             <img src="./img/woman-2.jpg" alt="people" class="img-circle">
                             <img src="./img/guy-3(1).jpg" alt="people" class="img-circle">
                             <img src="./img/woman-3(1).jpg" alt="people" class="img-circle">
-                            <a class="user-count-circle">12+</a>
+                            <a href="" class="user-count-circle">12+</a>
                         </div>
                     </div>
 

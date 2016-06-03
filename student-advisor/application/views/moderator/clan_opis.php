@@ -20,17 +20,19 @@
                 </div>
                 <ul class="cover-nav">
                     <li >
-                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a href="javascript:void(0);"
+                           class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_opis')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a href="javascript:void(0);"
+                           class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_opis')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                     <li>
-                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a href="javascript:void(0);" class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj<!-- TREBA DA SE POSALJE ID CLANA CIJI JE PROFIL I ID moderatorA -->
                         </a>
                     </li>
@@ -42,11 +44,13 @@
         <div class="tabbable">
             <ul class="nav nav-tabs" tabindex="0" style="overflow: hidden; outline: none;">
                 <li class="active">
-                    <a onclick="getSummary('<?php echo site_url('moderator/get_clan_opis')?>/<?php echo $clan['idClan']?>')" data-toggle="tab">
+                    <a href="javascript:void(0);"
+                       onclick="getSummary('<?php echo site_url('moderator/get_clan_opis')?>/<?php echo $clan['idClan']?>')" data-toggle="tab">
                         <i class="fa fa-fw fa-folder"></i> O korisniku</a>
                 </li>
                 <li class="">
-                    <a onclick="getSummary('<?php echo site_url('moderator/get_clan_slika')?>/<?php echo $clan['idClan']?>')" data-toggle="tab">
+                    <a href="javascript:void(0);"
+                       onclick="getSummary('<?php echo site_url('moderator/get_clan_slika')?>/<?php echo $clan['idClan']?>')" data-toggle="tab">
                         <i class="fa fa-fw fa-picture-o"></i> Slika</a>
                 </li>
             </ul>

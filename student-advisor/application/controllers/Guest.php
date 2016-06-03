@@ -21,33 +21,6 @@ class Guest extends CI_Controller
             $this->load->view('templates/navbar_guest');
             $this->load->view("guest/registracija", $data);
             $this->load->view('templates/footer');
-<<<<<<< Updated upstream
-
-        }
-        else
-        {
-            $this->load->model('User_model');
-            $id=$this->User_model->get_clan_username($_SESSION["username"]);
-            $data['clan'] = $this->Guest_model->get_clan($id);
-            $data['polozio'] = $this->User_model->get_Polozio_clan($id);
-            $data['komentar'] = $this->User_model->get_Komentar_clan($id, $id);
-            $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
-            $data['banovanje']= $this->User_model->proveri_banovanje($data['clan']['idClan']);
-            if($data['clan']['tip']=='c') {
-                $this->load->view('templates/header', $data);
-                $this->load->view('templates/navbar_user', $data);
-                $this->load->view("user/mojprofil_profil", $data);
-                $this->load->view('templates/footer');
-            }
-            else
-            {
-                $this->load->view('templates/header', $data);
-                $this->load->view('templates/navbar_moderator', $data);
-                $this->load->view("moderator/mojprofil_profil", $data);
-                $this->load->view('templates/footer');
-            }
-        }
-=======
 
         }
         else
@@ -66,7 +39,6 @@ class Guest extends CI_Controller
             $this->load->view('templates/footer');
 
         }
->>>>>>> Stashed changes
     }
 
     public function get_clan_opis($id=FALSE, $sta="oKorisniku")
@@ -138,7 +110,12 @@ class Guest extends CI_Controller
     }
 
 
+
+
+
+
     public function provera_username(){
+       // echo $_POST['username'];
         $vr=$this->Guest_model->provera_username($_POST['username']);
         if(sizeof($vr)>0)
             echo 'postoji';
@@ -170,10 +147,7 @@ class Guest extends CI_Controller
         $this->load->view("guest/login", $data);
     }
     public function provera_username_password(){
-<<<<<<< Updated upstream
-=======
         // echo $_POST['username'];
->>>>>>> Stashed changes
         $vr=$this->Guest_model->provera_username_password($_POST['username'], $_POST['password']);
         if(sizeof($vr)>0)
             echo 'postoji';
@@ -184,24 +158,6 @@ class Guest extends CI_Controller
     {
         $data['naslov']='Logovanje';
         $vr=$this->Guest_model->provera_username_password($_POST['username'], $_POST['password']);
-<<<<<<< Updated upstream
-        if(sizeof($vr)>0) {
-            if (session_status() == PHP_SESSION_NONE)
-                session_start();
-
-            $_SESSION['username'] = $_POST['username'];
-            $_SESSION['pass'] = $_POST['password'];
-            session_commit();
-
-            $la = $this->Guest_model->get_clan_from_username($_SESSION['username']);
-            $la2 = $this->Guest_model->get_clan_logovanje($la['idClan']);
-            echo $la2;
-        }
-    }
-
-    public function registracija(){
-        if (session_status() == PHP_SESSION_NONE)
-=======
         if(sizeof($vr)>0)
         {
             if (session_status() == PHP_SESSION_NONE) {
@@ -216,7 +172,6 @@ class Guest extends CI_Controller
 
     public function registracija(){
         if (session_status() != PHP_SESSION_NONE)
->>>>>>> Stashed changes
             session_start();
         session_unset();
         session_commit();

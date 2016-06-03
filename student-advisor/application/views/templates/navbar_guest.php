@@ -118,22 +118,6 @@
 
             }
         }).responseText;
-<<<<<<< Updated upstream
-        if(tip!="")
-        {
-            if(tip[0]=='U')
-                $('#UDnaslov').html("Unapredjivanje");
-            else
-                $('#UDnaslov').html("Derangiranje");
-            $('#UDtekst').html(tip);
-            $('#UnapredjivanjeDerangiranjeLogin').modal('show');
-            return;
-        }
-
-        window.location ='<?php echo site_url()?>';
-    }
-</script>
-=======
         
         if(tip=='c')
             var href = '<?php echo site_url()?>/user/get_mojprofil_profil_start';
@@ -158,37 +142,6 @@
         </div>
     </div>
 </div>
->>>>>>> Stashed changes
 
-<div class="modal fade" id="Greska" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"></button>
-                <h4 class="modal-title">Greska!</h4>
-            </div>
-            <div class="modal-body"><h5 id="greska_text"></h5></div>
-            <div class="modal-footer">
-                <a  class="btn btn-white" onclick="$('#Greska').modal('hide');">Uredu</a>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="UnapredjivanjeDerangiranjeLogin" role="dialog"  style="position: fixed;left: 50%; transform: translate(-50%, 35%);">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"></button>
-                <h4 class="modal-title" id="UDnaslov"></h4>
-            </div>
-            <div class="modal-body"><h5 id="UDtekst"> </h5></div>
-            <div class="modal-footer">
-                <a  class="btn btn-white" href="<?php echo site_url()?>">Uredu</a>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="nesto">

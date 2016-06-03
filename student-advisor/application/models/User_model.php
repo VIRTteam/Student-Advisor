@@ -22,7 +22,6 @@ class User_model extends CI_Model {
         $query = $this->db->get_where('clan', array('idClan' => $id));
         return $query->row_array();
     }
-
     public function get_kurs($id = FALSE)
     {
         if ($id === FALSE)
@@ -285,13 +284,6 @@ class User_model extends CI_Model {
         $query = $this->db->query('select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs AND p.idClan=?',array($id));
         return $query->result_array();
     }*/
-<<<<<<< Updated upstream
-    
-
-
-
-
-=======
 
 
 
@@ -300,35 +292,12 @@ class User_model extends CI_Model {
         $query = $this->db->get_where('clan', array('username' => $id));
         return $query->row_array();
     }
->>>>>>> Stashed changes
 
     public function get_clan_username($id)
     {
         $query = $this->db->get_where('clan', array('username' => $id));
         return $query->row_array()['idClan'];
     }
-<<<<<<< Updated upstream
-    public function proveri_banovanje($idClan)
-    {
-
-        $query=$this->db->query("SELECT k.*, u.datumBanovanja, u.razlog FROM clan k LEFT OUTER JOIN banovanje u on u.idClan=k.idClan WHERE k.idClan=? ",
-            array( $idClan));
-        date_default_timezone_set("Europe/Belgrade");
-        $sad=date("Y-m-d h:i:s");
-        $red=$query->row_array();
-        $poc=$red['datumBanovanja'];
-        if(!$poc)
-            return NAN;
-
-        $tekT=strtotime('+1 day', strtotime($poc));
-        //return date("Y-m-d h:i:s",$tekT);
-        if($tekT<strtotime($sad))
-        {
-            $this->db->query("DELETE FROM banovanje WHERE idClan=? ", array($idClan));
-            return NAN;
-        }
-        return $red['razlog'];
-=======
     public function put_comment($idClan , $idKurs , $comment, $anonim="false")
     {
         if ($anonim=='false')
@@ -353,6 +322,5 @@ class User_model extends CI_Model {
     public function del_kurs_polozen($idKurs, $idClan)
     {
         $query = $this->db->query("DELETE FROM polozio WHERE idClan='$idClan' AND idKurs='$idKurs'");
->>>>>>> Stashed changes
     }
 }

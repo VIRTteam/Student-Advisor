@@ -18,12 +18,14 @@
                 <div class="name"><h2><font color="#105DC1"><?php echo $naslov?></font></h2></div>
                 <ul class="cover-nav">
                     <li class="active">
-                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a href="javascript:void(0);"
+                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li>
-                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a  href="javascript:void(0);"
+                            class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
@@ -55,7 +57,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a >Predaje na kursevima</a>
+                                    <a href="">Predaje na kursevima</a>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +76,8 @@
                             <?php foreach ($predaje as $predmet): ?>
                                 <li class="media">
                                     <div class="media-left">
-                                        <a onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        <a  href="javascript:void(0);"
+                                            onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                         >
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
@@ -85,7 +88,8 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <a  onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        <a href="javascript:void(0);"
+                                           onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                            class="comment-author pull-left">
                                             <?php echo $predmet['ime'] ?></a>
 
@@ -104,7 +108,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a >Komentari sa kurseva na kojima predaje</a>
+                                    <a href="">Komentari sa kurseva na kojima predaje</a>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +124,8 @@
                             <?php foreach ($komentar as $kom): ?>
                                 <li class="media">
                                     <div class="media-left">
-                                        <a onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
+                                        <a href="javascript:void(0);"
+                                           onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
                                         >
                                             <?php
                                             $img =base_url().'img/clan_default.png';
@@ -137,11 +142,14 @@
                                             </a>
                                         </div>
                                         <div class="pull-right dropdown" >
-                                            <a class="toggle-button disabled">
+                                            <a href="javascript:void(0);"
+                                               onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+                                               class="toggle-button disabled">
                                                 <i class="fa fa-plus"> <?php echo $kom['brPodrzavanja']?></i></span>
                                             </a>
                                         </div>
-                                        <a onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+                                        <a href="javascript:void(0);"
+                                           onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['tekst']?></div>
@@ -149,7 +157,7 @@
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
                                     </div>
                                     <div class="view-all-comments">
-                                        <a  data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                         <span><?php if($kom['brPodkomentara'] ==1)

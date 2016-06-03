@@ -26,11 +26,7 @@ class Moderator extends CI_Controller
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
 
         $this->load->view('templates/header', $data);
-<<<<<<< Updated upstream
-        $this->load->view('templates/navbar_user',$data);
-=======
         $this->load->view('templates/navbar_moderator',$data);
->>>>>>> Stashed changes
         $this->load->view("moderator/mojprofil_profil", $data);
         $this->load->view('templates/footer');
     }
@@ -62,7 +58,7 @@ class Moderator extends CI_Controller
     {
         $data['clan'] = $this->Moderator_model->get_clan($id);
         $data['polozio'] = $this->Moderator_model->get_Polozio_clan($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id, $this->myID);
+        $data['komentar'] = $this->Moderator_model->get_Komentar_clan($id);
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("moderator/clan_profil", $data);
     }

@@ -149,9 +149,6 @@
                 document.getElementById('star'+i).className="star";
         }
     }
-<<<<<<< Updated upstream
-</script>
-=======
 </script>
 
 
@@ -181,4 +178,3 @@
 
     }
 </script>
->>>>>>> Stashed changes

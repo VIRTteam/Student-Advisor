@@ -19,12 +19,14 @@
                 <div class="name"><h2><font color="#105DC1"><?php echo $kurs['ime']?></font></h2></div>
                 <ul class="cover-nav">
                     <li class="active">
-                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a href="javascript:void(0);"
+                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li>
-                        <a  class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a  href="javascript:void(0);"
+                            class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
@@ -65,11 +67,7 @@
                                 $img =base_url().'img/clan_default.png';
                                 if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
                                 ?>
-<<<<<<< Updated upstream
-                                <a class="avatar"  data-toggle="modal"
-=======
                                 <a class="avatar" href="javascript:void(0);" data-toggle="modal"
->>>>>>> Stashed changes
                                    onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKurs']?>')">
                                     <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                 </a>
@@ -78,11 +76,7 @@
                                 <?php $t=$t+1; if ($t>=6) { break;}?>
                             <?php endforeach ?>
                             <?php if (sizeof($polozio)>5): ?>
-<<<<<<< Updated upstream
-                                <a  class="user-count-circle"><?php echo sizeof($polozio)-5 ?></a>
-=======
                                 <a href="" class="user-count-circle"><?php echo sizeof($polozio)-5 ?></a>
->>>>>>> Stashed changes
                             <?php endif;?>
 
                         </div>
@@ -113,7 +107,8 @@
                             <?php foreach ($polozio as $po): ?>
                                 <li class="media">
                                     <div class="media-left">
-                                        <a onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
+                                        <a href="javascript:void(0);"
+                                           onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
                                             <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($po['slika']=='d') {
@@ -123,7 +118,7 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <a class="comment-author pull-left"
+                                        <a class="comment-author pull-left" href="javascript:void(0);"
                                            onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
 
                                             <?php echo $po['ime']?> <?php echo $po['prezime']?>
@@ -173,7 +168,7 @@
                                     </div>
                                     <div class="media-body">
                                         <div class="pull-right dropdown" >
-                                            <a  class="toggle-button">
+                                            <a href="" class="toggle-button">
                                                 <i class="fa fa-minus disabled"> <?php echo $kom['brNepodrzavanja']?></i>
                                             </a>
                                         </div>
@@ -182,7 +177,8 @@
                                                 <i class="fa fa-plus "> <?php echo $kom['brPodrzavanja']?></i>
                                             </a>
                                         </div>
-                                        <a onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')"
+                                        <a href="javascript:void(0);"
+                                           onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')"
                                            class="comment-author pull-left" >
                                             <?php echo $kom['ime']?> <?php echo $kom['prezime']?>
                                         </a>
@@ -193,7 +189,7 @@
 
                                     </div>
                                     <div class="view-all-comments">
-                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                   <span> <?php if($kom['brPodkomentara'] ==1)
