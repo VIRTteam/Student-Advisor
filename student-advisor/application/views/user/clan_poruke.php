@@ -8,16 +8,15 @@
             </div>
             <div class="cover-info">
                 <div class="avatar">
-                        <?php
-                        $img =base_url().'img/clan_default.png';
-                        if ($clan['slika']=='d') {
-                            $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
-                        }?>
+                    <?php
+                    $img =base_url().'img/clan_default.png';
+                    if ($cln['slika']=='d') { $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';}
+                    ?>
                         <img src="<?php echo $img?>">
                 </div>
                 <div class="name"><h2><font color="#105DC1"><?php echo $naslov?></font></h2></div>
                 <ul class="cover-nav">
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" 
                            class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
@@ -47,18 +46,24 @@
 
                                 <?php foreach ($poslednjePoruke as $poruka): ?>
 
-                                <li class="list-group-item <?php if($poruka['procitana'] =='d') echo 'active';else echo ''?>">
+                                <li class="list-group-item <?php if($poruka['procitana'] =='n' and $poruka['idPrimalac']==$clan['idClan']) echo 'active';else echo ''?>" href="" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $poruka['idClan']?>', '<?php echo "Poruke"?>')">
 
 
-                                    <div class="media">
+                                    <div class="media" >
                                         <div class="media-left">
-                                            <img src="./img/woman-5.jpg" width="50" height="50" alt="" class="media-object">
+                                                <?php
+                                                $img =base_url().'img/clan_default.png';
+                                                if ($poruka['slika']=='d') {
+                                                    $img =base_url().'/img/clan/clan'.$poruka['idClan'].'.jpg';
+                                                }?>
+                                                <img src="<?php echo $img?>" width="50" height="50" alt="" class="media-object">
                                         </div>
-                                        <div class="media-body">
+                                        <div class="media-body" >
                                             <span class="date"><?php echo $poruka['datum']?></span>
                                             <?php echo $poruka['tekst']?>
                                         </div>
                                     </div>
+
                                 </li>
                                 <?php endforeach ?>
 
@@ -106,14 +111,37 @@
                     <div class="input-group">
                         <div class="input-group-btn">
                             <a class="btn btn-white" href="">
-                                <i class="fa fa-envelope"></i> Send
+                                <i class="fa fa-envelope"  onclick="loadNewMessages('<?php echo site_url('user/get_clan_poruke_posalji');?>/<?php echo $saKim['idClan'] ?>')"></i> Send
                             </a>
                         </div>
                         <!-- /btn-group -->
-                        <input type="text" class="form-control share-text" placeholder="Write message...">
+                        <input type="text" id="tekst" class="form-control share-text" placeholder="Write message...">
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+<script>
+
+function loadNewMessages(id)
+{
+    var tekst=document.getElementById("tekst").value;
+
+        $.ajax({
+            type: 'POST',
+            url: id,
+            async: false,
+            data: {
+                tekst :tekst
+},
+            success: function (returnData) {
+                document.open();
+                document.write( returnData);
+                document.close();
+            }
+});
+
+}
+</script>

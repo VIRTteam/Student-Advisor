@@ -45,19 +45,20 @@
                                 <div class="pull-right dropdown" >
                                     <a
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Kontaktiraj">
-                                        <i class="fa fa-comment fa-lg" aria-hidden="true"></i>
+                                        <i class="fa fa-comment fa-lg" aria-hidden="false"></i>
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown" >
                                     <a
-                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Obrisi predavaca">
-                                        <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Obrisi predavaca"
+                                        onclick="getSummary('<?php echo site_url('user/del_predavac')?>/<?php echo $pr['idPred']?>', '<?php echo $mi['ime']?> <?php echo $mi['prezime']?>')">
+                                        <i class="fa fa-trash fa-lg" aria-hidden="false"></i>
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown" >
                                     <a
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Izmeni predavaca">
-                                        <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                        <i class="fa fa-pencil fa-lg" aria-hidden="false"></i>
                                     </a>
                                 </div>
                             </div>

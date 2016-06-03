@@ -45,6 +45,7 @@
             url: '<?php echo site_url()?>/guest/logovanje_obrada',
             data:{username:username, password:password},
             success: function (returnData) {
+<<<<<<< Updated upstream
 
             }
         }).responseText;
@@ -60,5 +61,15 @@
         }
 
         window.location ='<?php echo site_url()?>';
+=======
+                
+            }
+        }).responseText;
+        if(tip=='c')
+            var href = '<?php echo site_url()?>/user/get_mojprofil_profil_start';
+        else
+            var href = '<?php echo site_url()?>/moderator/get_mojprofil_profil_start';
+        window.location = href;
+>>>>>>> Stashed changes
     }
 </script>

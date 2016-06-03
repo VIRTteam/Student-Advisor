@@ -118,6 +118,7 @@
 
             }
         }).responseText;
+<<<<<<< Updated upstream
         if(tip!="")
         {
             if(tip[0]=='U')
@@ -132,6 +133,32 @@
         window.location ='<?php echo site_url()?>';
     }
 </script>
+=======
+        
+        if(tip=='c')
+            var href = '<?php echo site_url()?>/user/get_mojprofil_profil_start';
+        else
+            var href = '<?php echo site_url()?>/moderator/get_mojprofil_profil_start';
+        window.location = href;
+    }
+</script>
+
+<div class="modal fade" id="Greska" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Greska!</h4>
+            </div>
+            <div class="modal-body"><h5 id="greska_text"></h5></div>
+            <div class="modal-footer">
+                <a  class="btn btn-white" onclick="$('#Greska').modal('hide');">Uredu</a>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> Stashed changes
 
 <div class="modal fade" id="Greska" role="dialog">
     <div class="modal-dialog">

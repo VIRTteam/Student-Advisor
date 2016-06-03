@@ -172,6 +172,7 @@ class Guest_model extends CI_Model {
     public function registracija($date){
         $this->db->insert('clan', $date);
     }
+<<<<<<< Updated upstream
 
 
 
@@ -213,4 +214,6 @@ class Guest_model extends CI_Model {
         }
         return "";
     }
+=======
+>>>>>>> Stashed changes
 }

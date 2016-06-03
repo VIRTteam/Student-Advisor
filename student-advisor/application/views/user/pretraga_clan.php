@@ -21,6 +21,7 @@
                 </div>
                 <ul class="comments"  >
                     <?php foreach ($clan as $cl):?>
+<<<<<<< Updated upstream
                         <li class="media" >
                             <div class="media-left">
                                 <a href="javascript:void(0);"
@@ -38,6 +39,34 @@
                                 <a class="comment-author pull-left" href="javascript:void(0);"
                                    onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
                                     <?php echo $cl['ime']?> <?php echo $cl['prezime']?>
+=======
+                    <li class="media" >
+                        <div class="media-left">
+                            <a href="javascript:void(0);"
+                               onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
+                                <?php
+                                $img =base_url().'img/clan_default.png';
+                                if ($cl['slika']=='d') {
+                                    $img =base_url().'/img/clan/clan'.$cl['idClan'].'.jpg';
+                                }?>
+                                <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
+                            </a>
+                        </div>
+                        
+                        <div class="media-body">
+                            <a class="comment-author pull-left" href="javascript:void(0);"
+                               onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
+                                <?php echo $cl['ime']?> <?php echo $cl['prezime']?>
+                            </a>
+              
+
+
+                            <div class="pull-right dropdown" >
+                                <a href="javascript:void(0);"
+                                      onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')"
+                                    class="toggle-button" data-tooltip="tooltip" title="Posalji poruku">
+                                    <i class="fa fa-comment fa-lg" aria-hidden="true"></i>
+>>>>>>> Stashed changes
                                 </a>
                                 <div class="pull-right dropdown" >
                                     <a href="Clan_Clan_Poruke.html"  class="toggle-button" data-tooltip="tooltip" title="Pošalji poruku">
@@ -60,8 +89,14 @@
                                     </a>
                                 </div>
                             </div>
+<<<<<<< Updated upstream
 
                         </li>
+=======
+                        </div>
+                        
+                    </li>
+>>>>>>> Stashed changes
                     <?php endforeach;?>
                 </ul>
             </div>

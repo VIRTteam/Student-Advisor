@@ -30,8 +30,13 @@
                         </a>
                     </li>
                     <li>
+<<<<<<< Updated upstream
                         <a class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj<!-- TREBA DA SE POSALJE ID CLANA CIJI JE PROFIL I ID USERA -->
+=======
+                        <a href="javascript:void(0);" class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                            <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj
+>>>>>>> Stashed changes
                         </a>
                     </li>
                 </ul>

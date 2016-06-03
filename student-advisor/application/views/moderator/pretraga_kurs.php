@@ -46,19 +46,20 @@
                                 </a>
                                 <div class="pull-right dropdown" >
                                     <a href=""  class="toggle-button" data-tooltip="tooltip" title="Dodaj kurs u listu položenih kurseva">
-                                        <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                                        <i class="fa fa-plus fa-lg" aria-hidden="false"></i>
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown" >
                                     <a
-                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Obrisi kurs">
-                                        <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Obrisi kurs"
+                                        onclick="getSummary('<?php echo site_url('user/del_kurs')?>/<?php echo $cl['idkurs']?>', '<?php echo $mi['ime']?> <?php echo $mi['prezime']?>')">
+                                        <i class="fa fa-trash fa-lg" aria-hidden="false"></i>
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown" >
                                     <a
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Izmeni kurs">
-                                        <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                        <i class="fa fa-pencil fa-lg" aria-hidden="false"></i>
                                     </a>
                                 </div>
                             </div>

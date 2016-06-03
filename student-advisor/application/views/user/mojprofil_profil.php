@@ -84,7 +84,14 @@
                                            onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                            class="comment-author pull-left">
                                             <?php echo $predmet['ime'] ?></a>
+                                            <div class="pull-right dropdown" data-show-hover="li" >
+                                            <a  data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši" href=""
+                                                onclick="getSummary('<?php echo site_url('user/del_kurs_polozen')?>/<?php echo $predmet['idKurs']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+                                        </div>
                                         <br/>
+
                                         <div class="comment-date">Ocena: <?php echo $predmet['ocena'] ?></div>
                                     </div>
                                 </li>
@@ -135,13 +142,23 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
+<<<<<<< Updated upstream
                                         <div class="pull-right dropdown" >
                                             <a  onclick="brisanje_komentara('<?php echo $kom['idKom']?>')"
                                                 data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+=======
+                                        <div class="pull-right dropdown" data-show-hover="li" >
+                                            <a  data-toggle="dropdown" class="toggle-button">
+                                                <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
+                                            </a>
+                                            <a  data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši"
+                                            onclick="getSummary('<?php echo site_url('user/del_komentar')?>/<?php echo $kom['idKom']?>', '<?php echo $kom['ime']?>')">
+>>>>>>> Stashed changes
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
                                         <div class="pull-right dropdown" >
+<<<<<<< Updated upstream
                                             <a  onclick="izmeni_komentar('<?php echo $kom['idKom']?>')"
                                                 data-toggle="dropdown" class="toggle-button">
                                                 <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
@@ -164,6 +181,25 @@
 
 
                                         <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+=======
+                                            <a class="toggle-button"
+                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $kom['idKom']?>')">
+                                                <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>"
+                                                   id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brNepodrzavanja']?> </i>
+                                            </a>
+
+                                        </div>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setLike('<?php echo $kom['idKom']?>', '<?php echo $kom['idClan']?>')">
+                                                <i class="fa fa-plus <?php echo ($kom['tip']=='p')? 'active' : 'unactive'?>" id="podrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
+                                            </a>
+                                        </div>
+
+
+                                        <a
+                                           onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+>>>>>>> Stashed changes
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
                                         <div class="comment-date" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
@@ -190,7 +226,11 @@
     </div> <!--/container-->
 </div><!-- /st-content-inner -->
 
+<<<<<<< Updated upstream
 <?php  $this->load->view('templates/toggle'); ?>
+=======
+<?php  $this->load->view('templates/podrzavanje'); ?>
+>>>>>>> Stashed changes
 
 
 

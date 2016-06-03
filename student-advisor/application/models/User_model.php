@@ -104,28 +104,47 @@ class User_model extends CI_Model {
     {
         if ($id === FALSE) {
             return null;
-        }
-        $query = $this->db->query("SELECT  * FROM poruka where idPor IN 
-                      (
-                          SELECT idPor FROM poruka
-                           WHERE (idPosiljalac='$id') OR (idPrimalac='$id') 
-                           GROUP BY idPosiljalac,idPrimalac 
-                           ORDER BY MAX(idPor) DESC
-                       ) 
-                       ORDER BY idPor DESC"
+        }//INNER JOIN `student-advisor-mysql`.clan c on c.idClan=idPosiljalac OR c.idClan=idPrimalac
+        $query = $this->db->query("SELECT * FROM `student-advisor-mysql`.poruka 
+                                    INNER JOIN `student-advisor-mysql`.clan c on (c.idClan=idPosiljalac and c.idClan!='$id') OR (c.idClan=idPrimalac and c.idClan!='$id')
+                                    WHERE idPor IN 
+                                    (
+                                        SELECT MAX(p.idPor) FROM `student-advisor-mysql`.poruka p
+                                        WHERE ((p.idPosiljalac='$id') AND
+                                        NOT EXISTS (	SELECT k.idPor
+                                                        FROM `student-advisor-mysql`.poruka k
+                                                        WHERE k.idPrimalac=p.idPosiljalac AND k.idPosiljalac=p.idPrimalac
+                                                        AND k.idPor>p.idPor
+                                                    ))
+                                        
+                                        OR ((p.idPrimalac='$id') AND 
+                                                NOT EXISTS 
+                                                    ( SELECT k.idPor
+                                                        FROM `student-advisor-mysql`.poruka k
+                                                        WHERE k.idPosiljalac=p.idPrimalac AND k.idPrimalac=p.idPosiljalac
+                                                        AND k.idPor>p.idPor
+                                                    )
+                                            )
+                                        GROUP BY idPosiljalac,idPrimalac                        
+                                    )
+                                ORDER BY idPor DESC
+                                
+                       "
             );
 
         //$query = $this->db->query('select p.*, c.* FROM clan c inner join poruka p on p.idPrimalac = c.idClan AND p.idPosiljalac=?',array($id));
         return $query->result_array();
     }
 
-    public function get_Poruke($id = FALSE, $idSaKim = FALSE)//ne radi
+    public function get_Poruke($id = FALSE, $idSaKim = FALSE)
     {
         if ($id === FALSE || $idSaKim === FALSE)
         {
             $query = $this->db->get('poruka');
             return $query->result_array()[0];
         }
+        //potrebno setovati poruku da je procitana kada smo mi primalaci  ulazimo na neprocitanu poruku.
+        //Potrebno da neprocitane poruke se prikazuju kao neprocitane samo za onoga ko ih prima ne i onog ko ih salje.
         
         $query= $this->db->query("
                           SELECT p.* FROM poruka p
@@ -133,7 +152,19 @@ class User_model extends CI_Model {
                            OR 
                            ((p.idPosiljalac='$idSaKim') AND (p.idPrimalac='$id'))
                            GROUP BY idPosiljalac,idPrimalac 
-                           ORDER BY MAX(p.idPor) DESC");
+                           ORDER BY MAX(p.idPor) ASC");
+
+        $this->db->query("UPDATE `student-advisor-mysql`.poruka 
+                            SET procitana='d'
+                            WHERE idPor=
+                                    (
+                                        SELECT idPor FROM 
+                                        ( 
+                                            SELECT MAX(t.idPor) AS idPor
+                                            from `student-advisor-mysql`.poruka t
+                                            WHERE t.idPrimalac='$id' AND t.idPosiljalac='$idSaKim' AND t.procitana='n'
+                                        ) AS D
+		                            )");
         //$query = $this->db->query('poruka', array('idPrimalac' => $id && 'idPosiljalac' => $idSaKim || 'idPrimalac' => $idSaKim && 'idPosiljalac' => $id)).orderBy(idPor);
        // $query = $this->db->query("select p.*,c1.*,c2.* FROM poruka p, clan c1, c2 where c1.idClan=? AND c2.idClan=? AND  "
         return $query->result_array();
@@ -254,17 +285,29 @@ class User_model extends CI_Model {
         $query = $this->db->query('select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs AND p.idClan=?',array($id));
         return $query->result_array();
     }*/
+<<<<<<< Updated upstream
     
 
 
 
 
+=======
+
+
+
+    public function get_clan_from_username($id)
+    {
+        $query = $this->db->get_where('clan', array('username' => $id));
+        return $query->row_array();
+    }
+>>>>>>> Stashed changes
 
     public function get_clan_username($id)
     {
         $query = $this->db->get_where('clan', array('username' => $id));
         return $query->row_array()['idClan'];
     }
+<<<<<<< Updated upstream
     public function proveri_banovanje($idClan)
     {
 
@@ -285,5 +328,31 @@ class User_model extends CI_Model {
             return NAN;
         }
         return $red['razlog'];
+=======
+    public function put_comment($idClan , $idKurs , $comment, $anonim="false")
+    {
+        if ($anonim=='false')
+            $query = $this->db->query("INSERT INTO komentar(idClan,idKurs,tekst,anonimno) VALUES('$idClan','$idKurs','$comment',0)");
+        else
+            $query = $this->db->query("INSERT INTO komentar(idClan,idKurs,tekst,anonimno) VALUES('$idClan','$idKurs','$comment',1)");
+    }
+
+    public function put_message($id,$idSaKim,$tekst)
+    {
+        $query = $this->db->query("INSERT INTO poruka(idPosiljalac,idPrimalac,tekst) values('$id','$idSaKim','$tekst')");
+    }
+
+    public function put_polozen_kurs($idKurs, $id)
+    {
+        $query = $this->db->query("INSERT INTO polozio(idClan,idKurs) values('$id','$idKurs')");
+    }
+    public function del_komentar($idkom)
+    {
+        $query = $this->db->query("DELETE FROM komentar WHERE idKom='$idkom'");
+    }
+    public function del_kurs_polozen($idKurs, $idClan)
+    {
+        $query = $this->db->query("DELETE FROM polozio WHERE idClan='$idClan' AND idKurs='$idKurs'");
+>>>>>>> Stashed changes
     }
 }

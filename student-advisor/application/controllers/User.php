@@ -34,7 +34,11 @@ class User extends CI_Controller
         $data['clan'] = $this->User_model->get_clan($this->myID);
         $data['polozio'] = $this->User_model->get_Polozio_clan($this->myID);
         $data['komentar'] = $this->User_model->get_Komentar_clan($this->myID, $this->myID);
+<<<<<<< Updated upstream
         $data['banovanje']= $this->User_model->proveri_banovanje($this->myID);
+=======
+
+>>>>>>> Stashed changes
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
 
         $this->load->view('templates/header', $data);
@@ -57,6 +61,7 @@ class User extends CI_Controller
     }
     public function get_clan_profil($id=FALSE)
     {
+<<<<<<< Updated upstream
         if($id==$this->myID)
         {
             $data['clan'] = $this->User_model->get_clan($id);
@@ -75,6 +80,14 @@ class User extends CI_Controller
             $data['myID'] = $this->myID;
             $this->load->view("user/clan_profil", $data);
         }
+=======
+        $data['clan'] = $this->User_model->get_clan($id);
+        $data['polozio'] = $this->User_model->get_Polozio_clan($id);
+        $data['komentar'] = $this->User_model->get_Komentar_clan($id, $this->myID);
+        $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
+        $data['myID'] = $this->myID;
+        $this->load->view("user/clan_profil", $data);
+>>>>>>> Stashed changes
     }
 
 
@@ -106,12 +119,23 @@ class User extends CI_Controller
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("user/clan_slika", $data);
     }
-    public function get_clan_poruke($id=FALSE, $idSaKim=FALSE)
+    
+    public function get_clan_poruke_posalji($idSaKim)
     {
-        $data['clan'] = $this->User_model->get_clan($id);
+        $data['tekst']= $_POST['tekst'];
+        $this->User_model->put_message($this->myID,$idSaKim,$data['tekst']);
+
+
+        
+    }
+    public function get_clan_poruke($idSaKim=FALSE)
+    {
+
+        $data['clan'] = $this->User_model->get_clan_from_username($_SESSION['username'] );
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
-        $data['poslednjePoruke'] = $this->User_model->get_Poslednje_Poruke($id);
-        $data['poruke'] = $this->User_model->get_Poruke($id, $idSaKim);
+        $data['saKim']=$this->User_model->get_clan($idSaKim);
+        $data['poslednjePoruke'] = $this->User_model->get_Poslednje_Poruke($data['clan']['idClan']);
+        $data['poruke'] = $this->User_model->get_Poruke($data['clan']['idClan'], $idSaKim);
         
         $this->load->view('user/clan_poruke',$data);
     }
@@ -122,7 +146,7 @@ class User extends CI_Controller
         $data['polozio'] = $this->User_model->get_Polozio_kurs($id);
         $data['ocenio'] = $this->User_model->get_Ocenio_kurs($id);
         $data['komentar'] = $this->User_model->get_Komentar_kurs($id);
-  
+        $data['ulogovaniClan'] =$this->User_model->get_clan_from_username($_SESSION['username'] );
         
         $this->load->view("user/kurs_profil", $data);
     }
@@ -179,11 +203,13 @@ class User extends CI_Controller
     public function get_pretraga_clan($id=FALSE)
     {
         $data['clan'] = $this->User_model->get_pretraga_clan($id);
+        $data['mi'] = $this->User_model->get_clan($this->myID);
         $this->load->view("user/pretraga_clan", $data);
     }
     public function get_pretraga_kurs($id=FALSE)
     {
         $data['kurs'] = $this->User_model->get_pretraga_kurs($id);
+        $data['mi'] = $this->User_model->get_clan($this->myID);
         $this->load->view("user/pretraga_kurs", $data);
     }
     public function get_pretraga_predavac($id=FALSE)
@@ -206,6 +232,7 @@ class User extends CI_Controller
     }
 
      */
+<<<<<<< Updated upstream
     public function proveri_banovanje(){
         $data= $this->User_model->proveri_banovanje($this->myID);
         /*if( $data['razlog'])
@@ -214,5 +241,49 @@ class User extends CI_Controller
             echo 'ne';*/
         echo $data;
     }
+=======
+    public function obradi_podrzavanje()
+    {
+        $pom['idClan']=$this->myID;
+        $pom['idKom']=$_POST["idKom"];
+        $pom['tip']=$_POST["tip"];
+        $data=$this->User_model->obradi_podrzavanje($pom);
+        echo reset($data['like']).' '.reset($data['unlike']);
+    }
+
+    public function put_komentar($idKurs)
+    {
+        $comment=$_POST['comment'];
+        $anonim= $_POST['anonim'];
+
+        $this->User_model->put_comment($this->myID , $idKurs , $comment, $anonim);
+    }
+    public function del_komentar($idkom)
+    {
+        $this->User_model->del_komentar($idkom);
+        $this->get_mojprofil_profil_start();
+    }
+
+    public function put_kurs_polozen($idKurs)
+    {
+        $this->User_model->put_polozen_kurs($idKurs,$this->myID);
+        $this->get_mojprofil_profil_start();
+    }
+
+    public function del_kurs_polozen($idKurs)
+    {
+        $this->User_model->del_kurs_polozen($idKurs, $this->myID);
+        $this->get_mojprofil_profil_start();
+    }
+
+    public function get_modal_10($idKurs)
+    {
+        $data['predmet']=$this->User_model->get_kurs($idKurs);
+        $this->load->view("templates/unos_ocene");
+    }
+
+
+
+>>>>>>> Stashed changes
 }
 ?>

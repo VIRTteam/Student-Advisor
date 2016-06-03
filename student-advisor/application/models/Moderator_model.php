@@ -241,6 +241,17 @@ class Moderator_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function del_predavac($idPred)
+    {
+        $query = $this->db->query("DELETE FROM predavac WHERE idPred='$idPred'");
+    }
+
+    public function del_kurs($idKurs)
+    {
+        $query = $this->db->query("DELETE FROM kurs WHERE idkurs='$idKurs'");
+    }
+
+
     /*public function get_kurs($id = FALSE)
     {
         if ($id === FALSE)

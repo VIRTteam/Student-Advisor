@@ -111,8 +111,8 @@
                                 <li class="media">
                                     <div class="media-left">
                                         <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
-                                            <?php
+                                           onclick="getSummary('<?php if ($ulogovaniClan['idClan']!=$po['idClan'])echo site_url('user/get_clan_profil'); else echo site_url('user/get_mojprofil_profil_start');?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
+                                        <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($po['slika']=='d') {
                                                 $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';
@@ -122,9 +122,14 @@
                                     </div>
                                     <div class="media-body">
                                         <a class="comment-author pull-left" href="javascript:void(0);"
+<<<<<<< Updated upstream
                                            onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
 
                                             <?php echo $po['ime']?> <?php echo $po['prezime']?> <?php echo $po['idClan']?>
+=======
+                                           onclick="getSummary('<?php if ($ulogovaniClan['idClan']!=$po['idClan'])echo site_url('user/get_clan_profil'); else echo site_url('user/get_mojprofil_profil_start');?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
+                                        <?php echo $po['ime']?> <?php echo $po['prezime']?> <?php echo $po['idClan']?>
+>>>>>>> Stashed changes
                                         </a>
                                         <br/>
                                         <div class="comment-date">Ocena: <?php echo $po['ocena'] ?></div>
@@ -162,9 +167,8 @@
                                 <li class="media">
                                     <div class="media-left">
                                         <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')">
-
-                                            <?php
+                                           onclick="getSummary('<?php if ($ulogovaniClan['idClan']!=$kom['idClan'])echo site_url('user/get_clan_profil'); else echo site_url('user/get_mojprofil_profil_start');?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')">
+                                        <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($kom['slika']=='d') {
                                                 $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg';
@@ -173,6 +177,18 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
+                                        <div class="pull-right dropdown" data-show-hover="li" >
+                                            <?php if ($kom['idClan']==$ulogovaniClan['idClan']) {?>
+                                                <a  data-toggle="dropdown" class="toggle-button">
+                                                    <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
+                                                </a>
+                                                <a  data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši"
+                                                    onclick="getSummary('<?php echo site_url('user/del_komentar')?>/<?php echo $kom['idKom']?>', '<?php echo $kom['ime']?>')">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            <?php } ?>
+                                        </div>
+
                                         <div class="pull-right dropdown" >
                                             <a href="" class="toggle-button">
                                                 <i class="fa fa-minus"> <?php echo $kom['brNepodrzavanja']?></i>
@@ -183,9 +199,9 @@
                                                 <i class="fa fa-plus "> <?php echo $kom['brPodrzavanja']?></i>
                                             </a>
                                         </div>
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')"
-                                           class="comment-author pull-left" >
+
+                                        <a href="javascript:void(0);"  class="comment-author pull-left"
+                                           onclick="getSummary('<?php if ($ulogovaniClan['idClan']!=$kom['idClan'])echo site_url('user/get_clan_profil'); else echo site_url('user/get_mojprofil_profil_start');?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')">
                                             <?php echo $kom['ime']?> <?php echo $kom['prezime']?>
                                         </a>
                                         <br/>

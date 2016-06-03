@@ -39,6 +39,7 @@ class User_model_toggle extends CI_Model
             array(reset($podaci['like']),reset($podaci['unlike']),$data['idKom']));
         return $podaci;
     }
+<<<<<<< Updated upstream
     public function obrisi_komentar($idKom)
     {
         $this->db->query("DELETE FROM podkomentar WHERE idKom=? ", array( $idKom));
@@ -119,4 +120,6 @@ class User_model_toggle extends CI_Model
         echo "<script type='text/javascript'>alert('$message');</script>";
         $this->db->insert('banovanje', $date);
     }
+=======
+>>>>>>> Stashed changes
 }

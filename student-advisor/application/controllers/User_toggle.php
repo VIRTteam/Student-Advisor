@@ -25,6 +25,7 @@ class User_toggle extends CI_Controller
         $data=$this->User_model_toggle->obradi_podrzavanje($pom);
         echo reset($data['like']).' '.reset($data['unlike']);
     }
+<<<<<<< Updated upstream
     public function obrisi_komentar()
     {
         $idKom=$_POST['idKom'];
@@ -88,6 +89,8 @@ class User_toggle extends CI_Controller
         echo "<script type='text/javascript'>alert('$message');</script>";
         $this->User_model_toggle->izmeni_banovanje($idClan,$tekst);
     }
+=======
+>>>>>>> Stashed changes
 }
 
 ?>

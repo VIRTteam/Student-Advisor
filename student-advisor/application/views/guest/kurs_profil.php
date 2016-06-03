@@ -65,7 +65,11 @@
                                 $img =base_url().'img/clan_default.png';
                                 if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
                                 ?>
+<<<<<<< Updated upstream
                                 <a class="avatar"  data-toggle="modal"
+=======
+                                <a class="avatar" href="javascript:void(0);" data-toggle="modal"
+>>>>>>> Stashed changes
                                    onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKurs']?>')">
                                     <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                 </a>
@@ -74,7 +78,11 @@
                                 <?php $t=$t+1; if ($t>=6) { break;}?>
                             <?php endforeach ?>
                             <?php if (sizeof($polozio)>5): ?>
+<<<<<<< Updated upstream
                                 <a  class="user-count-circle"><?php echo sizeof($polozio)-5 ?></a>
+=======
+                                <a href="" class="user-count-circle"><?php echo sizeof($polozio)-5 ?></a>
+>>>>>>> Stashed changes
                             <?php endif;?>
 
                         </div>

@@ -26,7 +26,11 @@ class Moderator extends CI_Controller
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
 
         $this->load->view('templates/header', $data);
+<<<<<<< Updated upstream
         $this->load->view('templates/navbar_user',$data);
+=======
+        $this->load->view('templates/navbar_moderator',$data);
+>>>>>>> Stashed changes
         $this->load->view("moderator/mojprofil_profil", $data);
         $this->load->view('templates/footer');
     }
@@ -169,14 +173,27 @@ class Moderator extends CI_Controller
     public function get_pretraga_kurs($id=FALSE)
     {
         $data['kurs'] = $this->Moderator_model->get_pretraga_kurs($id);
+        $data['mi']=$this->Moderator_model->get_clan($this->myID);
         $this->load->view("moderator/pretraga_kurs", $data);
     }
     public function get_pretraga_predavac($id=FALSE)
     {
         $data['predavac'] = $this->Moderator_model->get_pretraga_predavac($id);
+        $data['mi']= $this->Moderator_model->get_clan($this->myID);
+        
         $this->load->view("moderator/pretraga_predavac", $data);
     }
-
+    
+    public function del_predavac($idPred)
+    {
+        $this->Moderator_model->del_predavac($idPred);
+        get_mojprofil_profil_start();
+    }
+    public function del_kurs($idKurs)
+    {
+        $this->Moderator_model->del_kurs($idKurs);
+        $this->get_mojprofil_profil_start();
+    }
     /**
      * @param bool $id
      * @param bool $id_kurs
