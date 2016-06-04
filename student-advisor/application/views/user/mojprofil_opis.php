@@ -1,3 +1,5 @@
+<!--edit clana i dodavanje slike-->
+
 <div class="st-content-inner">
 
     <div class="container">

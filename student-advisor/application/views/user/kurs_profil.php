@@ -1,3 +1,6 @@
+<!-- fali na plusic sta se desava-->
+
+
 <div class="st-content-inner">
     <div class="container">
 
@@ -19,20 +22,17 @@
                 <div class="name"><h2><font color="#105DC1"><?php echo $kurs['ime']?></font></h2></div>
                 <ul class="cover-nav">
                     <li class="active">
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li>
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                     <li>
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_komentarisi')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_komentarisi')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-envelope"></i> Komentariši
                         </a>
                     </li>
@@ -73,8 +73,8 @@
                                         $img =base_url().'img/clan_default.png';   
                                         if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
                                     ?>
-                                    <a href="javascript:void(0);" data-toggle="modal"
-                                       data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $po['idKurs']?>')">
+                                    <a  data-toggle="modal"
+                                       data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
                                         <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                     </a>
 
@@ -83,7 +83,7 @@
 
                             <?php endforeach ?>
                             <?php if (sizeof($ocenio)>5): ?>
-                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                                <a  class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
                             <?php endif;?>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Korisnici koji su položili</a>
+                                    <a>Korisnici koji su položili</a>
                                 </div>
                             </div>
                         </div>
@@ -108,10 +108,9 @@
                         </div>
                         <ul class="comments">
                             <?php foreach ($polozio as $po): ?>
-                                <li class="media">
+                                <li class="media" id="predmet<?php echo $po['idKurs']?>-<?php echo $po['idClan']?>">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
+                                        <a  onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
                                             <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($po['slika']=='d') {
@@ -121,10 +120,18 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <a class="comment-author pull-left" href="javascript:void(0);"
+                                        <?php if($po['idClan']==$myID){?>
+                                            <div class="pull-right dropdown" >
+                                                <a  onclick="brisanje_polozenog_ispita('<?php echo $po['idKurs']?>','<?php echo $myID?>')"
+                                                    data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        <?php }?>
+                                        <a class="comment-author pull-left"
                                            onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
 
-                                            <?php echo $po['ime']?> <?php echo $po['prezime']?> <?php echo $po['idClan']?>
+                                            <?php echo $po['ime']?> <?php echo $po['prezime']?>
                                         </a>
                                         <br/>
                                         <div class="comment-date">Ocena: <?php echo $po['ocena'] ?></div>
@@ -143,7 +150,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Komentari članova</a>
+                                    <a >Komentari članova</a>
                                 </div>
                             </div>
                         </div>
@@ -159,10 +166,9 @@
                         <ul class="comments">
 
                             <?php foreach ($komentar as $kom): ?>
-                                <li class="media">
+                                <li class="media" id="komentar<?php echo $kom['idKom']?>">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')">
+                                        <a onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')">
 
                                             <?php
                                             $img =base_url().'img/clan_default.png';
@@ -173,29 +179,48 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
+                                        <?php if ($kom['idClan'] ==$myID) {?>
+                                            <div class="pull-right dropdown" >
+                                                <a  onclick="brisanje_komentara('<?php echo $kom['idKom']?>')"
+                                                    data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </div>
+                                            <div class="pull-right dropdown" >
+                                                <a  onclick="izmeni_komentar('<?php echo $kom['idKom']?>')"
+                                                    data-toggle="dropdown" class="toggle-button">
+                                                    <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
+                                                </a>
+                                            </div>
+                                        <?php }?>
                                         <div class="pull-right dropdown" >
-                                            <a href="" class="toggle-button">
-                                                <i class="fa fa-minus"> <?php echo $kom['brNepodrzavanja']?></i>
+                                            <a class="toggle-button"
+                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>"
+                                                   id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brNepodrzavanja']?> </i>
                                             </a>
+
                                         </div>
                                         <div class="pull-right dropdown" >
-                                            <a  class="toggle-button">
-                                                <i class="fa fa-plus "> <?php echo $kom['brPodrzavanja']?></i>
+                                            <a class="toggle-button"
+                                               onclick="setLike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-plus <?php echo ($kom['tip']=='p')? 'active' : 'unactive'?>" id="podrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
                                             </a>
                                         </div>
-                                        <a href="javascript:void(0);"
+
+                                        <a
                                            onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')"
                                            class="comment-author pull-left" >
                                             <?php echo $kom['ime']?> <?php echo $kom['prezime']?>
                                         </a>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['tekst']?></div>
+                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
 
                                     </div>
                                     <div class="view-all-comments">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                   <span> <?php if($kom['brPodkomentara'] ==1)

@@ -39,6 +39,11 @@ class User_model_toggle extends CI_Model
             array(reset($podaci['like']),reset($podaci['unlike']),$data['idKom']));
         return $podaci;
     }
+
+
+
+
+    //komentari
     public function obrisi_komentar($idKom)
     {
         $this->db->query("DELETE FROM podkomentar WHERE idKom=? ", array( $idKom));
@@ -46,10 +51,6 @@ class User_model_toggle extends CI_Model
         $this->db->query("DELETE FROM komentar WHERE idKom=? ", array( $idKom));
     }
 
-    public function obrisi_polozeni_ispit($idKurs, $myID)
-    {
-        $this->db->query("DELETE FROM polozio WHERE idKurs=? and idClan=? ", array( $idKurs, $myID));
-    }
     public function izmeni_komentar($idKom, $tekst)
     {
         $this->db->query("UPDATE komentar set tekst=? WHERE idKom=? ", array($tekst, $idKom));
@@ -59,6 +60,43 @@ class User_model_toggle extends CI_Model
         $query=$this->db->query("SELECT * FROM komentar k inner JOIN kurs p on p.idkurs=k.idKurs and k.idKom=? ", array( $idKom));
         return $query->row_array();
     }
+    public function obrisi_podkomentar($idPodKom)
+    {
+        $this->db->query("DELETE FROM podkomentar WHERE redniBroj=? ", array( $idPodKom));
+    }
+
+
+    //kursevi i predavaci
+    public function obrisi_predaje($idKurs, $idPred)
+    {
+        $this->db->query("DELETE FROM predaje WHERE idKurs=? AND idPred=?", array( $idKurs, $idPred));
+    }
+    public function obrisi_kurs($idKom)
+    {
+        $query=$this->db->query("SELECT * FROM komentar WHERE idKurs=?", array($idKom));
+        $komentari=$query->ressult_array();
+        foreach ($komentari as &$kom) {
+        $this->db->query("DELETE FROM podrzavanje WHERE idKom=? ", array( $kom['idKom']));
+        $this->db->query("DELETE FROM podkomentar WHERE idKom=? ", array( $kom['idKom']));
+        }
+        $this->db->query("DELETE FROM komentar WHERE idKurs=? ", array( $idKom));
+        $this->db->query("DELETE FROM polozio WHERE idKurs=? ", array( $idKom));
+        $this->db->query("DELETE FROM kurs WHERE idkurs=? ", array( $idKom));
+    }
+
+    public function obrisi_predavac($idKom)
+    {
+        $this->db->query("DELETE FROM predaje WHERE idPred=? ", array( $idKom));
+        $this->db->query("DELETE FROM predavac WHERE idPred=? ", array( $idKom));//nije ok
+    }
+    public function obrisi_polozeni_ispit($idKurs, $idClan)
+    {
+        $this->db->query("DELETE FROM polozio WHERE idKurs=? AND idClan=?", array( $idKurs, $idClan));
+    }
+
+
+
+    // banovanje derangiranje, unapredjivanje
     public function dohvati_unapredjivanje($idClan)
     {
         $query=$this->db->query("SELECT k.*, u.tipUD FROM clan k LEFT OUTER JOIN unapredjivanje u on u.idClan=k.idClan WHERE k.idClan=? ",
@@ -66,6 +104,7 @@ class User_model_toggle extends CI_Model
 
         return $query->row_array();
     }
+
     public function izmeni_unapredjivanje($idClan, $tekst, $myID)
     {
         $date['idClan']=$idClan;
@@ -118,5 +157,18 @@ class User_model_toggle extends CI_Model
         $message = $date['idClan'];
         echo "<script type='text/javascript'>alert('$message');</script>";
         $this->db->insert('banovanje', $date);
+    }
+
+
+    public function set_star($id, $kol, $rb, $myID)
+    {
+        if($rb=='1')
+            $this->db->query("UPDATE polozio set zanimljivost=? WHERE idClan=? and idKurs=?", array($kol,$myID,$id));
+        else if($rb=='2')
+            $this->db->query("UPDATE polozio set korisnost=? WHERE idClan=? and idKurs=?", array($kol,$myID,$id));
+        else if($rb=='3')
+            $this->db->query("UPDATE polozio set tezina=? WHERE idClan=? and idKurs=?", array($kol,$myID,$id));
+        else
+            $this->db->query("UPDATE polozio set preporuka=? WHERE idClan=? and idKurs=?", array($kol,$myID,$id));
     }
 }

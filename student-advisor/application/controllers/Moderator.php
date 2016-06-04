@@ -14,7 +14,7 @@ class Moderator extends CI_Controller
             exit();
         $this->myID=$this->Moderator_model->get_clan_username($_SESSION["username"]);
         $this->load->helper('url');
-        $data['myID']=$this->myID;
+
     }
     
     
@@ -105,7 +105,8 @@ class Moderator extends CI_Controller
     {
         $data['myID']=$this->myID;
         $data['kurs'] = $this->Moderator_model->get_kurs($id);
-        $data['polozio'] = $this->Moderator_model->get_Polozio1_kurs($id);
+        $data['polozio'] = $this->Moderator_model->get_Polozio_kurs($id);
+        $data['ocenio'] = $this->Moderator_model->get_Ocenio_kurs($id);
         $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id,$this->myID);
 
 
@@ -116,8 +117,7 @@ class Moderator extends CI_Controller
     {
         $data['kurs'] = $this->Moderator_model->get_kurs($id);
         $data['predavac'] = $this->Moderator_model->get_kurs_predavac($id);
-        $data['polozio'] = $this->Moderator_model->get_Polozio1_kurs($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id,$this->myID);
+        $data['ocenio'] = $this->Moderator_model->get_Ocenio_kurs($id);
 
         $this->load->view("moderator/kurs_opis", $data);
     }
@@ -125,9 +125,8 @@ class Moderator extends CI_Controller
     public function get_kurs_komentarisi($id=FALSE)
     {
         $data['kurs'] = $this->Moderator_model->get_kurs($id);
-        $data['polozio'] = $this->Moderator_model->get_Polozio_kurs($id);
-        $data['komentar'] = $this->Moderator_model->get_Komentar_kurs($id,$this->myID);
-
+        $data['polozio'] = $this->Moderator_model->get_Polozio_kurs_zvezdice($id, $this->myID);
+        $data['clan']=$this->Moderator_model->get_clan($this->myID);
         $this->load->view("moderator/kurs_komentar",$data);
     }
     public function get_predavac_profil($id=FALSE)
@@ -145,25 +144,62 @@ class Moderator extends CI_Controller
         $data['naslov']=$data['predavac']['ime'].' '.$data['predavac']['prezime'];
         $this->load->view("moderator/predavac_opis", $data);
     }
-    public function get_podkomentar($id=1)
+
+
+
+    public function get_podkomentar($id)
     {
-        $data['komentarClan'] = $this->Moderator_model->get_clan_komentar($id,$this->myID);
-        $data['komentarKurs'] = $this->Moderator_model->get_kurs_komentar($id);
-        $data['komentarOcena'] = $this->Moderator_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
+        $data['myID'] = $this->myID;
+        $data['postoji']='d';
+        $data['komentar'] = $this->Moderator_model->get_komentar($id, $this->myID);
+
+        $data['komentarKurs'] = $this->Moderator_model->get_kurs($data['komentar']['idKurs']);
+        $data['komentarClan'] = $this->Moderator_model->get_clan($data['komentar']['idClan']);
+        $data['komentarOcena'] = $this->Moderator_model->get_kurs_ocena($data['komentar']['idClan'], $data['komentar']['idKurs']);
+
         $data['podkomentar'] = $this->Moderator_model->get_podkomentar($id);
         $this->load->view('moderator/podkomentari', $data);
     }
-    public function get_podkomentar_bez_komentara($id=1)
+    public function get_podkomentar_bez_komentara($idKurs,$idClan)
     {
-        $data['komentarClan'] = $this->Moderator_model->get_clan_komentar($id);
-        $data['komentarKurs'] = $this->Moderator_model->get_kurs_komentar($id);
-        $data['komentarOcena'] = $this->Moderator_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
-        $data['podkomentar'] = $this->Moderator_model->get_podkomentar($id);
+        $data['myID'] = $this->myID;
+        $id=$this->Moderator_model->find_komentar($idKurs, $idClan);
+        $data['komentarKurs'] = $this->Moderator_model->get_kurs($idKurs);
+        $data['komentarClan'] = $this->Moderator_model->get_clan($idClan);
+        $data['komentarOcena'] = $this->Moderator_model->get_kurs_ocena($idClan, $idKurs);
+        if($id=='-1') {
+            $data['postoji']='n';
+
+        }
+        else {
+            $data['postoji']='d';
+            $data['komentar'] = $this->Moderator_model->get_komentar($id, $this->myID);
+            $data['podkomentar'] = $this->Moderator_model->get_podkomentar($id);
+
+        }
         $this->load->view('moderator/podkomentari', $data);
     }
 
+    public function dodaj_podkomentar()
+    {
+        $data['myID'] = $this->myID;
+        $this->Moderator_model->dodaj_podkomentar($_POST['comment'], $_POST['idKom'],$this->myID);
+        $data['postoji']='d';
+        $data['komentar'] = $this->Moderator_model->get_komentar($_POST['idKom'], $this->myID);
+
+        $data['komentarKurs'] = $this->Moderator_model->get_kurs($data['komentar']['idKurs']);
+        $data['komentarClan'] = $this->Moderator_model->get_clan($data['komentar']['idClan']);
+        $data['komentarOcena'] = $this->Moderator_model->get_kurs_ocena($data['komentar']['idClan'], $data['komentar']['idKurs']);
+
+        $data['podkomentar'] = $this->Moderator_model->get_podkomentar($_POST['idKom']);
+        $this->load->view('moderator/podkomentari', $data);
+    }
+
+
+
     public function get_pretraga_clan($id=FALSE)
     {
+        $data['myID']=$this->myID;
         $data['clan'] = $this->Moderator_model->get_pretraga_clan($id);
         $this->load->view("moderator/pretraga_clan", $data);
     }
@@ -231,4 +267,12 @@ class Moderator extends CI_Controller
 
     //ISIVESA_END
 
+    //tamara
+    public function put_komentar($idKurs)
+    {
+        $comment=$_POST['comment'];
+        $anonim= $_POST['anonim'];
+
+        $this->Moderator_model->put_comment($this->myID , $idKurs , $comment, $anonim);
+    }
 }

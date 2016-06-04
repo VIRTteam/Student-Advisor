@@ -20,10 +20,10 @@
             </div>
             <div class="modal-footer" style="border: 0px">
                 <a class="btn btn-white" onclick="sacuvaj_banovanje('<?php echo $banovanje['idClan']?>')">
-                    <i class="fa fa-save"></i> Sačuvaj
+                    Banuj
                 </a>
                 <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">
-                    <i class="fa fa-ban"></i> Odustani
+                    Odustani
                 </a>
 
             </div>

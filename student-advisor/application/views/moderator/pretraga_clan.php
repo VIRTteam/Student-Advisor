@@ -1,3 +1,5 @@
+<!--ok-->
+
 <div class="st-content-inner">
     <div class="container">
         <div class="timeline-block">
@@ -20,7 +22,7 @@
                                 </span>
                 </div>
                 <ul class="comments"  >
-                    <?php foreach ($clan as $cl):?>
+                    <?php foreach ($clan as $cl): if($cl['idClan']!=$myID){?>
                     <li class="media" >
                         <div class="media-left">
                             <a onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
@@ -34,12 +36,12 @@
                         </div>
                         
                         <div class="media-body">
-                            <a class="comment-author pull-left" 
+                            <a class="comment-author pull-left"
                                onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
                                 <?php echo $cl['ime']?> <?php echo $cl['prezime']?>
                             </a>
                             <div class="pull-right dropdown" >
-                                <a href"" class="toggle-button" data-tooltip="tooltip" title="Kontaktiraj">
+                                <a onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')" class="toggle-button" data-tooltip="tooltip" title="Kontaktiraj">
                                     <i class="fa fa-comment fa-lg" aria-hidden="true"></i>
                                 </a>
                             </div>
@@ -55,7 +57,7 @@
                             <?php if ($cl['tip'] =='m') {?>
 
                                 <div class="pull-right dropdown" >
-                                    <a derangiraj('<?php echo $cl['idClan']?>')"
+                                    <a onclick="derangiraj('<?php echo $cl['idClan']?>')"
                                     data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Derangiraj">
                                     <i class="fa fa-arrow-down fa-lg" aria-hidden="true"></i>
                                     </a>
@@ -74,7 +76,7 @@
                         </div>
 
             </li>
-                    <?php endforeach;?>
+                    <?php } endforeach;?>
                 </ul>
             </div>
         </div>

@@ -142,8 +142,7 @@ class User extends CI_Controller
     {
         $data['kurs'] = $this->User_model->get_kurs($id);
         $data['predavac'] = $this->User_model->get_kurs_predavac($id);
-        $data['polozio'] = $this->User_model->get_Ocenio_kurs($id);
-        $data['komentar'] = $this->User_model->get_Komentar_kurs($id, $this->myID);
+        $data['ocenio'] = $this->User_model->get_Ocenio_kurs($id);
 
         $this->load->view("user/kurs_opis", $data);
     }
@@ -151,8 +150,7 @@ class User extends CI_Controller
     public function get_kurs_komentarisi($id=FALSE)
     {
         $data['kurs'] = $this->User_model->get_kurs($id);
-        $data['polozio'] = $this->User_model->get_Polozio_kurs($id);
-        $data['komentar'] = $this->User_model->get_Komentar_kurs($id, $this->myID);
+        $data['polozio'] = $this->User_model->get_Polozio_kurs_zvezdice($id, $this->myID);
         $data['clan']=$this->User_model->get_clan($this->myID);
         $this->load->view("user/kurs_komentar",$data);
     }
@@ -171,25 +169,65 @@ class User extends CI_Controller
         $data['naslov']=$data['predavac']['ime'].' '.$data['predavac']['prezime'];
         $this->load->view("user/predavac_opis", $data);
     }
-    public function get_podkomentar($id=1)
+    
+    
+    //tamara novo 3 fje
+    public function get_podkomentar($id)
     {
-        $data['komentarClan'] = $this->User_model->get_clan_komentar($id, $this->myID);
-        $data['komentarKurs'] = $this->User_model->get_kurs_komentar($id,$this->myID);
-        $data['komentarOcena'] = $this->User_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
+        $data['myID'] = $this->myID;
+        $data['postoji']='d';
+        $data['komentar'] = $this->User_model->get_komentar($id, $this->myID);
+        
+        $data['komentarKurs'] = $this->User_model->get_kurs($data['komentar']['idKurs']);
+        $data['komentarClan'] = $this->User_model->get_clan($data['komentar']['idClan']);
+        $data['komentarOcena'] = $this->User_model->get_kurs_ocena($data['komentar']['idClan'], $data['komentar']['idKurs']);
+
         $data['podkomentar'] = $this->User_model->get_podkomentar($id);
         $this->load->view('user/podkomentari', $data);
     }
-    public function get_podkomentar_bez_komentara($id=1)
+    public function get_podkomentar_bez_komentara($idKurs,$idClan)
     {
-        $data['komentarClan'] = $this->User_model->get_clan_komentar($id, $this->myID);
-        $data['komentarKurs'] = $this->User_model->get_kurs_komentar($id);
-        $data['komentarOcena'] = $this->User_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
-        $data['podkomentar'] = $this->User_model->get_podkomentar($id);
+        $data['myID'] = $this->myID;
+        $id=$this->User_model->find_komentar($idKurs, $idClan);
+        $data['komentarKurs'] = $this->User_model->get_kurs($idKurs);
+        $data['komentarClan'] = $this->User_model->get_clan($idClan);
+        $data['komentarOcena'] = $this->User_model->get_kurs_ocena($idClan, $idKurs);
+        if($id=='-1') {
+            $data['postoji']='n';
+
+        }
+        else {
+            $data['postoji']='d';
+            $data['komentar'] = $this->User_model->get_komentar($id, $this->myID);
+            $data['podkomentar'] = $this->User_model->get_podkomentar($id);
+
+        }
         $this->load->view('user/podkomentari', $data);
     }
+    public function dodaj_podkomentar()
+    {
+        $data['myID'] = $this->myID;
+        $this->User_model->dodaj_podkomentar($_POST['comment'], $_POST['idKom'],$this->myID);
+        $data['postoji']='d';
+        $data['komentar'] = $this->User_model->get_komentar($_POST['idKom'], $this->myID);
+
+        $data['komentarKurs'] = $this->User_model->get_kurs($data['komentar']['idKurs']);
+        $data['komentarClan'] = $this->User_model->get_clan($data['komentar']['idClan']);
+        $data['komentarOcena'] = $this->User_model->get_kurs_ocena($data['komentar']['idClan'], $data['komentar']['idKurs']);
+
+        $data['podkomentar'] = $this->User_model->get_podkomentar($_POST['idKom']);
+        $this->load->view('user/podkomentari', $data);
+    }
+    
+    
+    
+    
+    
+    
 
     public function get_pretraga_clan($id=FALSE)
     {
+        $data['myID']=$this->myID;
         $data['clan'] = $this->User_model->get_pretraga_clan($id);
         $this->load->view("user/pretraga_clan", $data);
     }

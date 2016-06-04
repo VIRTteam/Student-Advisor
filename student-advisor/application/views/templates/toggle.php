@@ -1,3 +1,4 @@
+<!-- slika i edit-->
 
 
 <script>
@@ -60,22 +61,37 @@ function setUnlike(id,myID)
 
 }
 
- function brisanje_komentara(idKom)
+ function brisanje_podkomentara(idPodKom)
  {
 
-     $('#komentar'+ idKom).remove();
+     $('#podkomentar'+ idPodKom).remove();
      $la=$.ajax({
          type: 'POST',
          async: false,
-         url: '<?php echo site_url()?>/user_toggle/obrisi_komentar',
-         data: {idKom: idKom},
+         url: '<?php echo site_url()?>/user_toggle/obrisi_podkomentar',
+         data: {idPodKom: idPodKom},
          success: function (returnData) {
          }
      }).responseText;
  }
+function brisanje_komentara(idKom)
+{
+
+    $('#komentar'+ idKom).remove();
+    $la=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/obrisi_komentar',
+        data: {idKom: idKom},
+        success: function (returnData) {
+        }
+    }).responseText;
+}
+
+
 function brisanje_polozenog_ispita(idKom, idClan)
 {
-    $('#predmet'+ idKom).remove();
+    $('#predmet'+ idKom +'-'+idClan).remove();
     $la=$.ajax({
         type: 'POST',
         async: false,
@@ -85,7 +101,53 @@ function brisanje_polozenog_ispita(idKom, idClan)
         }
     }).responseText;
 }
+function brisanje_predaje(idKurs, idPred)
+{
+    $('#predaje'+ idKurs+'-'+idPred).remove();
+    $la=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/obrisi_predaje',
+        data: {idKurs: idKurs, idPred:idPred},
+        success: function (returnData) {
+        }
+    }).responseText;
+}
+function brisanje_Kurs(idKurs)
+{
+    $('#pretraga'+ idKurs).remove();
+    $la=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/obrisi_kurs',
+        data: {idKurs: idKurs},
+        success: function (returnData) {
+        }
+    }).responseText;
+}
+function brisanje_Predavac(idPred)
+{
+    $('#pretraga'+ idPred).remove();
+    $la=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/obrisi_predavac',
+        data: {idPred:idPred},
+        success: function (returnData) {
+        }
+    }).responseText;
+}
+
 </script>
+
+
+
+
+
+
+
+
+
 <div class="modal fade" id="toggle_modal" role="dialog">
 </div>
 

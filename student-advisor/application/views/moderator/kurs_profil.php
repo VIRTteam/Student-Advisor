@@ -1,3 +1,6 @@
+<!-- fali na plusic sta se desava-->
+
+
 <div class="st-content-inner">
     <div class="container">
 
@@ -9,7 +12,12 @@
             </div>
             <div class="cover-info">
                 <div class="avatar">
-                    <img src="./img/unknown.jpg" alt="people">
+                    <?php
+                    $img =base_url().'img/kurs_default.jpg';
+                    if ($kurs['slika']=='d') {
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>">
                 </div>
                 <div class="name"><h2><span style="color: #105DC1; "><?php echo $kurs['ime']?></span></h2></div>
                 <ul class="cover-nav">
@@ -50,35 +58,36 @@
                     <div class="panel panel-default relative">
                         <div class="panel-body panel-boxed text-center">
                             <div class="rating">
-                                <span class="star"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
+                                <div class="rating ">
+                                    <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star disabled" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled disabled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-body">
                             <?php $t=0;?>
-                            <?php foreach ($polozio as $po): ?>
+                            <?php foreach ($ocenio as $po): ?>
+
+                                <?php
+                                $img =base_url().'img/clan_default.png';
+                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
+                                ?>
+                                <a href="javascript:void(0);" data-toggle="modal"
+                                   data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
+                                    <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
+                                </a>
 
 
-                                <div class="avatar">
-                                    <?php
-                                    $img =base_url().'img/clan_default.png';
-                                    if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
-                                    ?>
-                                    <a href="javascript:void(0);" data-toggle="modal"
-                                       data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $po['idKom']?>')">
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
-                                    </a>
+                                <?php $t=$t+1; if ($t>=5) {$t=-1; break;}?>
 
-
-
-                                </div>
-
-                                <?php $t=$t+1; if ($t>=6) break;?>
                             <?php endforeach ?>
-                            <a href="" class="moderator-count-circle"><?php echo '12+' ?></a>
+                            <?php if (sizeof($ocenio)>5): ?>
+                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
@@ -88,39 +97,41 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Korisnici koji su položili</a>
+                                    <a>Korisnici koji su položili</a>
                                 </div>
                             </div>
                         </div>
                         <div class="view-all-comments">
                             <?php if(count ($polozio) <=1)
                                 echo count($polozio).' osoba';
-                            else if($polozio<5)
+                            else if(count($polozio)<5)
                                 echo count($polozio).' osobe';
                             else
                                 echo count ($polozio).' osoba'; ?>
                         </div>
                         <ul class="comments">
                             <?php foreach ($polozio as $po): ?>
-                                <li class="media">
+                                <li class="media" id="predmet<?php echo $po['idKurs']?>-<?php echo $po['idClan']?>">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
+                                        <a  onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
                                             <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($po['slika']=='d') {
                                                 $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';
                                             }?>
-                                            <img src="<?php echo $img?>">
+                                            <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <div class="pull-right dropdown" data-show-hover="li" >
-                                            <a href="" data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+
+                                        <div class="pull-right dropdown" >
+                                            <a  onclick="brisanje_polozenog_ispita('<?php echo $po['idKurs']?>','<?php echo $po['idClan']?>')"
+                                                data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
-                                        <a class="comment-author pull-left" href="javascript:void(0);"
+
+                                        <a class="comment-author pull-left"
                                            onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $po['idClan']?>', '<?php echo $po['ime']?> <?php echo $po['prezime']?>')">
 
                                             <?php echo $po['ime']?> <?php echo $po['prezime']?>
@@ -142,7 +153,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Komentari članova</a>
+                                    <a >Komentari članova</a>
                                 </div>
                             </div>
                         </div>
@@ -156,12 +167,10 @@
                             </span>
                         </div>
                         <ul class="comments">
-
                             <?php foreach ($komentar as $kom): ?>
-                                <li class="media">
+                                <li class="media" id="komentar<?php echo $kom['idKom']?>">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')">
+                                        <a onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')">
 
                                             <?php
                                             $img =base_url().'img/clan_default.png';
@@ -174,43 +183,47 @@
                                     <div class="media-body">
 
                                         <div class="pull-right dropdown" >
-                                            <a href="" class="toggle-button">
-                                                <i class="fa fa-minus"> <?php echo $kom['brNepodrzavanja']?></i>
-                                            </a>
-                                        </div>
-                                        <div class="pull-right dropdown" >
-                                            <a  class="toggle-button">
-                                                <i class="fa fa-plus "> <?php echo $kom['brPodrzavanja']?></i>
-                                            </a>
-                                        </div>
-                                        <div class="pull-right dropdown" data-show-hover="li" >
-
-                                            <a href="" data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                            <a  onclick="brisanje_komentara('<?php echo $kom['idKom']?>')"
+                                                data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
+                                        <?php if ($kom['idClan'] ==$myID) {?>
                                             <div class="pull-right dropdown" >
-
-                                                <a href="" data-toggle="dropdown" class="toggle-button">
-                                                    <i class="fa fa-ban" data-tooltip="tooltip" title="Banuj"></i>
+                                                <a  onclick="izmeni_komentar('<?php echo $kom['idKom']?>')"
+                                                    data-toggle="dropdown" class="toggle-button">
+                                                    <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
                                                 </a>
                                             </div>
+                                        <?php }?>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>"
+                                                   id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brNepodrzavanja']?> </i>
+                                            </a>
+
+                                        </div>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setLike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-plus <?php echo ($kom['tip']=='p')? 'active' : 'unactive'?>" id="podrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
+                                            </a>
+                                        </div>
 
 
-
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?> <?php echo $kom['prezime']?>')"
                                            class="comment-author pull-left" >
                                             <?php echo $kom['ime']?> <?php echo $kom['prezime']?>
                                         </a>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['tekst']?></div>
+                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
 
                                     </div>
                                     <div class="view-all-comments">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                   <span> <?php if($kom['brPodkomentara'] ==1)

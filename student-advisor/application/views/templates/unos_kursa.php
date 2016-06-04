@@ -12,8 +12,9 @@
 
         </div>
         <div class="modal-footer">
-            <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
+
             <a class="btn btn-white" onclick="sacuvaj_kurs()">Sacuvaj</a>
+            <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
         </div>
     </div>
 </div>

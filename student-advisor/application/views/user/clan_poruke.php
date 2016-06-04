@@ -1,3 +1,5 @@
+<!-- isi i vesic-->
+
 <div class="st-content-inner">
     <div class="container">
         <div class="cover profile">
@@ -99,8 +101,8 @@
                                     </a>
 
                                 </div>
-                                <div class="panel-body">
-                                    <?php echo $por['tekst']?>
+                                <div class="media-body" >
+                                    <span class="comment-date" style="width: calc(100vw - 16px); word-wrap: break-word;"><?php echo $por['tekst']?></span>
                                 </div>
                             </div>
                         </div>

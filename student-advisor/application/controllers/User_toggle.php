@@ -25,17 +25,10 @@ class User_toggle extends CI_Controller
         $data=$this->User_model_toggle->obradi_podrzavanje($pom);
         echo reset($data['like']).' '.reset($data['unlike']);
     }
-    public function obrisi_komentar()
-    {
-        $idKom=$_POST['idKom'];
-        $this->User_model_toggle->obrisi_komentar($idKom);
-    }
-    public function obrisi_polozeni_ispit()
-    {
-        $idKom=$_POST['idKurs'];
-        $idClan=$_POST['idClan'];
-        $this->User_model_toggle->obrisi_polozeni_ispit($idKom, $idClan);
-    }
+
+
+    
+    //komentari
     public function izmeni_komentar($idKom, $tekst)
     {
         $data['idKom']=$_POST["idKom"];
@@ -48,6 +41,42 @@ class User_toggle extends CI_Controller
         $data['komentarIzmena']=$this->User_model_toggle->dohvati_komentar($idKom);
         $this->load->view("templates/izmena_komentara", $data);
     }
+    public function obrisi_komentar()
+    {
+        $idKom=$_POST['idKom'];
+        $this->User_model_toggle->obrisi_komentar($idKom);
+    }
+    public function obrisi_podkomentar()
+    {
+        $idPodKom=$_POST['idPodKom'];
+        $this->User_model_toggle->obrisi_podkomentar($idPodKom);
+    }
+
+    //kursevi i predavaci
+    public function obrisi_predaje()
+    {
+        $idKurs=$_POST['idKurs'];
+        $idPred=$_POST['idPred'];
+        $this->User_model_toggle->obrisi_predaje($idKurs, $idPred);
+    }
+    public function obrisi_kurs()
+    {
+        $idKurs=$_POST['idKurs'];
+        $this->User_model_toggle->obrisi_kurs($idKurs);
+    }
+    public function obrisi_predavac()
+    {
+        $idPred=$_POST['idPred'];
+        $this->User_model_toggle->obrisi_predavac($idPred);
+    }
+    public function obrisi_polozeni_ispit()
+    {
+        $idKurs=$_POST['idKurs'];
+        $idClan=$_POST['idClan'];
+        $this->User_model_toggle->obrisi_polozeni_ispit($idKurs, $idClan);
+    }
+    
+    //banovanje, derangiranje, unapredjivanje
     public function dohvati_unapredjivanje()
     {
         $idKom=$_POST["idClan"];
@@ -87,6 +116,16 @@ class User_toggle extends CI_Controller
         $message =$_POST['idClan'];
         echo "<script type='text/javascript'>alert('$message');</script>";
         $this->User_model_toggle->izmeni_banovanje($idClan,$tekst);
+    }
+
+
+
+    public function set_star()
+    {
+        $id = $_POST["id"];
+        $kol = $_POST["kol"];
+        $rb = $_POST["rb"];
+        $this->User_model_toggle->set_star($id, $kol, $rb, $this->myID);
     }
 }
 

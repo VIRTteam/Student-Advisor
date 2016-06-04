@@ -1,3 +1,4 @@
+<!--ne poze vise puta ispit u listu polozenih, tp treba srediti, edit -->
 <div class="st-content-inner">
     <div class="container">
         <div class="timeline-block">
@@ -9,7 +10,7 @@
                         </div>
                         <div class="media-right">
                             <a class="btn btn-white" data-tooltip="tooltip" title="Dodaj novi kurs"
-                               onclick="kreiraj_kurs()">
+                               style="margin-top: 6px; margin-right: 7px" onclick="kreiraj_kurs()">
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
@@ -27,10 +28,9 @@
                 </div>
                 <ul class="comments">
                     <?php foreach ($kurs as $cl): ?>
-                        <li class="media">
+                        <li class="media" id="pretraga<?php echo $cl['idkurs']?>" >
                             <div class="media-left">
-                                <a href="javascript:void(0);"
-                                   onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil') ?>/<?php echo $cl['idkurs'] ?>', '<?php echo $cl['ime'] ?>')">
+                                <a onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil') ?>/<?php echo $cl['idkurs'] ?>', '<?php echo $cl['ime'] ?>')">
                                     <?php
                                     $img = base_url() . 'img/kurs_default.jpg';
                                     if ($cl['slika'] == 'd') {
@@ -41,18 +41,12 @@
                             </div>
 
                             <div class="media-body">
-                                <a class="comment-author pull-left" href="javascript:void(0);"
+                                <a class="comment-author pull-left"
                                    onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil') ?>/<?php echo $cl['idkurs'] ?>', '<?php echo $cl['ime'] ?>')">
                                     <?php echo $cl['ime'] ?>
                                 </a>
                                 <div class="pull-right dropdown">
-                                    <a href="" class="toggle-button" data-tooltip="tooltip"
-                                       title="Dodaj kurs u listu položenih kurseva">
-                                        <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                                <div class="pull-right dropdown">
-                                    <a
+                                    <a onclick="brisanje_Kurs('<?php echo $cl['idkurs']?>')"
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button"
                                         data-tooltip="tooltip" title="Obrisi kurs">
                                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
@@ -63,6 +57,12 @@
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button"
                                         data-tooltip="tooltip" title="Izmeni kurs">
                                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                <div class="pull-right dropdown" id="pretraga_kurs_dodaj<?php echo $cl['idkurs']?>">
+                                    <a  class="toggle-button" data-tooltip="tooltip" title="Dodaj kurs u listu položenih kurseva"
+                                        onclick="dodaj_kurs(<?php echo $cl['idkurs'] ?>)">
+                                        <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
@@ -81,6 +81,24 @@
             type: 'POST',
             async: false,
             url: '<?php echo site_url()?>/moderator/dohvati_novi_kurs',
+            success: function (returnData) {
+                $('#toggle_modal').html(returnData);
+            }
+        });
+
+        $('#toggle_modal').modal('show');
+
+    }
+</script>
+
+<script>
+    function dodaj_kurs(idKurs)
+    {
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: '<?php echo site_url()?>/user/dohvati_unos_ocene',
+            data: {idKurs: idKurs },
             success: function (returnData) {
                 $('#toggle_modal').html(returnData);
             }

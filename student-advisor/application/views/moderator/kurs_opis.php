@@ -1,3 +1,6 @@
+<!-- fali na plusic sta se desava i edit-->
+
+
 <div class="st-content-inner">
     <div class="container">
 
@@ -21,20 +24,17 @@
                 </div>
                 <ul class="cover-nav">
                     <li>
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                     <li>
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_komentarisi')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_komentarisi')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-envelope"></i> Komentariši
                         </a>
                     </li>
@@ -49,50 +49,52 @@
                     <div class="panel panel-default relative">
                         <ul class="icon-list icon-list-block">
                             <li>Zanimljivost
-                                <div class="media" align="right" ><?php echo $kurs['zanimljivost']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['zanimljivost'])?></div>
                             </li>
                             <li>Korisnost
-                                <div class="media" align="right" ><?php echo $kurs['korisnost']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['korisnost'])?></div>
                             </li>
                             <li>Tezina
-                                <div class="media" align="right" ><?php echo $kurs['tezina']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['tezina'])?></div>
                             </li>
                             <li>Preporuka
-                                <div class="media" align="right" ><?php echo $kurs['preporuka']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['preporuka'])?></div>
                             </li>
                         </ul>
                         <div class="panel-body panel-boxed text-center">
                             <div class="rating">
-                                <span class="star"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
-                                <span class="star filled"></span>
+                                <div class="rating ">
+                                    <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star disabled" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled disabled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-body">
                             <?php $t=0;?>
-                            <?php foreach ($polozio as $po): ?>
+                            <?php foreach ($ocenio as $po): ?>
+
+                                <?php
+                                $img =base_url().'img/clan_default.png';
+                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
+                                ?>
+                                <a href="javascript:void(0);" data-toggle="modal"
+                                   data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
+                                    <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
+                                </a>
 
 
-                                <div class="avatar">
-                                    <?php
-                                    $img =base_url().'img/clan_default.png';
-                                    if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
-                                    ?>
-                                    <a href="javascript:void(0);" data-toggle="modal"
-                                       data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $po['idKom']?>')">
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
-                                    </a>
+                                <?php $t=$t+1; if ($t>=5) {$t=-1; break;}?>
 
-
-
-                                </div>
-
-                                <?php $t=$t+1; if ($t>=6) break;?>
                             <?php endforeach ?>
-                            <a href="" class="moderator-count-circle"><?php echo '12+' ?></a>
+                            <?php if (sizeof($ocenio)>5): ?>
+                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                            <?php endif;?>
                         </div>
+                    
                     </div>
 
                 </div>

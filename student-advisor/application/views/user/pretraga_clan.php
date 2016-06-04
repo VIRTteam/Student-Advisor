@@ -1,3 +1,4 @@
+<!-- ok-->
 <div class="st-content-inner">
     <div class="container">
         <div class="timeline-block">
@@ -20,7 +21,8 @@
                                 </span>
                 </div>
                 <ul class="comments"  >
-                    <?php foreach ($clan as $cl):?>
+                    <?php foreach ($clan as $cl): if($cl['idClan']!=$myID){?>
+
                         <li class="media" >
                             <div class="media-left">
                                 <a onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
@@ -47,7 +49,7 @@
                             </div>
 
                         </li>
-                    <?php endforeach;?>
+                    <?php } endforeach;?>
                 </ul>
             </div>
         </div>

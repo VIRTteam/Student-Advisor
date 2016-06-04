@@ -93,6 +93,12 @@ class Moderator_model extends CI_Model {
         $query = $this->db->query('select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan AND p.idKurs=?',array($id));
         return $query->result_array();
     }
+
+    public function get_Polozio_kurs_zvezdice($idKurs, $myID)
+    {
+        $query = $this->db->query('select * FROM polozio where idClan = ? AND idKurs=?',array($myID, $idKurs));
+        return $query->row_array();
+    }
     public function  get_predaje_kurs($idPred=1)
     {
         $query = $this->db->query('select p.*, k.* FROM predaje p inner join kurs k on p.idKurs = k.idkurs AND p.idPred=?',array($idPred));
@@ -143,27 +149,40 @@ class Moderator_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_Polozio1_kurs($id = FALSE)
+    public function get_Ocenio_kurs($id)
     {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan");
-            return $query->result_array();
-        }
 
-        $query = $this->db->query("select p.*, k.*, ko.*
-                                    FROM `student-advisor-mysql`.polozio p 
-                                    inner join `student-advisor-mysql`.clan k  
-                                    
+        $query = $this->db->query("select p.*, k.*
+                                    FROM polozio p 
+                                    inner join clan k                                   
                                     on p.idClan = k.idClan 
-                                    AND p.zanimljivost AND p.tezina AND p.preporuka AND p.korisnost
-                                    AND p.idKurs=?
-                                    left join `student-advisor-mysql`.komentar ko 
-                                    on ko.idClan=p.idClan and ko.idKurs=p.idKurs
-"
-            ,array($id));
+                                    AND (p.zanimljivost OR p.tezina OR p.preporuka OR p.korisnost)
+                                    AND p.idKurs=?",array($id));
         return $query->result_array();
     }
+
+
+    public function find_komentar($idKurs, $idClan){
+        $query=$this->db->query("select * FROM  komentar WHERE idKurs=? AND idClan=?", array($idKurs,$idClan));
+        $provera=$query->result_array();
+        if(count($provera)>0)
+            return $provera[0]['idKom'];
+        return '-1';
+    }
+    public function get_komentar($idKom, $myID)
+    {
+        $query = $this->db->query("select p.* ,l.tip
+                                    FROM  `student-advisor-mysql`.komentar p
+                                    left outer join `student-advisor-mysql`.podrzavanje l
+                                    on p.idClan=l.idClan and l.idClan=? where
+                                    p.idKom=?", array($myID,$idKom));
+        return $query->row_array();
+    }
+    public function dodaj_podkomentar($comment, $idKom,$myID)
+    {
+        $this->db->query("INSERT INTO podkomentar(idKom,idClan,tekst) VALUES('$idKom','$myID','$comment')");
+    }
+
 
     public function get_Komentar_clan($id,$myID)
     {
@@ -194,12 +213,11 @@ class Moderator_model extends CI_Model {
                         inner join `student-advisor-mysql`.kurs k 
                         on p.idKurs = k.idkurs 
                         inner join `student-advisor-mysql`.predaje pp 
-                        on p.idKurs = pp.idKurs 
+                        on p.idKurs = pp.idKurs and pp.idPred=?
                         inner join `student-advisor-mysql`.clan c
                         on c.idClan=p.idClan
                         left outer join `student-advisor-mysql`.podrzavanje l 
-                        on p.idKom=l.idKom 
-                        and pp.idPred=? and l.idClan=?", array($idPred,$myID));
+                        on p.idKom=l.idKom and l.idClan=?", array($idPred,$myID));
         return $query->result_array();
     }
     public function get_pretraga_clan($id ="")
@@ -260,4 +278,13 @@ class Moderator_model extends CI_Model {
     }
 
     //ISIVESA_END
+
+    //tamara
+    public function put_comment($idClan , $idKurs , $comment, $anonim="false")
+    {
+        if ($anonim=='false')
+            $query = $this->db->query("INSERT INTO komentar(idClan,idKurs,tekst,anonimno) VALUES('$idClan','$idKurs','$comment',0)");
+        else
+            $query = $this->db->query("INSERT INTO komentar(idClan,idKurs,tekst,anonimno) VALUES('$idClan','$idKurs','$comment',1)");
+    }
 }

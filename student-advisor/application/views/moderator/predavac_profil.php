@@ -1,3 +1,5 @@
+<!-- dodaj predaje-->
+
 <div class="st-content-inner">
     <div class="container">
 
@@ -78,7 +80,7 @@
                         </div>
                         <ul class="comments">
                             <?php foreach ($predaje as $predmet): ?>
-                                <li class="media">
+                                <li class="media" id="predaje<?php echo $predmet['idKurs']?>-<?php echo $predmet['idPred']?>">
                                     <div class="media-left">
                                         <a onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                         >
@@ -91,8 +93,9 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <div class="pull-right dropdown" data-show-hover="li" >
-                                            <a  data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                        <div class="pull-right dropdown" >
+                                            <a  onclick="brisanje_predaje('<?php echo $predmet['idKurs']?>','<?php echo $predmet['idPred']?>')"
+                                                data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
                                                 <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
@@ -184,7 +187,7 @@
                                         <a onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['tekst']?></div>
+                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
                                     </div>

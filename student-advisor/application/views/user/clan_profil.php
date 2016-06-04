@@ -1,3 +1,5 @@
+<!-- sve ok-->
+
 <div class="st-content-inner">
     <div class="container">
 
@@ -76,7 +78,7 @@
                         </div>
                         <ul class="comments">
                             <?php foreach ($polozio as $predmet): ?>
-                                <li class="media">
+                                <li class="media" id="predmet<?php echo $predmet['idKurs']?>">
                                     <div class="media-left"
                                          onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')">
                                         <?php
@@ -149,7 +151,7 @@
                                         <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['tekst']?></div>
+                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
                                     </div>

@@ -89,6 +89,14 @@ class User_model extends CI_Model {
         $query = $this->db->query('select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan AND p.idKurs=?',array($id));
         return $query->result_array();
     }
+    
+    //tamara
+    public function get_Polozio_kurs_zvezdice($idKurs, $myID)
+    {
+        $query = $this->db->query('select * FROM polozio where idClan = ? AND idKurs=?',array($myID, $idKurs));
+        return $query->row_array();
+    }
+    
     public function  get_predaje_kurs($idPred=1)
     {
         $query = $this->db->query('select p.*, k.* FROM predaje p inner join kurs k on p.idKurs = k.idkurs AND p.idPred=?',array($idPred));
@@ -143,34 +151,17 @@ class User_model extends CI_Model {
             $query = $this->db->get('poruka');
             return $query->result_array()[0];
         }
-        //potrebno setovati poruku da je procitana kada smo mi primalaci  ulazimo na neprocitanu poruku.
-        //Potrebno da neprocitane poruke se prikazuju kao neprocitane samo za onoga ko ih prima ne i onog ko ih salje.
+        $query= $this->db->query("SELECT * FROM poruka
+                            WHERE ((idPosiljalac=?) AND (idPrimalac=?))
+                            OR ((idPosiljalac=?) AND (idPrimalac=?))
+                            ORDER BY datum ASC",array($id,$idSaKim,$idSaKim,$id));
 
-        $query= $this->db->query("
-                          SELECT p.* FROM poruka p
-                           WHERE ((p.idPosiljalac='$id') AND (idPrimalac='$idSaKim'))
-                           OR 
-                           ((p.idPosiljalac='$idSaKim') AND (p.idPrimalac='$id'))
-                           GROUP BY idPosiljalac,idPrimalac 
-                           ORDER BY MAX(p.idPor) ASC");
-
-        $this->db->query("UPDATE `student-advisor-mysql`.poruka 
-                            SET procitana='d'
-                            WHERE idPor=
-                                    (
-                                        SELECT idPor FROM 
-                                        ( 
-                                            SELECT MAX(t.idPor) AS idPor
-                                            from `student-advisor-mysql`.poruka t
-                                            WHERE t.idPrimalac='$id' AND t.idPosiljalac='$idSaKim' AND t.procitana='n'
-                                        ) AS D
-		                            )");
-        //$query = $this->db->query('poruka', array('idPrimalac' => $id && 'idPosiljalac' => $idSaKim || 'idPrimalac' => $idSaKim && 'idPosiljalac' => $id)).orderBy(idPor);
-        // $query = $this->db->query("select p.*,c1.*,c2.* FROM poruka p, clan c1, c2 where c1.idClan=? AND c2.idClan=? AND  "
+        $this->db->query("UPDATE poruka SET procitana='d'
+					WHERE idPrimalac=? AND idPosiljalac=?",array($id,$idSaKim));
         return $query->result_array();
     }
 
-    //TAMARA ovo nevalja nesto, videti na stranici OOP1 da slike nmze da ucita zbog nekog idClana pogresnog tj nedefinisanog
+
     public function get_Ocenio_kurs($id)
     {
 
@@ -182,6 +173,37 @@ class User_model extends CI_Model {
                                     AND p.idKurs=?",array($id));
         return $query->result_array();
     }
+
+
+
+
+//odavde tamaar novo
+    public function find_komentar($idKurs, $idClan){
+        $query=$this->db->query("select * FROM  komentar WHERE idKurs=? AND idClan=?", array($idKurs,$idClan));
+        $provera=$query->result_array();
+        if(count($provera)>0)
+            return $provera[0]['idKom'];
+        return '-1';
+    }
+    public function get_komentar($idKom, $myID)
+    {
+        $query = $this->db->query("select p.* ,l.tip
+                                    FROM  `student-advisor-mysql`.komentar p
+                                    left outer join `student-advisor-mysql`.podrzavanje l
+                                    on p.idClan=l.idClan and l.idClan=? where
+                                    p.idKom=?", array($myID,$idKom));
+        return $query->row_array();
+    }
+    public function dodaj_podkomentar($comment, $idKom,$myID)
+    {
+        $this->db->query("INSERT INTO podkomentar(idKom,idClan,tekst) VALUES('$idKom','$myID','$comment')");
+    }
+
+
+
+
+
+
 
     public function get_Komentar_clan($id,$myID)
     {
@@ -207,19 +229,18 @@ class User_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_komentar_predavac($idPred = 1, $myID)
+    public function get_komentar_predavac($idPred, $myID)
     {
         $query = $this->db->query("SELECT p.*, k.ime, c.slika, l.tip
                         FROM `student-advisor-mysql`.komentar p 
                         inner join `student-advisor-mysql`.kurs k 
                         on p.idKurs = k.idkurs 
                         inner join `student-advisor-mysql`.predaje pp 
-                        on p.idKurs = pp.idKurs 
+                        on p.idKurs = pp.idKurs and pp.idPred=?
                         inner join `student-advisor-mysql`.clan c
                         on c.idClan=p.idClan
                         left outer join `student-advisor-mysql`.podrzavanje l 
-                        on p.idKom=l.idKom 
-                        and pp.idPred=? and l.idClan=?", array($idPred,$myID));
+                        on p.idKom=l.idKom and l.idClan=?", array($idPred,$myID));
         return $query->result_array();
     }
 
@@ -253,18 +274,7 @@ class User_model extends CI_Model {
         $query = $this->db->query("SELECT * FROM predavac where CONCAT(ime,' ',prezime) LIKE '%".$id."%' ORDER BY ime, prezime");
         return $query->result_array();
     }
-    /*public function get_kurs($id = FALSE)
-    {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs");
-            return $query->result_array();
-        }
 
-        $query = $this->db->query('select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs AND p.idClan=?',array($id));
-        return $query->result_array();
-    }*/
-    
 
 
 

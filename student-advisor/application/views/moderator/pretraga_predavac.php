@@ -1,3 +1,5 @@
+<!-- slanje maila, dodavanje kursa na kojima predaje-->
+
 <div class="st-content-inner">
     <div class="container">
         <div class="timeline-block">
@@ -9,7 +11,7 @@
                         </div>
                         <div class="media-right">
                             <a class="btn btn-white" data-tooltip="tooltip" title="Dodaj novog predavaca"
-                               onclick="kreiraj_predavaca()">
+                               style="margin-top: 6px; margin-right: 7px" onclick="kreiraj_predavaca()">
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
@@ -25,7 +27,7 @@
                 </div>
                 <ul class="comments"  >
                     <?php foreach ($predavac as $pr):?>
-                        <li class="media" >
+                        <li class="media" id="pretraga<?php echo $pr['idPred']?>" >
                             <div class="media-left">
                                 <a
                                    onclick="getSummary('<?php echo site_url('moderator/get_predavac_profil')?>/<?php echo $pr['idPred']?>', '<?php echo $pr['ime']?> <?php echo $pr['prezime']?>')">
@@ -50,7 +52,7 @@
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown" >
-                                    <a
+                                    <a onclick="brisanje_Predavac('<?php echo $pr['idPred']?>')"
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Obrisi predavaca">
                                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                                     </a>
