@@ -178,7 +178,6 @@ class Moderator extends CI_Controller
         $this->load->view("moderator/pretraga_predavac", $data);
     }
 
-<<<<<<< HEAD
     //ISIVESA_BEGIN
     public function dohvati_novi_kurs()
     {
@@ -207,11 +206,6 @@ class Moderator extends CI_Controller
         $opis=$_POST['opis'];
         $zvanje=$_POST['zvanje'];
         $slika=$_POST['slika'];
-=======
-    /**
-     * @param bool $id
-     * @param bool $id_kurs
->>>>>>> origin/master
 
         $id=$this->Moderator_model->put_novi_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje,$slika);
         return $id;

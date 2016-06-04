@@ -324,7 +324,6 @@ class User_model extends CI_Model {
     {
         $query = $this->db->query("INSERT INTO polozio(idClan,idKurs,ocena) values('$id','$idKurs','$ocena')");
     }
-<<<<<<< HEAD
 
     public function del_komentar($idkom)
     {
@@ -371,6 +370,3 @@ class User_model extends CI_Model {
 
 
 
-=======
-}
->>>>>>> origin/master

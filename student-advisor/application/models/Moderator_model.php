@@ -232,7 +232,6 @@ class Moderator_model extends CI_Model {
         $query = $this->db->query("SELECT * FROM predavac where CONCAT(ime,' ',prezime) LIKE '%".$id."%' ORDER BY ime, prezime");
         return $query->result_array();
     }
-<<<<<<< HEAD
     //ISIVESA_BEGIN
     public function put_novi_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje,$slika)
     {
@@ -251,10 +250,6 @@ class Moderator_model extends CI_Model {
     }
 
     public function put_predaje_na($idKurs,$idPred,$datumPoc)
-=======
-
-    /*public function get_kurs($id = FALSE)
->>>>>>> origin/master
     {
         $this->db->query("INSERT INTO predaje(idKurs,idPred,datumPoc) VALUES ('$idKurs','$idPred','$datumPoc')");
     }
