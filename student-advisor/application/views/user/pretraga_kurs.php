@@ -40,7 +40,11 @@
                                     <?php echo $cl['ime']?>
                                 </a>
                                 <div class="pull-right dropdown" >
+<<<<<<< HEAD
                                     <a  class="toggle-button" data-tooltip="tooltip" title="Dodaj kurs u listu položenih kurseva" onclick="dodaj_kurs(<?php echo $cl['idkurs'] ?>)">
+=======
+                                    <a href=""  class="toggle-button" data-tooltip="tooltip" title="Dodaj kurs u listu položenih kurseva">
+>>>>>>> origin/master
                                         <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -53,6 +57,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 <script>
     function dodaj_kurs(idKurs)
@@ -71,3 +76,5 @@
 
     }
 </script>
+=======
+>>>>>>> origin/master

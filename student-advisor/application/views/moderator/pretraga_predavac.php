@@ -8,10 +8,17 @@
                             <h5>Pretraga predavaca</h5>
                         </div>
                         <div class="media-right">
+<<<<<<< HEAD
                             <a class="btn btn-white" data-tooltip="tooltip" title="Dodaj novog predavaca"
                                onclick="kreiraj_predavaca()">
                                 <i class="fa fa-plus"></i>
                             </a>
+=======
+                        <a  class="btn btn-white" data-tooltip="tooltip" title="Dodaj novog predavaca"
+                            style="margin-top: 6px; margin-right: 7px">
+                            <i class="fa fa-plus"></i>
+                        </a>
+>>>>>>> origin/master
                         </div>
                     </div>
                 </div>
@@ -59,6 +66,7 @@
                                     <a
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Izmeni predavaca">
                                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+<<<<<<< HEAD
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown" >
@@ -67,6 +75,8 @@
                                         data-toggle="modal"  class="toggle-button" data-tooltip="tooltip" title="Dodaj kurseve na kojima predaje"
                                                 onclick="dohvati_predaje(<?php echo $pr['idPred'] ?>)">
                                         <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i>
+=======
+>>>>>>> origin/master
                                     </a>
                                 </div>
                             </div>

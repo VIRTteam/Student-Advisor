@@ -8,8 +8,13 @@
                             <h5>Pretraga kurseva</h5>
                         </div>
                         <div class="media-right">
+<<<<<<< HEAD
                             <a class="btn btn-white" data-tooltip="tooltip" title="Dodaj novi kurs"
                                onclick="kreiraj_kurs()">
+=======
+                            <a  class="btn btn-white" data-tooltip="tooltip" title="Dodaj novog predavaca"
+                                style="margin-top: 6px; margin-right: 7px">
+>>>>>>> origin/master
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>
@@ -45,23 +50,36 @@
                                    onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil') ?>/<?php echo $cl['idkurs'] ?>', '<?php echo $cl['ime'] ?>')">
                                     <?php echo $cl['ime'] ?>
                                 </a>
+<<<<<<< HEAD
                                 <div class="pull-right dropdown">
                                     <a href="" class="toggle-button" data-tooltip="tooltip"
                                        title="Dodaj kurs u listu položenih kurseva">
+=======
+                                <div class="pull-right dropdown" >
+                                    <a href=""  class="toggle-button" data-tooltip="tooltip" title="Dodaj kurs u listu položenih kurseva">
+>>>>>>> origin/master
                                         <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown">
                                     <a
+<<<<<<< HEAD
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button"
                                         data-tooltip="tooltip" title="Obrisi kurs">
+=======
+                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Obrisi kurs">
+>>>>>>> origin/master
                                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>
                                 <div class="pull-right dropdown">
                                     <a
+<<<<<<< HEAD
                                         data-toggle="modal" data-target="#myModal4" class="toggle-button"
                                         data-tooltip="tooltip" title="Izmeni kurs">
+=======
+                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Izmeni kurs">
+>>>>>>> origin/master
                                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>

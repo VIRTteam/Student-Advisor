@@ -227,7 +227,11 @@ class User extends CI_Controller
         echo $data;
     }
 
+<<<<<<< HEAD
 //ISIVESA BEGIN
+=======
+
+>>>>>>> origin/master
     public function put_komentar($idKurs)
     {
         $comment=$_POST['comment'];
@@ -253,6 +257,7 @@ class User extends CI_Controller
     {
         $this->User_model->del_kurs_polozen($idKurs, $this->myID);
         $this->get_mojprofil_profil_start();
+<<<<<<< HEAD
     }//vidi jel se koristi
     
     public function dohvati_unos_ocene()
@@ -263,5 +268,8 @@ class User extends CI_Controller
     }
     
     //ISIVESA END
+=======
+    }                                                               //vidi jel se koristi
+>>>>>>> origin/master
 }
 ?>
