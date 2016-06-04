@@ -64,7 +64,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Predaje na kursevima</a>
+                                    <a >Predaje na kursevima</a>
                                 </div>
                             </div>
                         </div>
@@ -83,8 +83,7 @@
                             <?php foreach ($predaje as $predmet): ?>
                                 <li class="media">
                                     <div class="media-left">
-                                        <a  href="javascript:void(0);"
-                                            onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        <a  onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                         >
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
@@ -95,8 +94,7 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')"
                                            class="comment-author pull-left">
                                             <?php echo $predmet['ime'] ?></a>
 
@@ -116,7 +114,7 @@
                         <div class="panel-heading">
                             <div class="media">
                                 <div class="media-body">
-                                    <a href="">Komentari sa kurseva na kojima predaje</a>
+                                    <a >Komentari sa kurseva na kojima predaje</a>
                                 </div>
                             </div>
                         </div>
@@ -131,10 +129,9 @@
                         </div>
                         <ul class="comments">
                             <?php foreach ($komentar as $kom): ?>
-                                <li class="media">
+                                <li class="media" id="komentar<?php echo $kom['idKom']?>">
                                     <div class="media-left">
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
+                                        <a onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
                                         >
                                             <?php
                                             $img =base_url().'img/clan_default.png';
@@ -145,20 +142,36 @@
                                         </a>
                                     </div>
                                     <div class="media-body">
+                                        <?php if ($kom['idClan'] ==$myID) {?>
                                         <div class="pull-right dropdown" >
-                                            <a class="toggle-button">
-                                                <i class="fa fa-minus"> <?php echo $kom['brNepodrzavanja']?> </i></span>
+                                            <a  onclick="brisanje_komentara('<?php echo $kom['idKom']?>')"
+                                                data-toggle="dropdown" class="toggle-button" data-tooltip="tooltip" title="Obriši">
+                                                <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
                                         <div class="pull-right dropdown" >
-                                            <a href="javascript:void(0);"
-                                               onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
-                                               class="toggle-button">
-                                                <i class="fa fa-plus"> <?php echo $kom['brPodrzavanja']?></i></span>
+                                            <a  onclick="izmeni_komentar('<?php echo $kom['idKom']?>')"
+                                                data-toggle="dropdown" class="toggle-button">
+                                                <i class="fa fa-pencil" data-tooltip="tooltip" title="Uredi"></i>
                                             </a>
                                         </div>
-                                        <a href="javascript:void(0);"
-                                           onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
+                                        <?php }?>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setUnlike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-minus <?php echo ($kom['tip']=='n')? 'active' : 'unactive';?>"
+                                                   id="nepodrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brNepodrzavanja']?> </i>
+                                            </a>
+
+                                        </div>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button"
+                                               onclick="setLike('<?php echo $kom['idKom']?>', '<?php echo $myID?>')">
+                                                <i class="fa fa-plus <?php echo ($kom['tip']=='p')? 'active' : 'unactive'?>" id="podrzavanje<?php echo $kom['idKom']?>"> <?php echo $kom['brPodrzavanja']?> </i>
+                                            </a>
+                                        </div>
+
+                                        <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
                                         <div class="comment-date"><?php echo $kom['tekst']?></div>
@@ -166,7 +179,7 @@
                                         <div class="comment-date"><?php echo $kom['datum']?></div>
                                     </div>
                                     <div class="view-all-comments">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                         <span><?php if($kom['brPodkomentara'] ==1)

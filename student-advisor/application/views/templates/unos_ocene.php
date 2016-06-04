@@ -1,4 +1,4 @@
-<div class="modal fade" id="myModal10" role="dialog">
+
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -37,7 +37,6 @@
 <script>
     function sacuvaj_ocenu(idkurs)
     {
-        //var tekst =$('#tekstIzmene').val();
         var e = document.getElementById("ocena");
         var ocena = e.options[e.selectedIndex].text;
         var idKurs=idkurs;

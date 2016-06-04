@@ -38,20 +38,17 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <li>
-                        <a href="javascript:void(0);"
-                           onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_profil')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_profil')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Poruke
                         </a>
                     </li>
                     <li>
-                        <a href="javascript:void(0);"
-                           onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Izmeni profil
                         </a>
                     </li>

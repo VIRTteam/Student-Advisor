@@ -3,46 +3,57 @@
     <div class="container">
         <div class="cover profile">
             <div class="wrapper">
-                <div class="image hidden-xs">
-                    <table ><td width="600" height="60"/></table>
+                <div class="image hidden-xs ">
+                    <table><td width="600" height="60"/></table>
                 </div>
             </div>
             <div class="cover-info">
                 <div class="avatar">
-                    <img src="<?php echo base_url(); ?>/img/woman-4.jpg" alt="people">
+                    <?php
+                    $img =base_url().'img/clan_default.png';
+                    if ($clan['slika']=='d') {
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>">
                 </div>
                 <div class="name"><h2><font color="#105DC1"><?php echo $naslov?></font></h2></div>
                 <ul class="cover-nav">
-
-
-                    <li>
+                    <li >
                         <a href="javascript:void(0);"
                            class="movie" onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_profil')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a href="javascript:void(0);" class="movie" onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-
         <div class="tabbable">
             <ul class="nav nav-tabs" tabindex="0" style="overflow: hidden; outline: none;">
-                <li class="active">
-                    <a href="http://themekit-v4.themekit.io/dist/themes/social-3/moderator-private-profile.html#profile" data-toggle="tab"><i class="fa fa-fw fa-folder"></i> O meni</a>
+                <li  class="active">
+                    <a href="#oKorisniku" data-toggle="tab">
+                        <i class="fa fa-fw fa-folder"></i> O korisniku</a>
                 </li>
-                <li class="">
-                    <a href="http://themekit-v4.themekit.io/dist/themes/social-3/moderator-private-profile.html#slike" data-toggle="tab"><i class="fa fa-fw fa-picture-o"></i> Slika</a>
+                <li  class="">
+                    <a href="#slika" data-toggle="tab">
+                        <i class="fa fa-fw fa-picture-o"></i> Slika</a>
                 </li>
             </ul>
-
             <div class="tab-content">
-                <div class="tab-pane fade active in" id="profile">
+                <div class="tab-pane fade" id="slika">
+                    <?php
+                    $img =base_url().'img/clan_default.png';
+                    if ($clan['slika']=='d') {
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                    }?>
+                    <img src="<?php echo $img?>" height="200" width="200">
+                </div>
+
+                <div class="tab-pane fade active in" id="oKorisniku">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="panel panel-default">
@@ -52,7 +63,6 @@
                                 </div>
                                 <div class="panel-body">
                                     <ul class="list-unstyled profile-about margin-none">
-
                                         <li class="padding-v-5">
                                             <div class="row">
                                                 <div class="col-sm-4"><span class="text-muted">Ime</span></div>
@@ -73,8 +83,26 @@
                                         </li>
                                         <li class="padding-v-5">
                                             <div class="row">
+                                                <div class="col-sm-4"><span class="text-muted">Pol</span></div>
+                                                <div class="col-sm-8">
+                                                    <?php
+                                                    if ($clan['pol'][0]=='z')
+                                                        echo "ženski";
+                                                    else
+                                                        echo "muški";
+                                                    ?></div>
+                                            </div>
+                                        </li>
+                                        <li class="padding-v-5">
+                                            <div class="row">
                                                 <div class="col-sm-4"><span class="text-muted">Datum rođenja</span></div>
                                                 <div class="col-sm-8"><?php echo $clan['datumRodjenja']?></div>
+                                            </div>
+                                        </li>
+                                        <li class="padding-v-5">
+                                            <div class="row">
+                                                <div class="col-sm-4"><span class="text-muted">Smer</span></div>
+                                                <div class="col-sm-8"><?php echo $clan['smer']?></div>
                                             </div>
                                         </li>
                                         <li class="padding-v-5">
@@ -89,18 +117,7 @@
                                                 <div class="col-sm-8"><?php echo $clan['prosecnaOcena']?></div>
                                             </div>
                                         </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Pol</span></div>
-                                                <div class="col-sm-8">
-                                                    <?php
-                                                    if ($clan['pol'][0]=='z')
-                                                        echo "ženski";
-                                                    else
-                                                        echo "muški";
-                                                    ?></div>
-                                            </div>
-                                        </li>
+
                                         <li class="padding-v-5">
                                             <div class="row">
                                                 <div class="col-sm-4"><span class="text-muted">Opis</span></div>
@@ -113,11 +130,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="tab-pane fade " id="slike">
-                    <img src="./img/food1.jpg" alt="image">
-                </div>
-
             </div>
         </div>
     </div>

@@ -22,6 +22,7 @@ class User_model extends CI_Model {
         $query = $this->db->get_where('clan', array('idClan' => $id));
         return $query->row_array();
     }
+
     public function get_kurs($id = FALSE)
     {
         if ($id === FALSE)
@@ -129,7 +130,7 @@ class User_model extends CI_Model {
                                 ORDER BY idPor DESC
                                 
                        "
-            );
+        );
 
         //$query = $this->db->query('select p.*, c.* FROM clan c inner join poruka p on p.idPrimalac = c.idClan AND p.idPosiljalac=?',array($id));
         return $query->result_array();
@@ -144,7 +145,7 @@ class User_model extends CI_Model {
         }
         //potrebno setovati poruku da je procitana kada smo mi primalaci  ulazimo na neprocitanu poruku.
         //Potrebno da neprocitane poruke se prikazuju kao neprocitane samo za onoga ko ih prima ne i onog ko ih salje.
-        
+
         $query= $this->db->query("
                           SELECT p.* FROM poruka p
                            WHERE ((p.idPosiljalac='$id') AND (idPrimalac='$idSaKim'))
@@ -165,7 +166,7 @@ class User_model extends CI_Model {
                                         ) AS D
 		                            )");
         //$query = $this->db->query('poruka', array('idPrimalac' => $id && 'idPosiljalac' => $idSaKim || 'idPrimalac' => $idSaKim && 'idPosiljalac' => $id)).orderBy(idPor);
-       // $query = $this->db->query("select p.*,c1.*,c2.* FROM poruka p, clan c1, c2 where c1.idClan=? AND c2.idClan=? AND  "
+        // $query = $this->db->query("select p.*,c1.*,c2.* FROM poruka p, clan c1, c2 where c1.idClan=? AND c2.idClan=? AND  "
         return $query->result_array();
     }
 
@@ -181,20 +182,7 @@ class User_model extends CI_Model {
                                     AND p.idKurs=?",array($id));
         return $query->result_array();
     }
-    /*TAMARA nznm sta ce podkomentari ovde
-    public function get_Komentar_clan($id,$myID)
-    {
 
-        $query = $this->db->query("select p.*, k.* , count(pk.redniBroj) as brPodkomentara
-                                    FROM  `student-advisor-mysql`.komentar p
-                                    inner join `student-advisor-mysql`.kurs k 
-                                    on p.idKurs = k.idkurs and p.idClan=?
-                                    left outer join `student-advisor-mysql`.podkomentar pk
-                                    on p.idKom=pk.idKom
-                                    group by p.idKom
-                                    ", array($id));
-        return $query->result_array();
-    }*/
     public function get_Komentar_clan($id,$myID)
     {
 
@@ -207,39 +195,31 @@ class User_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_Komentar_kurs($id = FALSE)
+    public function get_Komentar_kurs($id, $myID)
     {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("select p.*, k.* FROM komentar p inner join clan k on p.idClan = k.idClan");
-            return $query->result_array();
-        }
+        $query = $this->db->query("select p.*, k.*, l.tip
+                                    FROM  komentar p
+                                    inner join clan k 
+                                    on p.idClan = k.idClan and p.idKurs=?
+                                    left outer join podrzavanje l
+                                    on p.idKom=l.idKom and l.idClan=?", array($id,$myID));
 
-        $query = $this->db->query("select p.*, k.* ,count(pk.redniBroj) as brPodkomentara
-                                  FROM komentar p 
-                                  inner join clan k 
-                                  on p.idClan = k.idClan 
-                                  and p.idKurs=?
-                                  left outer join podkomentar pk
-                                  on p.idKom=pk.idKom
-                                  group by p.idKom", array($id));
         return $query->result_array();
     }
 
-    public function get_komentar_predavac($idPred = 1)
+    public function get_komentar_predavac($idPred = 1, $myID)
     {
-        $query = $this->db->query("SELECT p.*, k.ime, c.slika, count(pk.redniBroj) as brPodkomentara
-                                    FROM komentar p 
-                                    inner join kurs k 
-                                    inner join predaje pp 
-                                    on p.idKurs = k.idkurs 
-                                    AND p.idKurs = pp.idKurs 
-                                    AND pp.idPred=?
-                                    inner join clan c
-                                    on c.idClan=p.idClan
-                                    left outer join podkomentar pk
-                                    on p.idKom=pk.idKom
-                                    group by p.idKom", array($idPred));
+        $query = $this->db->query("SELECT p.*, k.ime, c.slika, l.tip
+                        FROM `student-advisor-mysql`.komentar p 
+                        inner join `student-advisor-mysql`.kurs k 
+                        on p.idKurs = k.idkurs 
+                        inner join `student-advisor-mysql`.predaje pp 
+                        on p.idKurs = pp.idKurs 
+                        inner join `student-advisor-mysql`.clan c
+                        on c.idClan=p.idClan
+                        left outer join `student-advisor-mysql`.podrzavanje l 
+                        on p.idKom=l.idKom 
+                        and pp.idPred=? and l.idClan=?", array($idPred,$myID));
         return $query->result_array();
     }
 
@@ -284,8 +264,38 @@ class User_model extends CI_Model {
         $query = $this->db->query('select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs AND p.idClan=?',array($id));
         return $query->result_array();
     }*/
+    
 
 
+
+
+
+    public function get_clan_username($id)
+    {
+        $query = $this->db->get_where('clan', array('username' => $id));
+        return $query->row_array()['idClan'];
+    }
+    public function proveri_banovanje($idClan)
+    {
+
+        $query=$this->db->query("SELECT k.*, u.datumBanovanja, u.razlog FROM clan k LEFT OUTER JOIN banovanje u on u.idClan=k.idClan WHERE k.idClan=? ",
+            array( $idClan));
+        date_default_timezone_set("Europe/Belgrade");
+        $sad=date("Y-m-d h:i:s");
+        $red=$query->row_array();
+        $poc=$red['datumBanovanja'];
+        if(!$poc)
+            return NAN;
+
+        $tekT=strtotime('+1 day', strtotime($poc));
+        //return date("Y-m-d h:i:s",$tekT);
+        if($tekT<strtotime($sad))
+        {
+            $this->db->query("DELETE FROM banovanje WHERE idClan=? ", array($idClan));
+            return NAN;
+        }
+        return $red['razlog'];
+    }
 
     public function get_clan_from_username($id)
     {
@@ -293,11 +303,10 @@ class User_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function get_clan_username($id)
-    {
-        $query = $this->db->get_where('clan', array('username' => $id));
-        return $query->row_array()['idClan'];
-    }
+
+
+
+
     public function put_comment($idClan , $idKurs , $comment, $anonim="false")
     {
         if ($anonim=='false')
@@ -311,16 +320,53 @@ class User_model extends CI_Model {
         $query = $this->db->query("INSERT INTO poruka(idPosiljalac,idPrimalac,tekst) values('$id','$idSaKim','$tekst')");
     }
 
-    public function put_polozen_kurs($idKurs, $id)
+    public function put_polozen_kurs($idKurs,$ocena, $id)
     {
-        $query = $this->db->query("INSERT INTO polozio(idClan,idKurs) values('$id','$idKurs')");
+        $query = $this->db->query("INSERT INTO polozio(idClan,idKurs,ocena) values('$id','$idKurs','$ocena')");
     }
+
     public function del_komentar($idkom)
     {
         $query = $this->db->query("DELETE FROM komentar WHERE idKom='$idkom'");
     }
+    //isiVesa begin
     public function del_kurs_polozen($idKurs, $idClan)
     {
         $query = $this->db->query("DELETE FROM polozio WHERE idClan='$idClan' AND idKurs='$idKurs'");
     }
+    //isivesa end
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

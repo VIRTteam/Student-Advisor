@@ -20,14 +20,12 @@
                 </div>
                 <ul class="cover-nav">
                     <li >
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a href="javascript:void(0);" 
-                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_opis')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_clan_opis')?>/<?php echo $clan['idClan']?>','<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>

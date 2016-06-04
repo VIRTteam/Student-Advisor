@@ -19,14 +19,12 @@
                 <div class="name"><h2><font color="#105DC1">Igor Tartalja</font></h2></div>
                 <ul class="cover-nav">
                     <li >
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>

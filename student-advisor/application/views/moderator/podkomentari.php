@@ -6,11 +6,10 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Komentar predmeta
-                            <a href="javascript:void(0);"
-                                onclick="getSummaryPodKom('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $komentarKurs['idKurs']?>', '<?php echo $komentarClan['ime']?>')" >
+                            <a onclick="getSummaryPodKom('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $komentarKurs['idKurs']?>', '<?php echo $komentarClan['ime']?>')" >
                                 <span style="color: black; "><?php echo $komentarKurs['ime']?></span>
                             </a>
-                        :</h4>
+                        </h4>
                         <ul class="comments">
                             <li class="media">
                                 <div class="media-left">
@@ -19,34 +18,43 @@
                                     if ($komentarClan['slika']=='d') { $img =base_url().'/img/clan/clan'.$komentarClan['idClan'].'.jpg';}
                                     ?>
 
-                                    <a href="javascript:void(0);"
-                                       onclick="getSummaryPodKom('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
+                                    <a onclick="getSummaryPodKom('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        data-toggle="tooltip" title="" >
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
+                                        <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
+                                    <?php if ($komentarClan['tekst']) {?>
                                     <div class="pull-right dropdown" >
-                                        <a href=""  class="toggle-button disabled" data-tooltip="tooltip" title="Podržavam!">
-                                            <i class="fa fa-minus"> <?php echo $komentarClan['brNepodrzavanja']?></i>
+                                        <a class="toggle-button"
+                                           onclick="setUnlike('<?php echo $komentarClan['idKom']?>', '<?php echo $komentarClan['idClan']?>')">
+                                            <i class="fa fa-minus <?php echo ($komentarClan['tip']=='n')? 'active' : 'unactive';?>"
+                                               id="nepodrzavanje<?php echo $komentarClan['idKom']?>"> <?php echo $komentarClan['brNepodrzavanja']?> </i>
                                         </a>
+
                                     </div>
                                     <div class="pull-right dropdown" >
-                                        <a href=""  class="toggle-button disabled" data-tooltip="tool tip" title="Ne podržavam!">
-                                            <i class="fa fa-plus"> <?php echo $komentarClan['brPodrzavanja']?></i>
+                                        <a class="toggle-button"
+                                           onclick="setLike('<?php echo $komentarClan['idKom']?>', '<?php echo $komentarClan['idClan']?>')">
+                                            <i class="fa fa-plus <?php echo ($komentarClan['tip']=='p')? 'active' : 'unactive'?>"
+                                               id="podrzavanje<?php echo $komentarClan['idKom']?>"> <?php echo $komentarClan['brPodrzavanja']?> </i>
                                         </a>
                                     </div>
-                                    
-                                    <a href="javascript:void(0);"
-                                       onclick="getSummaryPodKom('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
+
+                                    <a onclick="getSummaryPodKom('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        class="comment-author pull-left">
                                         <?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>
                                     </a>
                                     <br/>
-                                    <div class="comment-date"><?php if ($komentarClan['tekst']) echo $komentarClan['tekst']?>.</div>
+                                    <div class="comment-text">
+                                        <?php echo $komentarClan['tekst']?>
+                                    </div>
+                                    <?php }?>
                                     <br/>
                                     <div class="comment-date"><?php echo $komentarClan['datum']?></div>
-                                    <?php if (($komentarOcena['ocena'])) echo 'Polozio sa ocenom: ' . $komentarOcena['ocena']?>
+                                    <div class="comment-text">
+                                        <?php if (($komentarOcena['ocena'])) echo 'Polozio sa ocenom: ' . $komentarOcena['ocena']?>
+                                    </div>
                                     <div class="comment-date">
                                         <?php if (($komentarOcena['zanimljivost'])) echo 'zanimljivost: ' . $komentarOcena['zanimljivost']?>
                                         <?php if (($komentarOcena['korisnost'])) echo 'korisnost: ' . $komentarOcena['korisnost']?>
@@ -63,25 +71,22 @@
                             <?php foreach ($podkomentar as $podkom): ?>
                             <li class="media">
                                 <div class="media-left">
-
                                     <?php
                                     $img =base_url().'img/clan_default.png';
                                     if ($podkom['slika']=='d') { $img =base_url().'/img/clan/clan'.$podkom['idClan'].'.jpg';}
                                     ?>
 
-                                    <a href="javascript:void(0);"
-                                        onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">
+                                    <a onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">
 
-                                        <img class="img-circle" src="<?php echo $img?>" alt="people">
+                                        <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                     </a>
                                 </div>
                                 <div class="media-body">
-                                    <a href="javascript:void(0);"
-                                       onclick="getSummaryPodKom('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')"
+                                    <a onclick="getSummaryPodKom('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')"
                                        class="comment-author pull-left">
                                         <?php echo $podkom['ime']?> <?php echo $podkom['prezime']?></a>
                                     <br/>
-                                    <div class="comment-date"><?php echo $podkom['tekst']?></div>
+                                    <div class="comment-text"><?php echo $podkom['tekst']?></div>
                                     <br/>
                                     <div class="comment-date"><?php echo $podkom['datum']?></div>
                                 </div>
@@ -89,8 +94,18 @@
                             <?php endforeach ?>
                         </ul>
                     </div>
-                </div>
+                    <div class="modal-footer" style="border: 0px">
 
+                        <div class="panel panel-default share">
+                            <textarea class="form-control share-text"  placeholder="Napisi komentar"></textarea>
+                            <div class="input-group-btn">
+                                <a class="btn btn-white" href="">
+                                    <i class="fa fa-send"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -110,3 +125,5 @@
             $('#podkomentari').modal("hide");
         }
     </script>
+
+    <?php  $this->load->view('templates/toggle'); ?>

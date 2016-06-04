@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url(); ?>/css/app.css" rel="stylesheet">
 
  </head>
-<body class="login breakpoint-1024">
+
+<body class="login breakpoint-1024" >
 
 <!-- Wrapper required for sidebar transitions -->
 <!-- Wrapper required for sidebar transitions -->
