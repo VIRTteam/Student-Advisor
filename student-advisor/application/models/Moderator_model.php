@@ -110,44 +110,8 @@ class Moderator_model extends CI_Model {
         return $query->row_array();
     }
 
-    public function get_Poslednje_Poruke($id = FALSE) //mozda radi
-    {
-        if ($id === FALSE) {
-            return null;
-        }
-        $query = $this->db->query("SELECT  * FROM poruka where idPor IN 
-                      (
-                          SELECT idPor FROM poruka
-                           WHERE (idPosiljalac='$id') OR (idPrimalac='$id') 
-                           GROUP BY idPosiljalac,idPrimalac 
-                           ORDER BY MAX(idPor) DESC
-                       ) 
-                       ORDER BY idPor DESC"
-        );
 
-        //$query = $this->db->query('select p.*, c.* FROM clan c inner join poruka p on p.idPrimalac = c.idClan AND p.idPosiljalac=?',array($id));
-        return $query->result_array();
-    }
 
-    public function get_Poruke($id = FALSE, $idSaKim = FALSE)//ne radi
-    {
-        if ($id === FALSE || $idSaKim === FALSE)
-        {
-            $query = $this->db->get('poruka');
-            return $query->result_array()[0];
-        }
-
-        $query= $this->db->query("
-                          SELECT p.* FROM poruka p
-                           WHERE ((p.idPosiljalac='$id') AND (idPrimalac='$idSaKim'))
-                           OR 
-                           ((p.idPosiljalac='$idSaKim') AND (p.idPrimalac='$id'))
-                           GROUP BY idPosiljalac,idPrimalac 
-                           ORDER BY MAX(p.idPor) DESC");
-        //$query = $this->db->query('poruka', array('idPrimalac' => $id && 'idPosiljalac' => $idSaKim || 'idPrimalac' => $idSaKim && 'idPosiljalac' => $id)).orderBy(idPor);
-        // $query = $this->db->query("select p.*,c1.*,c2.* FROM poruka p, clan c1, c2 where c1.idClan=? AND c2.idClan=? AND  "
-        return $query->result_array();
-    }
 	public function get_Polozio1_kurs($id = FALSE)
     {
         if ($id === FALSE)
@@ -329,5 +293,67 @@ class Moderator_model extends CI_Model {
                            WHERE idkurs='$idkurs'");
 
     }
+    public function get_Poruke($id = FALSE, $idSaKim = FALSE)
+    {
+        if ($id === FALSE || $idSaKim === FALSE)
+        {
+            $query = $this->db->get('poruka');
+            return $query->result_array()[0];
+        }
+        $query= $this->db->query("SELECT p.* FROM `student-advisor-mysql`.poruka p
+                           WHERE ((p.idPosiljalac='$id') AND (p.idPrimalac='$idSaKim'))
+                           OR 
+                           ((p.idPosiljalac='$idSaKim') AND (p.idPrimalac='$id'))
+                           
+                           ORDER BY p.idPor ASC");
+
+        $this->db->query("UPDATE poruka SET procitana='d'
+					WHERE idPrimalac=? AND idPosiljalac=? AND procitana='n'",array($id,$idSaKim));
+        return $query->result_array();
+    }
+    public function get_Poslednje_Poruke($id = FALSE) //mozda radi
+    {
+        if ($id === FALSE) {
+            return null;
+        }//INNER JOIN `student-advisor-mysql`.clan c on c.idClan=idPosiljalac OR c.idClan=idPrimalac
+        $query = $this->db->query("SELECT * FROM `student-advisor-mysql`.poruka 
+                                    INNER JOIN `student-advisor-mysql`.clan c on (c.idClan=idPosiljalac and c.idClan!='$id') OR (c.idClan=idPrimalac and c.idClan!='$id')
+                                    WHERE idPor IN 
+                                    (
+                                        SELECT MAX(p.idPor) FROM `student-advisor-mysql`.poruka p
+                                        WHERE ((p.idPosiljalac='$id') AND
+                                        NOT EXISTS (	SELECT k.idPor
+                                                        FROM `student-advisor-mysql`.poruka k
+                                                        WHERE k.idPrimalac=p.idPosiljalac AND k.idPosiljalac=p.idPrimalac
+                                                        AND k.idPor>p.idPor
+                                                    ))
+                                        
+                                        OR ((p.idPrimalac='$id') AND 
+                                                NOT EXISTS 
+                                                    ( SELECT k.idPor
+                                                        FROM `student-advisor-mysql`.poruka k
+                                                        WHERE k.idPosiljalac=p.idPrimalac AND k.idPrimalac=p.idPosiljalac
+                                                        AND k.idPor>p.idPor
+                                                    )
+                                            )
+                                        GROUP BY idPosiljalac,idPrimalac                        
+                                    )
+                                ORDER BY idPor DESC
+                                
+                       "
+        );
+        return $query->result_array();
+    }
+    public function get_clan_from_username($id)
+    {
+        $query = $this->db->get_where('clan', array('username' => $id));
+        return $query->row_array();
+    }
+    public function put_message($id,$idSaKim,$tekst)
+    {
+        $query = $this->db->query("INSERT INTO poruka(idPosiljalac,idPrimalac,tekst) values('$id','$idSaKim','$tekst')");
+    }
+
+
     //ISIVESA_END
 }

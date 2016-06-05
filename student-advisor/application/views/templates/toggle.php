@@ -140,7 +140,26 @@ function brisanje_Predavac(idPred)
 
 </script>
 
+<script>
 
+    function loadNewMessages(id)
+    {
+        var tekst=document.getElementById("tekst").value;
+
+        $.ajax({
+            type: 'POST',
+            url: id,
+            async: false,
+            data: {
+                tekst :tekst
+            },
+            success: function (returnData) {
+
+            }
+        });
+
+    }
+</script>
 
 
 

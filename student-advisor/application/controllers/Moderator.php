@@ -91,16 +91,27 @@ class Moderator extends CI_Controller
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("moderator/clan_slika", $data);
     }
-    public function get_clan_poruke($id=FALSE, $idSaKim=FALSE)
+
+
+    public function get_clan_poruke_posalji($idSaKim)
     {
-        $data['clan'] = $this->Moderator_model->get_clan($id);
+        $data['tekst']= $_POST['tekst'];
+        $this->Moderator_model->put_message($this->myID,$idSaKim,$data['tekst']);
+
+        get_clan_poruke($idSaKim);
+
+    }
+    public function get_clan_poruke($idSaKim=FALSE)
+    {
+
+        $data['clan'] = $this->Moderator_model->get_clan_from_username($_SESSION['username'] );
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
-        $data['poslednjePoruke'] = $this->Moderator_model->get_Poslednje_Poruke($id);
-        $data['poruke'] = $this->Moderator_model->get_Poruke($id, $idSaKim);
+        $data['saKim']=$this->Moderator_model->get_clan($idSaKim);
+        $data['poslednjePoruke'] = $this->Moderator_model->get_Poslednje_Poruke($data['clan']['idClan']);
+        $data['poruke'] = $this->Moderator_model->get_Poruke($data['clan']['idClan'], $idSaKim);
 
         $this->load->view('moderator/clan_poruke',$data);
     }
-
     public function get_kurs_profil($id=FALSE)
     {
         $data['myID']=$this->myID;

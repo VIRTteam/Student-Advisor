@@ -12,7 +12,7 @@
                 <div class="avatar">
                     <?php
                     $img =base_url().'img/clan_default.png';
-                    if ($cln['slika']=='d') { $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';}
+                    if ($clan['slika']=='d') { $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';}
                     ?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -125,23 +125,4 @@
     </div>
 </div>
 
-<script>
 
-    function loadNewMessages(id)
-    {
-        var tekst=document.getElementById("tekst").value;
-
-        $.ajax({
-            type: 'POST',
-            url: id,
-            async: false,
-            data: {
-                tekst :tekst
-            },
-            success: function (returnData) {
-               
-            }
-        });
-
-    }
-</script>
