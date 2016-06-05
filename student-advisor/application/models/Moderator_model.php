@@ -300,7 +300,8 @@ class Moderator_model extends CI_Model {
             $query = $this->db->get('poruka');
             return $query->result_array()[0];
         }
-        $query= $this->db->query("SELECT p.* FROM `student-advisor-mysql`.poruka p
+        $query= $this->db->query("SELECT p.*, c.* FROM `student-advisor-mysql`.poruka p
+                                   INNER JOIN `student-advisor-mysql`.clan c on c.idClan=p.idPosiljalac
                            WHERE ((p.idPosiljalac='$id') AND (p.idPrimalac='$idSaKim'))
                            OR 
                            ((p.idPosiljalac='$idSaKim') AND (p.idPrimalac='$id'))
@@ -311,6 +312,7 @@ class Moderator_model extends CI_Model {
 					WHERE idPrimalac=? AND idPosiljalac=? AND procitana='n'",array($id,$idSaKim));
         return $query->result_array();
     }
+
     public function get_Poslednje_Poruke($id = FALSE) //mozda radi
     {
         if ($id === FALSE) {

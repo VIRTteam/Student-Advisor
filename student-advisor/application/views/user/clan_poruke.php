@@ -85,8 +85,13 @@
                 <?php foreach ($poruke as $por): ?>
                     <div class="media">
                         <div class="media-left">
+                            <?php
+                            $img =base_url().'img/clan_default.png';
+                            if ($por['slika']=='d') {
+                                $img =base_url().'/img/clan/clan'.$por['idClan'].'.jpg';
+                            }?>
                             <a>
-                                <img src="./img/woman-5.jpg" width="60" alt="woman" class="media-object">
+                                <img src="<?php echo $img?>"  width="60" height="60" alt="" class="media-object">
                             </a>
                         </div>
                         <div class="media-body message">
@@ -97,7 +102,7 @@
                                     </div>
                                     <a href="javascript:void(0);"
                                        class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_profil')?>/<?php echo $por['idPosiljalac']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
-                                        <?php echo $por['idPosiljalac']?>
+                                        <?php echo $por['ime']?> <?php echo $por['prezime'] ?>
                                     </a>
 
                                 </div>
