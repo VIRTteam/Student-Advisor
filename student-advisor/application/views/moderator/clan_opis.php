@@ -133,7 +133,7 @@
                                         <li class="padding-v-5">
                                             <div class="row">
                                                 <div class="col-sm-4"><span class="text-muted">Opis</span></div>
-                                                <div class="col-sm-8"><?echo $clan['opis']?></div>
+                                                <div class="col-sm-8"><?php echo $clan['opis']?></div>
                                             </div>
                                         </li>
                                     </ul>

@@ -297,8 +297,29 @@ class User extends CI_Controller
     {
         $idKurs=$_POST['idKurs'];
         $data['predmet']=$this->User_model->get_kurs($idKurs);
-        $this->load->view("templates/unos_ocene", $data);
+        $this->load->view("templat/unos_ocene", $data);
     }
+
+    public function dohvati_izmenu_profila()
+    {
+        $data['clan']=$this->User_model->get_clan($this->myID);
+        $this->load->view("user/izmena_profila", $data);
+    }
+    public function put_izmena_profila()
+    {
+        $ime=$_POST['ime'];
+        $prezime=$_POST['prezime'];
+        $email=$_POST['email'];
+        $pol=$_POST['pol'];
+       $datumRodj=$_POST['datumRodj'];
+        $smer=$_POST['smer'];
+        $godUpis=$_POST['godUpis'];
+        $opis=$_POST['opis'];
+        $pass=$_POST['sifra'];
+
+        $this->User_model->put_izmena_profila($ime,$prezime,$email,$pol,$smer,$godUpis,$opis,$pass,$this->myID,$datumRodj);
+    }
+
     
     //ISIVESA END
 }

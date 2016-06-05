@@ -64,7 +64,7 @@
                         <div class="col-md-6">
                             <div class="panel panel-default">
                                 <div class="panel-heading panel-heading-gray">
-                                    <button onclick="" class="btn btn-white btn-xs pull-right"><i class="fa fa-pencil"></i></button>
+                                    <button onclick="izmeni_profil()" class="btn btn-white btn-xs pull-right"><i class="fa fa-pencil"></i></button>
                                     <i class="fa fa-fw fa-info-circle"></i> O meni
                                 </div>
                                 <div class="panel-body">
@@ -127,7 +127,7 @@
                                         <li class="padding-v-5">
                                             <div class="row">
                                                 <div class="col-sm-4"><span class="text-muted">Opis</span></div>
-                                                <div class="col-sm-8"><?echo $clan['opis']?></div>
+                                                <div class="col-sm-8"><?php echo $clan['opis']?></div>
                                             </div>
                                         </li>
                                     </ul>

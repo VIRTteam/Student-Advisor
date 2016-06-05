@@ -318,7 +318,27 @@ class Moderator extends CI_Controller
         
         $this->Moderator_model->edit_kurs($ime,$opis,$slika, $idKurs);
     }
-    
+
+    public function dohvati_izmenu_profila()
+    {
+        $data['clan']=$this->Moderator_model->get_clan($this->myID);
+        $this->load->view("moderator/izmena_profila", $data);
+    }
+    public function put_izmena_profila()
+    {
+        $ime=$_POST['ime'];
+        $prezime=$_POST['prezime'];
+        $email=$_POST['email'];
+        $pol=$_POST['pol'];
+        $datumRodj=$_POST['datumRodj'];
+        $smer=$_POST['smer'];
+        $godUpis=$_POST['godUpis'];
+        $opis=$_POST['opis'];
+        $pass=$_POST['sifra'];
+
+        $this->Moderator_model->put_izmena_profila($ime,$prezime,$email,$pol,$smer,$godUpis,$opis,$pass,$this->myID,$datumRodj);
+    }
+
     //ISIVESA_END
 
 

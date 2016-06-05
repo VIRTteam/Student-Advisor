@@ -100,7 +100,7 @@
                             <li class="comment-form">
                                 <div class="input-group">
                       <span title="Dodaj kurs" class="input-group-btn">
-                        <a  class="btn btn-white"><i class="fa fa-plus"></i></a>
+                        <a  class="btn btn-white" onclick="search_cours()"><i class="fa fa-plus"></i></a>
                       </span>
                                     <input type="text" class="form-control">
                                 </div>

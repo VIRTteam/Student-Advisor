@@ -355,6 +355,10 @@ class Moderator_model extends CI_Model {
     {
         $query = $this->db->query("INSERT INTO poruka(idPosiljalac,idPrimalac,tekst) values('$id','$idSaKim','$tekst')");
     }
+    public function put_izmena_profila($ime,$prezime,$email,$pol,$smer,$godUpis,$opis,$pass, $idClan, $datumRodj)
+    {
+        $this->db->query("UPDATE clan SET ime='$ime', prezime='$prezime' , email='$email' , smer='$smer' , pol='$pol' ,opis='$opis',godinaUpisa='$godUpis', password='$pass' ,datumRodjenja='$datumRodj' WHERE idClan='$idClan' ");
+    }
 
 
     //ISIVESA_END

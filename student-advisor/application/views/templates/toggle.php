@@ -159,6 +159,30 @@ function brisanje_Predavac(idPred)
         });
 
     }
+
+    function izmeni_profil()
+    {
+        $.ajax({
+            type: 'POST',
+            url:'<?php echo site_url()?>/user/dohvati_izmenu_profila',
+            async: false,
+            success: function (returnData) {
+                $('#toggle_modal').html(returnData);
+            }
+        });
+
+        $('#toggle_modal').modal('show');
+    }
+    function search_cours(){
+    $.ajax({
+        type: 'GET',
+        url: '<?php echo site_url('user/get_pretraga_kurs')?>/',
+        success: function (returnData) {
+            $('#nesto').html(returnData);
+        }
+    });
+    }
+
 </script>
 
 
