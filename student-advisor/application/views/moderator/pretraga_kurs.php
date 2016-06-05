@@ -54,8 +54,9 @@
                                 </div>
                                 <div class="pull-right dropdown">
                                     <a
-                                        data-toggle="modal" data-target="#myModal4" class="toggle-button"
-                                        data-tooltip="tooltip" title="Izmeni kurs">
+                                        data-toggle="modal" class="toggle-button"
+                                        data-tooltip="tooltip" title="Izmeni kurs"
+										 onclick="izmeni_kurs(<?php echo $cl['idkurs'] ?>)">
                                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -89,9 +90,22 @@
         $('#toggle_modal').modal('show');
 
     }
-</script>
 
-<script>
+	    function izmeni_kurs(idkurs) {
+        $.ajax(
+            {
+                type: 'POST',
+                async: false,
+                url: '<?php echo site_url()?>/moderator/dohvati_edit_kurs/'+idkurs,
+                success: function (returnData) {
+                    $('#toggle_modal').html(returnData);
+                }
+            }
+        );
+        $('#toggle_modal').modal('show');
+
+    }
+	
     function dodaj_kurs(idKurs)
     {
         $.ajax({

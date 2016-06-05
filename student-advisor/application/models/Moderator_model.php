@@ -148,7 +148,27 @@ class Moderator_model extends CI_Model {
         // $query = $this->db->query("select p.*,c1.*,c2.* FROM poruka p, clan c1, c2 where c1.idClan=? AND c2.idClan=? AND  "
         return $query->result_array();
     }
+	public function get_Polozio1_kurs($id = FALSE)
+    {
+        if ($id === FALSE)
+        {
+            $query = $this->db->query("select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan");
+            return $query->result_array();
+        }
 
+        $query = $this->db->query("select p.*, k.*, ko.*
+                                    FROM `student-advisor-mysql`.polozio p 
+                                    inner join `student-advisor-mysql`.clan k  
+                                    
+                                    on p.idClan = k.idClan 
+                                    AND p.zanimljivost AND p.tezina AND p.preporuka AND p.korisnost
+                                    AND p.idKurs=?
+                                    left join `student-advisor-mysql`.komentar ko 
+                                    on ko.idClan=p.idClan and ko.idKurs=p.idKurs
+"
+            ,array($id));
+        return $query->result_array();
+    }
     public function get_Ocenio_kurs($id)
     {
 
@@ -267,9 +287,9 @@ class Moderator_model extends CI_Model {
         $this->db->query("INSERT INTO kurs(ime,opis,slika) VALUES ('$ime','$opis','$slika')");
     }
 
-    public function put_predaje_na($idKurs,$idPred,$datumPoc)
+    public function put_predaje_na($idKurs,$idPred)//,$datumPoc)
     {
-        $this->db->query("INSERT INTO predaje(idKurs,idPred,datumPoc) VALUES ('$idKurs','$idPred','$datumPoc')");
+        $this->db->query("INSERT INTO predaje(idKurs,idPred,datumPoc) VALUES ('$idKurs','$idPred')");//,'$datumPoc')");
     }
     public function svi_kursevi()
     {
@@ -287,4 +307,27 @@ class Moderator_model extends CI_Model {
         else
             $query = $this->db->query("INSERT INTO komentar(idClan,idKurs,tekst,anonimno) VALUES('$idClan','$idKurs','$comment',1)");
     }
+	
+	
+	
+	//ISIVESA_BEGIN
+	  public function edit_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje,$slika, $idPred)
+    {
+        $this->db->query("UPDATE predavac SET 
+                          ime='$ime' , prezime='$prezime' 
+                          ,email='$email' , katedra='$katedra' 
+                          , godinaZaposlenja='$godinaZaposlenja' , opis='$opis' 
+                          , zvanje='$zvanje' , slika='$slika' WHERE idPred='$idPred'");
+
+    }
+
+    public function edit_kurs($ime,$opis,$slika,$idkurs)
+    {
+        $this->db->query("UPDATE kurs SET 
+                          ime='$ime', opis='$opis' 
+                          , slika='$slika' 
+                           WHERE idkurs='$idkurs'");
+
+    }
+    //ISIVESA_END
 }

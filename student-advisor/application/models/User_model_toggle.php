@@ -71,19 +71,29 @@ class User_model_toggle extends CI_Model
     {
         $this->db->query("DELETE FROM predaje WHERE idKurs=? AND idPred=?", array( $idKurs, $idPred));
     }
-    public function obrisi_kurs($idKom)
+
+
+    public function obrisi_kurs($idKurs)
     {
-        $query=$this->db->query("SELECT * FROM komentar WHERE idKurs=?", array($idKom));
-        $komentari=$query->ressult_array();
+
+        $this->db->query("DELETE FROM polozio WHERE idKurs=? ", array( $idKurs));
+
+        $query=$this->db->query("SELECT * FROM komentar WHERE idKurs=?", array($idKurs));
+
+        $komentari=$query->result_array();
+
+
+
         foreach ($komentari as &$kom) {
         $this->db->query("DELETE FROM podrzavanje WHERE idKom=? ", array( $kom['idKom']));
         $this->db->query("DELETE FROM podkomentar WHERE idKom=? ", array( $kom['idKom']));
         }
-        $this->db->query("DELETE FROM komentar WHERE idKurs=? ", array( $idKom));
-        $this->db->query("DELETE FROM polozio WHERE idKurs=? ", array( $idKom));
-        $this->db->query("DELETE FROM kurs WHERE idkurs=? ", array( $idKom));
-    }
 
+        $this->db->query("DELETE FROM komentar WHERE idKurs=? ", array( $idKurs));
+        $this->db->query("DELETE FROM kurs WHERE idkurs=? ", array( $idKurs));
+
+    }
+    
     public function obrisi_predavac($idKom)
     {
         $this->db->query("DELETE FROM predaje WHERE idPred=? ", array( $idKom));

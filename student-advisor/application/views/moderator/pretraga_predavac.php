@@ -59,7 +59,9 @@
                                 </div>
                                 <div class="pull-right dropdown" >
                                     <a
-                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Izmeni predavaca">
+                                        data-toggle="modal" class="toggle-button" data-tooltip="tooltip" title="Izmeni predavaca"
+										onclick="izmeni_predavaca('<?php echo $pr['idPred'] ?>')">
+								
                                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>
@@ -94,8 +96,24 @@
         $('#toggle_modal').modal('show');
 
     }
-</script>
-<script>
+
+	 function izmeni_predavaca(idPre) {
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: '<?php echo site_url()?>/moderator/dohvati_edit_predavac',
+            data: {
+                idPred: idPre
+            },
+            success: function (returnData) {
+                $('#toggle_modal').html(returnData);
+            }
+        });
+
+        $('#toggle_modal').modal('show');
+
+    }
+	
     function dohvati_predaje(idPre) {
         var idPred=idPre;
         $.ajax({

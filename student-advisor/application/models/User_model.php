@@ -151,13 +151,15 @@ class User_model extends CI_Model {
             $query = $this->db->get('poruka');
             return $query->result_array()[0];
         }
-        $query= $this->db->query("SELECT * FROM poruka
-                            WHERE ((idPosiljalac=?) AND (idPrimalac=?))
-                            OR ((idPosiljalac=?) AND (idPrimalac=?))
-                            ORDER BY datum ASC",array($id,$idSaKim,$idSaKim,$id));
+         $query= $this->db->query("SELECT p.* FROM `student-advisor-mysql`.poruka p
+                           WHERE ((p.idPosiljalac='$id') AND (p.idPrimalac='$idSaKim'))
+                           OR 
+                           ((p.idPosiljalac='$idSaKim') AND (p.idPrimalac='$id'))
+                           
+                           ORDER BY p.idPor ASC");
 
         $this->db->query("UPDATE poruka SET procitana='d'
-					WHERE idPrimalac=? AND idPosiljalac=?",array($id,$idSaKim));
+					WHERE idPrimalac=? AND idPosiljalac=? AND procitana='n'",array($id,$idSaKim));
         return $query->result_array();
     }
 

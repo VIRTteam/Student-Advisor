@@ -254,16 +254,62 @@ class Moderator extends CI_Controller
         $this->load->view("templates/unos_kurseva_predavaca",$data);
     }
 
-    public function put_predaje_na()
+    public function put_predaje_na($kursevi, $idPred)
     {
-        $kursevi=$_POST['kursevi'];
-        $idPred=$_POST['idPred'];
-        $datumPoc=$_POST['datumPoc'];
+//       $kursevi=$_GET['kursevi'];
+//       $idPred=$_GET['idPred'];
+       // $datumPoc=$_POST['datumPoc'];
+        //$kursevi=explode("-",$kursevi);
 
-        foreach ($kursevi as $kurs){
-            $this->Moderator_model->put_predaje_na($kurs, $idPred, $datumPoc);
-        }
+
+//    foreach($kursevi->ni as $kurs) {
+                $this->Moderator_model->put_predaje_na($kursevi, $idPred);//, $datumPoc);
+//        }
+        
     }
+   
+    public function dohvati_edit_predavac()
+    {
+        $idPred=$_POST['idPred'];
+        $data['predavac']= $this->Moderator_model->get_predavac($idPred);
+        
+        $this->load->view("templates/izmena_predavaca",$data);
+    }
+    public function edit_predavac()
+    {
+        $ime=$_POST['ime'];
+        $prezime=$_POST['prezime'];
+        $email=$_POST['email'];
+        $katedra=$_POST['katedra'];
+        $godinaZaposlenja=$_POST['godinaZaposlenja'];
+        $opis=$_POST['opis'];
+        $zvanje=$_POST['zvanje'];
+        $slika=$_POST['slika'];
+        $idPred=$_POST['idPred'];
+        
+        $id=$this->Moderator_model->edit_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje,$slika,$idPred);
+    }
+    
+    public function dohvati_edit_kurs($idKurs)
+    {
+       // $idKurs=$_POST['idkurs'];
+        $data['kurs']= $this->Moderator_model->get_kurs($idKurs);
+
+        $this->load->view("templates/izmena_kursa",$data);
+    }
+    
+    public function edit_kurs()
+    {
+        $ime=$_POST['ime'];
+        $opis=$_POST['opis'];
+        $slika=$_POST['slika'];
+        $idKurs= $_POST['idKurs'];
+        
+        $this->Moderator_model->edit_kurs($ime,$opis,$slika, $idKurs);
+    }
+    
+    //ISIVESA_END
+
 
     //ISIVESA_END
 

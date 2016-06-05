@@ -112,7 +112,7 @@ class User extends CI_Controller
         $data['tekst']= $_POST['tekst'];
         $this->User_model->put_message($this->myID,$idSaKim,$data['tekst']);
 
-
+		get_clan_poruke($idSaKim);
 
     }
     public function get_clan_poruke($idSaKim=FALSE)

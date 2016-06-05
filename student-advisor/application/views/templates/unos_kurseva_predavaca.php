@@ -14,24 +14,28 @@
         </div>
         <div class="modal-footer">
             <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
-            <a class="btn btn-white" onclick="sacuvaj_predaje_na(<?php echo $idPred ?>); ">Sacuvaj</a>
+            <a class="btn btn-white" onclick="sacuvaj_predaje_na('<?php echo $idPred ?>') ">Sacuvaj</a>
         </div>
     </div>
 </div>
 
 <script>
-    function sacuvaj_predaje_na(idPred) {
-        var idPred=idPred;
-        var kursevi = document.getElementById("izabraniKursevi");
-        kursevi=textArrayOfSltns(kursevi);
+
+    function sacuvaj_predaje_na(idPred)
+    {
+        var niz =$('#izabraniKursevi').val();
+        for (var i=0, n=niz.length;i<n; i++)
+        {
+            sacuvaj_predaje_na_n(idPred,niz[i]);
+        }
+    }
+    function sacuvaj_predaje_na_n(idPre, kursev) {
+
+        var ur='<?php echo site_url()?>/moderator/put_predaje_na/'+kursev+"/"+idPre;
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             async: false,
-            url: '<?php echo site_url()?>/moderator/put_novi_predavac',
-            data: {
-                kursevi: kursevi,
-                idPred:idPred
-            },
+            url: ur,
             success: function (returnData) {
 
             }
@@ -39,14 +43,4 @@
         $('#toggle_modal').modal('hide');
     }
 
-
-    function textArrayOfSltns(selectElmnt){
-        var textSelected = new Array() ;
-        for (var i = 0 ; i < selectElmnt.length ; i++){
-            if (selectElmnt.options[i].selected){
-                textSelected[textSelected.length]  =  selectElmnt.options[i].value ;
-            }
-        }
-        return textSelected ;
-    }
 </script>

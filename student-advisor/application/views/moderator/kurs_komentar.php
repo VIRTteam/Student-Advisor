@@ -180,9 +180,9 @@
                 anonim: anon
             },
             success: function (returnData) {
-
             }
         });
+        alert("Uspesno ste uneli komentar");
 
     }
 </script>
