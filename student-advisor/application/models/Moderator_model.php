@@ -399,14 +399,18 @@ class Moderator_model extends CI_Model {
 
     public function put_predaje_na($idKurs,$idPred)//,$datumPoc)
     {
-        $this->db->query("INSERT INTO predaje(idKurs,idPred,datumPoc) VALUES ('$idKurs','$idPred')");//,'$datumPoc')");
+        $this->db->query("INSERT INTO predaje(idKurs,idPred) VALUES ('$idKurs','$idPred')");//,'$datumPoc')");
     }
     public function svi_kursevi()
     {
         $query=$this->db->query("SELECT * FROM kurs");
         return $query->result_array();
     }
-
+    public function svi_predavaci()
+    {
+        $query=$this->db->query("SELECT * FROM predavac");
+        return $query->result_array();
+    }
     public function edit_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje, $idPred)
     {
         $this->db->query("UPDATE predavac SET 

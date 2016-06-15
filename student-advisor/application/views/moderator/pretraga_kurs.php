@@ -60,6 +60,13 @@
                                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                                     </a>
                                 </div>
+                                <div class="pull-right dropdown" >
+                                    <a
+                                        data-toggle="modal"  class="toggle-button" data-tooltip="tooltip" title="Dodaj predavace za kurs"
+                                        onclick="dohvati_kurs_predaje(<?php echo $cl['idKurs'] ?>)">
+                                        <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i>
+                                    </a>
+                                </div>
                                 <?php if ($cl['idClan']==NULL):?>
                                     <div class="pull-right dropdown" id="pretraga_kurs_dodaj<?php echo $cl['idKurs']?>">
                                         <a  class="toggle-button" data-tooltip="tooltip" title="Dodaj kurs u listu položenih kurseva" onclick="dodaj_kurs(<?php echo $cl['idKurs'] ?>)">
@@ -114,6 +121,24 @@
             async: false,
             url: '<?php echo site_url()?>/user/dohvati_unos_ocene',
             data: {idKurs: idKurs },
+            success: function (returnData) {
+                $('#toggle_modal').html(returnData);
+            }
+        });
+
+        $('#toggle_modal').modal('show');
+
+    }
+
+    function dohvati_kurs_predaje(idKurs) {
+        var idKurs=idKurs;
+        $.ajax({
+            type: 'POST',
+            async: false,
+            url: '<?php echo site_url()?>/moderator/dohvati_predaje_na_kurs',
+            data: {
+                idKurs:idKurs
+            },
             success: function (returnData) {
                 $('#toggle_modal').html(returnData);
             }

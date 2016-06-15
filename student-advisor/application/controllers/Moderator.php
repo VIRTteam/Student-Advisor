@@ -382,6 +382,13 @@ class Moderator extends CI_Controller
         $this->load->view("templates/unos_kurseva_predavaca",$data);
     }
 
+    public function dohvati_predaje_na_kurs()
+    {
+        $data['kursevi']=$_POST['idKurs'];
+        $data['idPred']=$this->Moderator_model->svi_predavaci();
+        $this->load->view("templates/unos_predavaca_kursa",$data);
+    }
+    
     public function put_predaje_na($kursevi, $idPred)
     {
         $this->Moderator_model->put_predaje_na($kursevi, $idPred);
