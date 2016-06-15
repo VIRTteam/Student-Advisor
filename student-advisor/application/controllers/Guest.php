@@ -64,16 +64,42 @@ class Guest extends CI_Controller
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $this->load->view("guest/clan_profil", $data);
     }
-   
-    public function get_podkomentar($id=1)
-    {
-        $data['komentarClan'] = $this->Guest_model->get_clan_komentar($id);
-        $data['komentarKurs'] = $this->Guest_model->get_kurs_komentar($id);
-        $data['podkomentar'] = $this->Guest_model->get_podkomentar($id);
-        $data['komentarOcena'] = $this->Guest_model->get_kurs_ocena($data['komentarClan']['idClan'],$data['komentarKurs']['idkurs']);
 
+
+
+    public function get_podkomentar($id)
+    {
+        $data['postoji']='d';
+        $data['komentar'] = $this->Guest_model->get_komentar($id);
+
+        $data['komentarKurs'] = $this->Guest_model->get_kurs($data['komentar']['idKurs']);
+        $data['komentarClan'] = $this->Guest_model->get_clan($data['komentar']['idClan']);
+        $data['komentarOcena'] = $this->Guest_model->get_kurs_ocena($data['komentar']['idClan'], $data['komentar']['idKurs']);
+        $data['tip']='k';
+        $data['podkomentar'] = $this->Guest_model->get_podkomentar($id);
         $this->load->view('guest/podkomentari', $data);
     }
+    public function get_podkomentar_bez_komentara($idKurs,$idClan)
+    {
+        $id=$this->Guest_model->find_komentar($idKurs, $idClan);
+        $data['komentarKurs'] = $this->Guest_model->get_kurs($idKurs);
+        $data['komentarClan'] = $this->Guest_model->get_clan($idClan);
+        $data['komentarOcena'] = $this->Guest_model->get_kurs_ocena($idClan, $idKurs);
+        $data['tip']='o';
+        if($id=='-1') {
+            $data['postoji']='n';
+
+        }
+        else {
+            $data['postoji']='d';
+            $data['komentar'] = $this->Guest_model->get_komentar($id);
+            $data['podkomentar'] = $this->Guest_model->get_podkomentar($id);
+
+        }
+        $this->load->view('guest/podkomentari', $data);
+    }
+
+
     public function get_kurs_profil($id=FALSE)
     {
         $data['kurs'] = $this->Guest_model->get_kurs($id);
@@ -86,6 +112,7 @@ class Guest extends CI_Controller
     {
         $data['kurs'] = $this->Guest_model->get_kurs($id);
         $data['predavac'] = $this->Guest_model->get_kurs_predavac($id);
+        $data['ocenio'] = $this->Guest_model->get_Ocenio_kurs($id);
         $this->load->view("guest/kurs_opis", $data);
     }
     public function get_predavac_profil($id=FALSE)
@@ -119,6 +146,7 @@ class Guest extends CI_Controller
         $this->load->view("guest/pretraga_predavac", $data);
     }
 
+    
 
     public function provera_username(){
         $vr=$this->Guest_model->provera_username($_POST['username']);
@@ -128,20 +156,20 @@ class Guest extends CI_Controller
             echo 'ne_postoji';
     }
     public function registracija_obrada(){
-        $date['username']=$_POST['username'];
-        $date['password']=$_POST['password'];
-        $date['ime']=$_POST['ime'];
-        $date['prezime']=$_POST['prezime'];
-        $date['datumRodjenja']=$_POST['datum_rodjenja'];
-        $date['godinaUpisa']=$_POST['godina_upisa'];
-        $date['email']=$_POST['email'];
-        $date['smer']=$_POST['smer'];
-        $date['pol']=($_POST['pol']=='muski')?'m':'z';
-        $this->Guest_model->registracija($date);
-        $data['naslov']='login';
-        $this->load->view('templates/header', $data);
+        $data['username']=$_POST['username'];
+        $data['password']=$_POST['password'];
+        $data['ime']=$_POST['ime'];
+        $data['prezime']=$_POST['prezime'];
+        $data['datumRodjenja']=$_POST['datum_rodjenja'];
+        $data['godinaUpisa']=$_POST['godina_upisa'];
+        $data['email']=$_POST['email'];
+        $data['smer']=$_POST['smer'];
+        $data['pol']=($_POST['pol']=='muski')?'m':'z';
+        $this->Guest_model->registracija($data);
+        $data1['naslov']='log in';
+        $this->load->view('templates/header', $data1);
         $this->load->view('templates/navbar_guest');
-        $this->load->view("guest/logovanje", $data);
+        $this->load->view("guest/login");
         $this->load->view('templates/footer');
     }
 
@@ -150,6 +178,11 @@ class Guest extends CI_Controller
     {
         $data['naslov']='Logovanje';
         $this->load->view("guest/login", $data);
+    }
+    public  function povratak_sifre()
+    {
+        $data['naslov']='Povratak šifre';
+        $this->load->view("guest/povratak_sifre", $data);
     }
     public function provera_username_password(){
         $vr=$this->Guest_model->provera_username_password($_POST['username'], $_POST['password']);
@@ -175,8 +208,16 @@ class Guest extends CI_Controller
             echo $la2;
         }
     }
-
-    public function registracija(){
+    public function registrovanje(){
+        if (session_status() == PHP_SESSION_NONE)
+            session_start();
+        session_unset();
+        session_commit();
+        $data['naslov']='registracija';
+        $this->load->view("guest/registracija", $data);
+    }
+    public function registracija()
+    {
         if (session_status() == PHP_SESSION_NONE)
             session_start();
         session_unset();
@@ -188,4 +229,25 @@ class Guest extends CI_Controller
         $this->load->view('templates/footer');
     }
 
+
+    public function povratak_sifre_obradi()
+    {
+        $novaSifra=$this->Guest_model->povratak_sifre_obradi($_POST['username'], $_POST['email']);
+        if($novaSifra!="0") {
+            $name = "email poruka";
+            $email_address = $_POST['email'];
+            $message = $novaSifra;
+
+            $to = 'pomoc@hotmail.com'; //$pred['email'];
+            $email_subject = "Website Contact Form:  $name";
+            $email_body = "You have received a new message from your website contact form.\n\n" . "Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+            $headers = "From: noreply@studentadvisor.com\n";
+            $headers .= "Reply-To: $email_address";
+            //     mail($to,$email_subject,$email_body,$headers);
+            $data['naslov']='Logovanje';
+            $this->load->view("guest/login", $data);
+        }
+        else
+            echo $novaSifra;
+    }
 }

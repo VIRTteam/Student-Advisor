@@ -3,8 +3,6 @@
 
 </div>
 
-
-
 <script>
 
     function getSummary(id, naslov)
@@ -36,9 +34,7 @@
             }
         });
     }
-</script>
 
-<script >
     function getPodkomentari(id)
     {
         $.ajax({

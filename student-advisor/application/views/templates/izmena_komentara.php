@@ -28,9 +28,7 @@
 <script>
     function sacuvaj_izmenu_komentara(idKom)
     {
-
         var tekst = $('#tekstIzmene').val();
-
         $('#tekstkomentara'+idKom).html(tekst);
         $.ajax({
             type: 'POST',

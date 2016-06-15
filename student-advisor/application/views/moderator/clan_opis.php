@@ -29,7 +29,7 @@
                     </li>
                     <li>
                         <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
-                            <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj<!-- TREBA DA SE POSALJE ID CLANA CIJI JE PROFIL I ID moderatorA -->
+                            <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj
                         </a>
                     </li>
                     <?php if ($clan['tip'] =='c' or $clan['tip']=='m') {?>
@@ -68,78 +68,78 @@
 
                 <div class="tab-pane fade active in" id="oKorisniku">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading panel-heading-gray">
-                                    <i class="fa fa-fw fa-info-circle"></i> O korisniku
-                                </div>
-                                <div class="panel-body">
-                                    <ul class="list-unstyled profile-about margin-none">
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Ime</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['ime']?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Prezime</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['prezime']?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">E-Mail</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['email']?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Pol</span></div>
-                                                <div class="col-sm-8">
-                                                    <?php
-                                                    if ($clan['pol'][0]=='z')
-                                                        echo "ženski";
-                                                    else
-                                                        echo "muški";
-                                                    ?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Datum rođenja</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['datumRodjenja']?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Smer</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['smer']?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Godina upisa</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['godinaUpisa']?></div>
-                                            </div>
-                                        </li>
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Prosecna ocena</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['prosecnaOcena']?></div>
-                                            </div>
-                                        </li>
+                        <div class="panel panel-default">
+                            <div class="panel-heading panel-heading-gray">
+                                <i class="fa fa-fw fa-info-circle"></i> O korisniku
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-unstyled profile-about margin-none">
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Ime</span></div>
+                                            <div class="col-sm-8"><?php echo $clan['ime']?></div>
+                                        </div>
+                                    </li>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Prezime</span></div>
+                                            <div class="col-sm-8"><?php echo $clan['prezime']?></div>
+                                        </div>
+                                    </li>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">E-Mail</span></div>
+                                            <div class="col-sm-8"><?php echo $clan['email']?></div>
+                                        </div>
+                                    </li>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Pol</span></div>
+                                            <div class="col-sm-8">
+                                                <?php
+                                                if ($clan['pol'][0]=='z')
+                                                    echo "ženski";
+                                                else
+                                                    echo "muški";
+                                                ?></div>
+                                        </div>
+                                    </li>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Datum rođenja</span></div>
+                                            <div class="col-sm-8"><?php   date_default_timezone_set("Europe/Belgrade");
+                                                echo DateTime::createFromFormat('Y-m-d',date($clan['datumRodjenja']))->format('d.m.Y.');?></div>
+                                        </div>
+                                    </li>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Smer</span></div>
+                                            <div class="col-sm-8"><?php echo $clan['smer']?></div>
+                                        </div>
+                                    </li>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Godina upisa</span></div>
+                                            <div class="col-sm-8"><?php echo $clan['godinaUpisa']?></div>
+                                        </div>
+                                    </li>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Prosecna ocena</span></div>
+                                            <div class="col-sm-8"><?php echo $clan['prosecnaOcena']?></div>
+                                        </div>
+                                    </li>
 
-                                        <li class="padding-v-5">
-                                            <div class="row">
-                                                <div class="col-sm-4"><span class="text-muted">Opis</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['opis']?></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <li class="padding-v-5">
+                                        <div class="row">
+                                            <div class="col-sm-4"><span class="text-muted">Opis</span></div>
+                                            <div class="col-sm-8"><?php echo $clan['opis']?></div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -147,4 +147,3 @@
     </div>
 </div>
 
-<?php  $this->load->view('templates/toggle'); ?>

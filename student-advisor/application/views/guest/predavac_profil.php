@@ -79,7 +79,7 @@
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
                                             if ($predmet['slika']=='d') {
-                                                $img =base_url().'/img/kurs/kurs'.$predmet['idkurs'].'.jpg';
+                                                $img =base_url().'/img/kurs/kurs'.$predmet['idKurs'].'.jpg';
                                             }?>
                                             <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                         </a>
@@ -117,7 +117,40 @@
                             </span>
                         </div>
                         <ul class="comments">
-                            <?php foreach ($komentar as $kom): ?>
+                            <?php foreach ($komentar as $kom): if($kom['anonimno']=='1'):?>
+                                <li class="media">
+                                    <div class="media-left">
+                                        <img src='<?php echo base_url()?>/img/unknown.jpg' height="60" width="60" class="media-object">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button disabled">
+                                                <i class="fa fa-minus"> <?php echo $kom['brNepodrzavanja']?> </i></span>
+                                            </a>
+                                        </div>
+                                        <div class="pull-right dropdown" >
+                                            <a class="toggle-button disabled">
+                                                <i class="fa fa-plus"> <?php echo $kom['brPodrzavanja']?></i></span>
+                                            </a>
+                                        </div>
+                                        <a class="comment-author pull-left" >Anonimno</a>
+                                        <br/>
+                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
+                                        <br/>
+                                        <div class="comment-date"> <?php   date_default_timezone_set("Europe/Belgrade");
+                                            echo DateTime::createFromFormat('Y-m-d',date($kom['datum']))->format('d.m.Y.');?></div>
+                                    </div>
+                                    <div class="view-all-comments">
+                                        <a  data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                            <i class="fa fa-comments-o"></i> Prikaži sve
+                                        </a>
+                                        <span><?php if($kom['brPodkomentara'] ==1)
+                                                echo '1 komentar';
+                                            else
+                                                echo  $kom['brPodkomentara'].' komentara'; ?></span>
+                                    </div>
+                                </li>
+                            <?php else:?>
                                 <li class="media">
                                     <div class="media-left">
                                         <a onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $kom['idClan']?>', '<?php echo $kom['ime']?>')"
@@ -146,19 +179,20 @@
                                         <br/>
                                         <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['datum']?></div>
+                                        <div class="comment-date"> <?php   date_default_timezone_set("Europe/Belgrade");
+                                            echo DateTime::createFromFormat('Y-m-d',date($kom['datum']))->format('d.m.Y.');?></div>
                                     </div>
                                     <div class="view-all-comments">
                                         <a  data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
-                                        <span><?php if($kom['brPodkomentara'] ==1)
-                                                echo '1 komentar';
-                                            else
-                                                echo  $kom['brPodkomentara'].' komentara'; ?></span>
+                                            <span><?php if($kom['brPodkomentara'] ==1)
+                                                    echo '1 komentar';
+                                                else
+                                                    echo  $kom['brPodkomentara'].' komentara'; ?></span>
                                     </div>
                                 </li>
-                            <?php endforeach ?>
+                            <?php endif; endforeach ?>
                         </ul>
                     </div> <!--/contaner-->
                 </div><!-- /st-content-inner -->

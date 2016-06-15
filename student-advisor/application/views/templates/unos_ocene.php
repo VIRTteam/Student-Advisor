@@ -26,7 +26,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <a  class="btn btn-white" onclick="sacuvaj_ocenu(<?php echo $predmet['idkurs'] ?>)">Sacuvaj</a>
+                <a  class="btn btn-white" onclick="sacuvaj_ocenu(<?php echo $predmet['idKurs']?>)">Sacuvaj</a>
                 <a  class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
 
             </div>
@@ -36,11 +36,10 @@
     </div>
 
 <script>
-    function sacuvaj_ocenu(idkurs)
+    function sacuvaj_ocenu(idKurs)
     {
         var e = document.getElementById("ocena");
         var ocena = e.options[e.selectedIndex].text;
-        var idKurs=idkurs;
         $.ajax({
             type: 'POST',
             async: false,
@@ -49,6 +48,7 @@
             success: function(returnData ) {
             }
         });
+        $('#pretraga_kurs_dodaj'+idKurs).html("");
         $('#toggle_modal').modal('hide');
     }
 </script>

@@ -15,29 +15,31 @@
                     <?php
                     $img =base_url().'img/kurs_default.jpg';
                     if ($kurs['slika']=='d') {
-                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg?'."<?php echo rand(0, 1000)?>";
                     }?>
-                    <img src="<?php echo $img?>">
+                    <img src="<?php echo $img?>" id="slika_kurs">
                 </div>
                 <div class="name">
                     <h2><font color="#105DC1"><?php echo $kurs['ime']?></font></h2>
                 </div>
                 <ul class="cover-nav">
                     <li>
-                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_profil')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_opis')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
-                    <li>
-                        <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_komentarisi')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
-                            <i class="fa fa-fw fa-envelope"></i> Komentariši
-                        </a>
-                    </li>
+                    <?php if($sme_da_komentarise=='d'):?>
+                        <li>
+                            <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_kurs_komentarisi')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
+                                <i class="fa fa-fw fa-envelope"></i> Komentariši
+                            </a>
+                        </li>
+                    <?php endif ?>
                 </ul>
             </div>
         </div>
@@ -81,7 +83,7 @@
                                 $img =base_url().'img/clan_default.png';
                                 if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
                                 ?>
-                                <a href="javascript:void(0);" data-toggle="modal"
+                                <a  data-toggle="modal"
                                    data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
                                     <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                 </a>
@@ -91,7 +93,7 @@
 
                             <?php endforeach ?>
                             <?php if (sizeof($ocenio)>5): ?>
-                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                                <a  class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
                             <?php endif;?>
                         </div>
                     
@@ -103,7 +105,7 @@
             <div class="col-xs-12 col-md-8 item">
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-gray">
-                        <button onclick="" class="btn btn-white btn-xs pull-right"><i class="fa fa-pencil"></i></button>
+                        <button onclick="izmeni_kurs('<?php echo $kurs['idKurs']?>')" class="btn btn-white btn-xs pull-right"><i class="fa fa-pencil"></i></button>
 
                         <i class="fa fa-fw fa-info-circle"></i> O kursu
                     </div>
@@ -114,8 +116,7 @@
                                     <div class="row">
                                         <div class="col-sm-4"><span class="text-muted"><?php echo ucfirst($p['zvanje'])?></span></div>
                                         <div class="col-sm-8">
-                                            <a href="javascript:void(0);"
-                                               class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_profil')?>/<?php echo $p['idPred']?>', '<?php echo $p['ime']?> <?php echo $p['prezime']?>')">
+                                            <a class="movie" onclick="getSummary('<?php echo site_url('moderator/get_predavac_profil')?>/<?php echo $p['idPred']?>', '<?php echo $p['ime']?> <?php echo $p['prezime']?>')">
                                                 <?php echo $p['ime']?> <?php echo $p['prezime']?>
                                             </a>
 
@@ -134,9 +135,84 @@
                         </ul>
                     </div>
                 </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-gray">
+                        <button class="btn btn-white btn-xs pull-right" onclick="obrisi_sliku(<?php echo $kurs['idKurs']?>);">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                        <button class="btn btn-white btn-xs pull-right" style="margin-right: 10px" onclick="document.getElementById('upload').click();">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <input type='file' id="upload" name="upload" onChange="izmeni_sliku(this, <?php echo $kurs['idKurs']?>);" style="display:none"/>
+                        <i class="fa fa-fw fa-picture-o"></i> Slika
+                    </div>
+                    <div class="panel-body">
+                        <?php
+                        $img =base_url().'img/kurs_default.jpg';
+                        if ($kurs['slika']=='d') {
+                            $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                        }?>
+                        <img id="slika_kurs2" src="<?php echo $img?>" height="200" width="200">
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 
 </div>
+
+<script>
+    function obrisi_sliku(idKurs)
+    {
+        $.ajax({
+            type: 'POST',
+            url:'<?php echo site_url()?>/moderator/brisanje_slike_kurs',
+            async: false,
+            data: {idKurs:idKurs},
+            success: function (returnData) {
+                $('#slika_kurs').attr('src', '<?php echo base_url()?>/img/kurs_default.jpg');
+                $('#slika_kurs2').attr('src', '<?php echo base_url()?>/img/kurs_default.jpg');
+
+            }
+        });
+    }
+
+    function izmeni_sliku(input, id){
+        var ext = input.files[0]['name'].substring(input.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")){
+            var file_data = input.files[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo site_url()?>/moderator/izmena_slike_kurs/'+id,
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                success: function (returnData) {
+                    $('#slika_kurs').attr('src', '<?php echo base_url()?>/img/kurs/kurs'+id+'.jpg?'+(Math.floor((Math.random() * 1000) + 1)));
+                    $('#slika_kurs2').attr('src', '<?php echo base_url()?>/img/kurs/kurs'+id+'.jpg?'+(Math.floor((Math.random() * 1000) + 1)));
+                }
+            });
+
+
+        }
+    }
+
+    function izmeni_kurs(idKurs) {
+        $.ajax(
+            {
+                type: 'POST',
+                async: false,
+                url: '<?php echo site_url()?>/moderator/dohvati_edit_kurs/'+idKurs,
+                data: { tip:1},
+                success: function (returnData) {
+                    $('#toggle_modal').html(returnData);
+                }
+            }
+        );
+        $('#toggle_modal').modal('show');
+    }
+
+</script>

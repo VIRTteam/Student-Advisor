@@ -23,4 +23,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Wrapper required for sidebar transitions -->
 <!-- Wrapper required for sidebar transitions -->
-<div class="st-container" style="overflow-y: auto; background-color: #f5f5f5">
+<div class="st-container" style="overflow-y: auto; background-color: #f5f5f5" style="height: 100%;">

@@ -30,9 +30,9 @@
                     <?php
                     $img =base_url().'img/clan_default.png';
                     if ($clan['slika']=='d') {
-                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?'."<?php echo rand(0, 1000)?>";
                     }?>
-                    <img src="<?php echo $img?>" class="img-circle" style="width:40px; height:35px; margin-top: 3px;" /img>
+                    <img id="slika_clan" src="<?php echo $img?>" class="img-circle" style="width:40px; height:35px; margin-top: 3px;" /img>
                     <span class="hidden-sm hidden-xs"><?php echo $clan['ime']?> </span>
                     <span class="caret hidden-sm hidden-xs"></span>
                 </a>
@@ -42,17 +42,12 @@
                             Profil
                         </a>
                     </li>
-                    <li class="active">
-                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                    <li>
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Poruke
                         </a>
                     </li>
-                    <li>
-                        <a onclick="getSummary('<?php echo site_url('user/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
-                            Izmeni profil
-                        </a>
-                    </li>
-                    <li><a href="" data-toggle="modal" data-target="#myModal15">Pomoć</a></li>
+                    <li><a onclick="slanje_maila_pomoc()" data-toggle="modal" data-target="#myModal15">Pomoć</a></li>
                     <li><a href="<?php echo site_url('guest/registracija')?>">Izloguj se</a></li>
                 </ul>
             </li>

@@ -49,7 +49,8 @@ class User_toggle extends CI_Controller
     public function obrisi_podkomentar()
     {
         $idPodKom=$_POST['idPodKom'];
-        $this->User_model_toggle->obrisi_podkomentar($idPodKom);
+        $idKom=$_POST['idKom'];
+        $this->User_model_toggle->obrisi_podkomentar($idPodKom, $idKom);
     }
 
     //kursevi i predavaci
@@ -102,7 +103,16 @@ class User_toggle extends CI_Controller
         $tekst=$_POST["tekst"];
         $this->User_model_toggle->izmeni_derangiranje($idClan,$tekst, $this->myID);
     }
-
+    public function prihvati_UD()
+    {
+        $idClan=$_POST["idClan"];
+        $this->User_model_toggle->prihvati_UD($idClan);
+    }
+    public function brisi_UD()
+    {
+        $idClan=$_POST["idClan"];
+        $this->User_model_toggle->brisi_UD($idClan);
+    }
     public function dohvati_banovanje()
     {
         $idKom=$_POST["idClan"];
@@ -126,6 +136,50 @@ class User_toggle extends CI_Controller
         $kol = $_POST["kol"];
         $rb = $_POST["rb"];
         $this->User_model_toggle->set_star($id, $kol, $rb, $this->myID);
+    }
+
+
+    public function slanje_maila()
+    {
+        $data['idPred']=$_POST['idPred'];
+        $this->load->view("templates/slanje_maila", $data);
+    }
+    public function posalji_mail()
+    {
+        $idPred = $_POST['idPred'];
+        $pred=$this->User_model_toggle->get_predavac($idPred);
+        $clan=$this->User_model_toggle->get_clan($this->myID);
+        $name = "email poruka";
+        $email_address = $clan['email'];
+        $message = $_POST['message'];
+
+        $to = 'tashasekularac@hotmail.com'; //$pred['email'];
+        $email_subject = "Website Contact Form:  $name";
+        $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+        $headers = "From: noreply@studentadvisor.com\n";
+        $headers .= "Reply-To: $email_address";
+   //     mail($to,$email_subject,$email_body,$headers);
+        echo $message;
+    }
+
+    public function slanje_maila_pomoc()
+    {
+        $this->load->view("templates/slanje_maila_pomoc");
+    }
+    public function posalji_mail_pomoc()
+    {
+        $clan=$this->User_model_toggle->get_clan($this->myID);
+        $name = "email poruka";
+        $email_address = $clan['email'];
+        $message = $_POST['message'];
+
+        $to = 'pomoc@hotmail.com'; //$pred['email'];
+        $email_subject = "Website Contact Form:  $name";
+        $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+        $headers = "From: noreply@studentadvisor.com\n";
+        $headers .= "Reply-To: $email_address";
+        //     mail($to,$email_subject,$email_body,$headers);
+        echo $message;
     }
 }
 

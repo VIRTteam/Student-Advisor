@@ -58,8 +58,11 @@
 
                 <div class="tab-pane fade active in" id="oKorisniku">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div>
                             <div class="panel panel-default">
+                                <div class="panel-heading panel-heading-gray">
+                                    <i class="fa fa-fw fa-info-circle"></i> O korisniku
+                                </div>
                                 <div class="panel-body">
                                     <ul class="list-unstyled profile-about margin-none">
                                         <li class="padding-v-5">
@@ -95,7 +98,8 @@
                                         <li class="padding-v-5">
                                             <div class="row">
                                                 <div class="col-sm-4"><span class="text-muted">Datum rođenja</span></div>
-                                                <div class="col-sm-8"><?php echo $clan['datumRodjenja']?></div>
+                                                <div class="col-sm-8"> <?php   date_default_timezone_set("Europe/Belgrade");
+                                                    echo DateTime::createFromFormat('Y-m-d',date($clan['datumRodjenja']))->format('d.m.Y.');?></div>
                                             </div>
                                         </li>
                                         <li class="padding-v-5">

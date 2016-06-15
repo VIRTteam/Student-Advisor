@@ -45,7 +45,7 @@
                                     <i class="fa fa-comment fa-lg" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <?php if ($cl['tip'] =='c' or $cl['tip']=='m') {?>
+                            <?php if ($cl['tip'] =='c' ) {?>
 
                                 <div class="pull-right dropdown" >
                                     <a onclick="banuj('<?php echo $cl['idClan']?>')"
@@ -54,7 +54,7 @@
                                     </a>
                                 </div>
                             <?php } ?>
-                            <?php if ($cl['tip'] =='m') {?>
+                            <?php if ($cl['tip'] =='m' or $cl['tip'] =='a') {?>
 
                                 <div class="pull-right dropdown" >
                                     <a onclick="derangiraj('<?php echo $cl['idClan']?>')"

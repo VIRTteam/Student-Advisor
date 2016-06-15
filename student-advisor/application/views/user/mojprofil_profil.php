@@ -15,7 +15,7 @@
                     <?php
                     $img =base_url().'img/clan_default.png';
                     if ($clan['slika']=='d') {
-                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?'."<?php echo rand(0, 1000)?>";
                     }?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -72,13 +72,13 @@
                         </div>
                         <ul class="comments">
                             <?php foreach ($polozio as $predmet): ?>
-                                <li class="media" id="predmet<?php echo $predmet['idkurs']?>-<?php echo $predmet['idClan']?>">
+                                <li class="media" id="predmet<?php echo $predmet['idKurs']?>-<?php echo $predmet['idClan']?>">
                                     <div class="media-left"
                                          onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $predmet['idKurs']?>', '<?php echo $predmet['ime']?>')">
                                         <?php
                                         $img =base_url().'img/kurs_default.jpg';
                                         if ($predmet['slika']=='d') {
-                                            $img =base_url().'/img/kurs/kurs'.$predmet['idkurs'].'.jpg';
+                                            $img =base_url().'/img/kurs/kurs'.$predmet['idKurs'].'.jpg';
                                         }?>
                                         <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                     </div>
@@ -137,7 +137,7 @@
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
                                             if ($kom['slika']=='d') {
-                                                $img =base_url().'/img/kurs/kurs'.$kom['idkurs'].'.jpg';
+                                                $img =base_url().'/img/kurs/kurs'.$kom['idKurs'].'.jpg';
                                             }?>
                                             <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                         </a>
@@ -174,9 +174,10 @@
                                         <a onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                            class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
-                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>""><?php echo $kom['tekst']?></div>
+                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['datum']?></div>
+                                        <div class="comment-date"><?php   date_default_timezone_set("Europe/Belgrade");
+                                            echo DateTime::createFromFormat('Y-m-d',date($kom['datum']))->format('d.m.Y.');?></div>
 
                                     </div>
                                     <div class="view-all-comments">
@@ -198,7 +199,39 @@
     </div> <!--/container-->
 </div><!-- /st-content-inner -->
 
+<script>
 
+    function readURL(input){
+        var ext = input.files[0]['name'].substring(input.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();
+        if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")){
+      /*      var reader = new FileReader();
+            reader.onload = function (e) {
+               // $('#img').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);*/
+
+            var file_data = input.files[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
+            alert(form_data);
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo site_url()?>/user/izmena_slike',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                success: function (returnData) {
+                    alert(returnData);
+                }
+            });
+        }else{
+            $('#img').attr('src', '/assets/no_preview.png');
+        }
+    }
+
+</script>
 
 
 

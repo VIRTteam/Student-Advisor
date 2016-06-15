@@ -61,38 +61,38 @@ function setUnlike(id,myID)
 
 }
 
- function brisanje_podkomentara(idPodKom)
+ function brisanje_podkomentara(idPodKom, idKom)
  {
 
      $('#podkomentar'+ idPodKom).remove();
-     $la=$.ajax({
+     $.ajax({
          type: 'POST',
          async: false,
          url: '<?php echo site_url()?>/user_toggle/obrisi_podkomentar',
-         data: {idPodKom: idPodKom},
+         data: {idPodKom: idPodKom, idKom:idKom},
          success: function (returnData) {
          }
-     }).responseText;
+     });
  }
 function brisanje_komentara(idKom)
 {
 
     $('#komentar'+ idKom).remove();
-    $la=$.ajax({
+    $.ajax({
         type: 'POST',
         async: false,
         url: '<?php echo site_url()?>/user_toggle/obrisi_komentar',
         data: {idKom: idKom},
         success: function (returnData) {
         }
-    }).responseText;
+    });
 }
 
 
 function brisanje_polozenog_ispita(idKom, idClan)
 {
     $('#predmet'+ idKom +'-'+idClan).remove();
-    $la=$.ajax({
+    var la=$.ajax({
         type: 'POST',
         async: false,
         url: '<?php echo site_url()?>/user_toggle/obrisi_polozeni_ispit',
@@ -104,7 +104,7 @@ function brisanje_polozenog_ispita(idKom, idClan)
 function brisanje_predaje(idKurs, idPred)
 {
     $('#predaje'+ idKurs+'-'+idPred).remove();
-    $la=$.ajax({
+    var la=$.ajax({
         type: 'POST',
         async: false,
         url: '<?php echo site_url()?>/user_toggle/obrisi_predaje',
@@ -154,25 +154,13 @@ function brisanje_Predavac(idPred)
                 tekst :tekst
             },
             success: function (returnData) {
-
+                $('#nesto').html(returnData);
             }
         });
 
     }
 
-    function izmeni_profil()
-    {
-        $.ajax({
-            type: 'POST',
-            url:'<?php echo site_url()?>/user/dohvati_izmenu_profila',
-            async: false,
-            success: function (returnData) {
-                $('#toggle_modal').html(returnData);
-            }
-        });
 
-        $('#toggle_modal').modal('show');
-    }
     function search_cours(){
     $.ajax({
         type: 'GET',
@@ -256,4 +244,30 @@ function banuj(idClan)
 
 }
 
+function slanje_maila(idPred)
+{
+    $la=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/slanje_maila',
+        data: {idPred:idPred},
+        success: function (returnData) {
+            $('#toggle_modal').html(returnData);
+        }
+    }).responseText;
+    $('#toggle_modal').modal('show');
+}
+
+function slanje_maila_pomoc()
+{
+    $la=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/slanje_maila_pomoc',
+        success: function (returnData) {
+            $('#toggle_modal').html(returnData);
+        }
+    }).responseText;
+    $('#toggle_modal').modal('show');
+}
 </script>

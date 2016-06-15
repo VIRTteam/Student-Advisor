@@ -1,4 +1,3 @@
-<!-- extra div for emulating position:fixed of the menu -->
 <div class="st-content-inner" style="height: 800px">
     <div class="lock-container" style="height: 740px">
         <h1>Registruj Se</h1>
@@ -90,14 +89,13 @@
         if(vr=='postoji') {
             $('#greska_text').html("greska_text=Korisnik sa datim korisnickim imenom vec postoji, unesite nesto drugo!");
             $('#Greska').modal('show');
-            
             return;
         }
         $.ajax({
             type: 'POST',
             async:false,
             url: '<?php echo site_url()?>/guest/registracija_obrada',
-            data:{username:username, password:password, password_again:password, email:email, ime:ime,prezime:prezime,
+            data:{username:username, password:password, email:email, ime:ime,prezime:prezime,
             smer:smer,godina_upisa:godina_upisa,datum_rodjenja:datum_rodjenja,pol:pol},
             success: function (returnData) {
                 document.open();

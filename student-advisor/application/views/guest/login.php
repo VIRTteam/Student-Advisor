@@ -8,8 +8,7 @@
                 <input class="form-control" type="password" placeholder="Šifra" id="password">
                 <a onclick="logovanje()" class="btn btn-white">Ulogujte se! <i class="fa fa-fw fa-sign-in"></i></a>
                 <a onclick="getSummary('<?php echo site_url('guest/povratak_sifre')?>', 'Povratak sifre')" class="forgot-password">Zaboravili ste šifru?</a>
-                <a onclick="getSummary('<?php echo site_url('guest/registracija')?>', 'Registracija')"
-                class="forgot-password">Registruj se</a>
+                <a onclick="getSummary('<?php echo site_url('guest/registrovanje')?>', 'Registracija')" class="forgot-password">Registruj se</a>
             </div>
         </div>
     </div>

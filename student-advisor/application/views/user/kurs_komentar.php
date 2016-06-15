@@ -12,7 +12,7 @@
                     <?php
                     $img =base_url().'img/kurs_default.jpg';
                     if ($kurs['slika']=='d') {
-                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg';
                     }?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -21,17 +21,17 @@
                 </div>
                 <ul class="cover-nav">
                     <li>
-                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li >
-                        <a   class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a   class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_opis')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
                     <li class="active">
-                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_komentarisi')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_komentarisi')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-envelope"></i> Komentariši
                         </a>
                     </li>
@@ -83,10 +83,10 @@
                             <li>Preporuka
                                 <div class="rating ">
                                     <?php for($i = $polozio['preporuka']+0.5, $j=5; $i <5; $i++, $j--):?>
-                                        <span class="star" onclick="setStar(<?php echo $polozio['idKurs']?>,<?php echo $j ?>,4)" id="star<?php echo $j?>-4"></span>
+                                        <span class="star" onclick="setStar(<?php echo $polozio['idKurs']?>,<?php echo $j ?>,'4')" id="star<?php echo $j?>-4"></span>
                                     <?php endfor;?>
                                     <?php for(; $j >=1; $j--):?>
-                                        <span class="star filled" onclick="setStar(<?php echo $polozio['idKurs']?>,<?php echo $j ?>,4)" id="star<?php echo $j?>-4"></span>
+                                        <span class="star filled" onclick="setStar(<?php echo $polozio['idKurs']?>,<?php echo $j ?>,'4')" id="star<?php echo $j?>-4"></span>
                                     <?php endfor;?>
                                 </div>
                             </li>
@@ -113,20 +113,21 @@
 
                             <div class="media-body">
                                 <div class="pull-right dropdown"  >
-                                    <input type="checkbox" name="Anonimno" id="Anonimni" value="false">
-                                    <span title="Anonimni rezim" ><i class="fa fa-user-secret"> </i></span>
+                                    <input type="checkbox" name="Anonimno" id="Anonimni"
+                                           <?php if($vec_je_komentarisao!=NULL) if ($vec_je_komentarisao['anonimno']=='1') echo 'checked'?>>
+                                        <span title="Anonimni rezim" ><i class="fa fa-user-secret"> </i></span>
                                     </input>
                                 </div>
-                                <p>Ostavi svoj komentar</p>
+                                <p id="ostavi_izmeni"><?php if($vec_je_komentarisao==NULL): ?>Ostavi<?php else:?>Izmeni<?php endif?> svoj komentar</p>
                             </div>
                         </div>
-                        <textarea name="comment" id="comment" class="form-control share-text" rows="5" placeholder="Share your status..."></textarea>
+                        <textarea name="comment" id="comment" class="form-control share-text" rows="5" placeholder="Share your status..."><?php
+                            if($vec_je_komentarisao!=NULL): echo $vec_je_komentarisao['tekst']; endif?></textarea>
                     </div>
                     <div class="panel-footer share-buttons">
-                        <a class="btn btn-white"><span title="Postavi komentar">
-                                <i class="fa fa-send" onclick="putSummary('<?php echo site_url('user/put_komentar');?>/<?php echo $kurs['idkurs']?>')"></i>
-
-                                <!-- <i class="fa fa-send" onclick="putSummary('<?php// echo site_url('user/put_komentar');?>/<?php //echo $kurs['idkurs']?>?comment=<?php //echo $comment?>?anonim=true')"</i> -->
+                        <a class="btn btn-white">
+                            <span title="Postavi komentar">
+                                <i class="fa fa-send" onclick="putSummary('<?php echo site_url('user/put_komentar');?>/<?php echo $kurs['idKurs']?>')"></i>
                             </span>
                         </a>
                     </div>
@@ -170,7 +171,6 @@
         comment = document.getElementById("comment").value;
         var anon;
         anon = document.getElementById("Anonimni").checked;
-
         $.ajax({
             type: 'POST',
             url: id,
@@ -183,6 +183,6 @@
 
             }
         });
-
+        $('#ostavi_izmeni').html("Izmeni svoj komentar");
     }
 </script>

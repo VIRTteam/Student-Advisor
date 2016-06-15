@@ -21,22 +21,17 @@
                 <div class="name"><h2><font color="#105DC1"><?php echo $naslov?></font></h2></div>
                 <ul class="cover-nav">
                     <li >
-                        <a href="javascript:void(0);"
-                           class="movie" onclick="getSummary('<?php echo site_url('user/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_predavac_profil')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('user/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
-
-
-                    <li >
-                        <a  href="javascript:void(0);"
-                            class="movie" onclick="getSummary('<?php echo site_url('user/get_predavac_opis')?>/<?php echo $predavac['idPred']?>', '<?php echo $predavac['ime']?> <?php echo $predavac['prezime']?>')">
+                    <li>
+                        <a  class="movie"  onclick="slanje_maila('<?php echo $predavac['idPred']?>')">
                             <i class="fa fa-fw fa-envelope"></i> Kontaktiraj
                         </a>
                     </li>

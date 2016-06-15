@@ -26,7 +26,7 @@
                                     <?php
                                     $img =base_url().'img/predavac_default.jpg';
                                     if ($pr['slika']=='d') {
-                                        $img =base_url().'/img/predavac/predavac'.$pr['idPred'].'.jpg';
+                                        $img =base_url().'/img/predavac/predavac'.$pr['idPred'].'.jpg?'."<?php echo rand(0, 1000)?>";
                                     }?>
                                     <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                 </a>
@@ -38,7 +38,7 @@
                                     <?php echo $pr['ime']?> <?php echo $pr['prezime']?>
                                 </a>
                                 <div class="pull-right dropdown" >
-                                    <a
+                                    <a onclick="slanje_maila('<?php echo $pr['idPred']?>')"
                                        data-toggle="modal" data-target="#myModal4" class="toggle-button" data-tooltip="tooltip" title="Kontaktiraj">
                                         <i class="fa fa-comment fa-lg" aria-hidden="true"></i>
                                     </a>

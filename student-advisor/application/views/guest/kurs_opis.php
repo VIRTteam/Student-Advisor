@@ -12,7 +12,7 @@
                     <?php
                     $img =base_url().'img/kurs_default.jpg';
                     if ($kurs['slika']=='d') {
-                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg';
                     }?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -21,12 +21,12 @@
                 </div>
                 <ul class="cover-nav">
                     <li >
-                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_kurs_opis')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
@@ -41,34 +41,50 @@
                     <div class="panel panel-default relative">
                         <ul class="icon-list icon-list-block">
                             <li>Zanimljivost
-                                <div class="media" align="right" ><?php echo $kurs['zanimljivost']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['zanimljivost'])?></div>
                             </li>
                             <li>Korisnost
-                                <div class="media" align="right" ><?php echo $kurs['korisnost']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['korisnost'])?></div>
                             </li>
                             <li>Tezina
-                                <div class="media" align="right" ><?php echo $kurs['tezina']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['tezina'])?></div>
                             </li>
                             <li>Preporuka
-                                <div class="media" align="right" ><?php echo $kurs['preporuka']?></div>
+                                <div class="media" align="right" ><?php printf("%.02lf\n", $kurs['preporuka'])?></div>
                             </li>
                         </ul>
                         <div class="panel-body panel-boxed text-center">
-                            <div class="rating ">
-                                <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
-                                    <span class="star disabled" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
-                                <?php endfor;?>
-                                <?php for(; $j >=1; $j--):?>
-                                    <span class="star filled disabled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
-                                <?php endfor;?>
+                            <div class="rating">
+                                <div class="rating ">
+                                    <?php for($i = $kurs['prosecnaOcena']+0.5, $j=5; $i <5; $i++, $j--):?>
+                                        <span class="star disabled" onclick="setStar(<?php echo $j?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                    <?php for(; $j >=1; $j--):?>
+                                        <span class="star filled disabled" onclick="setStar(<?php echo $j ?>)" id="star<?php echo $j?>"></span>
+                                    <?php endfor;?>
+                                </div>
                             </div>
                         </div>
                         <div class="panel-body">
-                            <img src="./img/guy-2(1).jpg" alt="people" class="img-circle">
-                            <img src="./img/woman-2.jpg" alt="people" class="img-circle">
-                            <img src="./img/guy-3(1).jpg" alt="people" class="img-circle">
-                            <img src="./img/woman-3(1).jpg" alt="people" class="img-circle">
-                            <a class="user-count-circle">12+</a>
+                            <?php $t=0;?>
+                            <?php foreach ($ocenio as $po): ?>
+
+                                <?php
+                                $img =base_url().'img/clan_default.png';
+                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
+                                ?>
+                                <a href="javascript:void(0);" data-toggle="modal"
+                                   data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
+                                    <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
+                                </a>
+
+
+                                <?php $t=$t+1; if ($t>=5) {$t=-1; break;}?>
+
+                            <?php endforeach ?>
+                            <?php if (sizeof($ocenio)>5): ?>
+                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                            <?php endif;?>
                         </div>
                     </div>
 
@@ -86,9 +102,10 @@
                             <li class="padding-v-5">
                                 <div class="row">
                                     <div class="col-sm-4"><span class="text-muted"><?php echo ucfirst($p['zvanje'])?></span></div>
-                                    <div class="col-sm-8"
-                                         class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $p['idPred']?>', '<?php echo $p['ime']?> <?php echo $p['prezime']?>')">
-                                        <?php echo $p['ime']?> <?php echo $p['prezime']?>
+                                    <div class="col-sm-8">
+                                        <a class="movie" onclick="getSummary('<?php echo site_url('guest/get_predavac_profil')?>/<?php echo $p['idPred']?>', '<?php echo $p['ime']?> <?php echo $p['prezime']?>')">
+                                            <?php echo $p['ime']?> <?php echo $p['prezime']?>
+                                        </a>
                                     </div>
                                 </div>
                             </li>

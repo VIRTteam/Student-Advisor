@@ -12,13 +12,12 @@
             <input class="form-control" type="text" placeholder="Katedra" id="katedra">
             <input class="form-control" type="text" placeholder="Godina zaposlenja" id="godinaZaposlenja">
             <input class="form-control" type="text" placeholder="Zvanje" id="zvanje">
-            <input class="form-control" type="text" placeholder="Slika" id="slika">
             <textarea class="form-control share-text" placeholder="Opis" id="opis"></textarea>
 
         </div>
         <div class="modal-footer">
-            <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
             <a class="btn btn-white" onclick="sacuvaj_predavaca();">Sacuvaj</a>
+            <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
         </div>
     </div>
 </div>
@@ -31,13 +30,12 @@
         var katedra = document.getElementById("katedra").value;
         var godinaZaposlenja = document.getElementById("godinaZaposlenja").value;
         var zvanje = document.getElementById("zvanje").value;
-        var slika = document.getElementById("slika").value;
         var opis = document.getElementById("opis").value;
         $.ajax({
             type: 'POST',
             async: false,
             url: '<?php echo site_url()?>/moderator/put_novi_predavac',
-            data: {ime:ime, prezime:prezime, email:email, katedra:katedra, godinaZaposlenja:godinaZaposlenja, zvanje:zvanje, slika:slika, opis:opis},
+            data: {ime:ime, prezime:prezime, email:email, katedra:katedra, godinaZaposlenja:godinaZaposlenja, zvanje:zvanje, opis:opis},
             success: function (returnData) {
                 $('#toggle_modal').html(returnData);
             }

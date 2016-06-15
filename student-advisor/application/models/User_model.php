@@ -11,29 +11,34 @@ class User_model extends CI_Model {
     {
 
     }
-    public function get_clan($id = FALSE)
+    public function get_clan_from_username($username)
     {
-        if ($id === FALSE)
+        $query = $this->db->get_where('clan', array('username' => $username));
+        return $query->row_array();
+    }
+
+    public function get_clan($idClan = FALSE)
+    {
+        if ($idClan === FALSE)
         {
             $query = $this->db->get('clan');
             return $query->result_array()[0];
         }
-
-        $query = $this->db->get_where('clan', array('idClan' => $id));
+        $query = $this->db->get_where('clan', array('idClan' => $idClan));
         return $query->row_array();
     }
 
-    public function get_kurs($id = FALSE)
+    public function get_kurs($idKurs = FALSE)
     {
-        if ($id === FALSE)
+        if ($idKurs === FALSE)
         {
             $query = $this->db->get('kurs');
             return $query->result_array()[0];
         }
-
-        $query = $this->db->get_where('kurs', array('idKurs' => $id));
+        $query = $this->db->get_where('kurs', array('idKurs' => $idKurs));
         return $query->row_array();
     }
+
     public function get_predavac($idPred = FALSE)
     {
         if ($idPred === FALSE)
@@ -41,20 +46,14 @@ class User_model extends CI_Model {
             $query = $this->db->get('predavac');
             return $query->result_array()[0];
         }
-
         $query = $this->db->get_where('predavac', array('idPred' => $idPred));
         return $query->row_array();
     }
-    
-    public function get_kurs_komentar($id = 1)
+
+    public function get_kurs_komentar($idKom)
     {
-        $query = $this->db->query("select p.*, k.* FROM komentar p inner join kurs k on p.idKurs = k.idkurs and p.idKom=?", array($id));
+        $query = $this->db->query("select p.*, k.* FROM komentar p inner join kurs k on p.idKurs = k.idkurs and p.idKom=?", array($idKom));
         return $query->row_array();
-    }
-    public function get_kurs_predavac($idKurs = 1)
-    {
-        $query = $this->db->query("select p.*, k.* FROM predavac p inner join predaje k on p.idPred = k.idPred and k.idKurs=? ORDER BY p.zvanje DESC", array($idKurs));
-        return $query->result_array();
     }
     public function get_clan_komentar($id, $myID)
     {
@@ -62,51 +61,131 @@ class User_model extends CI_Model {
             on p.idClan = k.idClan and p.idKom=? and p.idClan=? and p.idKom=po.idKom", array($id, $myID));
         return $query->row_array();
     }
-    public function get_podkomentar($id = 1)
-    {
-        $query = $this->db->query("select p.*, k.* FROM podkomentar p inner join clan k on p.idClan = k.idClan and p.idKom=?", array($id));
-        return $query->result_array();
-    }
-    public function get_Polozio_clan($id = FALSE)
-    {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs");
-            return $query->result_array();
-        }
 
-        $query = $this->db->query('select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs AND p.idClan=?',array($id));
-        return $query->result_array();
-    }
-    public function get_Polozio_kurs($id = FALSE)
+    public function get_kurs_predavac($idKurs)
     {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan");
-            return $query->result_array();
-        }
-
-        $query = $this->db->query('select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan AND p.idKurs=?',array($id));
+        $query = $this->db->query("select p.*, k.* FROM predavac p inner join predaje k on p.idPred = k.idPred and k.idKurs=? ORDER BY p.zvanje DESC", array($idKurs));
         return $query->result_array();
     }
-    
-    //tamara
+
+    public function get_podkomentar($idKom)
+    {
+        $query = $this->db->query("select p.*, k.* FROM podkomentar p inner join clan k on p.idClan = k.idClan and p.idKom=?", array($idKom));
+        return $query->result_array();
+    }
+    public function get_Komentar_clan($id,$myID)
+    {
+
+        $query = $this->db->query("select p.*, k.*, l.tip
+                                    FROM  komentar p
+                                    inner join kurs k 
+                                    on p.idKurs = k.idkurs and p.idClan=?
+                                    left outer join podrzavanje l
+                                    on p.idKom=l.idKom and l.idClan=?
+                                    ORDER BY p.datum DESC, p.idKom DESC", array($id,$myID));
+        return $query->result_array();
+    }
+    public function get_Komentar_clan_neanonimno($id,$myID)
+    {
+        $query = $this->db->query("select p.*, k.*, l.tip
+                                    FROM  komentar p
+                                    inner join kurs k 
+                                    on p.idKurs = k.idkurs and p.idClan=? and p.anonimno='0'
+                                    left outer join podrzavanje l
+                                    on p.idKom=l.idKom and l.idClan=?
+                                    ORDER BY p.datum DESC, p.idKom DESC", array($id,$myID));
+        return $query->result_array();
+    }
+    public function get_Polozio_clan($idClan = FALSE)
+    {
+        $query = $this->db->query('select p.*, k.* FROM polozio p inner join kurs k on p.idKurs = k.idkurs AND p.idClan=?
+            ORDER BY k.ime',array($idClan));
+        return $query->result_array();
+    }
+
+    public function get_Komentar_kurs($id, $myID)
+    {
+        $query = $this->db->query("select p.*, k.*, l.tip
+                                    FROM  komentar p
+                                    inner join clan k 
+                                    on p.idClan = k.idClan and p.idKurs=?
+                                    left outer join podrzavanje l
+                                    on p.idKom=l.idKom and l.idClan=?
+                                    ORDER BY p.datum DESC, p.idKom DESC", array($id,$myID));
+
+        return $query->result_array();
+    }
+
+
+    public function get_Polozio_kurs($idKurs = FALSE)
+    {
+        $query = $this->db->query('select p.*, k.* FROM polozio p inner join clan k on p.idClan = k.idClan AND p.idKurs=?
+            ORDER BY k.ime, k.prezime',array($idKurs));
+        return $query->result_array();
+    }
+
+    public function  get_predaje_kurs($idPred)
+    {
+        $query = $this->db->query('select p.*, k.* FROM predaje p inner join kurs k on p.idKurs = k.idkurs AND p.idPred=?
+             ORDER BY k.ime',array($idPred));
+        return $query->result_array();
+    }
+    public function get_komentar_predavac($idPred, $myID)
+    {
+        $query = $this->db->query("SELECT p.*, k.ime, c.slika, l.tip
+                        FROM `student-advisor-mysql`.komentar p 
+                        inner join `student-advisor-mysql`.kurs k 
+                        on p.idKurs = k.idkurs 
+                        inner join `student-advisor-mysql`.predaje pp 
+                        on p.idKurs = pp.idKurs and pp.idPred=?
+                        inner join `student-advisor-mysql`.clan c
+                        on c.idClan=p.idClan
+                        left outer join `student-advisor-mysql`.podrzavanje l 
+                        on p.idKom=l.idKom and l.idClan=?
+                        ORDER BY p.datum DESC, p.idKom DESC", array($idPred,$myID));
+        return $query->result_array();
+    }
+
+    public function get_pretraga_clan($idClan ="")
+    {
+        $query = $this->db->query("SELECT * FROM clan where CONCAT(ime,' ',prezime) LIKE '%".$idClan."%' ORDER BY ime, prezime");
+        return $query->result_array();
+    }
+    public function get_pretraga_kurs($idKurs ="", $myID)
+    {
+        $query = $this->db->query("SELECT k.*, p.idClan FROM kurs k LEFT OUTER JOIN polozio p on k.idKurs=p.idKurs and p.idClan=".$myID."
+                                    WHERE ime LIKE '%".$idKurs."%' ORDER BY ime" );
+        return $query->result_array();
+    }
+    public function get_pretraga_predavac($idPred ="")
+    {
+        $query = $this->db->query("SELECT * FROM predavac where CONCAT(ime,' ',prezime) LIKE '%".$idPred."%' ORDER BY ime, prezime");
+        return $query->result_array();
+    }
+
+    public function get_kurs_ocena($idClana, $idKursa)
+    {
+        $query = $this->db->get_where('polozio', array('idClan' => $idClana),array('idKurs'=>$idKursa));
+        return $query->row_array();
+    }
+    public function get_Ocenio_kurs($id)
+    {
+        $query = $this->db->query("select p.*, k.*
+                                    FROM polozio p 
+                                    inner join clan k                                   
+                                    on p.idClan = k.idClan 
+                                    AND (p.zanimljivost OR p.tezina OR p.preporuka OR p.korisnost)
+                                    AND p.idKurs=?
+                                    ORDER BY k.ime, k.prezime ",array($id));
+        return $query->result_array();
+    }
+
     public function get_Polozio_kurs_zvezdice($idKurs, $myID)
     {
         $query = $this->db->query('select * FROM polozio where idClan = ? AND idKurs=?',array($myID, $idKurs));
         return $query->row_array();
     }
-    
-    public function  get_predaje_kurs($idPred=1)
-    {
-        $query = $this->db->query('select p.*, k.* FROM predaje p inner join kurs k on p.idKurs = k.idkurs AND p.idPred=?',array($idPred));
-        return $query->result_array();
-    }
-    public function get_kurs_ocena($idClana = 1, $idKursa = 1)
-    {
-        $query = $this->db->get_where('polozio', array('idClan' => $idClana),array('idKurs'=>$idKursa));
-        return $query->row_array();
-    }
+
 
     public function get_Poslednje_Poruke($id = FALSE) //mozda radi
     {
@@ -135,12 +214,7 @@ class User_model extends CI_Model {
                                             )
                                         GROUP BY idPosiljalac,idPrimalac                        
                                     )
-                                ORDER BY idPor DESC
-                                
-                       "
-        );
-
-        //$query = $this->db->query('select p.*, c.* FROM clan c inner join poruka p on p.idPrimalac = c.idClan AND p.idPosiljalac=?',array($id));
+                                    ORDER BY datum DESC");
         return $query->result_array();
     }
 
@@ -164,22 +238,6 @@ class User_model extends CI_Model {
         return $query->result_array();
     }
 
-
-    public function get_Ocenio_kurs($id)
-    {
-
-        $query = $this->db->query("select p.*, k.*
-                                    FROM polozio p 
-                                    inner join clan k                                   
-                                    on p.idClan = k.idClan 
-                                    AND (p.zanimljivost OR p.tezina OR p.preporuka OR p.korisnost)
-                                    AND p.idKurs=?",array($id));
-        return $query->result_array();
-    }
-
-
-
-
 //odavde tamaar novo
     public function find_komentar($idKurs, $idClan){
         $query=$this->db->query("select * FROM  komentar WHERE idKurs=? AND idClan=?", array($idKurs,$idClan));
@@ -188,99 +246,28 @@ class User_model extends CI_Model {
             return $provera[0]['idKom'];
         return '-1';
     }
+
     public function get_komentar($idKom, $myID)
     {
         $query = $this->db->query("select p.* ,l.tip
                                     FROM  `student-advisor-mysql`.komentar p
                                     left outer join `student-advisor-mysql`.podrzavanje l
-                                    on p.idClan=l.idClan and l.idClan=? where
+                                    on p.idKom=l.idKom and l.idClan=? where
                                     p.idKom=?", array($myID,$idKom));
         return $query->row_array();
     }
     public function dodaj_podkomentar($comment, $idKom,$myID)
     {
-        $this->db->query("INSERT INTO podkomentar(idKom,idClan,tekst) VALUES('$idKom','$myID','$comment')");
+        $query=$this->db->query("SELECT max(redniBroj) as br, count(*) as ukupno from Podkomentar where idKom=?",array($idKom));
+        if(count($query)==0)
+            $redniBroj=1;
+        else
+            $redniBroj=$query->row_array()['br']+1;
+        date_default_timezone_set("Europe/Belgrade");
+        $datum=date("Y-m-d");
+        $this->db->query("INSERT INTO podkomentar(redniBroj,idKom,idClan,tekst, datum) VALUES('$redniBroj','$idKom','$myID','$comment','$datum')");
+        $this->db->query("UPDATE komentar set brPodkomentara=? WHERE idKom=?", array($query->row_array()['br']+1,$idKom));
     }
-
-
-
-
-
-
-
-    public function get_Komentar_clan($id,$myID)
-    {
-
-        $query = $this->db->query("select p.*, k.*, l.tip
-                                    FROM  komentar p
-                                    inner join kurs k 
-                                    on p.idKurs = k.idkurs and p.idClan=?
-                                    left outer join podrzavanje l
-                                    on p.idKom=l.idKom and l.idClan=?", array($id,$myID));
-        return $query->result_array();
-    }
-
-    public function get_Komentar_kurs($id, $myID)
-    {
-        $query = $this->db->query("select p.*, k.*, l.tip
-                                    FROM  komentar p
-                                    inner join clan k 
-                                    on p.idClan = k.idClan and p.idKurs=?
-                                    left outer join podrzavanje l
-                                    on p.idKom=l.idKom and l.idClan=?", array($id,$myID));
-
-        return $query->result_array();
-    }
-
-    public function get_komentar_predavac($idPred, $myID)
-    {
-        $query = $this->db->query("SELECT p.*, k.ime, c.slika, l.tip
-                        FROM `student-advisor-mysql`.komentar p 
-                        inner join `student-advisor-mysql`.kurs k 
-                        on p.idKurs = k.idkurs 
-                        inner join `student-advisor-mysql`.predaje pp 
-                        on p.idKurs = pp.idKurs and pp.idPred=?
-                        inner join `student-advisor-mysql`.clan c
-                        on c.idClan=p.idClan
-                        left outer join `student-advisor-mysql`.podrzavanje l 
-                        on p.idKom=l.idKom and l.idClan=?", array($idPred,$myID));
-        return $query->result_array();
-    }
-
-    public function get_pretraga_clan($id ="")
-    {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("SELECT * FROM clan ORDER BY ime, prezime");
-            return $query->result_array();
-        }
-        $query = $this->db->query("SELECT * FROM clan where CONCAT(ime,' ',prezime) LIKE '%".$id."%' ORDER BY ime, prezime");
-        return $query->result_array();
-    }
-    public function get_pretraga_kurs($id ="")
-    {
-        if ($id === FALSE)
-        {
-            $query = $this->db->query("SELECT * FROM kurs ORDER BY ime" );
-            return $query->result_array();
-        }
-        $query = $this->db->query("SELECT * FROM kurs where ime LIKE '%".$id."%' ORDER BY ime" );
-        return $query->result_array();
-    }
-    public function get_pretraga_predavac($id ="")
-    {
-        if ($id =="")
-        {
-            $query = $this->db->query("SELECT * FROM predavac ORDER BY ime, prezime");
-            return $query->result_array();
-        }
-        $query = $this->db->query("SELECT * FROM predavac where CONCAT(ime,' ',prezime) LIKE '%".$id."%' ORDER BY ime, prezime");
-        return $query->result_array();
-    }
-
-
-
-
 
 
     public function get_clan_username($id)
@@ -299,9 +286,7 @@ class User_model extends CI_Model {
         $poc=$red['datumBanovanja'];
         if(!$poc)
             return NAN;
-
         $tekT=strtotime('+1 day', strtotime($poc));
-        //return date("Y-m-d h:i:s",$tekT);
         if($tekT<strtotime($sad))
         {
             $this->db->query("DELETE FROM banovanje WHERE idClan=? ", array($idClan));
@@ -310,83 +295,86 @@ class User_model extends CI_Model {
         return $red['razlog'];
     }
 
-    public function get_clan_from_username($id)
+    public function sme_da_komentarise($idKurs,$idClan)
     {
-        $query = $this->db->get_where('clan', array('username' => $id));
-        return $query->row_array();
+        $query=$this->db->query("SELECT * FROM polozio WHERE idClan=? AND idKurs=?",array($idClan, $idKurs));
+        if(count($query->result_array())>0)
+            return 'd';
+        return 'n';
     }
-
-
-
-
+    public function vec_je_komentarisao($idKurs,$idClan)
+    {
+        $query=$this->db->query("SELECT * FROM komentar WHERE idClan=? AND idKurs=?",array($idClan, $idKurs));
+        if(count($query->result_array())==0)
+            return NULL;
+        return $query->result_array()[0];
+    }
 
     public function put_comment($idClan , $idKurs , $comment, $anonim="false")
     {
-        if ($anonim=='false')
-            $query = $this->db->query("INSERT INTO komentar(idClan,idKurs,tekst,anonimno) VALUES('$idClan','$idKurs','$comment',0)");
-        else
-            $query = $this->db->query("INSERT INTO komentar(idClan,idKurs,tekst,anonimno) VALUES('$idClan','$idKurs','$comment',1)");
+        $query = $this->db->query("select * from komentar where idKurs=? and idClan=?", array($idKurs, $idClan));
+        date_default_timezone_set("Europe/Belgrade");
+        $datum=date("Y-m-d");
+        if ($anonim == 'false') {
+            if (count($query->result_array()) > 0)
+                $this->db->query("UPDATE komentar  set tekst=?, anonimno=0 where idKurs=? and idClan=?", array($comment, $idKurs, $idClan));
+            else {
+                $query1=$this->db->query("SELECT max(idKom) as br from Komentar");
+                if(count($query1)==0)
+                    $idKom=1;
+                else
+                    $idKom=$query1->row_array()['br']+1;
+                $this->db->query("INSERT INTO komentar(idKom,idClan,idKurs,tekst,anonimno, datum) VALUES('$idKom','$idClan','$idKurs','$comment',0,'$datum')");
+            }
+        } else
+            if (count($query->result_array()) > 0)
+                $this->db->query("UPDATE komentar  set tekst=?, anonimno=1 where idKurs=? and idClan=?", array($comment, $idKurs, $idClan));
+            else {
+                $query1=$this->db->query("SELECT max(idKom) as br from Komentar");
+                if(count($query1)==0)
+                    $idKom=1;
+                else
+                    $idKom=$query1->row_array()['br']+1;
+                $this->db->query("INSERT INTO komentar(idKom,idClan,idKurs,tekst,anonimno, datum) VALUES('$idKom','$idClan','$idKurs','$comment',1,'$datum')");
+            }
     }
 
     public function put_message($id,$idSaKim,$tekst)
     {
-        $query = $this->db->query("INSERT INTO poruka(idPosiljalac,idPrimalac,tekst) values('$id','$idSaKim','$tekst')");
+        date_default_timezone_set("Europe/Belgrade");
+        $datum=date("Y-m-d H:m:i");
+        $query1=$this->db->query("SELECT max(idPor) as br from poruka where (idPosiljalac='$id' and idPrimalac='$idSaKim')
+                or (idPosiljalac='$idSaKim' and idPrimalac='$id')");
+        if(count($query1)==0)
+            $idPor=1;
+        else
+            $idPor=$query1->row_array()['br']+1;
+        $this->db->query("INSERT INTO poruka(idPor,idPosiljalac,idPrimalac,tekst, datum) values('$idPor','$id','$idSaKim','$tekst', '$datum')");
     }
+
 
     public function put_polozen_kurs($idKurs,$ocena, $id)
     {
-        $query = $this->db->query("INSERT INTO polozio(idClan,idKurs,ocena) values('$id','$idKurs','$ocena')");
+        $this->db->query("INSERT INTO polozio(idClan,idKurs,ocena) values('$id','$idKurs','$ocena')");
+        $query=$this->db->query("SELECT sum(ocena) as suma, count(*) as br FROM polozio WHERE idClan=?",array($id));
+        $clanOcene=$query->row_array();
+        if($clanOcene['br']==0)
+            $this->db->query("UPDATE clan SET prosecnaOcena=? WHERE idClan=?", array(0,$id));
+        else
+            $this->db->query("UPDATE clan SET prosecnaOcena=? WHERE idClan=?", array($clanOcene['suma']/$clanOcene['br'],$id));
     }
 
-    public function del_komentar($idkom)
+    public function put_izmena_profila($ime,$prezime,$email,$pol,$smer,$godUpis,$opis, $idClan, $datumRodj)
     {
-        $query = $this->db->query("DELETE FROM komentar WHERE idKom='$idkom'");
+        $this->db->query("UPDATE clan SET ime='$ime', prezime='$prezime' , email='$email' , smer='$smer' , pol='$pol' ,opis='$opis',godinaUpisa='$godUpis' ,datumRodjenja='$datumRodj' WHERE idClan='$idClan' ");
     }
-    //isiVesa begin
-    public function del_kurs_polozen($idKurs, $idClan)
+    public function put_izmena_sifre($pass, $idClan)
     {
-        $query = $this->db->query("DELETE FROM polozio WHERE idClan='$idClan' AND idKurs='$idKurs'");
+        $this->db->query("UPDATE clan SET password='$pass' WHERE idClan='$idClan' ");
     }
-
-    public function put_izmena_profila($ime,$prezime,$email,$pol,$smer,$godUpis,$opis,$pass, $idClan, $datumRodj)
+    public function set_clan_slika($slika, $idClan)
     {
-        $this->db->query("UPDATE clan SET ime='$ime', prezime='$prezime' , email='$email' , smer='$smer' , pol='$pol' ,opis='$opis',godinaUpisa='$godUpis', password='$pass' ,datumRodjenja='$datumRodj' WHERE idClan='$idClan' ");
+        $this->db->query("UPDATE clan SET slika='$slika' WHERE idClan='$idClan' ");
     }
-
-
-    //isivesa end
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -9,9 +9,8 @@
             </select>
         </div>
 
-        <div class="search-1 col-md-8 col-xs-8 "style="display: inline-block" style="padding: 0px">
-            <!--  <span class="input-group-addon"><i class="icon-search"></i></span> -->
-            <input type="text"  name="selectText"  id="selectText"class="form-control" onkeypress="if (event.keyCode==13) {event.preventDefault(); search_moderator() ;}">
+        <div class="search-1 col-md-8 col-xs-8 "style="display: inline-block;" >
+            <input type="text" name="selectText"  id="selectText"class="form-control" onkeypress="if (event.keyCode==13) {event.preventDefault(); search_moderator() ;}">
         </div>
         <div class="col-xs-2 col-md-1 " style="margin-top: 8px " >
             <a  href="javascript:void(0);" type="submit" value="pretraga" class="btn btn-white" size="15px" height="10px"
@@ -30,9 +29,9 @@
                     <?php
                     $img =base_url().'img/clan_default.png';
                     if ($clan['slika']=='d') {
-                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg';
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?'."<?php echo rand(0, 1000)?>";
                     }?>
-                    <img src="<?php echo $img?>" class="img-circle" style="width:40px; height:35px; margin-top: 3px;" /img>
+                    <img id="slika_clan" src="<?php echo $img?>" class="img-circle" style="width:40px; height:35px; margin-top: 3px;" /img>
                     <span class="hidden-sm hidden-xs"><?php echo $clan['ime']?> </span>
                     <span class="caret hidden-sm hidden-xs"></span>
                 </a>
@@ -42,17 +41,19 @@
                             Profil
                         </a>
                     </li>
-                    <li class="active">
-                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
+                    <li>
+                        <a  class="movie" onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                             Poruke
                         </a>
                     </li>
+                    <?php if($clan['tip']=='a'):?>
                     <li>
-                        <a onclick="getSummary('<?php echo site_url('moderator/get_mojprofil_opis')?>/<?php echo $clan['idClan']?>',  '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
-                            Izmeni profil
+                        <a onclick="getSummary('<?php echo site_url('moderator/get_unapredjivanje_derangiranje')?>','Unapredjivanje i derangiranje')">
+                            Odobrenja
                         </a>
                     </li>
-                    <li><a href="" data-toggle="modal" data-target="#myModal15">Pomoć</a></li>
+                    <?php endif; ?>
+                    <li><a onclick="slanje_maila_pomoc()" data-toggle="modal" data-target="#myModal15">Pomoć</a></li>
                     <li><a href="<?php echo site_url('guest/registracija')?>">Izloguj se</a></li>
                 </ul>
             </li>
@@ -64,6 +65,22 @@
 <script >
     function search_moderator()
     {
+        var bool = "<?php echo isset($_SESSION['username']) ?>";
+        if(bool=="1") {
+            var rez = $.ajax({
+                type: 'POST',
+                async: false,
+                url: '<?php echo site_url()?>/moderator/proveri_banovanje',
+                data: {},
+                success: function (returnData) {
+                }
+            }).responseText;
+            if (rez != "NAN") {
+                $('#greska_textB').html(rez);
+                $('#Banovanje').modal('show');
+                return;
+            }
+        }
         var selectText = document.getElementById("selectText").value;
         var sel = document.getElementById("selectIndex").value;
         document['title']=sel;
@@ -98,5 +115,37 @@
 
 </script>
 
+<div class="modal fade <?php if ($clan['tip']=='c') if(strcmp($banovanje,"NAN")) echo "in"?>"
+     id="BanovanjeLogin" role="dialog"  style="position: fixed;left: 50%; transform: translate(-50%, 35%);">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Banovani ste. Razlog:</h4>
+            </div>
+            <div class="modal-body"><h5 id="greska_textB"><?php echo $banovanje?> </h5></div>
+            <div class="modal-footer">
+                <a  class="btn btn-white" href="<?php echo site_url()?>/guest/registracija">Uredu</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div id="nesto">
+<div class="modal fade" id="Banovanje" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Banovani ste. Razlog:</h4>
+            </div>
+            <div class="modal-body"><h5 id="greska_textB"> </h5></div>
+            <div class="modal-footer">
+                <a  class="btn btn-white" href="<?php echo site_url()?>/guest/registracija">Uredu</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="nesto" style="height: 100%;">

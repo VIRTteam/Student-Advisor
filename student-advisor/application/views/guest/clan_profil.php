@@ -79,7 +79,7 @@
                                         <?php
                                         $img =base_url().'img/kurs_default.jpg';
                                         if ($predmet['slika']=='d') {
-                                            $img =base_url().'/img/kurs/kurs'.$predmet['idkurs'].'.jpg';
+                                            $img =base_url().'/img/kurs/kurs'.$predmet['idKurs'].'.jpg';
                                         }?>
                                         <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                     </div>
@@ -125,7 +125,7 @@
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
                                             if ($kom['slika']=='d') {
-                                                $img =base_url().'/img/kurs/kurs'.$kom['idkurs'].'.jpg';
+                                                $img =base_url().'/img/kurs/kurs'.$kom['idKurs'].'.jpg';
                                             }?>
                                             <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                         </a>
@@ -145,9 +145,10 @@
                                         <a  onclick="getSummary('<?php echo site_url('guest/get_kurs_profil')?>/<?php echo $kom['idKurs']?>', '<?php echo $kom['ime']?>')"
                                         class="comment-author pull-left"><?php echo $kom['ime']?></a>
                                         <br/>
-                                        <div class="comment-text" id="tekstkomentara<?php echo idKom?>"><?php echo $kom['tekst']?></div>
+                                        <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['datum']?></div>
+                                        <div class="comment-date"><?php   date_default_timezone_set("Europe/Belgrade");
+                                            echo DateTime::createFromFormat('Y-m-d',date($kom['datum']))->format('d.m.Y.');?></div>
                                     </div>
                                     <div class="view-all-comments">
                                         <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar')?>/<?php echo $kom['idKom']?>')">

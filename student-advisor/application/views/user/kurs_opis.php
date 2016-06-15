@@ -14,7 +14,7 @@
                     <?php
                     $img =base_url().'img/kurs_default.jpg';
                     if ($kurs['slika']=='d') {
-                        $img =base_url().'/img/kurs/kurs'.$kurs['idkurs'].'.jpg';
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg';
                     }?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -23,20 +23,22 @@
                 </div>
                 <ul class="cover-nav">
                     <li>
-                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_profil')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-user"></i> Profil
                         </a>
                     </li>
                     <li class="active">
-                        <a   class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_opis')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
+                        <a   class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_opis')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
                             <i class="fa fa-fw fa-info-circle"></i> Opis
                         </a>
                     </li>
-                    <li>
-                        <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_komentarisi')?>/<?php echo $kurs['idkurs']?>', '<?php echo $kurs['ime']?>')">
-                            <i class="fa fa-fw fa-envelope"></i> Komentariši
-                        </a>
-                    </li>
+                    <?php if($sme_da_komentarise=='d'):?>
+                        <li>
+                            <a  class="movie" onclick="getSummary('<?php echo site_url('user/get_kurs_komentarisi')?>/<?php echo $kurs['idKurs']?>', '<?php echo $kurs['ime']?>')">
+                                <i class="fa fa-fw fa-envelope"></i> Komentariši
+                            </a>
+                        </li>
+                    <?php endif ?>
                 </ul>
             </div>
         </div>
@@ -80,7 +82,7 @@
                                 $img =base_url().'img/clan_default.png';
                                 if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
                                 ?>
-                                <a href="javascript:void(0);" data-toggle="modal"
+                                <a data-toggle="modal"
                                    data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
                                     <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                 </a>
@@ -90,7 +92,7 @@
 
                             <?php endforeach ?>
                             <?php if (sizeof($ocenio)>5): ?>
-                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                                <a class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
                             <?php endif;?>
                         </div>
                     </div>
@@ -114,9 +116,6 @@
                                              class="movie" onclick="getSummary('<?php echo site_url('user/get_predavac_profil')?>/<?php echo $p['idPred']?>', '<?php echo $p['ime']?> <?php echo $p['prezime']?>')">
                                                     <?php echo $p['ime']?> <?php echo $p['prezime']?>
                                             </a>
-
-
-
                                         </div>
                                     </div>
                                 </li>

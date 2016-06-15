@@ -33,7 +33,7 @@
                     </li>
                     <li>
                         <a class="movie" onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $clan['idClan']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
-                            <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj<!-- TREBA DA SE POSALJE ID CLANA CIJI JE PROFIL I ID USERA -->
+                            <i class="fa fa-fw fa-envelope"></i>  Kontaktiraj
                         </a>
                     </li>
                 </ul>
@@ -75,6 +75,7 @@
                                     echo '0 polozenih ispita';
                                 else
                                     echo count ($polozio).' polozena ispita'; ?>
+                            </span>
                         </div>
                         <ul class="comments">
                             <?php foreach ($polozio as $predmet): ?>
@@ -84,7 +85,7 @@
                                         <?php
                                         $img =base_url().'img/kurs_default.jpg';
                                         if ($predmet['slika']=='d') {
-                                            $img =base_url().'/img/kurs/kurs'.$predmet['idkurs'].'.jpg';
+                                            $img =base_url().'/img/kurs/kurs'.$predmet['idKurs'].'.jpg';
                                         }?>
                                         <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                     </div>
@@ -128,7 +129,7 @@
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
                                             if ($kom['slika']=='d') {
-                                                $img =base_url().'/img/kurs/kurs'.$kom['idkurs'].'.jpg';
+                                                $img =base_url().'/img/kurs/kurs'.$kom['idKurs'].'.jpg';
                                             }?>
                                             <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                         </a>
@@ -153,7 +154,8 @@
                                         <br/>
                                         <div class="comment-text" id="tekstkomentara<?php echo $kom['idKom']?>"><?php echo $kom['tekst']?></div>
                                         <br/>
-                                        <div class="comment-date"><?php echo $kom['datum']?></div>
+                                        <div class="comment-date"><?php   date_default_timezone_set("Europe/Belgrade");
+                                            echo DateTime::createFromFormat('Y-m-d',date($kom['datum']))->format('d.m.Y.');?></div>
                                     </div>
                                     <div class="view-all-comments">
                                         <a  data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">

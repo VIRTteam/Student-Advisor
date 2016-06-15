@@ -8,13 +8,13 @@
         <div class="modal-body">
             <select multiple="multiple" id="izabraniKursevi">
                 <?php foreach ($kursevi as $kurs): ?>
-                    <option value="<?php echo $kurs['idkurs'] ?>"><?php echo $kurs['ime']?></option>
+                    <option value="<?php echo $kurs['idKurs'] ?>"><?php echo $kurs['ime']?></option>
                 <?php endforeach ?>
             </select>
         </div>
         <div class="modal-footer">
-            <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
             <a class="btn btn-white" onclick="sacuvaj_predaje_na('<?php echo $idPred ?>') ">Sacuvaj</a>
+            <a class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Odustani</a>
         </div>
     </div>
 </div>
