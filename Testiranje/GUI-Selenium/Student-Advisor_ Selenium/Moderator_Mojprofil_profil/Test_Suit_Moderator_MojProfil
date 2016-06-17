@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="Edit_Komentar.html">Edit_komentar</a></td></tr>
+<tr><td><a href="Brisanje_Poslednjeg_Komentara.html">Brisanje_Komentara</a></td></tr>
+<tr><td><a href="Brisanje_prvog_kursa_iz_liste_polozenih.html">Brisanje_prvog_kursa_iz_liste_polozenih</a></td></tr>
+<tr><td><a href="Pretraga_Kurseva.html">Pretraga_Kurseva</a></td></tr>
+<tr><td><a href="Pretraga_Clanova.html">Pretraga_Clanova</a></td></tr>
+<tr><td><a href="Pretraga_Predavaca.html">Pretraga_Predavaca</a></td></tr>
+<tr><td><a href="Pomoc.html">Pomoc</a></td></tr>
+<tr><td><a href="Logout.html">Logout</a></td></tr>
+</tbody></table>
+</body>
+</html>

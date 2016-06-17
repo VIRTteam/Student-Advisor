@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <title>Test Suite</title>
+</head>
+<body>
+<table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
+<tr><td><b>Test Suite</b></td></tr>
+<tr><td><a href="../Moderator_Pretraga_Kurseva/Kreiranje_Novog_Kursa.html">Kreiranje_Novog_Kursa</a></td></tr>
+<tr><td><a href="../Moderator_Pretraga_Kurseva/Editovanje_Kursa.html">Editovanje_Kursa</a></td></tr>
+<tr><td><a href="../Moderator_Pretraga_Kurseva/Dodavanje_Kursa_U_Listu_Polozenih.html">Dodavanje_Kursa_U_Listu_Polozenih</a></td></tr>
+<tr><td><a href="../Moderator_Pretraga_Kurseva/Brisanje_Kursa.html">Brisanje_Kursa</a></td></tr>
+</tbody></table>
+</body>
+</html>
