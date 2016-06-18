@@ -4,39 +4,58 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost/student-adisor/" />
-<title>Pomoc</title>
+<title>Izmeni_Predavaca</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">Pomoc</td></tr>
+<tr><td rowspan="1" colspan="3">Izmeni_Predavaca</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
-	<td>/student-advisor/</td>
+	<td>/student-advisor/index.php</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>id=selectIndex</td>
+	<td>label=Predavači</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//i</td>
 	<td></td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Isidor</td>
-	<td></td>
-</tr>
-<tr>
-	<td>click</td>
-	<td>link=Pomoć</td>
+	<td>//li[@id='pretraga32']/div[2]/div[3]/a/i</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=message</td>
-	<td>UPOMOOOC hehe</td>
+	<td>id=zvanje</td>
+	<td>Profesor</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=katedra</td>
+	<td>RTI</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=ime</td>
+	<td>Meerko</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=prezime</td>
+	<td>Nemeerko</td>
 </tr>
 <tr>
 	<td>click</td>
-	<td>link=Posalji</td>
+	<td>link=Sacuvaj</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

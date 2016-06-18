@@ -10,6 +10,8 @@
 <tr><td><b>Test Suite</b></td></tr>
 <tr><td><a href="Edit_Komentar.html">Edit_komentar</a></td></tr>
 <tr><td><a href="Brisanje_Poslednjeg_Komentara.html">Brisanje_Komentara</a></td></tr>
+<tr><td><a href="izmena_Licnih_Podataka.html">Izmena_Licnih_Informacija</a></td></tr>
+<tr><td><a href="Izmena_Sifre.html">Izmena_Sifre</a></td></tr>
 <tr><td><a href="Brisanje_prvog_kursa_iz_liste_polozenih.html">Brisanje_prvog_kursa_iz_liste_polozenih</a></td></tr>
 <tr><td><a href="Pretraga_Kurseva.html">Pretraga_Kurseva</a></td></tr>
 <tr><td><a href="Pretraga_Clanova.html">Pretraga_Clanova</a></td></tr>
