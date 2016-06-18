@@ -82,13 +82,13 @@ class Guest extends CI_Controller
     public function get_podkomentar_bez_komentara($idKurs,$idClan)
     {
         $id=$this->Guest_model->find_komentar($idKurs, $idClan);
-        $data['komentarKurs'] = $this->Guest_model->get_kurs($idKurs);
+        $data['komentarKurs'] = $this->Guest_model->getx_kurs($idKurs);
         $data['komentarClan'] = $this->Guest_model->get_clan($idClan);
         $data['komentarOcena'] = $this->Guest_model->get_kurs_ocena($idClan, $idKurs);
         $data['tip']='o';
         if($id=='-1') {
             $data['postoji']='n';
-
+            $data['komentar']['anonimno']='n';
         }
         else {
             $data['postoji']='d';
@@ -99,6 +99,12 @@ class Guest extends CI_Controller
         $this->load->view('guest/podkomentari', $data);
     }
 
+    public function get_kurs_ocene($idKurs)
+    {
+        $data['kurs'] = $this->Guest_model->get_kurs($idKurs);
+        $data['ocenio'] = $this->Guest_model->get_Ocenio_kurs($idKurs);
+        $this->load->view('guest/kurs_ocene', $data);
+    }
 
     public function get_kurs_profil($id=FALSE)
     {

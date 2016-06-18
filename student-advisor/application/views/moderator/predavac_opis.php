@@ -13,7 +13,7 @@
                     <?php
                     $img =base_url().'img/predavac_default.jpg';
                     if ($predavac['slika']=='d') {
-                        $img =base_url().'/img/predavac/predavac'.$predavac['idPred'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                        $img =base_url().'/img/predavac/predavac'.$predavac['idPred'].'.jpg?'."<?php echo random_int(0,10000)?>";
                     }?>
                     <img src="<?php echo $img?>" id="slika_predavac">
                 </div>
@@ -105,7 +105,7 @@
                 <?php
                 $img =base_url().'/img/predavac_default.jpg';
                 if ($predavac['slika']=='d') {
-                    $img =base_url().'/img/predavac/predavac'.$predavac['idPred'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                    $img =base_url().'/img/predavac/predavac'.$predavac['idPred'].'.jpg?'."<?php echo random_int(0,10000)?>";
                 }?>
                 <img id="slika_predavac2" src="<?php echo $img?>" height="200" width="200">
             </div>

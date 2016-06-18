@@ -132,9 +132,9 @@ class Guest_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_kurs_ocena($idClana, $idKursa)
+    public function get_kurs_ocena($idClan, $idKurs)
     {
-        $query = $this->db->get_where('polozio', array('idClan' => $idClana),array('idKurs'=>$idKursa));
+        $query = $this->db->query("SELECT * FROM polozio where idClan=? and idKurs=?", array($idClan, $idKurs));
         return $query->row_array();
     }
     public function get_Ocenio_kurs($id)

@@ -31,7 +31,40 @@ function setLike(id,myID)
     $('#nepodrzavanje'+ id).html(" "+arr[1]);
 
 }
+function setLikeee(id,myID)
+{
+    var tip='p';
+    if(document.getElementById('podrzavanje' + id).className=="fa fa-plus active") {
+        document.getElementById('podrzavanje' + id).className = "fa fa-plus unactive";
+        document.getElementById('podrzavanjeee' + id).className = "fa fa-plus unactive";
+        tip = 'u';
 
+    }else if(document.getElementById('nepodrzavanje' + id).className=="fa fa-minus active") {
+        document.getElementById('podrzavanje' + id).className = "fa fa-plus active";
+        document.getElementById('nepodrzavanje' + id).className = "fa fa-minus unactive";
+        document.getElementById('podrzavanjeee' + id).className = "fa fa-plus active";
+        document.getElementById('nepodrzavanjeee' + id).className = "fa fa-minus unactive";
+    }
+    else {
+        document.getElementById('podrzavanje' + id).className = "fa fa-plus active";
+        document.getElementById('podrzavanjeee' + id).className = "fa fa-plus active";
+    }
+
+    var rez=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/obradi_podrzavanje',
+        data: {idKom: id, tip:tip},
+        success: function (returnData) {
+        }
+    }).responseText;
+    var arr= rez.split(" ");
+    $('#podrzavanje'+ id).html(" "+arr[0]);
+    $('#nepodrzavanje'+ id).html(" "+arr[1]);
+    $('#podrzavanjeee'+ id).html(" "+arr[0]);
+    $('#nepodrzavanjeee'+ id).html(" "+arr[1]);
+
+}
 function setUnlike(id,myID)
 {
     var tip='n';
@@ -59,6 +92,39 @@ function setUnlike(id,myID)
     $('#podrzavanje'+ id).html(" "+arr[0]);
     $('#nepodrzavanje'+ id).html(" "+arr[1]);
 
+}
+
+function setUnlikeee(id,myID)
+{
+    var tip='n';
+    if(document.getElementById('nepodrzavanje' + id).className=="fa fa-minus active") {
+        document.getElementById('nepodrzavanje' + id).className = "fa fa-minus unactive";
+        document.getElementById('nepodrzavanjeee' + id).className = "fa fa-minus unactive";
+        tip = 'u';
+    }else if(document.getElementById('podrzavanje' + id).className=="fa fa-plus active") {
+        document.getElementById('nepodrzavanje' + id).className = "fa fa-minus active";
+        document.getElementById('podrzavanje' + id).className = "fa fa-plus unactive";
+        document.getElementById('nepodrzavanjeee' + id).className = "fa fa-minus active";
+        document.getElementById('podrzavanjeee' + id).className = "fa fa-plus unactive";
+    }
+    else {
+        document.getElementById('nepodrzavanje' + id).className = "fa fa-minus active";
+        document.getElementById('nepodrzavanjeee' + id).className = "fa fa-minus active";
+    }
+
+    var rez=$.ajax({
+        type: 'POST',
+        async: false,
+        url: '<?php echo site_url()?>/user_toggle/obradi_podrzavanje',
+        data: {idKom: id, tip:tip},
+        success: function (returnData) {
+        }
+    }).responseText;
+    var arr= rez.split(" ");
+    $('#podrzavanje'+ id).html(" "+arr[0]);
+    $('#nepodrzavanje'+ id).html(" "+arr[1]);
+    $('#podrzavanjeee'+ id).html(" "+arr[0]);
+    $('#nepodrzavanjeee'+ id).html(" "+arr[1]);
 }
 
  function brisanje_podkomentara(idPodKom, idKom)

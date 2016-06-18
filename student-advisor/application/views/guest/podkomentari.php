@@ -16,7 +16,7 @@
                             <div class="media-left">
                                 <?php if($komentar['anonimno']=='0' or $tip=='o'):?>
                                     <?php $img =base_url().'img/clan_default.png';
-                                    if ($komentarClan['slika']=='d') { $img =base_url().'/img/clan/clan'.$komentarClan['idClan'].'.jpg';} ?>
+                                    if ($komentarClan['slika']=='d') { $img =base_url().'/img/clan/clan'.$komentarClan['idClan'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";} ?>
                                     <a onclick="getSummaryPodKom('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        data-toggle="tooltip" title="" >
                                         <img src="<?php echo $img?>" height="60" width="60" class="media-object">
@@ -78,7 +78,7 @@
                                     <div class="media-left">
                                         <?php
                                         $img =base_url().'img/clan_default.png';
-                                        if ($podkom['slika']=='d') { $img =base_url().'/img/clan/clan'.$podkom['idClan'].'.jpg';}
+                                        if ($podkom['slika']=='d') { $img =base_url().'/img/clan/clan'.$podkom['idClan'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";}
                                         ?>
 
                                         <a onclick="getSummary('<?php echo site_url('guest/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">

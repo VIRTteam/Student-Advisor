@@ -59,13 +59,11 @@
         var opis = document.getElementById("opis").value;
         var reg = new RegExp("^[1-2][0-9][0-9][0-9]$");
         if ((datumRodj=isDate(datumRodj))==false) {
-            alert("lllgod");
             $('#izmena_clana_greska_tekst1').html("Neispravan datum rodjenja!");
             $('#izmena_clana_greska_tekst2').html("");
             return;
         }
         if(!reg.test(godUpis)) {
-            alert("lll");
             $('#izmena_clana_greska_tekst2').html("Godina upisa mora biti broj!");
             $('#izmena_clana_greska_tekst1').html("");
             return;

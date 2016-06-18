@@ -17,6 +17,7 @@
             <div class="modal-body">
 
                 <textarea class="form-control share-text" id="tekstIzmene" placeholder="Napisite razlog unapredjivanja..."></textarea>
+                <div id="greska_unapredjivanje"></div>
             </div>
             <div class="modal-footer" style="border: 0px">
                 <a class="btn btn-white" onclick="sacuvaj_unapredjivanje('<?php echo $unapredjivanje['idClan']?>')">
@@ -42,6 +43,10 @@
     function sacuvaj_unapredjivanje(idClan)
     {
         var tekst =$('#tekstIzmene').val();
+        if (tekst=="") {
+            $('#greska_unapredjivanje').html("Morate uneti razlog banovanja!!!");
+            return;
+        }
         $.ajax({
             type: 'POST',
             async: false,

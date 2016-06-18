@@ -1,5 +1,5 @@
 </div>
-<div class="modal fade" id="podkomentari" role="dialog">
+<div class="modal fade" id="podkomentari" >
 
 </div>
 
@@ -44,6 +44,8 @@
                 $('#podkomentari').html(returnData);
             }
         });
+        $('#podkomentari').modal('show');
+
     }
 </script>
 

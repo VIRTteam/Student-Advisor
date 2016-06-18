@@ -15,11 +15,5 @@ class LoginTest extends TestCase
         $output = $this->request('POST', "Guest/provera_username_password", ['username' => 'isi', 'password' => 'isi1']);
         //$this->assertContains("<h1>Uloguj Se</h1>",$output);
         $this->assertEquals("postoji",$output,"");
-
-        $output = $this->request('POST', "Guest/logovanje_obrada", ['username' => 'isi', 'password' => 'isi1']);
-
-        $this->assertContains("<tittle>Isidora Bojovic</tittle>",$output);
-
-
     }
 }

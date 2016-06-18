@@ -74,6 +74,7 @@ class Moderator_model extends CI_Model {
         $query = $this->db->query("select p.*, k.* FROM podkomentar p inner join clan k on p.idClan = k.idClan and p.idKom=?", array($idKom));
         return $query->result_array();
     }
+
     public function get_Komentar_clan($id,$myID)
     {
 
@@ -163,9 +164,9 @@ class Moderator_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function get_kurs_ocena($idClana, $idKursa)
+    public function get_kurs_ocena($idClan, $idKurs)
     {
-        $query = $this->db->get_where('polozio', array('idClan' => $idClana),array('idKurs'=>$idKursa));
+        $query = $this->db->query("SELECT * FROM polozio where idClan=? and idKurs=?", array($idClan, $idKurs));
         return $query->row_array();
     }
     public function get_Ocenio_kurs($id)
@@ -192,29 +193,28 @@ class Moderator_model extends CI_Model {
         if ($id === FALSE) {
             return null;
         }//INNER JOIN `student-advisor-mysql`.clan c on c.idClan=idPosiljalac OR c.idClan=idPrimalac
-        $query = $this->db->query("SELECT * FROM `student-advisor-mysql`.poruka 
-                                    INNER JOIN `student-advisor-mysql`.clan c on (c.idClan=idPosiljalac and c.idClan!='$id') OR (c.idClan=idPrimalac and c.idClan!='$id')
-                                    WHERE idPor IN 
-                                    (
-                                        SELECT MAX(p.idPor) FROM `student-advisor-mysql`.poruka p
-                                        WHERE ((p.idPosiljalac='$id') AND
-                                        NOT EXISTS (	SELECT k.idPor
-                                                        FROM `student-advisor-mysql`.poruka k
-                                                        WHERE k.idPrimalac=p.idPosiljalac AND k.idPosiljalac=p.idPrimalac
-                                                        AND k.idPor>p.idPor
-                                                    ))
-                                        
-                                        OR ((p.idPrimalac='$id') AND 
-                                                NOT EXISTS 
-                                                    ( SELECT k.idPor
-                                                        FROM `student-advisor-mysql`.poruka k
-                                                        WHERE k.idPosiljalac=p.idPrimalac AND k.idPrimalac=p.idPosiljalac
-                                                        AND k.idPor>p.idPor
-                                                    )
-                                            )
-                                        GROUP BY idPosiljalac,idPrimalac                        
+        $query = $this->db->query("SELECT * FROM `student-advisor-mysql`.poruka por
+                    INNER JOIN `student-advisor-mysql`.clan c on (c.idClan=idPosiljalac and c.idClan!='$id' and idPrimalac='$id') OR 
+                        (c.idClan=idPrimalac and c.idClan!='$id' and idPosiljalac='$id')
+                    where idPor IN 
+                    (
+                        SELECT MAX(p.idPor) FROM `student-advisor-mysql`.poruka p
+                        WHERE ((p.idPosiljalac='$id' AND p.idPrimalac=por.idPrimalac) AND
+                        NOT EXISTS (	SELECT k.idPor
+                                        FROM `student-advisor-mysql`.poruka k
+                                        WHERE k.idPrimalac=p.idPosiljalac AND k.idPosiljalac=p.idPrimalac
+                                        AND k.idPor>p.idPor
+                                    ))
+                        OR ((p.idPrimalac='$id') AND por.idPosiljalac=p.idPosiljalac AND
+                                NOT EXISTS 
+                                    ( SELECT k.idPor
+                                        FROM `student-advisor-mysql`.poruka k
+                                        WHERE k.idPosiljalac=p.idPrimalac AND k.idPrimalac=p.idPosiljalac
+                                        AND k.idPor>p.idPor
                                     )
-                                    ORDER BY datum DESC");
+                            )                      
+                    )
+                    ORDER BY datum DESC");
         return $query->result_array();
     }
 

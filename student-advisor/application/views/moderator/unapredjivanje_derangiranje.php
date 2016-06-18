@@ -30,7 +30,7 @@
                                                 <?php
                                                 $img =base_url().'img/clan_default.png';
                                                 if ($kom['slika']=='d') {
-                                                    $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg';
+                                                    $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';
                                                 }?>
                                                 <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                             </a>
@@ -88,7 +88,7 @@
                                                 <?php
                                                 $img =base_url().'img/clan_default.png';
                                                 if ($kom['slika']=='d') {
-                                                    $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg';
+                                                    $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';
                                                 }?>
                                                 <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                             </a>

@@ -15,7 +15,7 @@
                     <?php
                     $img =base_url().'img/kurs_default.jpg';
                     if ($kurs['slika']=='d') {
-                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg?'."<?php echo random_int(0,10000)?>";
                     }?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -75,10 +75,9 @@
 
                                 <?php
                                 $img =base_url().'img/clan_default.png';
-                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
+                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';}
                                 ?>
-                                <a data-toggle="modal"
-                                   data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
+                                <a onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
                                     <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                 </a>
 
@@ -87,7 +86,8 @@
 
                             <?php endforeach ?>
                             <?php if (sizeof($ocenio)>5): ?>
-                                <a class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                                <a class="user-count-circle" onclick="getPodkomentari('<?php echo site_url('moderator/get_kurs_ocene')?>/<?php echo $po['idKurs']?>')">
+                                    +<?php echo sizeof($ocenio)-5 ?></a>
                             <?php endif;?>
                         </div>
                     </div>
@@ -118,7 +118,7 @@
                                             <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($po['slika']=='d') {
-                                                $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';
+                                                $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';
                                             }?>
                                             <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                         </a>
@@ -212,7 +212,7 @@
 
                                     </div>
                                     <div class="view-all-comments">
-                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a  onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                   <span> <?php if($kom['brPodkomentara'] ==1)
@@ -229,7 +229,7 @@
                                             <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($kom['slika']=='d') {
-                                                $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg';
+                                                $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";
                                             }?>
                                             <img src="<?php echo $img?>" height="60" width="60" class="media-object">
                                         </a>
@@ -278,7 +278,7 @@
 
                                     </div>
                                     <div class="view-all-comments">
-                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a  onclick="getPodkomentari('<?php echo site_url('moderator/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                   <span> <?php if($kom['brPodkomentara'] ==1)

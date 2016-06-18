@@ -34,7 +34,7 @@
                                     <?php
                                     $img = base_url() . 'img/kurs_default.jpg';
                                     if ($cl['slika'] == 'd') {
-                                        $img = base_url() . '/img/kurs/kurs' . $cl['idKurs'] . '.jpg?'."<?php echo rand(0, 1000)?>";
+                                        $img = base_url() . '/img/kurs/kurs' . $cl['idKurs'] . '.jpg?'."<?php echo random_int(0,10000)?>";
                                     } ?>
                                     <img src="<?php echo $img ?>" class="media-object" width="60" height="60"/>
                                 </a>

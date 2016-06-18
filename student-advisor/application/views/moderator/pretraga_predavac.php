@@ -34,7 +34,7 @@
                                     <?php
                                     $img =base_url().'img/predavac_default.jpg';
                                     if ($pr['slika']=='d') {
-                                        $img =base_url().'/img/predavac/predavac'.$pr['idPred'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                                        $img =base_url().'/img/predavac/predavac'.$pr['idPred'].'.jpg?'."<?php echo random_int(0,10000)?>";
                                     }?>
                                     <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                 </a>

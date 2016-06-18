@@ -29,7 +29,7 @@
                     <?php
                     $img =base_url().'img/clan_default.png';
                     if ($clan['slika']=='d') {
-                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?'."<?php echo random_int(0,10000)?>";
                     }?>
                     <img id="slika_clan" src="<?php echo $img?>" class="img-circle" style="width:40px; height:35px; margin-top: 3px;" /img>
                     <span class="hidden-sm hidden-xs"><?php echo $clan['ime']?> </span>
@@ -115,7 +115,7 @@
 
 </script>
 
-<div class="modal fade <?php if ($clan['tip']=='c') if(strcmp($banovanje,"NAN")) echo "in"?>"
+<div class="modal fade <?php if(strcmp($banovanje,"NAN")) echo "in"?>"
      id="BanovanjeLogin" role="dialog"  style="position: fixed;left: 50%; transform: translate(-50%, 35%);">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -148,4 +148,4 @@
     </div>
 </div>
 
-<div id="nesto" style="height: 100%;">
+<div id="nesto">

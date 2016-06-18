@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="CodeIgniter Application Test Suite" tests="3" assertions="3" failures="0" errors="0" time="3.044382">
+    <testsuite name="Moderator_kurs_obradaTest" file="/Library/WebServer/Documents/student-advisor/application/tests/controllers/Moderator_kurs_obradaTest.php" tests="3" assertions="3" failures="0" errors="0" time="3.044382">
+      <testcase name="test_put_novi_kurs" class="Moderator_kurs_obradaTest" file="/Library/WebServer/Documents/student-advisor/application/tests/controllers/Moderator_kurs_obradaTest.php" line="16" assertions="1" time="1.016898"/>
+      <testcase name="test_edit_kurs" class="Moderator_kurs_obradaTest" file="/Library/WebServer/Documents/student-advisor/application/tests/controllers/Moderator_kurs_obradaTest.php" line="20" assertions="1" time="0.911178"/>
+      <testcase name="test_delete_kurs" class="Moderator_kurs_obradaTest" file="/Library/WebServer/Documents/student-advisor/application/tests/controllers/Moderator_kurs_obradaTest.php" line="25" assertions="1" time="1.116306"/>
+    </testsuite>
+  </testsuite>
+</testsuites>

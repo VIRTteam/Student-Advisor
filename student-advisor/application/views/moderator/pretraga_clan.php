@@ -22,14 +22,14 @@
                                 </span>
                 </div>
                 <ul class="comments"  >
-                    <?php foreach ($clan as $cl): if($cl['idClan']!=$myID){?>
+                    <?php foreach ($clan as $cl): if($cl['idClan']!=$me['idClan']){?>
                     <li class="media" >
                         <div class="media-left">
                             <a onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $cl['idClan']?>', '<?php echo $cl['ime']?> <?php echo $cl['prezime']?>')">
                                 <?php
                                 $img =base_url().'img/clan_default.png';
                                 if ($cl['slika']=='d') {
-                                    $img =base_url().'/img/clan/clan'.$cl['idClan'].'.jpg';
+                                    $img =base_url().'/img/clan/clan'.$cl['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';
                                 }?>
                                 <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                             </a>
@@ -45,7 +45,7 @@
                                     <i class="fa fa-comment fa-lg" aria-hidden="true"></i>
                                 </a>
                             </div>
-                            <?php if ($cl['tip'] =='c' ) {?>
+                            <?php if ($cl['tip'] =='c' or( $cl['tip']=='m' and $me['tip']=='a')) {?>
 
                                 <div class="pull-right dropdown" >
                                     <a onclick="banuj('<?php echo $cl['idClan']?>')"

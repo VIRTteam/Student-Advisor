@@ -14,7 +14,7 @@
                                             <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($poruka['slika']=='d') {
-                                                $img =base_url().'/img/clan/clan'.$poruka['idClan'].'.jpg';
+                                                $img =base_url().'/img/clan/clan'.$poruka['idClan'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";
                                             }?>
                                             <img src="<?php echo $img?>" width="50" height="50" alt="" class="media-object">
                                         </div>
@@ -53,8 +53,8 @@
                                  onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $por['idPosiljalac']?>', '<?php echo $clan['ime']?> <?php echo $clan['prezime']?>')">
                                 <?php
                                 $img =base_url().'img/clan_default.png';
-                                if ($poruka['slika']=='d') {
-                                    $img =base_url().'/img/clan/clan'.$poruka['idClan'].'.jpg';
+                                if ($por['slika']=='d') {
+                                    $img =base_url().'/img/clan/clan'.$por['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';
                                 }?>
                                 <img src="<?php echo $img?>" width="50" height="50" alt="" class="media-object">
                             </div>

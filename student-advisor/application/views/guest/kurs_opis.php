@@ -12,7 +12,7 @@
                     <?php
                     $img =base_url().'img/kurs_default.jpg';
                     if ($kurs['slika']=='d') {
-                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg';
+                        $img =base_url().'/img/kurs/kurs'.$kurs['idKurs'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";
                     }?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -71,10 +71,9 @@
 
                                 <?php
                                 $img =base_url().'img/clan_default.png';
-                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg';}
+                                if ($po['slika']=='d') { $img =base_url().'/img/clan/clan'.$po['idClan'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";}
                                 ?>
-                                <a href="javascript:void(0);" data-toggle="modal"
-                                   data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
+                                <a onclick="getPodkomentari('<?php echo site_url('guest/get_podkomentar_bez_komentara')?>/<?php echo $po['idKurs']?>/<?php echo $po['idClan']?>')">
                                     <img class="img-circle" src="<?php echo $img?>" width="50" height="50">
                                 </a>
 
@@ -83,7 +82,8 @@
 
                             <?php endforeach ?>
                             <?php if (sizeof($ocenio)>5): ?>
-                                <a href="" class="user-count-circle"> +<?php echo sizeof($ocenio)-5 ?></a>
+                                <a href="" class="user-count-circle" onclick="getPodkomentari('<?php echo site_url('guest/get_kurs_ocene')?>/<?php echo $po['idKurs']?>')">
+                                    +<?php echo sizeof($ocenio)-5 ?></a>
                             <?php endif;?>
                         </div>
                     </div>

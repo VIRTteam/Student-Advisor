@@ -106,7 +106,6 @@ class User extends CI_Controller
     {
         $data['tekst']= $_POST['tekst'];
         $this->User_model->put_message($this->myID,$idSaKim,$data['tekst']);
-		get_clan_poruke($idSaKim);
         $data['clan'] = $this->User_model->get_clan_from_username($_SESSION['username'] );
         $data['naslov']=$data['clan']['ime'].' '.$data['clan']['prezime'];
         $data['poslednjePoruke'] = $this->User_model->get_Poslednje_Poruke($data['clan']['idClan']);
@@ -203,7 +202,7 @@ class User extends CI_Controller
         $data['tip']='o';
         if($id=='-1') {
             $data['postoji']='n';
-
+            $data['komentar']['anonimno']='n';
         }
         else {
             $data['postoji']='d';
@@ -213,6 +212,14 @@ class User extends CI_Controller
         }
         $this->load->view('user/podkomentari', $data);
     }
+
+    public function get_kurs_ocene($idKurs)
+    {
+        $data['kurs'] = $this->User_model->get_kurs($idKurs);
+        $data['ocenio'] = $this->User_model->get_Ocenio_kurs($idKurs);
+        $this->load->view('user/kurs_ocene', $data);
+    }
+
     public function dodaj_podkomentar()
     {//ovo nije ok
         $data['myID'] = $this->myID;

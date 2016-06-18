@@ -26,10 +26,9 @@
             type: 'POST',
             async: false,
             url: '<?php echo site_url()?>/moderator/edit_kurs',
-            data: {ime: ime, opis: opis, idKurs: idKurs },
+            data: {ime: ime, opis: opis, idKurs: idKurs, tip:tip },
             success: function (returnData) {
-                if(tip==1)
-                    $('#nesto').html(returnData);
+                $('#nesto').html(returnData);
             }
         });
         $('#toggle_modal').modal('hide');

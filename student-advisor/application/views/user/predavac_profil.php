@@ -14,7 +14,7 @@
                     <?php
                     $img =base_url().'img/predavac_default.jpg';
                     if ($predavac['slika']=='d') {
-                        $img =base_url().'/img/predavac/predavac'.$predavac['idPred'].'.jpg';
+                        $img =base_url().'/img/predavac/predavac'.$predavac['idPred'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";
                     }?>
                     <img src="<?php echo $img?>">
                 </div>
@@ -87,7 +87,7 @@
                                             <?php
                                             $img =base_url().'img/kurs_default.jpg';
                                             if ($predmet['slika']=='d') {
-                                                $img =base_url().'/img/kurs/kurs'.$predmet['idKurs'].'.jpg';
+                                                $img =base_url().'/img/kurs/kurs'.$predmet['idKurs'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";
                                             }?>
                                             <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                         </a>
@@ -171,7 +171,7 @@
                                             echo DateTime::createFromFormat('Y-m-d',date($kom['datum']))->format('d.m.Y.');?></div>
                                     </div>
                                     <div class="view-all-comments">
-                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a  onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                         <span><?php if($kom['brPodkomentara'] ==1)
@@ -188,7 +188,7 @@
                                             <?php
                                             $img =base_url().'img/clan_default.png';
                                             if ($kom['slika']=='d') {
-                                                $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg';
+                                                $img =base_url().'/img/clan/clan'.$kom['idClan'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";
                                             }?>
                                             <img src="<?php echo $img?>" class="media-object" width="60" height="60"/>
                                         </a>
@@ -231,7 +231,7 @@
                                             echo DateTime::createFromFormat('Y-m-d',date($kom['datum']))->format('d.m.Y.');?></div>
                                     </div>
                                     <div class="view-all-comments">
-                                        <a data-toggle="modal" data-target="#podkomentari" onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
+                                        <a  onclick="getPodkomentari('<?php echo site_url('user/get_podkomentar')?>/<?php echo $kom['idKom']?>')">
                                             <i class="fa fa-comments-o"></i> Prikaži sve
                                         </a>
                                         <span><?php if($kom['brPodkomentara'] ==1)

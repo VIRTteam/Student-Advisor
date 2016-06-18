@@ -15,7 +15,7 @@
                             <div class="media-left">
                                 <?php if($komentar['anonimno']=='0' or $tip=='o' or $komentarClan['idClan']==$myID):?>
                                     <?php $img =base_url().'img/clan_default.png';
-                                    if ($komentarClan['slika']=='d') { $img =base_url().'/img/clan/clan'.$komentarClan['idClan'].'.jpg';} ?>
+                                    if ($komentarClan['slika']=='d') { $img =base_url().'/img/clan/clan'.$komentarClan['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';} ?>
                                     <a onclick="getSummaryPodKom('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $komentarClan['idClan']?>', '<?php echo $komentarClan['ime']?> <?php echo $komentarClan['prezime']?>')"
                                        data-toggle="tooltip" title="" >
                                         <img src="<?php echo $img?>" height="60" width="60" class="media-object">
@@ -36,17 +36,17 @@
                                 <?php if($postoji=='d' and ($komentar['anonimno']=='0' or $tip=='k') and $komentar['tekst']){?>
                                     <div class="pull-right dropdown" >
                                         <a class="toggle-button"
-                                           onclick="setUnlike('<?php echo $komentar['idKom']?>', '<?php echo $komentar['idClan']?>')">
+                                           onclick="setUnlikeee('<?php echo $komentar['idKom']?>', '<?php echo $komentar['idClan']?>')">
                                             <i class="fa fa-minus <?php echo ($komentar['tip']=='n')? 'active' : 'unactive';?>"
-                                               id="nepodrzavanje<?php echo $komentar['idKom']?>"> <?php echo $komentar['brNepodrzavanja']?> </i>
+                                               id="nepodrzavanjeee<?php echo $komentar['idKom']?>"> <?php echo $komentar['brNepodrzavanja']?> </i>
                                         </a>
 
                                     </div>
                                     <div class="pull-right dropdown" >
                                         <a class="toggle-button"
-                                           onclick="setLike('<?php echo $komentar['idKom']?>', '<?php echo $komentar['idClan']?>')">
+                                           onclick="setLikeee('<?php echo $komentar['idKom']?>', '<?php echo $komentar['idClan']?>')">
                                             <i class="fa fa-plus <?php echo ($komentar['tip']=='p')? 'active' : 'unactive'?>"
-                                               id="podrzavanje<?php echo $komentar['idKom']?>"> <?php echo $komentar['brPodrzavanja']?> </i>
+                                               id="podrzavanjeee<?php echo $komentar['idKom']?>"> <?php echo $komentar['brPodrzavanja']?> </i>
                                         </a>
                                     </div>
                                     </br>
@@ -63,10 +63,10 @@
                                         <?php if (($komentarOcena['ocena'])) echo 'Polozio sa ocenom: ' . $komentarOcena['ocena']?>
                                     </div>
                                     <div class="comment-date">
-                                        <?php if (($komentarOcena['zanimljivost'])) echo 'zanimljivost: ' . $komentarOcena['zanimljivost']?>
-                                        <?php if (($komentarOcena['korisnost'])) echo 'korisnost: ' . $komentarOcena['korisnost']?>
-                                        <?php if (($komentarOcena['tezina'])) echo 'tezina: ' . $komentarOcena['tezina']?>
-                                        <?php if (($komentarOcena['preporuka'])) echo 'preporuka: ' . $komentarOcena['preporuka']?>
+                                        <?php if (($komentarOcena['zanimljivost'])) echo 'zanimljivost: '. $komentarOcena['zanimljivost']?>
+                                        <?php if (($komentarOcena['korisnost'])) echo ' korisnost: ' . $komentarOcena['korisnost']?>
+                                        <?php if (($komentarOcena['tezina'])) echo ' tezina: ' . $komentarOcena['tezina']?>
+                                        <?php if (($komentarOcena['preporuka'])) echo ' preporuka: ' . $komentarOcena['preporuka']?>
                                     </div>
                                 <?php endif ?>
                             </div>
@@ -82,7 +82,7 @@
                                     <div class="media-left">
                                         <?php
                                         $img =base_url().'img/clan_default.png';
-                                        if ($podkom['slika']=='d') { $img =base_url().'/img/clan/clan'.$podkom['idClan'].'.jpg';}
+                                        if ($podkom['slika']=='d') { $img =base_url().'/img/clan/clan'.$podkom['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';}
                                         ?>
 
                                         <a onclick="getSummary('<?php echo site_url('moderator/get_clan_profil')?>/<?php echo $podkom['idClan']?>', '<?php echo $podkom['ime']?> <?php echo $podkom['prezime']?>')">

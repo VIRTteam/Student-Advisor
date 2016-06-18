@@ -27,7 +27,7 @@
             url: '<?php echo site_url()?>/moderator/put_novi_kurs',
             data: {ime:ime, opis:opis},
             success: function (returnData) {
-                $('#toggle_modal').html(returnData);
+                $('#nesto').html(returnData);
             }
         });
         $('#toggle_modal').modal('hide');

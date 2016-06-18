@@ -195,6 +195,7 @@ class Moderator extends CI_Controller
         if($id=='-1')
         {
             $data['postoji']='n';
+            $data['komentar']['anonimno']='n';
         }
         else
         {
@@ -204,7 +205,14 @@ class Moderator extends CI_Controller
         }
         $this->load->view('moderator/podkomentari', $data);
     }
-
+    public function get_kurs_ocene($idKurs)
+    {
+        $data['kurs'] = $this->Moderator_model->get_kurs($idKurs);
+        $data['ocenio'] = $this->Moderator_model->get_Ocenio_kurs($idKurs);
+        $this->load->view('moderator/kurs_ocene', $data);
+    }
+    
+    
     public function dodaj_podkomentar()
     {
         $data['myID'] = $this->myID;
@@ -225,7 +233,7 @@ class Moderator extends CI_Controller
 
     public function get_pretraga_clan($id=FALSE)
     {
-        $data['myID']=$this->myID;
+        $data['me']=$this->Moderator_model->get_clan($this->myID);
         $data['clan'] = $this->Moderator_model->get_pretraga_clan($id);
         $this->load->view("moderator/pretraga_clan", $data);
     }
@@ -356,6 +364,8 @@ class Moderator extends CI_Controller
         $opis=$_POST['opis'];
 
         $this->Moderator_model->put_novi_kurs($ime,$opis);
+        $data['kurs'] = $this->Moderator_model->get_pretraga_kurs("",$this->myID);
+        $this->load->view("moderator/pretraga_kurs", $data);
     }
     public function dohvati_novi_predavac()
     {
@@ -372,6 +382,8 @@ class Moderator extends CI_Controller
         $zvanje=$_POST['zvanje'];
 
         $id=$this->Moderator_model->put_novi_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje);
+        $data['predavac'] = $this->Moderator_model->get_pretraga_predavac($id);
+        $this->load->view("moderator/pretraga_predavac", $data);
         return $id;
     }
 
@@ -412,15 +424,23 @@ class Moderator extends CI_Controller
         $zvanje=$_POST['zvanje'];
         $idPred=$_POST['idPred'];
         $this->Moderator_model->edit_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje,$idPred);
-        $data['predavac'] = $this->Moderator_model->get_predavac($idPred);
-        $data['naslov']=$data['predavac']['ime'].' '.$data['predavac']['prezime'];
-        $this->load->view("moderator/predavac_opis", $data);
+        if($_POST['tip']==1) {
+            $data['predavac'] = $this->Moderator_model->get_predavac($idPred);
+            $data['naslov'] = $data['predavac']['ime'] . ' ' . $data['predavac']['prezime'];
+            $this->load->view("moderator/predavac_opis", $data);
+        }
+        else {
+            $data['predavac'] = $this->Moderator_model->get_pretraga_predavac(FALSE);
+            $this->load->view("moderator/pretraga_predavac", $data);
+        }
+        return $idPred;
     }
     
     public function dohvati_edit_kurs($idKurs)
     {
         $data['kurs']= $this->Moderator_model->get_kurs($idKurs);
         $data['tip']=$_POST['tip'];
+
         $this->load->view("templates/izmena_kursa",$data);
     }
     
@@ -430,11 +450,18 @@ class Moderator extends CI_Controller
         $opis=$_POST['opis'];
         $idKurs= $_POST['idKurs'];
         $this->Moderator_model->edit_kurs($ime,$opis, $idKurs);
-        $data['kurs'] = $this->Moderator_model->get_kurs($idKurs);
-        $data['predavac'] = $this->Moderator_model->get_kurs_predavac($idKurs);
-        $data['ocenio'] = $this->Moderator_model->get_Ocenio_kurs($idKurs);
-        $data['sme_da_komentarise']=$this->Moderator_model->sme_da_komentarise($idKurs,$this->myID);
-        $this->load->view("moderator/kurs_opis", $data);
+        if($_POST['tip']==1) {
+            $data['kurs'] = $this->Moderator_model->get_kurs($idKurs);
+            $data['predavac'] = $this->Moderator_model->get_kurs_predavac($idKurs);
+            $data['ocenio'] = $this->Moderator_model->get_Ocenio_kurs($idKurs);
+            $data['sme_da_komentarise'] = $this->Moderator_model->sme_da_komentarise($idKurs, $this->myID);
+            $this->load->view("moderator/kurs_opis", $data);
+        }
+        else
+        {
+            $data['kurs'] = $this->Moderator_model->get_pretraga_kurs(FALSE,$this->myID);
+            $this->load->view("moderator/pretraga_kurs", $data);
+        }
     }
 
     //ISIVESA_END

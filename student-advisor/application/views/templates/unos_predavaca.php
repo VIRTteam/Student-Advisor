@@ -37,7 +37,7 @@
             url: '<?php echo site_url()?>/moderator/put_novi_predavac',
             data: {ime:ime, prezime:prezime, email:email, katedra:katedra, godinaZaposlenja:godinaZaposlenja, zvanje:zvanje, opis:opis},
             success: function (returnData) {
-                $('#toggle_modal').html(returnData);
+                $('#nesto').html(returnData);
             }
         });
         $('#toggle_modal').modal('hide');

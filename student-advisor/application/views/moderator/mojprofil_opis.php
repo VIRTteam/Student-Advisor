@@ -14,7 +14,7 @@
                     <?php
                     $img =base_url().'img/clan_default.png';
                     if ($clan['slika']=='d') {
-                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?dummy='."<?php echo random_int(0,10000)?>";
                     }?>
                     <img id="slika_clan1" src="<?php echo $img?>">
                 </div>
@@ -54,7 +54,7 @@
                     <?php
                     $img =base_url().'img/clan_default.png';
                     if ($clan['slika']=='d') {
-                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?'."<?php echo rand(0, 1000)?>";
+                        $img =base_url().'/img/clan/clan'.$clan['idClan'].'.jpg?dummy='.'<?php echo random_int(0,10000)?>';
                     }?>
                     <img id="slika_clan2" src="<?php echo $img?>" height="200" width="200">
                     <button class="btn btn-white btn-xs pull-right" onclick="obrisi_sliku();">

@@ -38,8 +38,7 @@
             url: '<?php echo site_url()?>/moderator/edit_predavac',
             data: {ime:ime, prezime:prezime, email:email, katedra:katedra, godinaZaposlenja:godinaZaposlenja, zvanje:zvanje, idPred: idPred, opis:opis, tip:tip},
             success: function (returnData) {
-                if(tip==1)
-                    $('#nesto').html(returnData);
+                $('#nesto').html(returnData);
             }
         });
         $('#toggle_modal').modal('hide');
