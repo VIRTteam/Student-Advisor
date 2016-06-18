@@ -8,10 +8,10 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="Kreiranje_Novog_Kursa.html">Kreiranje_Novog_Kursa</a></td></tr>
-<tr><td><a href="Editovanje_Kursa.html">Editovanje_Kursa</a></td></tr>
-<tr><td><a href="Dodavanje_Kursa_U_Listu_Polozenih.html">Dodavanje_Kursa_U_Listu_Polozenih</a></td></tr>
-<tr><td><a href="Brisanje_Kursa.html">Brisanje_Kursa</a></td></tr>
+<tr><td><a href="Unapredjivanje_Clana.html">Unapredjivanje_Clana</a></td></tr>
+<tr><td><a href="Banovanje_Clana.html">Banovanje_Clana</a></td></tr>
+<tr><td><a href="Pokusaj_Pononog_Banovanja.html">Pokusaj_Ponovnog_Banovanja</a></td></tr>
+<tr><td><a href="Pokusaj_Ponovnog_Unapredjivanja.html">Pokusaj_Ponovnog_Unapredjivanja</a></td></tr>
 </tbody></table>
 </body>
 </html>

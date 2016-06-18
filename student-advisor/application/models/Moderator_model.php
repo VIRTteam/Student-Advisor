@@ -386,15 +386,27 @@ class Moderator_model extends CI_Model {
     //ISIVESA_BEGIN
     public function put_novi_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje)
     {
-        $this->db->query("INSERT INTO predavac(ime,prezime,email,katedra,godinaZaposlenja,opis,zvanje) 
-            VALUES('$ime','$prezime','$email','$katedra','$godinaZaposlenja','$opis','$zvanje')");
+        $query=$this->db->query("SELECT max(idPred) as br from predavac");
+        if(count($query)==0)
+            $idPred=1;
+        else
+            $idPred=$query->row_array()['br']+1;
+        $this->db->query("INSERT INTO predavac(idPred,ime,prezime,email,katedra,godinaZaposlenja,opis,zvanje) 
+            VALUES('$idPred','$ime'
+            ,'$prezime','$email','$katedra','$godinaZaposlenja','$opis','$zvanje')");
         $id = $this->db->query("SELECT MAX(idPred) FROM predavac");
         return $id;
     }
 
     public function put_novi_kurs($ime,$opis)
     {
-        $this->db->query("INSERT INTO kurs(ime,opis) VALUES ('$ime','$opis')");
+        $query=$this->db->query("SELECT max(idKurs) as br from kurs");
+        if(count($query)==0)
+           $idKurs=1;
+        else
+            $idKurs=$query->row_array()['br']+1;
+
+        $this->db->query("INSERT INTO kurs(idKurs,ime,opis) VALUES ('$idKurs','$ime','$opis')");
     }
 
     public function put_predaje_na($idKurs,$idPred)//,$datumPoc)
@@ -406,11 +418,7 @@ class Moderator_model extends CI_Model {
         $query=$this->db->query("SELECT * FROM kurs");
         return $query->result_array();
     }
-    public function svi_predavaci()
-    {
-        $query=$this->db->query("SELECT * FROM predavac");
-        return $query->result_array();
-    }
+
     public function edit_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje, $idPred)
     {
         $this->db->query("UPDATE predavac SET 
