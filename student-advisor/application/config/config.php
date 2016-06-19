@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = "http://localhost/student-advisor";
+$config['base_url'] = "http://teststudent-advisor.azurewebsites.net/student-advisor";
 
 /*
 |--------------------------------------------------------------------------
