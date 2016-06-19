@@ -11,7 +11,11 @@ class Moderator_model extends CI_Model {
     {
 
     }
-
+ public function svi_predavaci()
+    {
+        $query=$this->db->query("SELECT * FROM predavac");
+        return $query->result_array();
+    }
     public function get_clan_from_username($username)
     {
         $query = $this->db->get_where('clan', array('username' => $username));
