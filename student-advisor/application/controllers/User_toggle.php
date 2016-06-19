@@ -153,14 +153,58 @@ class User_toggle extends CI_Controller
         $email_address = $clan['email'];
         $message = $_POST['message'];
 
-        $to = 'tashasekularac@hotmail.com'; //$pred['email'];
-        $email_subject = "Website Contact Form:  $name";
-        $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+        $to = 'vvesic@yahoo.com'; //$pred['email'];
+        $email_subject = "Website Contact Form:  ".$name;
+        $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: ".$name."\n\nEmail: ".$email_address."\n\nMessage:\n".$message;
         $headers = "From: noreply@studentadvisor.com\n";
-        $headers .= "Reply-To: $email_address";
-   //     mail($to,$email_subject,$email_body,$headers);
+        $headers .= "Reply-To: ".$email_address;
+
+        $this->load->library('email');
+
+        $config['protocol']    = 'smtp';
+
+        $config['smtp_host']    = 'ssl://smtp.gmail.com';
+
+        $config['smtp_port']    = '465';
+
+        $config['smtp_timeout'] = '7';
+
+        $config['smtp_user']    = 'sender_mailid@gmail.com';
+
+        $config['smtp_pass']    = 'password';
+
+        $config['charset']    = 'utf-8';
+
+        $config['newline']    = "\r\n";
+
+        $config['mailtype'] = 'text'; // or html
+
+        $config['validation'] = TRUE; // bool whether to validate email or not
+
+       // $this->email->initialize($this->config);
+
+        $this->email->from( 'noreply@studentadvisor.com', 'VIRT Team');
+        $this->email->to($to);
+
+        $this->email->subject($email_subject."Reply-To: ".$email_address);
+        $this->email->message($email_body);
+
+        $this->email->send();
+
+        echo $this->email->print_debugger();
         echo $message;
     }
+
+//    public function mail($to,$email_subject,$email_body,$reply_address)
+//    {
+//        $this->email->from( 'noreply@studentadvisor.com', 'VIRT Team');
+//        $this->email->to($to);
+//
+//        $this->email->subject($email_subject."Reply-To: ".$reply_address);
+//        $this->email->message($email_body);
+//
+//        $this->email->send();
+//    }
 
     public function slanje_maila_pomoc()
     {
@@ -173,12 +217,25 @@ class User_toggle extends CI_Controller
         $email_address = $clan['email'];
         $message = $_POST['message'];
 
-        $to = 'pomoc@hotmail.com'; //$pred['email'];
-        $email_subject = "Website Contact Form:  $name";
-        $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+        $to = 'vvesic@yahoo.com'; //$pred['email'];
+        $email_subject = "Website Contact Form:  ".$name;
+        $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: ".$name."\n\nEmail: ".$email_address."\n\nMessage:\n".$message;
         $headers = "From: noreply@studentadvisor.com\n";
-        $headers .= "Reply-To: $email_address";
+        $headers .= "Reply-To: ".$email_address;
         //     mail($to,$email_subject,$email_body,$headers);
+
+
+        $this->load->library('email');
+        $this->email->from( 'noreply@studentadvisor.com', 'VIRT Team');
+        $this->email->to($to);
+
+        $this->email->subject($email_subject."Reply-To: ".$email_address);
+        $this->email->message($email_body);
+
+        $this->email->send();
+
+
+
         echo $message;
     }
 }

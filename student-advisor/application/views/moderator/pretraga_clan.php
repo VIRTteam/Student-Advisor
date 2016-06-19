@@ -16,9 +16,9 @@
                                 <?php if(count ($clan)==1)
                                     echo '1 clan';
                                 else if(count($clan)<5 and count($clan)>1)
-                                    echo count($clan).' clana';
+                                    echo (count($clan)-1).' clana';
                                 else
-                                    echo count ($clan).' clanova'; ?>
+                                    echo (count ($clan)-1).' clanova'; ?>
                                 </span>
                 </div>
                 <ul class="comments"  >

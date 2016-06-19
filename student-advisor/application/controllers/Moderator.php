@@ -111,6 +111,7 @@ class Moderator extends CI_Controller
         $data['saKim']=$this->Moderator_model->get_clan($idSaKim);
         $data['poslednjePoruke'] = $this->Moderator_model->get_Poslednje_Poruke($data['clan']['idClan']);
         $data['poruke'] = $this->Moderator_model->get_Poruke($data['clan']['idClan'], $idSaKim);
+        
         $this->load->view('moderator/clan_poruke',$data);
     }
     public function get_clan_poruke($idSaKim=FALSE)
@@ -382,7 +383,7 @@ class Moderator extends CI_Controller
         $zvanje=$_POST['zvanje'];
 
         $id=$this->Moderator_model->put_novi_predavac($ime,$prezime,$email,$katedra,$godinaZaposlenja,$opis,$zvanje);
-        $data['predavac'] = $this->Moderator_model->get_pretraga_predavac($id);
+        $data['predavac'] = $this->Moderator_model->get_pretraga_predavac();
         $this->load->view("moderator/pretraga_predavac", $data);
         return $id;
     }

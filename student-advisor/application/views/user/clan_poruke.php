@@ -6,6 +6,8 @@
                 <div class="messages-list">
                     <div class="panel panel-default" tabindex="1" style="overflow: hidden; outline: none;">
                         <ul class="list-group" style="max-height: calc(100vh - 10rem); overflow-y: auto">
+                            <?php if (count($poslednjePoruke)!=0) {?>
+
                             <?php foreach ($poslednjePoruke as $poruka): ?>
                                 <li class="list-group-item <?php if($poruka['procitana'] =='n' and $poruka['idPrimalac']==$clan['idClan']) echo 'active';else echo ''?>"
                                     onclick="getSummary('<?php echo site_url('user/get_clan_poruke')?>/<?php echo $poruka['idClan']?>', '<?php echo "Poruke"?>')">
@@ -36,6 +38,8 @@
                                     </div>
                                 </li>
                             <?php endforeach ?>
+
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>
@@ -46,6 +50,8 @@
                     <h4 style="margin-top: 3px"><?php echo $saKim['ime']?> <?php echo $saKim['prezime'] ?></h4>
                 </a>
                 <div style="max-height: calc(100vh - 20rem); overflow-y: auto">
+                    <?php if (count($poruke)!=0) {?>
+
                     <?php foreach ($poruke as $por): ?>
                         <div class="media" >
                             <div class="media-left"
@@ -85,6 +91,7 @@
                             </div>
                         </div>
                     <?php endforeach ?>
+                    <?php } ?>
                 </div>
                 <div class="input-group" style="margin-top: 10px">
                     <textarea class="form-control share-text"  placeholder="Napisi poruku..." style="height: 90px"

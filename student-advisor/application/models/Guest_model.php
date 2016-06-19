@@ -175,7 +175,7 @@ class Guest_model extends CI_Model {
 
     public function registracija($data){
         $query=$this->db->query("SELECT max(idClan) as br from Clan");
-        if(count($query))
+        if(count($query)==0)
             $data['idClan']=1;
         else
             $data['idClan']=$query->row_array()['br']+1;
