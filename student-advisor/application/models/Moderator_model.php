@@ -345,7 +345,7 @@ class Moderator_model extends CI_Model {
     public function put_message($id,$idSaKim,$tekst)
     {
         date_default_timezone_set("Europe/Belgrade");
-        $datum=date("Y-m-d H:m:i");
+        $datum=date("Y-m-d H:i:s");
         $query1=$this->db->query("SELECT max(idPor) as br from poruka where (idPosiljalac='$id' and idPrimalac='$idSaKim')
                 or (idPosiljalac='$idSaKim' and idPrimalac='$id')");
         if(count($query1)==0)

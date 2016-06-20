@@ -188,6 +188,7 @@ class User_model_toggle extends CI_Model
 
     public function izmeni_unapredjivanje($idClan, $tekst, $myID)
     {
+        $this->db->query("DELETE FROM unapredjivanje where idClan='$idClan'");
         $date['idClan']=$idClan;
         $date['opis']=$tekst;
         $la=$this->db->query("SELECT tip FROM clan where idClan=?",array( $myID));
@@ -208,6 +209,7 @@ class User_model_toggle extends CI_Model
     }
     public function izmeni_derangiranje($idClan, $tekst, $myID)
     {
+        $this->db->query("DELETE FROM unapredjivanje where idClan='$idClan'");
         $date['idClan']=$idClan;
         $date['opis']=$tekst;
         $la=$this->db->query("SELECT tip FROM clan where idClan=?",array( $myID));

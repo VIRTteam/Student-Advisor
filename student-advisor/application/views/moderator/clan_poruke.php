@@ -9,7 +9,7 @@
                             <?php if (count($poslednjePoruke)!=0) {?>
 
                             <?php foreach ($poslednjePoruke as $poruka): ?>
-                                <li class="list-group-item <?php if($poruka['procitana'] =='n' and $poruka['idPrimalac']==$clan['idClan']) echo 'active';else echo ''?>"
+                                <li class="list-group-item <?php if($poruka['procitana'] =='n' and $poruka['idPrimalac']==$clan['idClan'] and $poruka['idPosiljalac']!=$saKim['idClan']) echo 'active';else echo ''?>"
                                     onclick="getSummary('<?php echo site_url('moderator/get_clan_poruke')?>/<?php echo $poruka['idClan']?>', '<?php echo "Poruke"?>')">
                                     <div class="media" >
                                         <div class="media-left">

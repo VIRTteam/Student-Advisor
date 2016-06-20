@@ -28,20 +28,23 @@
         <div class="containerdiv hidden-sm hidden-xs visible-md-block visible-lg-block">
             <a onclick="navbar_logovanje()" data-toggle="modal" class=" pull-right btn btn-white" size="15px" style="display: inline-block; margin-top: 8px">
                 Uloguj se <i class="fa fa-fw fa-sign-in"></i></a>
-            <div class="search-1 pull-right "style="display: inline-block" >
-                <input type="password" class="form-control" placeholder="Sifra" size="10px" id="navbar_password"
+            <div class="search-1 pull-right ">
+                <div style="display: inline-block">
+                    <input type="text" class="form-control" placeholder="Korisnicko ime" size="15px" id="navbar_username" style="display: inline-block">
+                </div>
+                <div style="display: inline-block">
+                    <input type="password" class="form-control" placeholder="Sifra" size="10px" id="navbar_password" style="display: inline-block"
                        onkeypress="if (event.keyCode==13) {event.preventDefault(); navbar_logovanje() ;}">
-            </div>
-            <div class="search-1 pull-right" style="display: inline-block" >
-                <input type="text" class="form-control" placeholder="Korisnicko ime" size="15px" id="navbar_username"
-                       onkeypress="if (event.keyCode==13) {event.preventDefault(); navbar_logovanje();}">
+                </div>
+
             </div>
 
 
         </div>
 
         <div class="containerdiv hidden-md hidden-lg visible-xs-block visible-sm-block"  style="margin-top: 0px">
-            <a onclick="getSummary('<?php echo site_url('guest/login')?>')" " data-toggle="modal" class="btn btn-white" size="15px" height="10px" style="display: inline-block">
+            <a onclick="getSummary('<?php echo site_url('guest/logovanje')?>')" data-toggle="modal"
+               class=" pull-right btn btn-white" size="15px" height="10px" style="display: inline-block; margin-top: 8px">
                 <i class="fa fa-fw fa-sign-in"></i>
             </a>
         </div>

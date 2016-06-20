@@ -124,7 +124,7 @@ class Moderator extends CI_Controller
         if($idSaKim!=FALSE)
             $data['saKim']=$this->Moderator_model->get_clan($idSaKim);
         else
-            $data['saKim']=FALSE;
+            $data['saKim']='FALSE';
         $data['poruke'] = $this->Moderator_model->get_Poruke($data['clan']['idClan'], $idSaKim);
         $this->load->view('moderator/clan_poruke',$data);
     }

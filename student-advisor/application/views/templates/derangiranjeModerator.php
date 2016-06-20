@@ -13,7 +13,7 @@
             <div class="modal-footer">
                 <a  class="btn btn-white" onclick="$('#toggle_modal').modal('hide');">Uredu</a>
             </div>
-        <?php elseif (!$derangiranje['tipUD']): ?>
+        <?php elseif (!$derangiranje['tipUD'] || $clan['tip']=='a'): ?>
             <div class="modal-body">
 
                 <textarea class="form-control share-text" id="tekstIzmene" placeholder="Napisite razlog unapredjivanja..."></textarea>

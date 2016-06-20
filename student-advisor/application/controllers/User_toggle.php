@@ -80,6 +80,7 @@ class User_toggle extends CI_Controller
     //banovanje, derangiranje, unapredjivanje
     public function dohvati_unapredjivanje()
     {
+        $data['clan']=$this->User_model_toggle->get_clan($this->myID);
         $idKom=$_POST["idClan"];
         $data['unapredjivanje']=$this->User_model_toggle->dohvati_unapredjivanje($idKom);
         $this->load->view("templates/unapredjivanjeModerator", $data);
@@ -95,6 +96,7 @@ class User_toggle extends CI_Controller
     {
         $idKom=$_POST["idClan"];
         $data['derangiranje']=$this->User_model_toggle->dohvati_derangiranje($idKom);
+        $data['clan']=$this->User_model_toggle->get_clan($this->myID);
         $this->load->view("templates/derangiranjeModerator", $data);
     }
     public function izmeni_derangiranje()
