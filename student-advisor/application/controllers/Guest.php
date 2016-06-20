@@ -81,8 +81,10 @@ class Guest extends CI_Controller
     }
     public function get_podkomentar_bez_komentara($idKurs,$idClan)
     {
+
         $id=$this->Guest_model->find_komentar($idKurs, $idClan);
-        $data['komentarKurs'] = $this->Guest_model->getx_kurs($idKurs);
+
+        $data['komentarKurs'] = $this->Guest_model->get_kurs($idKurs);
         $data['komentarClan'] = $this->Guest_model->get_clan($idClan);
         $data['komentarOcena'] = $this->Guest_model->get_kurs_ocena($idClan, $idKurs);
         $data['tip']='o';
@@ -240,16 +242,8 @@ class Guest extends CI_Controller
     {
         $novaSifra=$this->Guest_model->povratak_sifre_obradi($_POST['username'], $_POST['email']);
         if($novaSifra!="0") {
-            $name = "email poruka";
-            $email_address = $_POST['email'];
-            $message = $novaSifra;
-
-            $to = 'pomoc@hotmail.com'; //$pred['email'];
-            $email_subject = "Website Contact Form:  $name";
-            $email_body = "You have received a new message from your website contact form.\n\n" . "Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
-            $headers = "From: noreply@studentadvisor.com\n";
-            $headers .= "Reply-To: $email_address";
-            //     mail($to,$email_subject,$email_body,$headers);
+            require_once "./phpmailer/sendmail.php";
+            SendMail::sendPasswordResetMail($_POST['username'], $novaSifra, $_POST['email']);
             $data['naslov']='Logovanje';
             $this->load->view("guest/login", $data);
         }

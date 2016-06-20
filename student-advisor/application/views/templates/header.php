@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url(); ?>/css/all.css" rel="stylesheet">
 
     <link href="<?php echo base_url(); ?>/css/app.css" rel="stylesheet">
-
+    <?php require_once "./phpmailer/sendmail.php"?>
  </head>
 
 <body class="login breakpoint-1024" >

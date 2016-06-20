@@ -26,6 +26,7 @@
             url: '<?php echo site_url()?>/user_toggle/posalji_mail_pomoc',
             data: {message:message},
             success: function(returnData ) {
+                alert(returnData);
                // $('#proba').html(returnData);
             }
         });
