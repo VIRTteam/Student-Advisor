@@ -4,7 +4,251 @@
     <bookmark url="file://$PROJECT_DIR$/application/views/user/kurs_profil.php" description="&lt;/a&gt;" line="189" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b432de-e546-417b-a3b3-0b1354edb7be" name="Default" comment="" />
+    <list default="true" id="29b432de-e546-417b-a3b3-0b1354edb7be" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/fonts/texb.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/User_toggle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/Guest_model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/User_model_toggle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/Guest_pretragaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/Moderator_izmenaPodatakaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/Moderator_komentarTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/Moderator_kurs_obradaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/Moderator_podkomentarTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/Moderator_predavac_obradaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/Moderator_pretragaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/RegistracijaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/User_komentarTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/User_messagesTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/User_podkomentarTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/User_pretragaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/tests/controllers/user_izmenaPodatakaTest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/kurs_ocene.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/kurs_opis.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/kurs_profil.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/login.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/podkomentari.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/povratak_sifre.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/predavac_opis.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/predavac_profil.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/pretraga_clan.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/pretraga_kurs.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/pretraga_predavac.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/guest/registracija.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/moderator/izmena_sifre.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/moderator/kurs_ocene.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/moderator/unapredjivanje_derangiranje.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/templates/banovanje.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/templates/derangiranjeModerator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/templates/izmena_komentara.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/templates/slanje_maila.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/templates/slanje_maila_pomoc.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/templates/toggle.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/templates/unapredjivanjeModerator.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/user/izmena_sifre.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/user/kurs_ocene.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/.htaccess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Benchmark.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/CodeIgniter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Common.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Controller.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Exceptions.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Hooks.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Input.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Loader.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Log.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Model.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Output.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Router.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Security.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/URI.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/Utf8.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/compat/hash.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/compat/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/compat/mbstring.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/compat/password.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/compat/standard.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/core/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/DB.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/DB_cache.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/DB_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/DB_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/DB_query_builder.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/DB_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/DB_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/cubrid/cubrid_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/cubrid/cubrid_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/cubrid/cubrid_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/cubrid/cubrid_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/cubrid/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/ibase/ibase_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/ibase/ibase_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/ibase/ibase_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/ibase/ibase_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/ibase/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mssql/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mssql/mssql_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mssql/mssql_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mssql/mssql_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mssql/mssql_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysql/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysql/mysql_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysql/mysql_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysql/mysql_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysql/mysql_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysqli/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/mysqli/mysqli_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/oci8/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/oci8/oci8_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/oci8/oci8_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/oci8/oci8_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/oci8/oci8_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/odbc/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/odbc/odbc_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/odbc/odbc_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/odbc/odbc_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/odbc/odbc_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/pdo_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/pdo_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/pdo_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/pdo_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_4d_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_4d_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_cubrid_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_cubrid_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_dblib_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_dblib_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_firebird_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_firebird_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_ibm_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_ibm_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_informix_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_informix_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_mysql_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_mysql_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_oci_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_oci_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_odbc_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_odbc_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_pgsql_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_pgsql_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_sqlite_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_sqlite_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_sqlsrv_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/pdo/subdrivers/pdo_sqlsrv_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/postgre/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/postgre/postgre_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/postgre/postgre_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/postgre/postgre_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/postgre/postgre_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite/sqlite_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite/sqlite_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite/sqlite_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite/sqlite_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite3/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite3/sqlite3_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite3/sqlite3_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite3/sqlite3_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlite3/sqlite3_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlsrv/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlsrv/sqlsrv_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlsrv/sqlsrv_forge.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlsrv/sqlsrv_result.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/drivers/sqlsrv/sqlsrv_utility.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/database/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/fonts/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/array_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/captcha_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/cookie_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/date_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/directory_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/download_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/email_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/file_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/form_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/html_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/inflector_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/language_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/number_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/path_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/security_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/smiley_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/string_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/text_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/typography_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/url_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/helpers/xml_helper.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/calendar_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/date_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/db_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/email_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/form_validation_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/ftp_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/imglib_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/migration_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/number_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/pagination_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/profiler_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/unit_test_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/english/upload_lang.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/language/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/Cache.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/drivers/Cache_apc.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/drivers/Cache_dummy.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/drivers/Cache_file.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/drivers/Cache_memcached.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/drivers/Cache_redis.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/drivers/Cache_wincache.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/drivers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cache/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Calendar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Cart.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Email.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Encrypt.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Encryption.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Form_validation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Ftp.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Image_lib.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Javascript.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Javascript/Jquery.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Javascript/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Migration.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Pagination.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Parser.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Profiler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/Session.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/SessionHandlerInterface.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/Session_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/drivers/Session_database_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/drivers/Session_files_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/drivers/Session_memcached_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/drivers/Session_redis_driver.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/drivers/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Session/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Table.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Trackback.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Typography.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Unit_test.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Upload.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/User_agent.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Xmlrpc.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Xmlrpcs.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/Zip.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/system/libraries/index.html" />
+    </list>
     <ignored path="student-advisor.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -25,204 +269,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="toggle.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/templates/toggle.php">
+      <file leaf-file-name="Guest_pretragaTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/tests/controllers/Guest_pretragaTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="316" column="19" selection-start-line="316" selection-start-column="19" selection-end-line="316" selection-end-column="19" />
+            <state relative-caret-position="165">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User_toggle.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User_toggle.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/User_toggle.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
+            <state relative-caret-position="235">
+              <caret line="233" column="55" selection-start-line="233" selection-start-column="55" selection-end-line="233" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Moderator_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Moderator_model.php">
+      <file leaf-file-name="phpunit.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/tests/phpunit.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="229" column="87" selection-start-line="229" selection-start-column="87" selection-end-line="229" selection-end-column="87" />
-              <folding>
-                <element signature="n#get_Poslednje_Poruke#0;n#Moderator_model#0;n#!!top" expanded="false" />
-                <marker date="1466364304638" expanded="true" signature="1451:1537" ph="select p.*, komentar" />
-                <marker date="1466364304638" expanded="true" signature="1689:1863" ph="select p.*, komentar" />
-                <marker date="1466364304638" expanded="true" signature="2017:2130" ph="select p.*, predavac" />
-                <marker date="1466364304638" expanded="true" signature="2281:2370" ph="select p.*, podkomentar" />
-                <marker date="1466364304638" expanded="true" signature="2526:2938" ph="select p.*, komentar" />
-                <marker date="1466364304638" expanded="true" signature="3106:3537" ph="select p.*, komentar" />
-                <marker date="1466364304638" expanded="true" signature="3699:3812" ph="select p.*, polozio" />
-                <marker date="1466364304638" expanded="true" signature="3968:4380" ph="select p.*, komentar" />
-                <marker date="1466364304638" expanded="true" signature="4545:4669" ph="select p.*, polozio" />
-                <marker date="1466364304638" expanded="true" signature="4822:4936" ph="select p.*, predaje" />
-                <marker date="1466364304638" expanded="true" signature="5099:5755" ph="SELECT p.*, komentar" />
-                <marker date="1466364304638" expanded="true" signature="5918:6009" ph="SELECT * FRO... clan" />
-                <marker date="1466364304638" expanded="true" signature="6157:6339" ph="SELECT k.*, kurs" />
-                <marker date="1466364304638" expanded="true" signature="6485:6580" ph="SELECT * FRO... predavac" />
-                <marker date="1466364304638" expanded="true" signature="6724:6773" ph="SELECT * FRO... polozio" />
-                <marker date="1466364304638" expanded="true" signature="6926:7354" ph="select p.*, polozio" />
-                <marker date="1466364304638" expanded="true" signature="7519:7570" ph="select * FRO... polozio" />
-                <marker date="1466364304638" expanded="true" signature="7903:9321" ph="SELECT * FRO... poruka" />
-                <marker date="1466364304638" expanded="true" signature="8257:9237" ph="SELECT MAX(p... poruka" />
-                <marker date="1466364304638" expanded="true" signature="8442:8700" ph="SELECT k.idP... poruka" />
-                <marker date="1466364304638" expanded="true" signature="8911:9169" ph="SELECT k.idP... poruka" />
-                <marker date="1466364304638" expanded="true" signature="9645:10079" ph="SELECT p.*, poruka" />
-                <marker date="1466364304638" expanded="true" signature="10110:10202" ph="UPDATE poruk... " />
-                <marker date="1466364304638" expanded="true" signature="10358:10409" ph="select * FRO... komentar" />
-                <marker date="1466364304638" expanded="true" signature="10666:10972" ph="select p.* ,... komentar" />
-                <marker date="1466364304638" expanded="true" signature="11140:11218" ph="SELECT max(r... Podkomentar" />
-                <marker date="1466364304638" expanded="true" signature="11466:11584" ph="INSERT INTO podkomentar... " />
-                <marker date="1466364304638" expanded="true" signature="11614:11664" ph="UPDATE komen... " />
-                <marker date="1466364304638" expanded="true" signature="11980:12096" ph="SELECT k.*, clan" />
-                <marker date="1466364304638" expanded="true" signature="12457:12493" ph="DELETE FROM " />
-                <marker date="1466364304638" expanded="true" signature="12681:12730" ph="SELECT * FRO... polozio" />
-                <marker date="1466364304638" expanded="true" signature="12948:12998" ph="SELECT * FRO... komentar" />
-                <marker date="1466364304638" expanded="true" signature="13265:13315" ph="select * fro... komentar" />
-                <marker date="1466364304638" expanded="true" signature="13547:13615" ph="UPDATE komen... " />
-                <marker date="1466364304638" expanded="true" signature="13715:13752" ph="SELECT max(i... Komentar" />
-                <marker date="1466364304638" expanded="true" signature="13936:14058" ph="INSERT INTO komentar... " />
-                <marker date="1466364304638" expanded="true" signature="14176:14244" ph="UPDATE komen... " />
-                <marker date="1466364304638" expanded="true" signature="14344:14381" ph="SELECT max(i... Komentar" />
-                <marker date="1466364304638" expanded="true" signature="14565:14687" ph="INSERT INTO komentar... " />
-                <marker date="1466364304638" expanded="true" signature="14895:15049" ph="SELECT max(i... poruka" />
-                <marker date="1466364304638" expanded="true" signature="15193:15308" ph="INSERT INTO poruka... " />
-                <marker date="1466364304638" expanded="true" signature="15409:15482" ph="INSERT INTO polozio... " />
-                <marker date="1466364304638" expanded="true" signature="15519:15588" ph="SELECT sum(o... polozio" />
-                <marker date="1466364304638" expanded="true" signature="15705:15751" ph="UPDATE clan " />
-                <marker date="1466364304638" expanded="true" signature="15812:15858" ph="UPDATE clan " />
-                <marker date="1466364304638" expanded="true" signature="16057:16236" ph="UPDATE clan " />
-                <marker date="1466364304638" expanded="true" signature="16332:16387" ph="UPDATE clan " />
-                <marker date="1466364304638" expanded="true" signature="16482:16535" ph="UPDATE clan " />
-                <marker date="1466364304638" expanded="true" signature="16634:16691" ph="UPDATE preda... " />
-                <marker date="1466364304638" expanded="true" signature="16786:16839" ph="UPDATE kurs " />
-                <marker date="1466364304638" expanded="true" signature="17011:17049" ph="SELECT max(i... predavac" />
-                <marker date="1466364304638" expanded="true" signature="17193:17396" ph="INSERT INTO predavac... " />
-                <marker date="1466364304638" expanded="true" signature="17432:17464" ph="SELECT MAX(i... predavac" />
-                <marker date="1466364304638" expanded="true" signature="17580:17614" ph="SELECT max(i... kurs" />
-                <marker date="1466364304638" expanded="true" signature="17758:17825" ph="INSERT INTO kurs... " />
-                <marker date="1466364304638" expanded="true" signature="17933:17996" ph="INSERT INTO predaje... " />
-                <marker date="1466364304638" expanded="true" signature="18097:18115" ph="SELECT * FRO... kurs" />
-                <marker date="1466364304638" expanded="true" signature="18303:18596" ph="UPDATE preda... " />
-                <marker date="1466364304638" expanded="true" signature="18690:18808" ph="UPDATE kurs " />
-                <marker date="1466364304638" expanded="true" signature="18904:19047" ph="SELECT c.*, clan" />
-                <marker date="1466364304638" expanded="true" signature="19179:19322" ph="SELECT c.*, clan" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
-              <folding>
-                <marker date="1466364345755" expanded="true" signature="1445:1531" ph="select p.*, komentar" />
-                <marker date="1466364345755" expanded="true" signature="1683:1857" ph="select p.*, komentar" />
-                <marker date="1466364345755" expanded="true" signature="2011:2124" ph="select p.*, predavac" />
-                <marker date="1466364345755" expanded="true" signature="2275:2364" ph="select p.*, podkomentar" />
-                <marker date="1466364345755" expanded="true" signature="2519:2931" ph="select p.*, komentar" />
-                <marker date="1466364345755" expanded="true" signature="3099:3530" ph="select p.*, komentar" />
-                <marker date="1466364345755" expanded="true" signature="3692:3805" ph="select p.*, polozio" />
-                <marker date="1466364345755" expanded="true" signature="3961:4373" ph="select p.*, komentar" />
-                <marker date="1466364345755" expanded="true" signature="4538:4662" ph="select p.*, polozio" />
-                <marker date="1466364345755" expanded="true" signature="4815:4929" ph="select p.*, predaje" />
-                <marker date="1466364345755" expanded="true" signature="5092:5748" ph="SELECT p.*, komentar" />
-                <marker date="1466364345755" expanded="true" signature="5912:6003" ph="SELECT * FRO... clan" />
-                <marker date="1466364345755" expanded="true" signature="6151:6333" ph="SELECT k.*, kurs" />
-                <marker date="1466364345755" expanded="true" signature="6479:6574" ph="SELECT * FRO... predavac" />
-                <marker date="1466364345755" expanded="true" signature="6718:6767" ph="SELECT * FRO... polozio" />
-                <marker date="1466364345755" expanded="true" signature="6920:7348" ph="select p.*, polozio" />
-                <marker date="1466364345755" expanded="true" signature="7513:7564" ph="select * FRO... polozio" />
-                <marker date="1466364345755" expanded="true" signature="7884:9302" ph="SELECT * FRO... poruka" />
-                <marker date="1466364345755" expanded="true" signature="8238:9218" ph="SELECT MAX(p... poruka" />
-                <marker date="1466364345755" expanded="true" signature="8423:8681" ph="SELECT k.idP... poruka" />
-                <marker date="1466364345755" expanded="true" signature="8892:9150" ph="SELECT k.idP... poruka" />
-                <marker date="1466364345755" expanded="true" signature="9627:10061" ph="SELECT p.*, poruka" />
-                <marker date="1466364345755" expanded="true" signature="10092:10184" ph="UPDATE poruk... " />
-                <marker date="1466364345755" expanded="true" signature="10361:10412" ph="select * FRO... komentar" />
-                <marker date="1466364345755" expanded="true" signature="10669:10975" ph="select p.* ,... komentar" />
-                <marker date="1466364345755" expanded="true" signature="11143:11221" ph="SELECT max(r... Podkomentar" />
-                <marker date="1466364345755" expanded="true" signature="11469:11587" ph="INSERT INTO podkomentar... " />
-                <marker date="1466364345755" expanded="true" signature="11617:11667" ph="UPDATE komen... " />
-                <marker date="1466364345755" expanded="true" signature="11983:12099" ph="SELECT k.*, clan" />
-                <marker date="1466364345755" expanded="true" signature="12460:12496" ph="DELETE FROM " />
-                <marker date="1466364345755" expanded="true" signature="12684:12733" ph="SELECT * FRO... polozio" />
-                <marker date="1466364345755" expanded="true" signature="12951:13001" ph="SELECT * FRO... komentar" />
-                <marker date="1466364345755" expanded="true" signature="13268:13318" ph="select * fro... komentar" />
-                <marker date="1466364345755" expanded="true" signature="13550:13618" ph="UPDATE komen... " />
-                <marker date="1466364345755" expanded="true" signature="13718:13755" ph="SELECT max(i... Komentar" />
-                <marker date="1466364345755" expanded="true" signature="13939:14061" ph="INSERT INTO komentar... " />
-                <marker date="1466364345755" expanded="true" signature="14179:14247" ph="UPDATE komen... " />
-                <marker date="1466364345755" expanded="true" signature="14347:14384" ph="SELECT max(i... Komentar" />
-                <marker date="1466364345755" expanded="true" signature="14568:14690" ph="INSERT INTO komentar... " />
-                <marker date="1466364345755" expanded="true" signature="14898:15052" ph="SELECT max(i... poruka" />
-                <marker date="1466364345755" expanded="true" signature="15196:15311" ph="INSERT INTO poruka... " />
-                <marker date="1466364345755" expanded="true" signature="15413:15486" ph="INSERT INTO polozio... " />
-                <marker date="1466364345755" expanded="true" signature="15523:15592" ph="SELECT sum(o... polozio" />
-                <marker date="1466364345755" expanded="true" signature="15709:15755" ph="UPDATE clan " />
-                <marker date="1466364345755" expanded="true" signature="15816:15862" ph="UPDATE clan " />
-                <marker date="1466364345755" expanded="true" signature="16336:16391" ph="UPDATE clan " />
-                <marker date="1466364345755" expanded="true" signature="16486:16539" ph="UPDATE clan " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Moderator.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Moderator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="122" column="59" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
-              <folding>
-                <marker date="1466364036123" expanded="true" signature="8970:9023" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="clan_poruke.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/moderator/clan_poruke.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="89" column="38" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
+            <state relative-caret-position="105">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clan_poruke.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/user/clan_poruke.php">
+      <file leaf-file-name="LoginTest.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/tests/controllers/LoginTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1141">
-              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pretraga_clan.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/moderator/pretraga_clan.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pretraga_clan.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/user/pretraga_clan.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+            <state relative-caret-position="30">
+              <caret line="2" column="15" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -244,20 +325,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/guest/pretraga_predavac.php" />
-        <option value="$PROJECT_DIR$/application/views/user/clan_opis.php" />
-        <option value="$PROJECT_DIR$/application/views/templates/toggle.php" />
-        <option value="$PROJECT_DIR$/application/views/moderator/podkomentari.php" />
-        <option value="$PROJECT_DIR$/application/views/moderator/kurs_ocene.php" />
-        <option value="$PROJECT_DIR$/application/views/user/kurs_ocene.php" />
-        <option value="$PROJECT_DIR$/application/views/guest/kurs_ocene.php" />
-        <option value="$PROJECT_DIR$/application/controllers/User.php" />
-        <option value="$PROJECT_DIR$/application/views/user/podkomentari.php" />
-        <option value="$PROJECT_DIR$/application/views/user/mojprofil_profil.php" />
-        <option value="$PROJECT_DIR$/application/views/guest/clan_profil.php" />
-        <option value="$PROJECT_DIR$/application/views/guest/predavac_profil.php" />
-        <option value="$PROJECT_DIR$/application/views/moderator/clan_profil.php" />
-        <option value="$PROJECT_DIR$/application/views/moderator/mojprofil_profil.php" />
         <option value="$PROJECT_DIR$/application/views/moderator/predavac_profil.php" />
         <option value="$PROJECT_DIR$/application/views/user/clan_profil.php" />
         <option value="$PROJECT_DIR$/application/views/user/predavac_profil.php" />
@@ -273,7 +340,6 @@
         <option value="$PROJECT_DIR$/application/views/guest/povratak_sifre.php" />
         <option value="$PROJECT_DIR$/application/views/templates/navbar_moderator.php" />
         <option value="$PROJECT_DIR$/application/views/templates/navbar_user.php" />
-        <option value="$PROJECT_DIR$/application/views/templates/navbar_guest.php" />
         <option value="$PROJECT_DIR$/application/controllers/Guest.php" />
         <option value="$PROJECT_DIR$/application/tests/controllers/MessagesTest.php" />
         <option value="$PROJECT_DIR$/application/tests/controllers/User_messagesTest.php" />
@@ -283,18 +349,33 @@
         <option value="$PROJECT_DIR$/application/tests/controllers/LoginTest.php" />
         <option value="$PROJECT_DIR$/application/tests/controllers/Guest_pretragaTest.php" />
         <option value="$PROJECT_DIR$/application/tests/controllers/ModeratorTest.php" />
-        <option value="$PROJECT_DIR$/application/tests/phpunit.xml" />
         <option value="$PROJECT_DIR$/application/tests/controllers/Moderator_predavac_obradaTest.php" />
         <option value="$PROJECT_DIR$/application/tests/controllers/Moderator_kurs_obradaTest.php" />
         <option value="$PROJECT_DIR$/application/models/Guest_model.php" />
         <option value="$PROJECT_DIR$/application/views/moderator/pretraga_clan.php" />
         <option value="$PROJECT_DIR$/application/views/user/pretraga_clan.php" />
-        <option value="$PROJECT_DIR$/application/controllers/User_toggle.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Moderator.php" />
         <option value="$PROJECT_DIR$/application/views/moderator/clan_poruke.php" />
+        <option value="$PROJECT_DIR$/application/views/user/clan_poruke.php" />
         <option value="$PROJECT_DIR$/application/models/Moderator_model.php" />
         <option value="$PROJECT_DIR$/application/models/User_model.php" />
-        <option value="$PROJECT_DIR$/application/views/user/clan_poruke.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Moderator.php" />
+        <option value="$PROJECT_DIR$/application/views/templates/navbar_guest.php" />
+        <option value="$PROJECT_DIR$/application/views/templates/unapredjivanjeModerator.php" />
+        <option value="$PROJECT_DIR$/application/views/templates/derangiranjeModerator.php" />
+        <option value="$PROJECT_DIR$/application/models/User_model_toggle.php" />
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="$PROJECT_DIR$/application/controllers/User_toggle.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/User_komentarTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/Moderator_komentarTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/User_podkomentarTestTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/Moderator_podkomentarTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/User_podkomentarTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/clan_izmenaPodatakaTestTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/clan_izmenaPodatakaTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/Moderator_izmenaPodatakaTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/user_izmenaPodatakaTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/controllers/RegistracijaTest.php" />
+        <option value="$PROJECT_DIR$/application/tests/phpunit.xml" />
       </list>
     </option>
   </component>
@@ -309,8 +390,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -338,6 +419,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -370,107 +452,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moderator" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="student-advisor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -508,6 +491,10 @@
       <TestRunner configuration_file="$PROJECT_DIR$/application/tests/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
       <method />
     </configuration>
+    <configuration default="false" name="LoginTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="LoginTest" file="$PROJECT_DIR$/application/tests/controllers/LoginTest.php" scope="Class" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -538,16 +525,18 @@
       <envs />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="PHPUnit.student-advisor" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.clan_profil.php" />
       <item index="2" class="java.lang.String" itemvalue="PHPUnit.phpunit.xml" />
+      <item index="3" class="java.lang.String" itemvalue="PHPUnit.LoginTest" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.clan_profil.php" />
-        <item index="1" class="java.lang.String" itemvalue="PHPUnit.phpunit.xml" />
-        <item index="2" class="java.lang.String" itemvalue="PHPUnit.student-advisor" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.phpunit.xml" />
+        <item index="1" class="java.lang.String" itemvalue="PHPUnit.LoginTest" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.clan_profil.php" />
+        <item index="3" class="java.lang.String" itemvalue="PHPUnit.student-advisor" />
       </list>
     </recent_temporary>
   </component>
@@ -578,81 +567,83 @@
       <workItem from="1465166342663" duration="101248000" />
       <workItem from="1466010400022" duration="2231000" />
       <workItem from="1466356195067" duration="7159000" />
+      <workItem from="1466373170908" duration="12402000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 06m 40s.xml">
+    <history-entry file="LoginTest - 2016.06.20 at 05h 10m 00s.xml">
+      <configuration name="LoginTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="phpunit_xml - 2016.06.20 at 04h 59m 55s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 12m 11s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 00m 04s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 12m 34s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 00m 19s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 19m 28s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 06m 50s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 21m 02s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 07m 43s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 21m 30s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 08m 43s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 22m 27s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 10m 07s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 25m 57s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 10m 15s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 29m 17s.xml">
-      <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="phpunit_xml - 2016.06.18 at 23h 30m 09s.xml">
+    <history-entry file="phpunit_xml - 2016.06.20 at 05h 13m 01s.xml">
       <configuration name="phpunit.xml" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="488107000" />
+    <option name="totallyTimeSpent" value="500509000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="1" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22741596" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22734375" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.065979384" sideWeight="0.5052521" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35989377" sideWeight="0.37890625" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.065979384" sideWeight="0.4947479" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35989377" sideWeight="0.840625" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35989377" sideWeight="0.62109375" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2868526" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.065979384" sideWeight="0.4947479" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18592298" sideWeight="0.5052521" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35989377" sideWeight="0.840625" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22890624" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22734375" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934928" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.065979384" sideWeight="0.4947479" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -687,123 +678,20 @@
           <line>25</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/tests/controllers/User_komentarTest.php</url>
+          <line>17</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="36" />
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/user/podkomentari.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-855">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user/mojprofil_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="183" column="42" selection-start-line="183" selection-start-column="42" selection-end-line="183" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/guest/clan_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/guest/predavac_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="185" column="44" selection-start-line="185" selection-start-column="44" selection-end-line="185" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/moderator/clan_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="189" column="44" selection-start-line="189" selection-start-column="44" selection-end-line="189" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/moderator/mojprofil_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="180" column="44" selection-start-line="180" selection-start-column="44" selection-end-line="180" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/moderator/predavac_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="249" column="43" selection-start-line="249" selection-start-column="43" selection-end-line="249" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user/predavac_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="222" column="37" selection-start-line="222" selection-start-column="37" selection-end-line="222" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user/clan_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="160" column="44" selection-start-line="160" selection-start-column="44" selection-end-line="160" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user/kurs_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/guest/kurs_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="66" column="36" selection-start-line="66" selection-start-column="36" selection-end-line="66" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/moderator/kurs_opis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="86" column="35" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/moderator/kurs_profil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/user/kurs_opis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/guest/kurs_opis.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/templates/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
@@ -825,29 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/templates/navbar_moderator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="150" column="15" selection-start-line="150" selection-start-column="15" selection-end-line="150" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/templates/navbar_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="144" column="16" selection-start-line="144" selection-start-column="16" selection-end-line="144" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/templates/navbar_guest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="161" column="18" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/tests/TestCase.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -862,13 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/guest/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/user/clan_opis.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="369">
@@ -880,14 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/tests/controllers/User_messagesTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="28" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -898,13 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Guest_pretragaTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_pretragaTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -912,87 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/tests/phpunit.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/tests/controllers/LoginTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="62" selection-start-line="14" selection-start-column="75" selection-end-line="14" selection-end-column="119" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_predavac_obradaTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_7.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="1018" column="101" selection-start-line="1018" selection-start-column="101" selection-end-line="1018" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Guest_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="171" column="24" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
-          <folding>
-            <marker date="1466362059856" expanded="true" signature="1446:1532" ph="select p.*, komentar" />
-            <marker date="1466362059856" expanded="true" signature="1681:1767" ph="select p.*, komentar" />
-            <marker date="1466362059856" expanded="true" signature="1918:2044" ph="select p.*, predavac" />
-            <marker date="1466362059856" expanded="true" signature="2195:2315" ph="select p.*, podkomentar" />
-            <marker date="1466362059856" expanded="true" signature="2476:2628" ph="select p.*, komentar" />
-            <marker date="1466362059856" expanded="true" signature="2789:2902" ph="select p.*, polozio" />
-            <marker date="1466362059856" expanded="true" signature="3063:3196" ph="select p.*, komentar" />
-            <marker date="1466362059856" expanded="true" signature="3356:3480" ph="select p.*, polozio" />
-            <marker date="1466362059856" expanded="true" signature="3633:3747" ph="select p.*, predaje" />
-            <marker date="1466362059856" expanded="true" signature="3903:4150" ph="select p.*, komentar" />
-            <marker date="1466362059856" expanded="true" signature="4308:4399" ph="SELECT * FRO... clan" />
-            <marker date="1466362059856" expanded="true" signature="4540:4602" ph="SELECT * FRO... kurs" />
-            <marker date="1466362059856" expanded="true" signature="4748:4843" ph="SELECT * FRO... predavac" />
-            <marker date="1466362059856" expanded="true" signature="4987:5036" ph="SELECT * FRO... polozio" />
-            <marker date="1466362059856" expanded="true" signature="5189:5617" ph="select p.*, polozio" />
-            <marker date="1466362059856" expanded="true" signature="5765:5816" ph="select * FRO... komentar" />
-            <marker date="1466362059856" expanded="true" signature="6066:6105" ph="select * FRO... komentar" />
-            <marker date="1466362059856" expanded="true" signature="6445:6495" ph="select * FRO... clan" />
-            <marker date="1466362059856" expanded="true" signature="6647:6681" ph="SELECT max(i... Clan" />
-            <marker date="1466362059856" expanded="true" signature="6947:7014" ph="select * fro... unapredjivanje" />
-            <marker date="1466362059856" expanded="true" signature="7167:7270" ph="select * fro... unapredjivanje" />
-            <marker date="1466362059856" expanded="true" signature="7369:7410" ph="DELETE FROM " />
-            <marker date="1466362059856" expanded="true" signature="7545:7583" ph="UPDATE clan " />
-            <marker date="1466362059856" expanded="true" signature="7789:7827" ph="UPDATE clan " />
-            <marker date="1466362059856" expanded="true" signature="8071:8109" ph="UPDATE clan " />
-            <marker date="1466362059856" expanded="true" signature="8311:8349" ph="UPDATE clan " />
-            <marker date="1466362059856" expanded="true" signature="8670:8717" ph="select * FRO... clan" />
-            <marker date="1466362059856" expanded="true" signature="9160:9215" ph="UPDATE clan " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_kurs_obradaTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="72" selection-start-line="12" selection-start-column="72" selection-end-line="12" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="302" column="66" selection-start-line="302" selection-start-column="62" selection-end-line="302" selection-end-column="66" />
           <folding />
         </state>
       </provider>
@@ -1009,7 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2295">
           <caret line="135" column="9" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,23 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Guest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="237" column="0" selection-start-line="237" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/templates/toggle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="316" column="19" selection-start-line="316" selection-start-column="19" selection-end-line="316" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1047,7 +795,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/moderator/pretraga_clan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
+        <state relative-caret-position="300">
           <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
           <folding />
         </state>
@@ -1055,169 +803,514 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/user/pretraga_clan.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
+        <state relative-caret-position="405">
           <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/User_toggle.php">
+    <entry file="file://$PROJECT_DIR$/application/views/templates/navbar_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="183" column="9" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
+        <state relative-caret-position="262">
+          <caret line="124" column="14" selection-start-line="124" selection-start-column="14" selection-end-line="124" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Moderator.php">
+    <entry file="file://$PROJECT_DIR$/application/views/templates/navbar_moderator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="122" column="59" selection-start-line="122" selection-start-column="59" selection-end-line="122" selection-end-column="59" />
-          <folding>
-            <marker date="1466364036123" expanded="true" signature="8970:9023" ph="{...}" />
-          </folding>
+        <state relative-caret-position="481">
+          <caret line="144" column="26" selection-start-line="144" selection-start-column="26" selection-end-line="144" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/banovanje.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Moderator_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="229" column="87" selection-start-line="229" selection-start-column="87" selection-end-line="229" selection-end-column="87" />
+        <state relative-caret-position="103">
+          <caret line="347" column="35" selection-start-line="347" selection-start-column="8" selection-end-line="347" selection-end-column="35" />
           <folding>
-            <element signature="n#get_Poslednje_Poruke#0;n#Moderator_model#0;n#!!top" expanded="false" />
-            <marker date="1466364304638" expanded="true" signature="1451:1537" ph="select p.*, komentar" />
-            <marker date="1466364304638" expanded="true" signature="1689:1863" ph="select p.*, komentar" />
-            <marker date="1466364304638" expanded="true" signature="2017:2130" ph="select p.*, predavac" />
-            <marker date="1466364304638" expanded="true" signature="2281:2370" ph="select p.*, podkomentar" />
-            <marker date="1466364304638" expanded="true" signature="2526:2938" ph="select p.*, komentar" />
-            <marker date="1466364304638" expanded="true" signature="3106:3537" ph="select p.*, komentar" />
-            <marker date="1466364304638" expanded="true" signature="3699:3812" ph="select p.*, polozio" />
-            <marker date="1466364304638" expanded="true" signature="3968:4380" ph="select p.*, komentar" />
-            <marker date="1466364304638" expanded="true" signature="4545:4669" ph="select p.*, polozio" />
-            <marker date="1466364304638" expanded="true" signature="4822:4936" ph="select p.*, predaje" />
-            <marker date="1466364304638" expanded="true" signature="5099:5755" ph="SELECT p.*, komentar" />
-            <marker date="1466364304638" expanded="true" signature="5918:6009" ph="SELECT * FRO... clan" />
-            <marker date="1466364304638" expanded="true" signature="6157:6339" ph="SELECT k.*, kurs" />
-            <marker date="1466364304638" expanded="true" signature="6485:6580" ph="SELECT * FRO... predavac" />
-            <marker date="1466364304638" expanded="true" signature="6724:6773" ph="SELECT * FRO... polozio" />
-            <marker date="1466364304638" expanded="true" signature="6926:7354" ph="select p.*, polozio" />
-            <marker date="1466364304638" expanded="true" signature="7519:7570" ph="select * FRO... polozio" />
-            <marker date="1466364304638" expanded="true" signature="7903:9321" ph="SELECT * FRO... poruka" />
-            <marker date="1466364304638" expanded="true" signature="8257:9237" ph="SELECT MAX(p... poruka" />
-            <marker date="1466364304638" expanded="true" signature="8442:8700" ph="SELECT k.idP... poruka" />
-            <marker date="1466364304638" expanded="true" signature="8911:9169" ph="SELECT k.idP... poruka" />
-            <marker date="1466364304638" expanded="true" signature="9645:10079" ph="SELECT p.*, poruka" />
-            <marker date="1466364304638" expanded="true" signature="10110:10202" ph="UPDATE poruk... " />
-            <marker date="1466364304638" expanded="true" signature="10358:10409" ph="select * FRO... komentar" />
-            <marker date="1466364304638" expanded="true" signature="10666:10972" ph="select p.* ,... komentar" />
-            <marker date="1466364304638" expanded="true" signature="11140:11218" ph="SELECT max(r... Podkomentar" />
-            <marker date="1466364304638" expanded="true" signature="11466:11584" ph="INSERT INTO podkomentar... " />
-            <marker date="1466364304638" expanded="true" signature="11614:11664" ph="UPDATE komen... " />
-            <marker date="1466364304638" expanded="true" signature="11980:12096" ph="SELECT k.*, clan" />
-            <marker date="1466364304638" expanded="true" signature="12457:12493" ph="DELETE FROM " />
-            <marker date="1466364304638" expanded="true" signature="12681:12730" ph="SELECT * FRO... polozio" />
-            <marker date="1466364304638" expanded="true" signature="12948:12998" ph="SELECT * FRO... komentar" />
-            <marker date="1466364304638" expanded="true" signature="13265:13315" ph="select * fro... komentar" />
-            <marker date="1466364304638" expanded="true" signature="13547:13615" ph="UPDATE komen... " />
-            <marker date="1466364304638" expanded="true" signature="13715:13752" ph="SELECT max(i... Komentar" />
-            <marker date="1466364304638" expanded="true" signature="13936:14058" ph="INSERT INTO komentar... " />
-            <marker date="1466364304638" expanded="true" signature="14176:14244" ph="UPDATE komen... " />
-            <marker date="1466364304638" expanded="true" signature="14344:14381" ph="SELECT max(i... Komentar" />
-            <marker date="1466364304638" expanded="true" signature="14565:14687" ph="INSERT INTO komentar... " />
-            <marker date="1466364304638" expanded="true" signature="14895:15049" ph="SELECT max(i... poruka" />
-            <marker date="1466364304638" expanded="true" signature="15193:15308" ph="INSERT INTO poruka... " />
-            <marker date="1466364304638" expanded="true" signature="15409:15482" ph="INSERT INTO polozio... " />
-            <marker date="1466364304638" expanded="true" signature="15519:15588" ph="SELECT sum(o... polozio" />
-            <marker date="1466364304638" expanded="true" signature="15705:15751" ph="UPDATE clan " />
-            <marker date="1466364304638" expanded="true" signature="15812:15858" ph="UPDATE clan " />
-            <marker date="1466364304638" expanded="true" signature="16057:16236" ph="UPDATE clan " />
-            <marker date="1466364304638" expanded="true" signature="16332:16387" ph="UPDATE clan " />
-            <marker date="1466364304638" expanded="true" signature="16482:16535" ph="UPDATE clan " />
-            <marker date="1466364304638" expanded="true" signature="16634:16691" ph="UPDATE preda... " />
-            <marker date="1466364304638" expanded="true" signature="16786:16839" ph="UPDATE kurs " />
-            <marker date="1466364304638" expanded="true" signature="17011:17049" ph="SELECT max(i... predavac" />
-            <marker date="1466364304638" expanded="true" signature="17193:17396" ph="INSERT INTO predavac... " />
-            <marker date="1466364304638" expanded="true" signature="17432:17464" ph="SELECT MAX(i... predavac" />
-            <marker date="1466364304638" expanded="true" signature="17580:17614" ph="SELECT max(i... kurs" />
-            <marker date="1466364304638" expanded="true" signature="17758:17825" ph="INSERT INTO kurs... " />
-            <marker date="1466364304638" expanded="true" signature="17933:17996" ph="INSERT INTO predaje... " />
-            <marker date="1466364304638" expanded="true" signature="18097:18115" ph="SELECT * FRO... kurs" />
-            <marker date="1466364304638" expanded="true" signature="18303:18596" ph="UPDATE preda... " />
-            <marker date="1466364304638" expanded="true" signature="18690:18808" ph="UPDATE kurs " />
-            <marker date="1466364304638" expanded="true" signature="18904:19047" ph="SELECT c.*, clan" />
-            <marker date="1466364304638" expanded="true" signature="19179:19322" ph="SELECT c.*, clan" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
-          <folding>
-            <marker date="1466364345755" expanded="true" signature="1445:1531" ph="select p.*, komentar" />
-            <marker date="1466364345755" expanded="true" signature="1683:1857" ph="select p.*, komentar" />
-            <marker date="1466364345755" expanded="true" signature="2011:2124" ph="select p.*, predavac" />
-            <marker date="1466364345755" expanded="true" signature="2275:2364" ph="select p.*, podkomentar" />
-            <marker date="1466364345755" expanded="true" signature="2519:2931" ph="select p.*, komentar" />
-            <marker date="1466364345755" expanded="true" signature="3099:3530" ph="select p.*, komentar" />
-            <marker date="1466364345755" expanded="true" signature="3692:3805" ph="select p.*, polozio" />
-            <marker date="1466364345755" expanded="true" signature="3961:4373" ph="select p.*, komentar" />
-            <marker date="1466364345755" expanded="true" signature="4538:4662" ph="select p.*, polozio" />
-            <marker date="1466364345755" expanded="true" signature="4815:4929" ph="select p.*, predaje" />
-            <marker date="1466364345755" expanded="true" signature="5092:5748" ph="SELECT p.*, komentar" />
-            <marker date="1466364345755" expanded="true" signature="5912:6003" ph="SELECT * FRO... clan" />
-            <marker date="1466364345755" expanded="true" signature="6151:6333" ph="SELECT k.*, kurs" />
-            <marker date="1466364345755" expanded="true" signature="6479:6574" ph="SELECT * FRO... predavac" />
-            <marker date="1466364345755" expanded="true" signature="6718:6767" ph="SELECT * FRO... polozio" />
-            <marker date="1466364345755" expanded="true" signature="6920:7348" ph="select p.*, polozio" />
-            <marker date="1466364345755" expanded="true" signature="7513:7564" ph="select * FRO... polozio" />
-            <marker date="1466364345755" expanded="true" signature="7884:9302" ph="SELECT * FRO... poruka" />
-            <marker date="1466364345755" expanded="true" signature="8238:9218" ph="SELECT MAX(p... poruka" />
-            <marker date="1466364345755" expanded="true" signature="8423:8681" ph="SELECT k.idP... poruka" />
-            <marker date="1466364345755" expanded="true" signature="8892:9150" ph="SELECT k.idP... poruka" />
-            <marker date="1466364345755" expanded="true" signature="9627:10061" ph="SELECT p.*, poruka" />
-            <marker date="1466364345755" expanded="true" signature="10092:10184" ph="UPDATE poruk... " />
-            <marker date="1466364345755" expanded="true" signature="10361:10412" ph="select * FRO... komentar" />
-            <marker date="1466364345755" expanded="true" signature="10669:10975" ph="select p.* ,... komentar" />
-            <marker date="1466364345755" expanded="true" signature="11143:11221" ph="SELECT max(r... Podkomentar" />
-            <marker date="1466364345755" expanded="true" signature="11469:11587" ph="INSERT INTO podkomentar... " />
-            <marker date="1466364345755" expanded="true" signature="11617:11667" ph="UPDATE komen... " />
-            <marker date="1466364345755" expanded="true" signature="11983:12099" ph="SELECT k.*, clan" />
-            <marker date="1466364345755" expanded="true" signature="12460:12496" ph="DELETE FROM " />
-            <marker date="1466364345755" expanded="true" signature="12684:12733" ph="SELECT * FRO... polozio" />
-            <marker date="1466364345755" expanded="true" signature="12951:13001" ph="SELECT * FRO... komentar" />
-            <marker date="1466364345755" expanded="true" signature="13268:13318" ph="select * fro... komentar" />
-            <marker date="1466364345755" expanded="true" signature="13550:13618" ph="UPDATE komen... " />
-            <marker date="1466364345755" expanded="true" signature="13718:13755" ph="SELECT max(i... Komentar" />
-            <marker date="1466364345755" expanded="true" signature="13939:14061" ph="INSERT INTO komentar... " />
-            <marker date="1466364345755" expanded="true" signature="14179:14247" ph="UPDATE komen... " />
-            <marker date="1466364345755" expanded="true" signature="14347:14384" ph="SELECT max(i... Komentar" />
-            <marker date="1466364345755" expanded="true" signature="14568:14690" ph="INSERT INTO komentar... " />
-            <marker date="1466364345755" expanded="true" signature="14898:15052" ph="SELECT max(i... poruka" />
-            <marker date="1466364345755" expanded="true" signature="15196:15311" ph="INSERT INTO poruka... " />
-            <marker date="1466364345755" expanded="true" signature="15413:15486" ph="INSERT INTO polozio... " />
-            <marker date="1466364345755" expanded="true" signature="15523:15592" ph="SELECT sum(o... polozio" />
-            <marker date="1466364345755" expanded="true" signature="15709:15755" ph="UPDATE clan " />
-            <marker date="1466364345755" expanded="true" signature="15816:15862" ph="UPDATE clan " />
-            <marker date="1466364345755" expanded="true" signature="16336:16391" ph="UPDATE clan " />
-            <marker date="1466364345755" expanded="true" signature="16486:16539" ph="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="305:327" placeholder="SELECT * FRO... predavac" />
+            <marker date="1466379063000" expanded="true" signature="1593:1679" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="1831:2005" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="2159:2272" placeholder="select p.*, predavac" />
+            <marker date="1466379063000" expanded="true" signature="2423:2512" placeholder="select p.*, podkomentar" />
+            <marker date="1466379063000" expanded="true" signature="2668:3080" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="3248:3679" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="3841:3954" placeholder="select p.*, polozio" />
+            <marker date="1466379063000" expanded="true" signature="4110:4522" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="4687:4811" placeholder="select p.*, polozio" />
+            <marker date="1466379063000" expanded="true" signature="4964:5078" placeholder="select p.*, predaje" />
+            <marker date="1466379063000" expanded="true" signature="5241:5897" placeholder="SELECT p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="6060:6151" placeholder="SELECT * FRO... clan" />
+            <marker date="1466379063000" expanded="true" signature="6299:6481" placeholder="SELECT k.*, kurs" />
+            <marker date="1466379063000" expanded="true" signature="6627:6722" placeholder="SELECT * FRO... predavac" />
+            <marker date="1466379063000" expanded="true" signature="6866:6915" placeholder="SELECT * FRO... polozio" />
+            <marker date="1466379063000" expanded="true" signature="7068:7496" placeholder="select p.*, polozio" />
+            <marker date="1466379063000" expanded="true" signature="7661:7712" placeholder="select * FRO... polozio" />
+            <marker date="1466379063000" expanded="true" signature="8045:9463" placeholder="SELECT * FRO... poruka" />
+            <marker date="1466379063000" expanded="true" signature="8399:9379" placeholder="SELECT MAX(p... poruka" />
+            <marker date="1466379063000" expanded="true" signature="8584:8842" placeholder="SELECT k.idP... poruka" />
+            <marker date="1466379063000" expanded="true" signature="9053:9311" placeholder="SELECT k.idP... poruka" />
+            <marker date="1466379063000" expanded="true" signature="9787:10221" placeholder="SELECT p.*, poruka" />
+            <marker date="1466379063000" expanded="true" signature="10252:10344" placeholder="UPDATE poruk... " />
+            <marker date="1466379063000" expanded="true" signature="10500:10551" placeholder="select * FRO... komentar" />
+            <marker date="1466379063000" expanded="true" signature="10808:11114" placeholder="select p.* ,... komentar" />
+            <marker date="1466379063000" expanded="true" signature="11282:11360" placeholder="SELECT max(r... Podkomentar" />
+            <marker date="1466379063000" expanded="true" signature="11608:11726" placeholder="INSERT INTO podkomentar... " />
+            <marker date="1466379063000" expanded="true" signature="11756:11806" placeholder="UPDATE komen... " />
+            <marker date="1466379063000" expanded="true" signature="12122:12238" placeholder="SELECT k.*, clan" />
+            <marker date="1466379063000" expanded="true" signature="12599:12635" placeholder="DELETE FROM " />
+            <marker date="1466379063000" expanded="true" signature="12823:12872" placeholder="SELECT * FRO... polozio" />
+            <marker date="1466379063000" expanded="true" signature="13090:13140" placeholder="SELECT * FRO... komentar" />
+            <marker date="1466379063000" expanded="true" signature="13407:13457" placeholder="select * fro... komentar" />
+            <marker date="1466379063000" expanded="true" signature="13689:13757" placeholder="UPDATE komen... " />
+            <marker date="1466379063000" expanded="true" signature="13857:13894" placeholder="SELECT max(i... Komentar" />
+            <marker date="1466379063000" expanded="true" signature="14078:14200" placeholder="INSERT INTO komentar... " />
+            <marker date="1466379063000" expanded="true" signature="14318:14386" placeholder="UPDATE komen... " />
+            <marker date="1466379063000" expanded="true" signature="14486:14523" placeholder="SELECT max(i... Komentar" />
+            <marker date="1466379063000" expanded="true" signature="14707:14829" placeholder="INSERT INTO komentar... " />
+            <marker date="1466379063000" expanded="true" signature="15037:15191" placeholder="SELECT max(i... poruka" />
+            <marker date="1466379063000" expanded="true" signature="15335:15450" placeholder="INSERT INTO poruka... " />
+            <marker date="1466379063000" expanded="true" signature="15551:15624" placeholder="INSERT INTO polozio... " />
+            <marker date="1466379063000" expanded="true" signature="15661:15730" placeholder="SELECT sum(o... polozio" />
+            <marker date="1466379063000" expanded="true" signature="15847:15893" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="15954:16000" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="16199:16378" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="16474:16529" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="16624:16677" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="16776:16833" placeholder="UPDATE preda... " />
+            <marker date="1466379063000" expanded="true" signature="16928:16981" placeholder="UPDATE kurs " />
+            <marker date="1466379063000" expanded="true" signature="17153:17191" placeholder="SELECT max(i... predavac" />
+            <marker date="1466379063000" expanded="true" signature="17335:17538" placeholder="INSERT INTO predavac... " />
+            <marker date="1466379063000" expanded="true" signature="17574:17606" placeholder="SELECT MAX(i... predavac" />
+            <marker date="1466379063000" expanded="true" signature="17722:17756" placeholder="SELECT max(i... kurs" />
+            <marker date="1466379063000" expanded="true" signature="17900:17967" placeholder="INSERT INTO kurs... " />
+            <marker date="1466379063000" expanded="true" signature="18075:18138" placeholder="INSERT INTO predaje... " />
+            <marker date="1466379063000" expanded="true" signature="18239:18257" placeholder="SELECT * FRO... kurs" />
+            <marker date="1466379063000" expanded="true" signature="18445:18738" placeholder="UPDATE preda... " />
+            <marker date="1466379063000" expanded="true" signature="18832:18950" placeholder="UPDATE kurs " />
+            <marker date="1466379063000" expanded="true" signature="19046:19189" placeholder="SELECT c.*, clan" />
+            <marker date="1466379063000" expanded="true" signature="19321:19464" placeholder="SELECT c.*, clan" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/user/clan_poruke.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1141">
-          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        <state relative-caret-position="375">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/navbar_guest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#form#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#form#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#form#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#0;n#form#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1466380540000" expanded="false" signature="2746:2784" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/moderator/clan_poruke.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="89" column="38" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
+        <state relative-caret-position="255">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/toggle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="316" column="19" selection-start-line="316" selection-start-column="19" selection-end-line="316" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/unapredjivanjeModerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/templates/derangiranjeModerator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/User_model_toggle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="190" column="78" selection-start-line="190" selection-start-column="78" selection-end-line="190" selection-end-column="78" />
+          <folding>
+            <marker date="1466381515000" expanded="true" signature="827:879" placeholder="SELECT * FRO... podrzavanje" />
+            <marker date="1466381515000" expanded="true" signature="1024:1074" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="1183:1238" placeholder="UPDATE podrz... " />
+            <marker date="1466381515000" expanded="true" signature="1403:1488" placeholder="SELECT count... podrzavanje" />
+            <marker date="1466381515000" expanded="true" signature="1615:1709" placeholder="SELECT count... podrzavanje" />
+            <marker date="1466381515000" expanded="true" signature="1822:1890" placeholder="UPDATE komen... " />
+            <marker date="1466381515000" expanded="true" signature="2103:2140" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="2187:2224" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="2271:2305" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="2417:2458" placeholder="UPDATE komen... " />
+            <marker date="1466381515000" expanded="true" signature="2576:2653" placeholder="SELECT * FRO... komentar" />
+            <marker date="1466381515000" expanded="true" signature="2806:2860" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="2925:2977" placeholder="SELECT count... podkomentar" />
+            <marker date="1466381515000" expanded="true" signature="3023:3073" placeholder="UPDATE komen... " />
+            <marker date="1466381515000" expanded="true" signature="3240:3287" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="3532:3573" placeholder="SELECT idCla... polozio" />
+            <marker date="1466381515000" expanded="true" signature="3669:3703" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="3759:3796" placeholder="SELECT * FRO... komentar" />
+            <marker date="1466381515000" expanded="true" signature="3930:3967" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="4025:4062" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="4126:4161" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="4209:4240" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="4336:4405" placeholder="SELECT sum(o... polozio" />
+            <marker date="1466381515000" expanded="true" signature="4545:4591" placeholder="UPDATE clan " />
+            <marker date="1466381515000" expanded="true" signature="4670:4716" placeholder="UPDATE clan " />
+            <marker date="1466381515000" expanded="true" signature="4877:4911" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="4959:4994" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="5141:5191" placeholder="SELECT * FRO... komentar" />
+            <marker date="1466381515000" expanded="true" signature="5364:5401" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="5459:5496" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="5560:5608" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="5663:5710" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="5775:5844" placeholder="SELECT sum(o... polozio" />
+            <marker date="1466381515000" expanded="true" signature="5966:6012" placeholder="UPDATE clan " />
+            <marker date="1466381515000" expanded="true" signature="6077:6123" placeholder="UPDATE clan " />
+            <marker date="1466381515000" expanded="true" signature="6215:6310" placeholder="SELECT sum(z... polozio" />
+            <marker date="1466381515000" expanded="true" signature="6434:6479" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="6544:6589" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="6682:6771" placeholder="SELECT sum(k... polozio" />
+            <marker date="1466381515000" expanded="true" signature="6895:6937" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="7002:7044" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="7137:7220" placeholder="SELECT sum(t... polozio" />
+            <marker date="1466381515000" expanded="true" signature="7344:7383" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="7448:7487" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="7580:7669" placeholder="SELECT sum(p... polozio" />
+            <marker date="1466381515000" expanded="true" signature="7793:7835" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="7900:7942" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="8120:8166" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="8231:8277" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="8601:8703" placeholder="SELECT k.*, clan" />
+            <marker date="1466381515000" expanded="true" signature="8878:8927" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="9024:9059" placeholder="SELECT tip F... clan" />
+            <marker date="1466381515000" expanded="true" signature="9409:9511" placeholder="SELECT k.*, clan" />
+            <marker date="1466381515000" expanded="true" signature="9684:9696" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="9684:9733" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="9830:9865" placeholder="SELECT tip F... clan" />
+            <marker date="1466381515000" expanded="true" signature="10200:10260" placeholder="UPDATE unapr... " />
+            <marker date="1466381515000" expanded="true" signature="10356:10397" placeholder="DELETE FROM " />
+            <marker date="1466381515000" expanded="true" signature="10511:10617" placeholder="SELECT k.*, clan" />
+            <marker date="1466381515000" expanded="true" signature="11206:11267" placeholder="UPDATE poloz... " />
+            <marker date="1466381515000" expanded="true" signature="11354:11412" placeholder="UPDATE poloz... " />
+            <marker date="1466381515000" expanded="true" signature="11499:11554" placeholder="UPDATE poloz... " />
+            <marker date="1466381515000" expanded="true" signature="11628:11686" placeholder="UPDATE poloz... " />
+            <marker date="1466381515000" expanded="true" signature="11752:11847" placeholder="SELECT sum(z... polozio" />
+            <marker date="1466381515000" expanded="true" signature="11971:12016" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="12081:12126" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="12219:12308" placeholder="SELECT sum(k... polozio" />
+            <marker date="1466381515000" expanded="true" signature="12432:12474" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="12539:12581" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="12674:12757" placeholder="SELECT sum(t... polozio" />
+            <marker date="1466381515000" expanded="true" signature="12881:12920" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="12985:13024" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="13117:13206" placeholder="SELECT sum(p... polozio" />
+            <marker date="1466381515000" expanded="true" signature="13330:13372" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="13437:13479" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="13657:13703" placeholder="UPDATE kurs " />
+            <marker date="1466381515000" expanded="true" signature="13768:13814" placeholder="UPDATE kurs " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/User_messagesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/moderator/kurs_komentar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_kurs_obradaTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-465">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/User_komentarTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/User_podkomentarTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_komentarTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="20" column="5" selection-start-line="15" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_predavac_obradaTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="17" column="92" selection-start-line="16" selection-start-column="72" selection-end-line="17" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/clan_izmenaPodatakaTestTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/user_izmenaPodatakaTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/RegistracijaTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/guest/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="257" column="54" selection-start-line="257" selection-start-column="48" selection-end-line="257" selection-end-column="54" />
+          <folding>
+            <marker date="1466379063000" expanded="true" signature="1445:1531" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="1683:1857" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="2011:2124" placeholder="select p.*, predavac" />
+            <marker date="1466379063000" expanded="true" signature="2275:2364" placeholder="select p.*, podkomentar" />
+            <marker date="1466379063000" expanded="true" signature="2519:2931" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="3099:3530" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="3692:3805" placeholder="select p.*, polozio" />
+            <marker date="1466379063000" expanded="true" signature="3961:4373" placeholder="select p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="4538:4662" placeholder="select p.*, polozio" />
+            <marker date="1466379063000" expanded="true" signature="4815:4929" placeholder="select p.*, predaje" />
+            <marker date="1466379063000" expanded="true" signature="5092:5748" placeholder="SELECT p.*, komentar" />
+            <marker date="1466379063000" expanded="true" signature="5912:6003" placeholder="SELECT * FRO... clan" />
+            <marker date="1466379063000" expanded="true" signature="6151:6333" placeholder="SELECT k.*, kurs" />
+            <marker date="1466379063000" expanded="true" signature="6479:6574" placeholder="SELECT * FRO... predavac" />
+            <marker date="1466379063000" expanded="true" signature="6718:6767" placeholder="SELECT * FRO... polozio" />
+            <marker date="1466379063000" expanded="true" signature="6920:7348" placeholder="select p.*, polozio" />
+            <marker date="1466379063000" expanded="true" signature="7513:7564" placeholder="select * FRO... polozio" />
+            <marker date="1466379063000" expanded="true" signature="7884:9302" placeholder="SELECT * FRO... poruka" />
+            <marker date="1466379063000" expanded="true" signature="8238:9218" placeholder="SELECT MAX(p... poruka" />
+            <marker date="1466379063000" expanded="true" signature="8423:8681" placeholder="SELECT k.idP... poruka" />
+            <marker date="1466379063000" expanded="true" signature="8892:9150" placeholder="SELECT k.idP... poruka" />
+            <marker date="1466379063000" expanded="true" signature="9627:10061" placeholder="SELECT p.*, poruka" />
+            <marker date="1466379063000" expanded="true" signature="10092:10184" placeholder="UPDATE poruk... " />
+            <marker date="1466379063000" expanded="true" signature="10361:10412" placeholder="select * FRO... komentar" />
+            <marker date="1466379063000" expanded="true" signature="10669:10975" placeholder="select p.* ,... komentar" />
+            <marker date="1466379063000" expanded="true" signature="11143:11221" placeholder="SELECT max(r... Podkomentar" />
+            <marker date="1466379063000" expanded="true" signature="11469:11587" placeholder="INSERT INTO podkomentar... " />
+            <marker date="1466379063000" expanded="true" signature="11617:11667" placeholder="UPDATE komen... " />
+            <marker date="1466379063000" expanded="true" signature="11983:12099" placeholder="SELECT k.*, clan" />
+            <marker date="1466379063000" expanded="true" signature="12460:12496" placeholder="DELETE FROM " />
+            <marker date="1466379063000" expanded="true" signature="12684:12733" placeholder="SELECT * FRO... polozio" />
+            <marker date="1466379063000" expanded="true" signature="12951:13001" placeholder="SELECT * FRO... komentar" />
+            <marker date="1466379063000" expanded="true" signature="13268:13318" placeholder="select * fro... komentar" />
+            <marker date="1466379063000" expanded="true" signature="13550:13618" placeholder="UPDATE komen... " />
+            <marker date="1466379063000" expanded="true" signature="13718:13755" placeholder="SELECT max(i... Komentar" />
+            <marker date="1466379063000" expanded="true" signature="13939:14061" placeholder="INSERT INTO komentar... " />
+            <marker date="1466379063000" expanded="true" signature="14179:14247" placeholder="UPDATE komen... " />
+            <marker date="1466379063000" expanded="true" signature="14347:14384" placeholder="SELECT max(i... Komentar" />
+            <marker date="1466379063000" expanded="true" signature="14568:14690" placeholder="INSERT INTO komentar... " />
+            <marker date="1466379063000" expanded="true" signature="14898:15052" placeholder="SELECT max(i... poruka" />
+            <marker date="1466379063000" expanded="true" signature="15196:15311" placeholder="INSERT INTO poruka... " />
+            <marker date="1466379063000" expanded="true" signature="15413:15486" placeholder="INSERT INTO polozio... " />
+            <marker date="1466379063000" expanded="true" signature="15523:15592" placeholder="SELECT sum(o... polozio" />
+            <marker date="1466379063000" expanded="true" signature="15709:15755" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="15816:15862" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="16061:16240" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="16336:16391" placeholder="UPDATE clan " />
+            <marker date="1466379063000" expanded="true" signature="16486:16539" placeholder="UPDATE clan " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Guest_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="171" column="24" selection-start-line="171" selection-start-column="24" selection-end-line="171" selection-end-column="24" />
+          <folding>
+            <marker date="1466373050000" expanded="true" signature="1446:1532" placeholder="select p.*, komentar" />
+            <marker date="1466373050000" expanded="true" signature="1681:1767" placeholder="select p.*, komentar" />
+            <marker date="1466373050000" expanded="true" signature="1918:2044" placeholder="select p.*, predavac" />
+            <marker date="1466373050000" expanded="true" signature="2195:2315" placeholder="select p.*, podkomentar" />
+            <marker date="1466373050000" expanded="true" signature="2476:2628" placeholder="select p.*, komentar" />
+            <marker date="1466373050000" expanded="true" signature="2789:2902" placeholder="select p.*, polozio" />
+            <marker date="1466373050000" expanded="true" signature="3063:3196" placeholder="select p.*, komentar" />
+            <marker date="1466373050000" expanded="true" signature="3356:3480" placeholder="select p.*, polozio" />
+            <marker date="1466373050000" expanded="true" signature="3633:3747" placeholder="select p.*, predaje" />
+            <marker date="1466373050000" expanded="true" signature="3903:4150" placeholder="select p.*, komentar" />
+            <marker date="1466373050000" expanded="true" signature="4308:4399" placeholder="SELECT * FRO... clan" />
+            <marker date="1466373050000" expanded="true" signature="4540:4602" placeholder="SELECT * FRO... kurs" />
+            <marker date="1466373050000" expanded="true" signature="4748:4843" placeholder="SELECT * FRO... predavac" />
+            <marker date="1466373050000" expanded="true" signature="4987:5036" placeholder="SELECT * FRO... polozio" />
+            <marker date="1466373050000" expanded="true" signature="5189:5617" placeholder="select p.*, polozio" />
+            <marker date="1466373050000" expanded="true" signature="5765:5816" placeholder="select * FRO... komentar" />
+            <marker date="1466373050000" expanded="true" signature="6066:6105" placeholder="select * FRO... komentar" />
+            <marker date="1466373050000" expanded="true" signature="6445:6495" placeholder="select * FRO... clan" />
+            <marker date="1466373050000" expanded="true" signature="6647:6681" placeholder="SELECT max(i... Clan" />
+            <marker date="1466373050000" expanded="true" signature="6947:7014" placeholder="select * fro... unapredjivanje" />
+            <marker date="1466373050000" expanded="true" signature="7167:7270" placeholder="select * fro... unapredjivanje" />
+            <marker date="1466373050000" expanded="true" signature="7369:7410" placeholder="DELETE FROM " />
+            <marker date="1466373050000" expanded="true" signature="7545:7583" placeholder="UPDATE clan " />
+            <marker date="1466373050000" expanded="true" signature="7789:7827" placeholder="UPDATE clan " />
+            <marker date="1466373050000" expanded="true" signature="8071:8109" placeholder="UPDATE clan " />
+            <marker date="1466373050000" expanded="true" signature="8311:8349" placeholder="UPDATE clan " />
+            <marker date="1466373050000" expanded="true" signature="8670:8717" placeholder="select * FRO... clan" />
+            <marker date="1466373050000" expanded="true" signature="9160:9215" placeholder="UPDATE clan " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_izmenaPodatakaTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="5" selection-start-line="10" selection-start-column="4" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Moderator_podkomentarTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="294" column="6" selection-start-line="294" selection-start-column="6" selection-end-line="301" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Guest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="163" column="39" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Moderator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="366" column="45" selection-start-line="366" selection-start-column="32" selection-end-line="366" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/Guest_pretragaTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/controllers/LoginTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/tests/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/User_toggle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="233" column="55" selection-start-line="233" selection-start-column="55" selection-end-line="233" selection-end-column="55" />
           <folding />
         </state>
       </provider>

@@ -29,7 +29,7 @@ class User_toggle extends CI_Controller
 
     
     //komentari
-    public function izmeni_komentar($idKom, $tekst)
+    public function izmeni_komentar()
     {
         $data['idKom']=$_POST["idKom"];
         $data['tekst']=$_POST["tekst"];

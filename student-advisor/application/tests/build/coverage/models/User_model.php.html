@@ -67,7 +67,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;302</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;297</div></td>
      </tr>
 
      <tr>
@@ -88,7 +88,7 @@
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
       <td class="danger small"><div align="right">0&nbsp;/&nbsp;38</div></td>
-      <td class="danger small">3306</td>
+      <td class="danger small">3080</td>
       <td class="danger big">       <div class="progress">
          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0.00" aria-valuemin="0" aria-valuemax="100" style="width: 0.00%">
            <span class="sr-only">0.00% covered (danger)</span>
@@ -96,7 +96,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;301</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;296</div></td>
      </tr>
 
      <tr>
@@ -613,7 +613,7 @@
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
       <td class="danger small"><div align="right">0&nbsp;/&nbsp;1</div></td>
-      <td class="danger small">12</td>
+      <td class="danger small">2</td>
       <td class="danger big">       <div class="progress">
          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0.00" aria-valuemin="0" aria-valuemax="100" style="width: 0.00%">
            <span class="sr-only">0.00% covered (danger)</span>
@@ -621,7 +621,7 @@
        </div>
 </td>
       <td class="danger small"><div align="right">0.00%</div></td>
-      <td class="danger small"><div align="right">0&nbsp;/&nbsp;16</div></td>
+      <td class="danger small"><div align="right">0&nbsp;/&nbsp;11</div></td>
      </tr>
 
      <tr>
@@ -1123,11 +1123,11 @@
      <tr><td><div align="right"><a name="219"></a><a href="#219">219</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="220"></a><a href="#220">220</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">get_Poruke</span><span class="keyword">(</span><span class="default">$id</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">FALSE</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$idSaKim</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">FALSE</span><span class="keyword">)</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="221"></a><a href="#221">221</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
-     <tr class="danger"><td><div align="right"><a name="222"></a><a href="#222">222</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">if</span><span class="default">&nbsp;</span><span class="keyword">(</span><span class="default">$id</span><span class="default">&nbsp;</span><span class="default">===</span><span class="default">&nbsp;</span><span class="default">FALSE</span><span class="default">&nbsp;</span><span class="default">||</span><span class="default">&nbsp;</span><span class="default">$idSaKim</span><span class="default">&nbsp;</span><span class="default">===</span><span class="default">&nbsp;</span><span class="default">FALSE</span><span class="keyword">)</span></td></tr>
-     <tr class="danger"><td><div align="right"><a name="223"></a><a href="#223">223</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
-     <tr class="danger"><td><div align="right"><a name="224"></a><a href="#224">224</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$query</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">db</span><span class="default">-&gt;</span><span class="default">get</span><span class="keyword">(</span><span class="default">'poruka'</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
-     <tr class="danger"><td><div align="right"><a name="225"></a><a href="#225">225</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$query</span><span class="default">-&gt;</span><span class="default">result_array</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">[</span><span class="default">0</span><span class="keyword">]</span><span class="keyword">;</span></td></tr>
-     <tr class="danger"><td><div align="right"><a name="226"></a><a href="#226">226</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="222"></a><a href="#222">222</a></div></td><td class="codeLine"><span class="comment">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;($id&nbsp;===&nbsp;FALSE&nbsp;||&nbsp;$idSaKim&nbsp;===&nbsp;FALSE)</span></td></tr>
+     <tr><td><div align="right"><a name="223"></a><a href="#223">223</a></div></td><td class="codeLine"><span class="comment">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></td></tr>
+     <tr><td><div align="right"><a name="224"></a><a href="#224">224</a></div></td><td class="codeLine"><span class="comment">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$query&nbsp;=&nbsp;$this-&gt;db-&gt;get('poruka');</span></td></tr>
+     <tr><td><div align="right"><a name="225"></a><a href="#225">225</a></div></td><td class="codeLine"><span class="comment">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;$query-&gt;result_array()[0];</span></td></tr>
+     <tr><td><div align="right"><a name="226"></a><a href="#226">226</a></div></td><td class="codeLine"><span class="comment">//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="227"></a><a href="#227">227</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$query</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">db</span><span class="default">-&gt;</span><span class="default">query</span><span class="keyword">(</span><span class="string">&quot;</span><span class="string">SELECT&nbsp;p.*,&nbsp;c.*&nbsp;FROM&nbsp;`student-advisor-mysql`.poruka&nbsp;p</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="228"></a><a href="#228">228</a></div></td><td class="codeLine"><span class="string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INNER&nbsp;JOIN&nbsp;`student-advisor-mysql`.clan&nbsp;c&nbsp;on&nbsp;c.idClan=p.idPosiljalac</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="229"></a><a href="#229">229</a></div></td><td class="codeLine"><span class="string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;((p.idPosiljalac='</span><span class="string">$id</span><span class="string">')&nbsp;AND&nbsp;(p.idPrimalac='</span><span class="string">$idSaKim</span><span class="string">'))</span></td></tr>
@@ -1245,7 +1245,7 @@
      <tr><td><div align="right"><a name="341"></a><a href="#341">341</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">put_message</span><span class="keyword">(</span><span class="default">$id</span><span class="keyword">,</span><span class="default">$idSaKim</span><span class="keyword">,</span><span class="default">$tekst</span><span class="keyword">)</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="342"></a><a href="#342">342</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="343"></a><a href="#343">343</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">date_default_timezone_set</span><span class="keyword">(</span><span class="default">&quot;Europe/Belgrade&quot;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
-     <tr class="danger"><td><div align="right"><a name="344"></a><a href="#344">344</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$datum</span><span class="keyword">=</span><span class="default">date</span><span class="keyword">(</span><span class="default">&quot;Y-m-d&nbsp;H:m:i&quot;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr class="danger"><td><div align="right"><a name="344"></a><a href="#344">344</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$datum</span><span class="keyword">=</span><span class="default">date</span><span class="keyword">(</span><span class="default">&quot;Y-m-d&nbsp;H:i:s&quot;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="345"></a><a href="#345">345</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$query1</span><span class="keyword">=</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">db</span><span class="default">-&gt;</span><span class="default">query</span><span class="keyword">(</span><span class="string">&quot;</span><span class="string">SELECT&nbsp;max(idPor)&nbsp;as&nbsp;br&nbsp;from&nbsp;poruka&nbsp;where&nbsp;(idPosiljalac='</span><span class="string">$id</span><span class="string">'&nbsp;and&nbsp;idPrimalac='</span><span class="string">$idSaKim</span><span class="string">')</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="346"></a><a href="#346">346</a></div></td><td class="codeLine"><span class="string">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;(idPosiljalac='</span><span class="string">$idSaKim</span><span class="string">'&nbsp;and&nbsp;idPrimalac='</span><span class="string">$id</span><span class="string">')</span><span class="string">&quot;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
      <tr class="danger"><td><div align="right"><a name="347"></a><a href="#347">347</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">if</span><span class="keyword">(</span><span class="default">count</span><span class="keyword">(</span><span class="default">$query1</span><span class="keyword">)</span><span class="default">==</span><span class="default">0</span><span class="keyword">)</span></td></tr>
@@ -1293,7 +1293,7 @@
      <span class="warning"><strong>Dead Code</strong></span>
     </p>
     <p>
-     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.0</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.7</a> with <a href="https://xdebug.org/">Xdebug 2.4.0RC3</a> and <a href="https://phpunit.de/">PHPUnit 5.4.6</a> at Sat Jun 18 23:30:03 CEST 2016.</small>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.0</a> using <a href="https://secure.php.net/" target="_top">PHP 7.0.7</a> with <a href="https://xdebug.org/">Xdebug 2.4.0RC3</a> and <a href="https://phpunit.de/">PHPUnit 5.4.6</a> at Mon Jun 20 5:12:57 CEST 2016.</small>
     </p>
     <a title="Back to the top" id="toplink" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
    </footer>
