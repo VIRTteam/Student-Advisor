@@ -1,0 +1,5 @@
+Moderator_predavac_obrada
+ [x] put novi predavac
+ [x] edit predavac
+ [x] delete predavac
+

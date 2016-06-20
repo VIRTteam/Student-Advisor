@@ -1,0 +1,3 @@
+Registracija
+ [x] registracija
+

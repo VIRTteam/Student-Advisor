@@ -1,0 +1,5 @@
+Moderator_komentar
+ [x] put komentar
+ [x] edit komentar
+ [x] delete komentar
+
